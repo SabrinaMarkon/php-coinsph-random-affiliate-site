@@ -51,6 +51,12 @@
 			</li>
             <li class="nav-item">
               <a class="nav-link" href="/ads">Ads</a>
+			</li>
+            <li class="nav-item">
+              <a class="nav-link" href="/faq">FAQ</a>
+			</li>
+            <li class="nav-item">
+              <a class="nav-link" href="/terms">Terms</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/contact">Contact</a>
@@ -76,6 +82,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>
+			</li>
+            <li class="nav-item">
+              <a class="nav-link" href="/faq">FAQ</a>
+			</li>
+            <li class="nav-item">
+              <a class="nav-link" href="/terms">Terms</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/contact">Contact</a>
