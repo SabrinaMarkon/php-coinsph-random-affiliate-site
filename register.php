@@ -56,7 +56,7 @@ echo $showcontent->showPage('Registration Page');
 							?>
 						</select>
 
-						<span class="help-block ja-white">By clicking Create My Account, you agree to our <a href="#" data-toggle="modal" data-target="#termsModal">Terms</a></span>
+						<span class="help-block">By clicking Create My Account, you agree to our <a href="#" data-toggle="modal" data-target="#termsModal">Terms</a></span>
 						
 						<div class="ja-bottompadding"></div>
 
@@ -71,7 +71,7 @@ echo $showcontent->showPage('Registration Page');
 
 						<?php
 						$terms = new PageContent();
-						$showterms = $terms->showPage('Terms and Conditions Page');
+						$showterms = $terms->showPage('Terms Page');
 						echo $showterms;
 						?>
 

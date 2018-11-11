@@ -24,6 +24,22 @@ promotionalsubject varchar(255) not null,
 promotionaladbody longtext not null
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
+create table ads (
+id integer unsigned not null primary key auto_increment,
+username varchar(255) not null default 'admin',
+name varchar(255) not null,
+title varchar(255) not null,
+url varchar(500) not null,
+shorturl varchar(255) not null,
+description varchar(255) not null,
+imageurl varchar(500) not null,
+added tinyint(4) not null default '0',
+approved tinyint(4) not null default '0',
+hits integer unsigned not null default '0',
+clicks integer unsigned not null default '0',
+adddate datetime not null
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
 CREATE TABLE `countries` (
 `country_id` int(11) not null AUTO_INCREMENT,
 `country_name` varchar(64) not null DEFAULT '',
@@ -62,11 +78,11 @@ signupip varchar(255) not null,
 verified varchar(4) not null default 'no',
 verifieddate datetime not null,
 referid varchar(255) not null,
-lastlogin datetime not null
+lastlogin datetime not null,
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `pages` (
-  `id` int(10) unsigned not null auto_increment,
+  `id` int(10) unsigned not null auto_increment primary key,
   `name` varchar(255) not null,
   `htmlcode` longtext not null,
   `slug` varchar(255) not null,
@@ -75,15 +91,16 @@ CREATE TABLE `pages` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
-CREATE TABLE `transactions` (
-`id` int(10) unsigned NOT NULL AUTO_INCREMENT primary key,
-`username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-`transaction` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-`description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-`amount` decimal(9,2) NOT NULL,
-`datepaid` datetime NOT NULL,
-KEY `transactions_username_foreign` (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+create table payments (
+  id integer unsigned not null auto_increment primary key,
+  username varchar(255) not null,
+  amount decimal(9,2) not null default '0.00',
+  recipient varchar(255) not null default 'admin',
+  recipienttype varchar(255) not null default 'sponsor',
+  recipientapproved tinyint(4) not null default '0',
+  datepaid datetime not null,
+  transaction varchar(255) not null default 'Bitcoin'
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 insert into adminsettings (adminuser, adminpass, adminname, adminemail, sitename, domain) values ('Admin', 'admin', 'YOUR NAME', 'YOUR ADMIN EMAIL', 'YOUR SITE NAME','http://YOURDOMAIN.COM');
 
@@ -91,11 +108,11 @@ INSERT INTO `adminnotes` (`id`, `name`, `htmlcode`) values (1, 'Admin Notes', ''
 
 INSERT INTO pages (name, htmlcode, slug, core) values ('Home Page', '', '', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Login Page', '', 'login', 'yes');
-INSERT INTO pages (name, htmlcode, slug, core) values ('Terms and Conditions', '', 'terms', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Main Page', '', 'members', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Profile Page', '', 'profile', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Promotion Page', '', 'promotion', 'yes');
-INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Chat Page', '', 'chat', 'yes');
+INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Earnings Page', '', 'earnings', 'yes');
+INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Ads Page', '', 'ads', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Registration Page', '', 'register', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Thank You Page - New Member Signup', '', 'thankyou', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Logout Page', '', 'logout', 'yes');
