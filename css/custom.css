@@ -1,8 +1,52 @@
 body {
-	padding-top: 0px;
-	background: #ff4500;
-	font-family: Calibri, Tahoma, Arial, sans-serif;
+  padding-top: 54px;
 }
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.ja-headerimage {
+  height: 50vh;
+  min-height: 300px;
+  background: url('../images/1920x400.png') center center no-repeat scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 2rem;
+}
+
+.card {
+	flex: 0 1 14%;
+	background: #eeeeee;
+	color: #000;
+	font-size: 1rem;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	min-width: 130px;
+	height: 255px;
+}
+
+.card > p {
+	padding-top: 1rem;
+}
+
+.card-image {
+	background: #555555;
+	width: 100px;
+	height: 100px;
+	border: 2px solid #fff;
+}
+
 .container {
 	width: 80%;
 }
@@ -20,14 +64,10 @@ img {
 	height:auto;
 	display:inline-block;
 }
-#ja-headerimage {
-	border: 2px solid #402659;
-	border-bottom: 0;
-}
 .ja-navgroup {
 	width: 100%;
 	background: url(../images/navbar.png) center center;
-	border: 2px solid #402659;
+	border: 2px solid #333333;
 	background-size:cover;
 }
 .ja-navbutton {
@@ -47,7 +87,7 @@ img {
 	text-shadow: 1px 1px 1px #000;
 }
 .ja-navbutton:hover {
-	color: #402659;
+	color: #333333;
 	text-shadow: 1px 1px 1px #fff;
 }
 .ja-navbutton:active {
@@ -56,8 +96,8 @@ img {
 }
 .ja-content {
 	padding: 20px 15px;
-	background: #533174;
-	border: 2px solid #402659;
+	background: #555555;
+	border: 2px solid #333333;
 	border-top: 0px;
 	color: #fff;
 }
@@ -65,7 +105,7 @@ img {
 	color: #fff;
 }
 .ja-modal {
-	background: #533174;
+	background: #555555;
 	border: 2px solid #fff;
 }
 .ja-modal-width
@@ -114,7 +154,7 @@ img {
 }
 #ja-footer {
 	color: #fff;
-	background-color: #402659;
+	background-color: #333333;
 }
 .form .form-control
 {
