@@ -83,17 +83,6 @@
       </div>
     </nav>
 
-    <!-- Header with Background Image -->
-    <header class="ja-headerimage">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1 class="title display-3 text-center text-white mt-4">Random BTC Ads</h1>
-          </div>
-        </div>
-      </div>
-    </header>
-
     <!-- Page Content -->
     <div class="container">
 

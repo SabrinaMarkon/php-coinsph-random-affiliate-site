@@ -1,8 +1,7 @@
 
 <!-- CENTRAL PAGE CONTENT APPEARS ABOVE HERE -->
-
-		</div>
 			</div>
+		</div>
 	  <!-- /.row -->
 	  
 
