@@ -1,2 +1,2 @@
 # php-oop-bitcoin-randomizer
-Bitcoin randomizer script written in object-oriented PHP for client.
+Bitcoin randomizer script written in object-oriented PHP.
