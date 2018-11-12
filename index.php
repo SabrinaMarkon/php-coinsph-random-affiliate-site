@@ -28,7 +28,7 @@ if (isset($_REQUEST['referid']))
 }
 else
 {
-	$referid = "";
+	$referid = $_SESSION['referid'];
 }
 
 ######################################

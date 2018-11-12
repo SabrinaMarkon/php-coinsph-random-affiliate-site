@@ -63,7 +63,7 @@ class User
 			$subject = "Welcome to " . $settings['sitename'] . "!";
 			$message = "Click to Verify your Email: " . $settings['domain'] . "/verify/" . $verificationcode . "\n\n";
 			$message .= "Login URL: " . $settings['domain'] . "/login\nUsername: " . $username . "\nPassword: " . $password . "\n\n";
-			$message .= "Your Referral URL: " . $settings['domain'] . "/aff/" . $username . "\n\n";
+			$message .= "Your Referral URL: " . $settings['domain'] . "/r/" . $username . "\n\n";
 			$sendsiteemail = new Email();
 			$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['domain'], $settings['adminemail'], '');
 
