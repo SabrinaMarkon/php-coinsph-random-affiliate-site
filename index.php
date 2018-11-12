@@ -26,9 +26,14 @@ if (isset($_REQUEST['referid']))
 	$referid = $_REQUEST['referid'];
 	$_SESSION['referid'] = $referid;
 }
-else
-{
-	$referid = $_SESSION['referid'];
+else {
+	if ($_SESSION['referid'] !== '') {
+		$referid = $_SESSION['referid'];
+	}
+	else {
+		$referid = 'admin';
+		$_SESSION['referid'] = $referid;
+	}
 }
 
 ######################################

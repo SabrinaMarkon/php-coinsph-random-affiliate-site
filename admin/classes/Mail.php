@@ -92,6 +92,48 @@ class Mail
 
     }
 
+    public function sendVerifications($settings) {
+
+        $subject = "Verify your " . $settings['sitename'] . " account";
+        $message = "Click to Verify your Email: " . $settings['domain'] . "/verify/" . $verificationcode . "\n\n";
+
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        
+        $sent = new Datetime();
+        $sent = $sent->format('Y-m-d');
+
+        $getsql = "select * from members where verified='' order by id";
+        $getq = $pdo->prepare($getsql);
+        $getq->execute();
+        $getq->setFetchMode(PDO::FETCH_ASSOC);
+        $members = $getq->fetchAll();
+        if ($members) {
+            foreach ($members as $member) {
+                $username = $member['username'];
+                $password = $member['password'];
+                $email = $member['email'];
+                $verificationcode = $member['verificationcode'];
+                if ($verificationcode === '') {
+                    $verificationcode = time() . mt_rand(10, 100);
+                    $sql = "update members set verificationcode=? where username=?";
+                    $pdo->prepare($sql);
+                    $pdo->execute(array($verificationcode,$username));
+                }
+
+                $subject = "Please verify your " . $settings['sitename'] . " membership";
+                $message = "Click to Verify your Email: " . $settings['domain'] . "/verify/" . $verificationcode . "\n\n";
+                $message .= "Login URL: " . $settings['domain'] . "/login\nUsername: " . $username . "\nPassword: " . $password . "\n\n";
+                $message .= "Your Referral URL: " . $settings['domain'] . "/r/" . $username . "\n\n";
+                $sendsiteemail = new Email();
+                $send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['domain'], $settings['adminemail'], '');
+            }
+        }
+
+        Database::disconnect();
+        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Verification Emailss were Resent!</strong></div>";
+    }
+
     public function deleteMail($id) {
 
         $name = $_POST['name'];

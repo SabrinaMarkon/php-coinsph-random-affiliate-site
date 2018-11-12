@@ -81,6 +81,11 @@ if (isset($_POST['savemail']))
     $update = new Mail();
     $showupdate = $update->saveMail($id);
 }
+if (isset($_POST['sendverifications']))
+{
+    $verify = new Mail();
+    $showverify = $verify->sendVerifications($settings);
+}
 if (isset($_POST['deletemail']))
 {
     $delete = new Mail();

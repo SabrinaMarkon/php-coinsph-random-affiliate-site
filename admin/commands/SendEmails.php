@@ -3,7 +3,7 @@
  * SendEmails handles admin or member submitted mail outs and should be called as a scheduled job.
  *
  * @author Sabrina Markon
- * @copyright 2017 Sabrina Markon, PHPSiteScripts.com
+ * @copyright 2018 Sabrina Markon, PHPSiteScripts.com
  * @license LICENSE.md
  *
  * @param $domain The main url of the website.
@@ -46,7 +46,7 @@ class SendEmails
                 $sent = new Datetime();
                 $sent = $sent->format('Y-m-d');
 
-                $getsql = "select * from members where verified='yes' order by id";
+                $getsql = "select * from members where verified!='' order by id";
                 $getq = $pdo->prepare($getsql);
                 $getq->execute();
                 $getq->setFetchMode(PDO::FETCH_ASSOC);
@@ -66,7 +66,7 @@ class SendEmails
                         $disclaimer .= "Kindly allow up to 24 hours to stop receiving mail once you delete your account.<br><br>";
                         $disclaimer .= "Thank you,<br>" . $adminname . "<br>" . $sitename . "<br><br><br>";
                         $disclaimer .= "Live Removal Assistance or Questions: <a href=\"mailto:" . $adminemail . "\">" . $adminemail ."</a><br><br>";
-                        $disclaimer .= "This email is sent in strict compliance with international spam laws.<br><br>";
+                        $disclaimer .= "This email is sent in strict compliance with International spam laws.<br><br>";
 
                         // full message and subject with disclaimer as well as this member's substitution:
                         $html = $message . "<br><br><br>" . $disclaimer;
