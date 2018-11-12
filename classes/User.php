@@ -3,7 +3,7 @@
 Handles user interactions with the application.
 PHP 5
 @author Sabrina Markon
-@copyright 2017 Sabrina Markon, PHPSiteScripts.com
+@copyright 2018 Sabrina Markon, PHPSiteScripts.com
 @license LICENSE.md
 **/
 class User
@@ -34,7 +34,7 @@ class User
 		{
 		$referid = "";
 		}
-		# error checking. - do with ajax so it looks cool ?
+		# error checking.
 		# make sure fields filled in. Make sure email is valid. Make sure passwords match.
 		# make sure fields > x chars.
 		
@@ -53,13 +53,17 @@ class User
 		}
 		else
 		{
-			$sql = "insert into members (username,password,accounttype,firstname,lastname,email,country,referid,signupdate,signupip) values (?,?,?,?,?,?,?,?,NOW(),?)";
+			$verificationcode = time() . mt_rand(10, 100);
+
+			$sql = "insert into members (username,password,accounttype,firstname,lastname,email,country,referid,signupdate,signupip,verificationcode) values (?,?,?,?,?,?,?,?,NOW(),?,?)";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($username,$password,$accounttype,$firstname,$lastname,$email,$country,$referid,$signupip));
+			$q->execute(array($username,$password,$accounttype,$firstname,$lastname,$email,$country,$referid,$signupip,$verificationcode));
 			Database::disconnect();
 
 			$subject = "Welcome to " . $settings['sitename'] . "!";
-			$message = "Our Login URL: " . $settings['domain'] . "\nUsername: " . $username . "\nPassword: " . $password . "\n\n";
+			$message = "Click to Verify your Email: " . $settings['domain'] . "/verify/" . $verificationcode . "\n\n";
+			$message .= "Login URL: " . $settings['domain'] . "/login\nUsername: " . $username . "\nPassword: " . $password . "\n\n";
+			$message .= "Your Referral URL: " . $settings['domain'] . "/aff/" . $username . "\n\n";
 			$sendsiteemail = new Email();
 			$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['domain'], $settings['adminemail'], '');
 
@@ -85,20 +89,36 @@ class User
 		$q = $pdo->prepare($sql);
 		$q->execute(array($username,$password));
 		$valid = $q->rowCount();
-		if($valid > 0)
-			{
+		if ($valid > 0) {
 			# successful login.
 			$q->setFetchMode(PDO::FETCH_ASSOC);
 			$memberdetails = $q->fetch();
 			return $memberdetails;
 			}
-		else
-			{
+		else {
 			# incorrect login.
 			return false;
 			}
 		Database::disconnect();
 
+	}
+
+	public function verifyUser($verificationcode) {
+		$pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		$sql = "select from members where verificationcode=?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($verificationcode));
+		$valid = $q->rowCount();
+		if ($valid) {
+			# successful email validation. Add time to verified field so we know when it happened.
+			$sql = "update members set verified=" . $mktime() . " where verificationcode=?";
+			$q = $pdo->prepare($sql);
+			$q->execute(array($verificationcode));
+		}
+		Database::disconnect();
+		return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your email address was verified!</strong></div>";
+	
 	}
 
 	public function forgotLogin($sitename,$domain,$adminemail) {

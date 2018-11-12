@@ -69,6 +69,11 @@ if (isset($_POST['register']))
 $register = new User();
 $showregistration = $register->newSignup($settings);
 }
+if (isset($_GET['verify']))
+{
+$verify = new User();
+$showverify = $verify->verifyUser($verificationcode);
+}
 if (isset($_POST['saveprofile']))
 {
 $update = new User();

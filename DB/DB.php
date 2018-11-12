@@ -73,12 +73,14 @@ firstname varchar(255) not null,
 lastname varchar(255) not null,
 country varchar(255) not null,
 email varchar(255) not null,
+validated tinyint(4) not null default '0',
+validateddate datetime not null,
 signupdate datetime not null,
 signupip varchar(255) not null,
-verified varchar(4) not null default 'no',
-verifieddate datetime not null,
+verificationcode varchar(255) not null,
+verified varchar(255) not null,
 referid varchar(255) not null,
-lastlogin datetime not null,
+lastlogin datetime not null
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `pages` (
