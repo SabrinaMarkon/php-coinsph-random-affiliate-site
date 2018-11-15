@@ -21,19 +21,16 @@ foreach ($settings as $key => $value)
 	$$key = $value;
 }
 
-if (isset($_REQUEST['referid']))
-{
-	$referid = $_REQUEST['referid'];
-	$_SESSION['referid'] = $referid;
-}
-else {
-	if ($_SESSION['referid'] !== '') {
-		$referid = $_SESSION['referid'];
-	}
-	else {
-		$referid = 'admin';
+if (isset($_REQUEST['referid'])) {
+		$referid = $_REQUEST['referid'];
 		$_SESSION['referid'] = $referid;
-	}
+} else {
+		$referid = $_SESSION['referid'];
+}
+
+if ($referid === '') {
+	$referid = 'admin';
+	$_SESSION['referid'] = $referid;
 }
 
 ######################################
