@@ -21,17 +21,15 @@ foreach ($settings as $key => $value)
 	$$key = $value;
 }
 
-if (isset($_REQUEST['referid'])) {
-		$referid = $_REQUEST['referid'];
-		$_SESSION['referid'] = $referid;
-} else {
-		$referid = $_SESSION['referid'];
+# Get the sponsor if there is one.
+if (isset($_GET['referid'])) {
+		$_SESSION['referid'] = $_GET['referid'];
+} elseif (!isset($_SESSION['referid'])) {
+		$_SESSION['referid'] = 'admin';
 }
 
-if ($referid === '') {
-	$referid = 'admin';
-	$_SESSION['referid'] = $referid;
-}
+############################ REMOVE BELOW LINE WHEN SATISFIED!!! ####################
+echo "<br>" . $_SESSION['referid'];
 
 ######################################
 if (isset($_POST['login']))
