@@ -56,8 +56,8 @@ echo $showcontent->showPage('Registration Page');
 							?>
 						</select>
 
-						<label class="sr-only" for="username">Username</label>
-						<input type="text" class="form-control input-lg" placeholder="Your Sponsor: <?php echo $_SESSION['referid']; ?>" disabled>
+						<label class="sr-only" for="username">Your Sponsor</label>
+						<input type="text" name="referid" value="" class="form-control input-lg" placeholder="<?php echo $_SESSION['referid']; ?>">
 
 						<span class="help-block">By clicking Create My Account, you agree to our <a href="#" data-toggle="modal" data-target="#termsModal">Terms</a></span>
 						

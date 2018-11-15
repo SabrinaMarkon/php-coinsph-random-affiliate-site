@@ -26,14 +26,8 @@ class User
 		$email = $_POST['email'];
 		$country = $_POST['country'];
 		$signupip = $_SERVER['REMOTE_ADDR'];
-		if (isset($_SESSION['referid']))
-		{
-		$referid = $_SESSION['referid'];
-		}
-		else
-		{
-		$referid = "";
-		}
+		$referid = $_POST['referid'];
+		
 		# error checking.
 		# make sure fields filled in. Make sure email is valid. Make sure passwords match.
 		# make sure fields > x chars.

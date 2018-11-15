@@ -28,8 +28,8 @@ if (isset($_GET['referid'])) {
 		$_SESSION['referid'] = 'admin';
 }
 
-############################ REMOVE BELOW LINE WHEN SATISFIED!!! ####################
-echo "<br>" . $_SESSION['referid'];
+############################ REMOVE BELOW LINE WHEN I'M SATISFIED!!! ####################
+#echo "<br>" . $_SESSION['referid'];
 
 ######################################
 if (isset($_POST['login']))
