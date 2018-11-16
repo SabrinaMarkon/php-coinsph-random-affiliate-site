@@ -94,9 +94,6 @@ class Mail
 
     public function sendVerifications($settings) {
 
-        $subject = "Verify your " . $settings['sitename'] . " account";
-        $message = "Click to Verify your Email: " . $settings['domain'] . "/verify/" . $verificationcode . "\n\n";
-
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         

@@ -109,10 +109,11 @@ class User
 			$sql = "update members set verified=" . $mktime() . " where verificationcode=?";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($verificationcode));
-		}
-		Database::disconnect();
-		return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your email address was verified!</strong></div>";
-	
+			Database::disconnect();
+			return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your email address was verified!</strong></div>";
+		} else {
+			return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your verification code was invalid. Please check the link in the welcome email.</strong></div>";
+		}	
 	}
 
 	public function forgotLogin($sitename,$domain,$adminemail) {

@@ -69,6 +69,7 @@ $showregistration = $register->newSignup($settings);
 if (isset($_GET['verify']))
 {
 $verify = new User();
+$verificationcode = $_SESSION['referid'];
 $showverify = $verify->verifyUser($verificationcode);
 }
 if (isset($_POST['saveprofile']))
