@@ -91,7 +91,7 @@ CREATE TABLE `pages` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
-create table payments (
+create table transactions (
   id integer unsigned not null auto_increment primary key,
   username varchar(255) not null,
   amount decimal(9,2) not null default '0.00',

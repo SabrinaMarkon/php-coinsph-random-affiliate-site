@@ -18,7 +18,7 @@ foreach ($settings as $key => $value)
 
             <h1 class="ja-bottompadding">Site Settings</h1>
 
-            <form method="post" accept-charset="utf-8" class="form" role="form">
+            <form action="/admin/settings" method="post" accept-charset="utf-8" class="form" role="form">
 
                 <label class="sr-only" for="adminuser">Your Website Name:</label>
                 <input type="text" name="adminuser" value="<?php echo $adminuser ?>" class="form-control input-lg" placeholder="Admin Username">
