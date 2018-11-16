@@ -60,7 +60,7 @@ body {
 }
 
 .container {
-	width: 80%;
+	width: 100%;
 }
 
 img {
@@ -156,6 +156,14 @@ img {
 .form .form-control
 {
 	margin-bottom: 10px;
+}
+.widetableinput
+{
+	font-size: 10pt;
+}
+.widetableselect {
+	font-size: 10pt;
+	min-width: 100px;
 }
 .form .inlineform {
 	display: inline-block;

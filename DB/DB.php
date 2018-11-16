@@ -97,7 +97,7 @@ create table transactions (
   amount decimal(9,2) not null default '0.00',
   recipient varchar(255) not null default 'admin',
   recipienttype varchar(255) not null default 'sponsor',
-  recipientapproved tinyint(4) not null default '0',
+  recipientapproved varchar(4) not null default '0',
   datepaid datetime not null,
   transaction varchar(255) not null default 'Bitcoin'
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;

@@ -15,7 +15,7 @@ class Money
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "select * from transactions order by id";
+        $sql = "select * from transactions order by id desc";
         $q = $pdo->prepare($sql);
         $q->execute();
         $q->setFetchMode(PDO::FETCH_ASSOC);
@@ -33,18 +33,20 @@ class Money
     public function saveTransaction($id) {
 
         $username = $_POST['username'];
-        $transaction = $_POST['transaction'];
-        $description = $_POST['description'];
+        $recipient = $_POST['recipient'];
+        $recipientapproved = $_POST['recipientapproved'];
+        $recipienttype = $_POST['recipienttype'];
         $amount = $_POST['amount'];
         $datepaid = $_POST['datepaid'];
+        $transaction = $_POST['transaction'];
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "update transactions set username=?, transaction=?, description=?, datepaid=?, amount=? where id=?";
+        $sql = "update transactions set username=?, recipient=?, recipientapproved=?, recipienttype=?, amount=?, datepaid=?, transaction=? where id=?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($username, $transaction, $description, $datepaid, $amount, $id));
+        $q->execute(array($username, $recipient, $recipientapproved, $recipienttype, $amount, $datepaid, $transaction, $id));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID " . $id . " was Saved!</strong></div>";
+        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID #" . $id . " was Saved!</strong></div>";
 
     }
 

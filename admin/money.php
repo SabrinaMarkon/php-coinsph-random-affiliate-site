@@ -14,19 +14,19 @@ $transactions = $alltransactions->getAllTransactions();
             <h1 class="ja-bottompadding">Transaction Records</h1>
 
             <div class="table-responsive">
-                <table class="table table-condensed table-bordered text-center">
+                <table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
                     <thead>
                     <tr>
-                        <th class="text-center">#</th>
-                        <th class="text-center">Payer</th>
-                        <th class="text-center">Payee</th>
-                        <th class="text-center">Payee Approved</th>
-                        <th class="text-center">Payment Type</th>
-                        <th class="text-center">Amount</th>
-                        <th class="text-center">Date Paid</th>
-                        <th class="text-center">Transaction</th>
-                        <th class="text-center">Edit</th>
-                        <th class="text-center">Delete</th>
+                        <th class="text-center small">#</th>
+                        <th class="text-center small">Payer</th>
+                        <th class="text-center small">Payee</th>
+                        <th class="text-center small">Payee&nbsp;Approved</th>
+                        <th class="text-center small">Payment&nbsp;Type</th>
+                        <th class="text-center small">Amount</th>
+                        <th class="text-center small">Date&nbsp;Paid</th>
+                        <th class="text-center small">Transaction</th>
+                        <th class="text-center small">Edit</th>
+                        <th class="text-center small">Delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,47 +43,47 @@ $transactions = $alltransactions->getAllTransactions();
                         </td>
                         <td>
                             <label class="sr-only" for="username">Payer:</label>
-                            <input type="text" name="username" value="<?php echo $transaction['username']; ?>" class="form-control input-md" size="40" placeholder="Payer">
+                            <input type="text" name="username" value="<?php echo $transaction['username']; ?>" class="form-control input-sm widetableinput" placeholder="Payer">
                         </td>
                         <td>
                             <label class="sr-only" for="recipient">Payee:</label>
-                            <input type="text" name="recipient" value="<?php echo $transaction['recipient']; ?>" class="form-control input-md" size="40" placeholder="Payee">
+                            <input type="text" name="recipient" value="<?php echo $transaction['recipient']; ?>" class="form-control input-sm widetableinput" placeholder="Payee">
                         </td>
                         <td>
                             <label class="sr-only" for="recipientapproved">Payee Approved:</label>
-                            <select name="recipientapproved" value="<?php echo $transaction['recipientapproved']; ?>" class="form-control input-md">
-                                <option value="0" <?php if ($transaction['recipientapproved'] !== 1) { echo "selected"; } ?>>No</option>
-                                <option value="1" <?php if ($transaction['recipientapproved'] === 1) { echo "selected"; } ?>>Yes</option>
+                            <select name="recipientapproved" value="<?php echo $transaction['recipientapproved']; ?>" class="form-control widetableselect">
+                                <option value="no" <?php if ($transaction['recipientapproved'] !== "yes") { echo "selected"; } ?>>No</option>
+                                <option value="yes" <?php if ($transaction['recipientapproved'] === "yes") { echo "selected"; } ?>>Yes</option>
                             </select>
                         </td>
                         <td>
                             <label class="sr-only" for="recipienttype">Payment Type:</label>
-                            <select name="recipienttype" value="<?php echo $transaction['recipienttype']; ?>" class="form-control input-md">
-                                <option value="random" <?php if ($transaction['recipienttype'] !== "sponsor") { echo "selected"; } ?>>Sponsor</option>
-                                <option value="sponsor" <?php if ($transaction['recipienttype'] === "sponsor") { echo "selected"; } ?>>Random</option>
+                            <select name="recipienttype" value="<?php echo $transaction['recipienttype']; ?>" class="form-control widetableselect">
+                                <option value="random" <?php if ($transaction['recipienttype'] !== "sponsor") { echo "selected"; } ?>>Random</option>
+                                <option value="sponsor" <?php if ($transaction['recipienttype'] === "sponsor") { echo "selected"; } ?>>Sponsor</option>
                             </select>
                         </td>
                         <td>
                             <label class="sr-only" for="amount">Amount:</label>
-                            <input type="text" name="amount" value="<?php echo $transaction['amount']; ?>" class="form-control input-md" placeholder="Amount">
+                            <input type="text" name="amount" value="<?php echo $transaction['amount']; ?>" class="form-control input-sm widetableinput" placeholder="Amount">
                         </td>
                         <td>
                             <label class="sr-only" for="datepaid">Date Paid:</label>
-                            <input type="text" name="datepaid" value="<?php echo $datepaid ?>" class="form-control input-md" size="50" placeholder="Date Paid">
+                            <input type="text" name="datepaid" value="<?php echo $datepaid ?>" class="form-control input-sm widetableinput" size="50" placeholder="Date Paid">
                         </td>
                         <td>
                             <label class="sr-only" for="transaction">Transaction:</label>
-                            <input type="text" name="transaction" value="<?php echo $transaction['transaction']; ?>" class="form-control input-md" size="60" placeholder="Transaction">
+                            <input type="text" name="transaction" value="<?php echo $transaction['transaction']; ?>" class="form-control input-sm widetableinput" size="60" placeholder="Transaction">
                         </td>
                         <td>
                             <input type="hidden" name="_method" value="PATCH">
-                            <button class="btn btn-md btn-primary" type="submit" name="savetransaction">SAVE</button>
+                            <button class="btn btn-sm btn-primary" type="submit" name="savetransaction">SAVE</button>
                         </td>
                         </form>
                         <td>
                             <form action="/admin/money/<?php echo $transaction['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button class="btn btn-md btn-primary" type="submit" name="deletetransaction">DELETE</button>
+                                <button class="btn btn-sm btn-primary" type="submit" name="deletetransaction">DELETE</button>
                             </form>
                         </td>
                     </tr>

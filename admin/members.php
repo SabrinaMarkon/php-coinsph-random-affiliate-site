@@ -15,7 +15,7 @@ $members = $allmembers->getAllMembers();
             <h1 class="ja-bottompadding">Website Members</h1>
 
             <div class="table-responsive">
-                <table class="table table-condensed table-bordered text-center small">
+                <table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
                     <thead>
                     <tr>
                         <th class="text-center small">#</th>
