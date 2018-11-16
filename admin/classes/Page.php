@@ -53,7 +53,7 @@ class Page
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $htmlcode, $slug));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Page " . $name . " was Added!</strong><br>New URL: <a href=" . $domain . "/" . $slug . ">" . $domain . "/" . $slug . "</a></div>";
+        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Page: " . $name . " was Added!</strong><br>New URL: <a href=" . $domain . "/" . $slug . ">" . $domain . "/" . $slug . "</a></div>";
 
     }
 
@@ -61,14 +61,22 @@ class Page
 
         $name = $_POST['name'];
         $htmlcode = $_POST['htmlcode'];
-        $slug = $_POST['slug'];
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "update `pages` set name=?, htmlcode=?, slug=? where id=?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($name, $htmlcode, $id, $slug));
+        # if slug cannot be edited, it means the page is a core url that cannot be changed,
+        # even if its content can.
+        if (isset($_POST['slug'])) {
+            $slug = $_POST['slug'];
+            $sql = "update `pages` set name=?, htmlcode=?, slug=? where id=?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($name, $htmlcode, $id, $slug));
+        } else {
+            $sql = "update `pages` set name=?, htmlcode=? where id=?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($name, $htmlcode, $id));      
+        }
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Website Content for Page " . $name . " was Saved!</strong></div>";
+        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Page Content for " . $name . " was Saved!</strong></div>";
 
     }
 
@@ -81,7 +89,7 @@ class Page
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Website Content for Page " . $name . " was Deleted</strong></div>";
+        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Page Content for " . $name . " was Deleted</strong></div>";
 
     }
 }

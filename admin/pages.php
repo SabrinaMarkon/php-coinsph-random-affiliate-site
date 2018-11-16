@@ -109,7 +109,7 @@ $pages = $allpages->getAllPages();
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-12">
-                            <label class="sr-only" for="name">Page Slug (url)</label>
+                            <label class="sr-only" for="slug">Page Slug (url)</label>
                             <?php
                             if ($showeditpage['core'] === 'yes') {
                                 $disabled = "disabled";
@@ -139,25 +139,22 @@ $pages = $allpages->getAllPages();
                 </div>
                 <div class="form-group">
                     <div class="row">
-
-                        <div class="col-sm-3"></div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-12">
                             <input type="hidden" name="_method" value="GET">
-                            <button class="btn btn-md btn-primary" type="button" name="showallpages" onclick="parent.location = '/admin/pages'">CREATE NEW</button>
+                            <span><button class="btn btn-md btn-primary" type="button" name="showallpages" onclick="parent.location = '/admin/pages'">CREATE NEW</button></span>
+                            <span>
+                                <input type="hidden" name="_method" value="PATCH">
+                                <button class="btn btn-md btn-primary" type="submit" name="savepage">SAVE</button>
+                                </form>
+                            </span>
+                            <span>
+                                <form action="/admin/pages/<?php echo $showeditpage['id']; ?>" method="post" accept-charset="utf-8" class="form inlineform" role="form">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="name" value="<?php echo $showeditpage['name'] ?>">
+                                <button class="btn btn-md btn-primary" type="submit" name="deletepage">DELETE</button>
+                                </form>           
+                            </span>
                         </div>
-                        <div class="col-sm-2">
-                            <input type="hidden" name="_method" value="PATCH">
-                            <button class="btn btn-md btn-primary" type="submit" name="savepage">SAVE</button>
-                            </form>
-                        </div>
-                        <div class="col-sm-2">
-                            <form action="/admin/pages/<?php echo $showeditpage['id']; ?>" method="post" accept-charset="utf-8" class="form" role="form">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button class="btn btn-md btn-primary" type="submit" name="deletepage">DELETE</button>
-                            </form>
-                        </div>
-                        <div class="col-sm-3"></div>
-
                     </div>
                 </div>
                 <?php
@@ -193,12 +190,10 @@ $pages = $allpages->getAllPages();
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-sm-1"></div>
-                            <div class="col-sm-10">
-                                <input type="hidden" name="_method" value="POST">
+                            <div class="col-sm-12">
+                                <input type="hidden" name="_method" value="ADD">
                                 <button class="btn btn-lg btn-primary" type="submit" name="addpage">ADD</button>
                             </div>
-                            <div class="col-sm-1"></div>
                         </div>
                     </div>
                 </form>
