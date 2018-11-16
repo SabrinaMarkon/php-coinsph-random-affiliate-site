@@ -1,9 +1,9 @@
 <?php
 /**
 Handles admin adding, updating, or deleting pages.
-PHP 5
+PHP 5.4+
 @author Sabrina Markon
-@copyright 2017 Sabrina Markon, PHPSiteScripts.com
+@copyright 2018 Sabrina Markon, PHPSiteScripts.com
 @license README-LICENSE.txt
  **/
 class Page

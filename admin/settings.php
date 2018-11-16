@@ -1,4 +1,5 @@
 <?php
+include "control.php";
 if (isset($showupdate))
 {
     echo $showupdate;

@@ -10,6 +10,8 @@ require_once "../config/Settings.php";
 require_once "../config/Layout.php";
 require_once "../classes/Countries.php";
 require_once "../classes/Email.php";
+require_once "classes/LoginForm.php";
+require_once "classes/Admin.php";
 
 function sabrina_autoloader($class) {
     require 'classes/' . $class . ".php";
@@ -23,6 +25,7 @@ foreach ($settings as $key => $value)
     $$key = $value;
 }
 
+# id variable is for the id of a single member, mail, etc. to update in the database.
 if (isset($_REQUEST['id']))
 {
     $id = $_REQUEST['id'];
@@ -37,23 +40,30 @@ if (isset($_POST['login']))
 {
     $_SESSION['username'] = $_REQUEST['username'];
     $_SESSION['password'] = $_REQUEST['password'];
-    $logincheck = new User();
-    $newlogin = $logincheck->userLogin($_SESSION['username'],$_SESSION['password']);
+    $logincheck = new Admin();
+    $newlogin = $logincheck->adminLogin($_SESSION['username'],$_SESSION['password']);
     if ($newlogin === false)
     {
-        $logout = new User();
-        $logout->userLogout();
+        // $logout = new Admin();
+        // $logout->adminLogout();
+        $logout = new Admin();
+        $logout->adminLogout();  
+        $showcontent = new LoginForm();
+        echo $showcontent->showLoginForm(1);
+        $Layout = new Layout();
+        $Layout->showFooter();
+        exit;
     }
     else
     {
-        # returned member details.
-        foreach ($newlogin as $key => $value)
-        {
-            $$key = $value;
-            $_SESSION[$key] = $value;
-        }
-        $showgravatar = $logincheck->getGravatar($_SESSION['username'],$_SESSION['email']);
+        # successful admin login.
+        $showgravatar = $logincheck->getGravatar($adminemail);
     }
+}
+if (isset($_GET['forgot']))
+{
+$forgot = new Admin();
+$showforgot = $forgot->forgotLogin($sitename,$domain,$adminemail,$adminuser,$adminpass);
 }
 if (isset($_POST['saveadminnotes']))
 {
@@ -157,12 +167,15 @@ if (isset($_POST['deletetransaction']))
 //    }
 //}
 
-if (isset($_GET['page']) && ($_GET['page'] == "logout"))
+if (isset($_GET['page']) && ($_GET['page'] === "logout"))
 {
-//    $logout = new User();
-//    $logout->userLogout();
-//    $logoutpage = new PageContent();
-//    $showlogout = $logoutpage->showPage('Logout Page');
+   $logout = new Admin();
+   $logout->adminLogout();
+   $showcontent = new LoginForm();
+   echo $showcontent->showLoginForm(1);
+   $Layout = new Layout();
+   $Layout->showFooter();
+   exit;
 }
 ######################################
 
@@ -170,13 +183,18 @@ $Layout = new Layout();
 $Layout->showHeader();
 
 //echo $_GET['page'] . "<br>";
-if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET['page'] != "index"))))
-{
+if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET['page'] !== "index")))) {
     $page = $_REQUEST['page'];
     include $page . ".php";
-}
-else
-{
+} elseif (empty($_GET['page']) or ($_GET['page'] === "index")) {
+    $logout = new Admin();
+    $logout->adminLogout();  
+    $showcontent = new LoginForm();
+    echo $showcontent->showLoginForm(1);
+    $Layout = new Layout();
+    $Layout->showFooter();
+    exit;
+} else {
     include "main.php";
 }
 $Layout->showFooter();

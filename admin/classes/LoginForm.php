@@ -1,26 +1,26 @@
 <?php
 class LoginForm
 {
-	public $loginerror;
-	public $showloginerror;
-	public $content;
+    public $loginerror;
+    public $showloginerror;
+    public $content;
 
-	public function showLoginForm($loginerror) {
+    public function showLoginForm($loginerror) {
 
-		$showloginerror = "";
-		if ($loginerror == 1)
-		{
-		$showloginerror = "<div class=\"alert alert-danger\"><strong>Incorrect Login</strong></div>";
-		}
+        $showloginerror = "";
+        if ($loginerror == 1)
+        {
+            $showloginerror = "<div class=\"alert alert-danger\"><strong>Incorrect Login</strong></div>";
+        }
 
 $content = <<<HEREDOC
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				
-			<h1 class="ja-bottompadding">Login</h1>
+			<h1 class="ja-bottompadding">Admin Login</h1>
 
-			<form action="/members" method="post" accept-charset="utf-8" class="form" role="form">
+			<form action="main" method="post" accept-charset="utf-8" class="form" role="form">
 
 				$showloginerror
 
@@ -30,7 +30,7 @@ $content = <<<HEREDOC
 				<label class="sr-only" for="password">Password</label>
 				<input type="password" name="password" value="" class="form-control input-lg" placeholder="Password">
 
-				<span class="help-block"><a href="/forgot">Forgot Password?</a></span>
+				<span class="help-block"><a href="forgot">Forgot Password?</a></span>
 
 				<button class="btn btn-lg btn-primary" type="submit" name="login">Login</button>
 
@@ -43,6 +43,6 @@ $content = <<<HEREDOC
 	</div>
 HEREDOC;
 
-		return $content;
-	}
+        return $content;
+    }
 }

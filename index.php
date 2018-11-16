@@ -28,9 +28,6 @@ if (isset($_GET['referid'])) {
 		$_SESSION['referid'] = 'admin';
 }
 
-############################ REMOVE BELOW LINE WHEN I'M SATISFIED!!! ####################
-#echo "<br>" . $_SESSION['referid'];
-
 ######################################
 if (isset($_POST['login']))
 {
@@ -79,7 +76,7 @@ if (isset($_POST['saveprofile']))
 $update = new User();
 $showupdate = $update->saveProfile($_SESSION['username']);
 }
-if (isset($_GET['page']) && ($_GET['page'] == "logout"))
+if (isset($_GET['page']) && ($_GET['page'] === "logout"))
 {
 $logout = new User();
 $logout->userLogout();
@@ -91,7 +88,7 @@ $showlogout = $logoutpage->showPage('Logout Page');
 $Layout = new Layout();
 $Layout->showHeader();
 
-if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET['page'] != "index"))))
+if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET['page'] !== "index"))))
 {
     $page = $_REQUEST['page'];
     include $page . ".php";
