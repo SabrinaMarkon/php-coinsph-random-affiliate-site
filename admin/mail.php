@@ -50,9 +50,11 @@ $savedmails = $allsavedmails->getAllSavedMails();
 
             <h1 class="ja-bottompadding">Email Members</h1>
 
-            <form action="/admin/mail" method="post" accept-charset="utf-8" class="form" role="form">
-                <button class="btn btn-md btn-primary pull-left" type="submit" name="sendverifications" style="margin-right:10px;">Resend Verifications</button>
+
+            <form action="/admin/mail" method="post" accept-charset="utf-8" role="form">
+                <button class="btn btn-md btn-primary center" type="submit" name="sendverifications">Resend Verifications</button>
             </form>
+
 
             <form action="/admin/mail" method="post" accept-charset="utf-8" class="form ja-toppadding" role="form">
                 <div class="form-group textfield">
@@ -145,28 +147,15 @@ $savedmails = $allsavedmails->getAllSavedMails();
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="row">
-
-                        <div class="col-sm-3"></div>
-                        <div class="col-sm-2">
                             <button class="btn btn-lg btn-primary" type="button" name="showallmail" onclick="parent.location = '/admin/mail'">RETURN</button>
-                        </div>
-                        <div class="col-sm-2">
                             <input type="hidden" name="_method" value="PATCH">
                             <button class="btn btn-lg btn-primary" type="submit" name="savemail">SAVE</button>
-                        </div>
-                        <div class="col-sm-1">
                             <button class="btn btn-lg btn-primary" type="submit" name="sendmail">SEND</button>
-                        </div>
             </form>
-                        <div class="col-sm-2">
-                            <form action="/admin/mail/<?php echo $showeditmail['id']; ?>" method="post" accept-charset="utf-8" class="form" role="form">
+                            <form action="/admin/mail/<?php echo $showeditmail['id']; ?>" method="post" accept-charset="utf-8" class="form inlineform" role="form">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button class="btn btn-lg btn-primary" type="submit" name="deletemail">DELETE</button>
                             </form>
-                        </div>
-                        <div class="col-sm-3"></div>
-
                     </div>
                 </div>
                 <?php
@@ -203,15 +192,12 @@ $savedmails = $allsavedmails->getAllSavedMails();
                     <div class="form-group">
                         <div class="row">
 
-                            <div class="col-sm-5"></div>
-                            <div class="col-sm-1">
+                            <div class="col-sm-3">
                                 <input type="hidden" name="_method" value="POST">
                                 <button class="btn btn-lg btn-primary" type="submit" name="addmail">SAVE</button>
-                            </div>
-                            <div class="col-sm-1">
                                 <button class="btn btn-lg btn-primary" type="submit" name="sendmail">SEND</button>
                             </div>
-                            <div class="col-sm-5"></div>
+                            <div class="col-sm-9"></div>
 
                         </div>
                     </div>

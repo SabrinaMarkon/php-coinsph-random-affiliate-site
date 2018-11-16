@@ -29,6 +29,9 @@ foreach ($settings as $key => $value)
                 <label class="sr-only" for="confirm_adminpass">Confirm Password</label>
                 <input type="password" name="confirm_adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Confirm Password">
 
+                <label class="sr-only" for="adminemail">Admin Name</label>
+                <input type="text" name="adminname" value="<?php echo $adminname ?>" class="form-control input-lg" placeholder="Admin Name">
+
                 <label class="sr-only" for="adminemail">Your Admin Email</label>
                 <input type="text" name="adminemail" value="<?php echo $adminemail ?>" class="form-control input-lg" placeholder="Admin Email">
 

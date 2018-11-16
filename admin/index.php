@@ -73,7 +73,7 @@ if (isset($_POST['saveadminnotes']))
 if (isset($_POST['savesettings']))
 {
     $update = new Setting();
-    $showupdate = $update->saveSettings();
+    $showupdate = $update->saveSettings($_SESSION['username'], $_SESSION['password']);
 }
 
 if (isset($_POST['editmail']))

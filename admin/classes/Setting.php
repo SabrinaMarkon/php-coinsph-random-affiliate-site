@@ -9,19 +9,26 @@ PHP 5.4+
 class Setting
 {
 
-    public function saveSettings() {
+    public function saveSettings($adminuser, $adminpass) {
 
-        $adminuser = $_POST['adminuser'];
-        $adminpass = $_POST['adminpass'];
-        $adminemail = $_POST['adminemail'];
-        $sitename = $_POST['sitename'];
-        $domain = $_POST['domain'];
+        $newadminuser = $_POST['adminuser'];
+        $newadminpass = $_POST['adminpass'];
+        $newadminname = $_POST['adminname'];
+        $newadminemail = $_POST['adminemail'];
+        $newsitename = $_POST['sitename'];
+        $newdomain = $_POST['domain'];
+
+        # if either username or password changed, update session.
+        if (($adminuser !== $newadminuser) or ($adminpass !== $newadminpass)) {
+            $_SESSION['username'] = $newadminuser;
+            $_SESSION['password'] = $newadminpass;
+        }
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "update adminsettings set adminuser=?, adminpass=?, adminemail=?, sitename=?, domain=?";
+        $sql = "update adminsettings set adminuser=?, adminpass=?, adminname=?, adminemail=?, sitename=?, domain=?";
         $q = $pdo->prepare($sql);
-        $q-> execute(array($adminuser, $adminpass, $adminemail, $sitename, $domain));
+        $q-> execute(array($newadminuser, $newadminpass, $newadminname, $newadminemail, $newsitename, $newdomain));
         Database::disconnect();
 
         return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Site Settings Were Saved!</strong></div>";

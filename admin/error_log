@@ -1,0 +1,13 @@
+[16-Nov-2018 05:57:56 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'randombtcads_randombtcads.transactions' doesn't exist' in /home/randombtcads/public_html/admin/classes/Money.php:20
+Stack trace:
+#0 /home/randombtcads/public_html/admin/classes/Money.php(20): PDOStatement->execute()
+#1 /home/randombtcads/public_html/admin/money.php(8): Money->getAllTransactions()
+#2 /home/randombtcads/public_html/admin/index.php(188): include('/home/randombtc...')
+#3 {main}
+  thrown in /home/randombtcads/public_html/admin/classes/Money.php on line 20
+[16-Nov-2018 06:25:55 UTC] PHP Notice:  Undefined index: name in /home/randombtcads/public_html/admin/classes/Mail.php on line 136
+[16-Nov-2018 06:36:31 UTC] PHP Notice:  Undefined index: adminname in /home/randombtcads/public_html/admin/classes/Setting.php on line 16
+[16-Nov-2018 06:37:28 UTC] PHP Notice:  Undefined index: adminname in /home/randombtcads/public_html/admin/classes/Setting.php on line 16
+[16-Nov-2018 06:43:08 UTC] PHP Warning:  Missing argument 1 for Setting::saveSettings(), called in /home/randombtcads/public_html/admin/index.php on line 76 and defined in /home/randombtcads/public_html/admin/classes/Setting.php on line 12
+[16-Nov-2018 06:43:08 UTC] PHP Warning:  Missing argument 2 for Setting::saveSettings(), called in /home/randombtcads/public_html/admin/index.php on line 76 and defined in /home/randombtcads/public_html/admin/classes/Setting.php on line 12
+[16-Nov-2018 06:43:08 UTC] PHP Notice:  Undefined variable: adminuser in /home/randombtcads/public_html/admin/classes/Setting.php on line 22

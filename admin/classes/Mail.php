@@ -133,7 +133,6 @@ class Mail
 
     public function deleteMail($id) {
 
-        $name = $_POST['name'];
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "delete from mail where id=?";
