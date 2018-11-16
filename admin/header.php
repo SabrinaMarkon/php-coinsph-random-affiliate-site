@@ -25,7 +25,7 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ja-navbottomadmin">
       <div class="container">
         <a class="navbar-brand" href="/">Random BTC Ads</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,7 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container ja-toppadding">
 
 		<div class="row">
 			<div class="col-sm-12">		

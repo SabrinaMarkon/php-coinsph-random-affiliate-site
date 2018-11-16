@@ -1,7 +1,7 @@
 <?php
 /**
 Handles user interactions with the application.
-PHP 5
+PHP 5.4++
 @author Sabrina Markon
 @copyright 2018 Sabrina Markon, PHPSiteScripts.com
 @license LICENSE.md
@@ -136,7 +136,8 @@ class User
 			
 			$sendsiteemail = new Email();
 			$send = $sendsiteemail->sendEmail($email,$adminemail,$subject,$message,$sitename,$domain,$adminemail, '');
-		
+			
+			Database::disconnect();
 			return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your login details were sent to your email address.</strong></div>";
 			}
 		else
@@ -188,6 +189,7 @@ class User
 	public function userLogout() {
 
 		session_unset();
+		return;
 
 	}
 

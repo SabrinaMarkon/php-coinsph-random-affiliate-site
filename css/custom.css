@@ -75,6 +75,10 @@ img {
 	margin-bottom: 20px;
 }
 
+.ja-toppadding {
+	margin-top: 20px;
+}
+
 .ja-horizontaldivider {
 	width:5px;
 	height:auto;

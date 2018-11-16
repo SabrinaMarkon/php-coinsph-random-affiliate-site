@@ -46,18 +46,18 @@ $savedmails = $allsavedmails->getAllSavedMails();
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            
-            <form action="/admin/mail" method="post" accept-charset="utf-8" class="form" role="form">
-                <button class="btn btn-md btn-primary pull-left" type="submit" name="sendverifications" style="margin-right:10px;">Resend Verifications</button>
-            </form>
 
             <h1 class="ja-bottompadding">Email Members</h1>
 
             <form action="/admin/mail" method="post" accept-charset="utf-8" class="form" role="form">
+                <button class="btn btn-md btn-primary pull-left" type="submit" name="sendverifications" style="margin-right:10px;">Resend Verifications</button>
+            </form>
+
+            <form action="/admin/mail" method="post" accept-charset="utf-8" class="form ja-toppadding" role="form">
                 <div class="form-group textfield">
                     <div class="row">
-                        <div class="col-sm-3"><label for="id">Edit Saved Mail:</label></div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-2"><label for="id">Edit Saved Mail:</label></div>
+                        <div class="col-sm-7">
                             <select name="id" class="form-control">
                                 <option value="" disabled selected>Select saved mail to edit</option>
                                 <?php
