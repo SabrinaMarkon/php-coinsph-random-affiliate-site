@@ -83,8 +83,7 @@ $ads = $allads->showAds($username);
 						foreach ($ads as $ad) {
 
 
-											//     id integer unsigned not null primary key auto_increment,
-// transactionid integer unsigned not null,
+//     id integer unsigned not null primary key auto_increment,
 // username varchar(255) not null default 'admin',
 // name varchar(255) not null,
 // title varchar(255) not null,
@@ -97,7 +96,6 @@ $ads = $allads->showAds($username);
 // hits integer unsigned not null default '0',
 // clicks integer unsigned not null default '0',
 // adddate datetime not null,
-// foreign key (transactionid) references transactions(id)
 
 
 							$adddate = new DateTime($ad['adddate']);

@@ -6,7 +6,8 @@ adminname varchar(255) not null,
 adminemail varchar(255) not null,
 sitename varchar(255) not null,
 domain varchar(255) not null,
-adminratio integer unsigned not null default '5'
+adminratio integer unsigned not null default '5',
+adminautoapprove tinyint(1) not null default '0'
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `adminnotes` (
@@ -27,7 +28,6 @@ promotionaladbody longtext not null
 
 create table ads (
 id integer unsigned not null primary key auto_increment,
-transactionid integer unsigned not null,
 username varchar(255) not null default 'admin',
 name varchar(255) not null,
 title varchar(255) not null,
@@ -35,12 +35,11 @@ url varchar(500) not null,
 shorturl varchar(255) not null,
 description varchar(255) not null,
 imageurl varchar(500) not null,
-added tinyint(4) not null default '0',
-approved tinyint(4) not null default '0',
+added tinyint(1) not null default '0',
+approved tinyint(1) not null default '0',
 hits integer unsigned not null default '0',
 clicks integer unsigned not null default '0',
-adddate datetime not null,
-foreign key (transactionid) references transactions(id)
+adddate datetime not null
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `countries` (
@@ -96,13 +95,15 @@ CREATE TABLE `pages` (
 
 create table transactions (
   id integer unsigned not null auto_increment primary key,
+  adid integer unsigned not null,
   username varchar(255) not null,
   amount decimal(9,2) not null default '0.00',
   recipient varchar(255) not null default 'admin',
   recipienttype varchar(255) not null default 'sponsor',
   recipientapproved varchar(4) not null default '0',
   datepaid datetime not null,
-  transaction varchar(255) not null default 'Bitcoin'
+  transaction varchar(255) not null default 'Bitcoin',
+  foreign key (adid) references ads(id)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 insert into adminsettings (adminuser, adminpass, adminname, adminemail, sitename, domain) values ('Admin', 'admin', 'YOUR NAME', 'YOUR ADMIN EMAIL', 'YOUR SITE NAME','http://YOURDOMAIN.COM');

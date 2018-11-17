@@ -39,7 +39,6 @@ class Ad {
 
 
 //     id integer unsigned not null primary key auto_increment,
-// transactionid integer unsigned not null,
 // username varchar(255) not null default 'admin',
 // name varchar(255) not null,
 // title varchar(255) not null,
@@ -52,7 +51,7 @@ class Ad {
 // hits integer unsigned not null default '0',
 // clicks integer unsigned not null default '0',
 // adddate datetime not null,
-// foreign key (transactionid) references transactions(id)
+
 
 
     public function setAd($id) {
