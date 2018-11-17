@@ -13,7 +13,20 @@ class Randomizer {
     /* Get an array of all records in the randomizer table.*/
     private function getAllUsers() {
 
-        return;
+        $pdo = DATABASE::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "select * from randomizer order by username desc";
+        $q = $pdo->prepare($sql);
+        $q->execute();
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $randomusers = $q->fetchAll();
+        $randomusersarray = array();
+        foreach ($randomusers as $randomuser) {
+            array_push($randomusersarray, $randomuser);
+        }
+        Database::disconnect();
+        
+        return $randomusersarray;
     }
 
     /* Get one username from the randomizer table.*/
@@ -30,32 +43,61 @@ class Randomizer {
     /* Add a username to the randomizer table.*/
     private function addUser($username) {
 
+        $bitcoin = $_POST['bitcoin'];
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "insert into randomizer (username) values (?)";
+        $sql = "insert into randomizer (username,bitcoin) values (?,?)";
         $q = $pdo->prepare($sql);
-        $q->execute([$username]);
+        $q->execute([$username,$bitcoin]);
         DATABASE::disconnect();
-        return;
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was added to the Randomizer!</strong></div>";
     }
 
     /* Delete a single id, OR all ids for a deleted user from the randomizer table.*/
     private function deleteUser($username, $id) {
 
+        $pdo = DATABASE::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         # if $username is empty, just delete the $id
-
+        if(empty($username)) {
+            $sql = "delete from randomizer where id=?";
+            $q = $pdo->prepare($sql);
+            $q->execute([$id]);
+            DATABASE::disconnect();
+            return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Position #" . $id . " was Deleted!</strong></div>";
+        }
         # if $username is not empty, delete all randomizer positions for that username.
-
-        return;
+        else {
+            $sql = "delete from randomizer where username=?";
+            $q = $pdo->prepare($sql);
+            $q->execute([$username]);
+            DATABASE::disconnect();
+            return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>All Randomizer Positions for " . $username . " were Deleted!</strong></div>";
+        }  
     }
 
     private function saveUser($username, $id) {
 
+        $updateusername = $_POST['updateusername'];
+        $updatebitcoin = $_POST['updatebitcoin'];
+        $pdo = DATABASE::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         # if $username is empty, just update the single $id
-
+        if(empty($username)) {
+            $sql = "update randomizer set bitcoin=?,username=? where id=?";
+            $q = $pdo->prepare($sql);
+            $q->execute([$updatebitcoin,$updateusername,$id]);
+            DATABASE::disconnect();
+            return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Position #" . $id . " was Saved!</strong></div>";
+        }
         # if $username is not empty, update all randomizer positions for that username.
-
-        return;
+        else {
+            $sql = "update randomizer set bitcoin=?,username=? where username=?";
+            $q = $pdo->prepare($sql);
+            $q->execute([$updatebitcoin,$updateusername,$username]);
+            DATABASE::disconnect();
+            return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Positions for " . $username . " were Saved!</strong></div>";
+        }
     }
 
 }

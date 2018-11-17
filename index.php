@@ -51,6 +51,7 @@ else
 	$showgravatar = $logincheck->getGravatar($_SESSION['username'],$_SESSION['email']);
 	}
 }
+###################################### below is still ugly. Refactor.
 if (isset($_POST['forgotlogin']))
 {
 $forgot = new User();
@@ -76,6 +77,18 @@ if (isset($_POST['saveprofile']))
 {
 $update = new User();
 $showupdate = $update->saveProfile($_SESSION['username']);
+}
+if (isset($_POST['createad'])) {
+$create = new Ad();
+$showcreate = $create->createAd($username);
+}
+if (isset($_POST['savead'])) {
+$save = new Ad();
+$showsave = $save->saveAd($id);
+}
+if (isset($_POST['deletead'])) {
+$delete = new Ad();
+$showdelete = $delete->deleteAd($id);
 }
 if (isset($_GET['page']) && ($_GET['page'] === "logout"))
 {
