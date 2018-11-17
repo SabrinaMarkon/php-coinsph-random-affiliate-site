@@ -29,7 +29,27 @@ class Randomizer {
         return $randomusersarray;
     }
 
-    /* Get one username from the randomizer table.*/
+    /* Get all positions for ONE USERNAME from the randomizer table.*/
+    private function getAllForOneUser($username) {
+
+        $pdo = DATABASE::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "select * from randomizer where username=? order by id desc";
+        $q = $pdo->prepare($sql);
+        $q->execute([$username]);
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $positions = $q->fetchAll();
+        $allpositionsforuser = array();
+        foreach ($positions as $position) {
+            array_push($allpositionsforuser, $position);
+        }
+        Database::disconnect();
+        
+        return $allpositionsforuser;   
+
+    }
+
+    /* Get one POSITION ONLY from the randomizer table.*/
     private function getOneUser() {
 
         $pdo = DATABASE::connect();
