@@ -41,17 +41,27 @@ foreach ($settings as $key => $value)
                 <label class="sr-only" for="domain">Your Domain:</label>
                 <input type="text" name="domain" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Website URL (start with http://)">
 
-                <label class="sr-only" for="adminratio">Admin Ratio for Randomizer:</label>
-                Show Admin Payment Button Every&nbsp;
-                <select name="adminratio" class="form-control smallselect">
-                    <?php
-                    for ($i = 0; $i <= 50; $i++) {
-                        ?>
-                        <option value="<?php echo $i ?>" <?php if ($i === intval($adminratio)) { echo "selected"; } ?>><?php echo $i ?></option>
+                <div>
+                    <label class="sr-only" for="adminratio">Admin Ratio for Randomizer:</label>
+                    Show Admin Payment Button Every&nbsp;
+                    <select name="adminratio" class="form-control smallselect">
                         <?php
-                    }
-                    ?>
-                </select>&nbsp;Times (0 for never, 1 for every single time)
+                        for ($i = 0; $i <= 50; $i++) {
+                            ?>
+                            <option value="<?php echo $i ?>" <?php if ($i === intval($adminratio)) { echo "selected"; } ?>><?php echo $i ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>&nbsp;Times (0 for never, 1 for every single time)
+                </div>
+                
+                <div>
+                    <label class="sr-only" for="adminautoapprove">Auto-approve Ads</label>
+                    Auto-approve Ads:&nbsp;<select name="adminautoapprove" class="form-control smallselect">
+                        <option value="1" <?php if (intval($adminautoapprove) === 1) { echo "selected"; } ?>>Yes</option>
+                        <option value="0" <?php if (intval($adminautoapprove) !== 1) { echo "selected"; } ?>>No</option>
+                    </select>
+                </div>
 
                 <div class="ja-bottompadding"></div>
 

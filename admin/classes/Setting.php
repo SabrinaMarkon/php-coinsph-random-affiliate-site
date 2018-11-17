@@ -18,6 +18,7 @@ class Setting
         $newsitename = $_POST['sitename'];
         $newdomain = $_POST['domain'];
         $newadminratio = $_POST['adminratio'];
+        $newadminautoapprove = $_POST['adminautoapprove'];
 
         # if either username or password changed, update session.
         if (($adminuser !== $newadminuser) or ($adminpass !== $newadminpass)) {
@@ -27,9 +28,9 @@ class Setting
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "update adminsettings set adminuser=?, adminpass=?, adminname=?, adminemail=?, sitename=?, domain=?, adminratio=?";
+        $sql = "update adminsettings set adminuser=?, adminpass=?, adminname=?, adminemail=?, sitename=?, domain=?, adminratio=?, adminautoapprove=?";
         $q = $pdo->prepare($sql);
-        $q-> execute(array($newadminuser, $newadminpass, $newadminname, $newadminemail, $newsitename, $newdomain, $newadminratio));
+        $q-> execute(array($newadminuser, $newadminpass, $newadminname, $newadminemail, $newsitename, $newdomain, $newadminratio, $newadminautoapprove));
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Site Settings Were Saved!</strong></div>";
