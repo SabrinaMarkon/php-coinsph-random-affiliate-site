@@ -7,6 +7,7 @@ adminemail varchar(255) not null,
 sitename varchar(255) not null,
 domain varchar(255) not null,
 adminratio integer unsigned not null default '5',
+ratiocounter tinyint(4) unsigned not null default '0',
 adminautoapprove tinyint(1) not null default '0'
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
@@ -100,7 +101,7 @@ create table transactions (
   amount decimal(9,2) not null default '0.00',
   recipient varchar(255) not null default 'admin',
   recipienttype varchar(255) not null default 'sponsor',
-  recipientapproved varchar(4) not null default '0',
+  recipientapproved tinyint(1) not null default '0',
   datepaid datetime not null,
   transaction varchar(255) not null default 'Bitcoin',
   foreign key (adid) references ads(id)

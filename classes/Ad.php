@@ -10,9 +10,9 @@ class Ad {
 
     private $pdo;
 
-    public function showAds($username) {
+    public function getAds($username) {
         
-        $pdo = DATABASE::connect($username);
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "select * from ads where username=? order by id desc";
         $q = $pdo->prepare($sql);
@@ -24,35 +24,29 @@ class Ad {
             array_push($adsarray, $ad);
         }
         Database::disconnect();
+        
         return $adsarray;
     }
 
-    public function createAd() {
+    public function createAd($username) {
 
-        return;
+        $name = $_POST['name'];
+        $title = $_POST['title'];
+        $url = $_POST['url'];
+        $description = $_POST['description'];
+        $imageurl = $_POST['imageurl'];
+
+        # generate shorturl with GOOGLE!!?!?!?!?
+        
+        $pdo = DATABASE::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "insert into ads (username,name,title,url,shorturl,description,imageurl,added,approved,adddate) values (?,?,?,?,?,?,?,1,?,NOW())";
+        $p = $pdo->prepare($sql);
+        $p->execute(array($username,$name,$title,$url,$shorturl,$description,$imageurl,$adminautoapprove));
+        Database::disconnect();
+        
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your New Ad: " . $name . " was Created!</strong></div>";
     }
-
-    public function getAd($id) {
-
-        return;
-    }
-
-
-//     id integer unsigned not null primary key auto_increment,
-// username varchar(255) not null default 'admin',
-// name varchar(255) not null,
-// title varchar(255) not null,
-// url varchar(500) not null,
-// shorturl varchar(255) not null,
-// description varchar(255) not null,
-// imageurl varchar(500) not null,
-// added tinyint(4) not null default '0',
-// approved tinyint(4) not null default '0',
-// hits integer unsigned not null default '0',
-// clicks integer unsigned not null default '0',
-// adddate datetime not null,
-
-
 
     public function setAd($id) {
 
@@ -64,7 +58,7 @@ class Ad {
 
         # generate shorturl with GOOGLE!!?!?!?!?
 
-        $pdo = DATABASE::connect($username);
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "update ads set name=?, title=?, url=?, description=?, imageurl=?, shorturl=?, added=1, approved=?, hits=0, clicks=0, adddate=NOW() where id=?";
         $q = $pdo->prepare($sql);
@@ -76,7 +70,7 @@ class Ad {
 
     public function deleteAd($id, $name) {
 
-        $pdo = DATABASE::connect($username);
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "delete from ads where id=?";
         $q = $pdo->prepare($sql);

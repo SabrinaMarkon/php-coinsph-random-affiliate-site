@@ -7,7 +7,7 @@ echo $showupdate;
 $showcontent = new PageContent();
 echo $showcontent->showPage('Members Area Ads Page');
 $allads = new Ad();
-$ads = $allads->showAds($username);
+$ads = $allads->getAds($username);
 ?>
 
 <div class="container">
@@ -19,7 +19,7 @@ $ads = $allads->showAds($username);
 			<?php
 			if (empty($ads)) {
 
-				# means the person hasn't paid someone yet. Show pay buttons.
+				# means the person hasn't paid someone yet. Show pay buttons (either one or two).
 				echo "<p>You have no paid ads yet. Please pay BOTH your sponsor and a random member below, 
 				or if you already have, please wait for both recipients to validate that they have received their payment,
 				then the form to create your ad will become available here.</p><p>If you have already paid, and have
@@ -33,10 +33,30 @@ $ads = $allads->showAds($username);
 			} else {
 				# person has at least one ad they paid (2 people) for waiting for them to create.
 				# show form to create ad.
+				?>
+				<form action="/ads" method="post" accept-charset="utf-8" class="form" role="form">
 
+				<label class="sr-only" for="name">Name of Ad</label>
+				<input type="text" name="name" class="form-control input-lg" placeholder="Name of Ad">
 
+				<label class="sr-only" for="title">Title</label>
+				<input type="text" name="title" class="form-control input-lg" placeholder="Title">
 
+				<label class="sr-only" for="url">Click-Thru URL</label>
+				<input type="text" name="url" class="form-control input-lg" placeholder="Click-Thru URL">
 
+				<label class="sr-only" for="description">Ad Text</label>
+				<input type="text" name="description" class="form-control input-lg" placeholder="Ad Text">
+
+				<label class="sr-only" for="imageurl">Image URL (image will be resized to 100 x 100!)</label>
+				<input type="text" name="imageurl" class="form-control input-lg" placeholder="Image URL (image will be resized to 100 x 100!)">
+
+				<div class="ja-bottompadding"></div>
+
+				<button class="btn btn-lg btn-primary" type="submit" name="createad">CREATE AD</button>
+
+				</form>
+				<?php
 			}
 			?>
 
@@ -81,22 +101,6 @@ $ads = $allads->showAds($username);
 
 						<?php
 						foreach ($ads as $ad) {
-
-
-//     id integer unsigned not null primary key auto_increment,
-// username varchar(255) not null default 'admin',
-// name varchar(255) not null,
-// title varchar(255) not null,
-// url varchar(500) not null,
-// shorturl varchar(255) not null,
-// description varchar(255) not null,
-// imageurl varchar(500) not null,
-// added tinyint(4) not null default '0',
-// approved tinyint(4) not null default '0',
-// hits integer unsigned not null default '0',
-// clicks integer unsigned not null default '0',
-// adddate datetime not null,
-
 
 							$adddate = new DateTime($ad['adddate']);
 							$dateadadded = $adddate->format('Y-m-d');
@@ -145,14 +149,14 @@ $ads = $allads->showAds($username);
 								</td>
 								<td>
 									<input type="hidden" name="_method" value="PATCH">
-									<button class="btn btn-sm btn-primary" type="submit" name="savemember">SAVE</button>
+									<button class="btn btn-sm btn-primary" type="submit" name="savead">SAVE</button>
 								</td>
 								</form>
 								<td>
-									<form action="/admin/members/<?php echo $ad['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
+									<form action="/ads/<?php echo $ad['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
 										<input type="hidden" name="_method" value="DELETE">
 										<input type="hidden" name="username" value="<?php echo $ad['username']; ?>">
-										<button class="btn btn-sm btn-primary" type="submit" name="deletemember">DELETE</button>
+										<button class="btn btn-sm btn-primary" type="submit" name="deletead">DELETE</button>
 									</form>
 									</form>
 								</td>
