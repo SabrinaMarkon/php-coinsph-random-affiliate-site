@@ -52,7 +52,7 @@ class Mail
         $q = $pdo->prepare($sql);
         $q->execute(array($subject, $message, $url, $id));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Mail was Saved!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Mail was Saved!</strong></div>";
 
     }
 
@@ -67,7 +67,7 @@ class Mail
         $q = $pdo->prepare($sql);
         $q->execute(array($subject, $message, $url));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Mail was Added!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Mail was Added!</strong></div>";
 
     }
 
@@ -88,7 +88,7 @@ class Mail
             $q->execute(array($subject, $message, $url));
         }
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Mail was Sent!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Mail was Sent!</strong></div>";
 
     }
 
@@ -128,7 +128,7 @@ class Mail
         }
 
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Verification Emailss were Resent!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Verification Emailss were Resent!</strong></div>";
     }
 
     public function deleteMail($id) {
@@ -139,7 +139,7 @@ class Mail
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Saved Mail Was Deleted</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Saved Mail Was Deleted</strong></div>";
 
     }
 

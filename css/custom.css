@@ -165,6 +165,10 @@ img {
 	font-size: 10pt;
 	min-width: 100px;
 }
+.smallselect {
+	max-width: 100px;
+	display: inline-block;
+}
 .form .inlineform {
 	display: inline-block;
 }

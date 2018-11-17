@@ -41,6 +41,18 @@ foreach ($settings as $key => $value)
                 <label class="sr-only" for="domain">Your Domain:</label>
                 <input type="text" name="domain" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Website URL (start with http://)">
 
+                <label class="sr-only" for="adminratio">Admin Ratio for Randomizer:</label>
+                Show Admin Payment Button Every&nbsp;
+                <select name="adminratio" class="form-control smallselect">
+                    <?php
+                    for ($i = 0; $i <= 50; $i++) {
+                        ?>
+                        <option value="<?php echo $i ?>" <?php if ($i === intval($adminratio)) { echo "selected"; } ?>><?php echo $i ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>&nbsp;Times (0 for never, 1 for every single time)
+
                 <div class="ja-bottompadding"></div>
 
                 <button class="btn btn-lg btn-primary" type="submit" name="savesettings">Save Settings</button>

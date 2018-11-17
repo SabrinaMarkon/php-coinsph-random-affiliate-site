@@ -46,7 +46,7 @@ class Money
         $q = $pdo->prepare($sql);
         $q->execute(array($username, $recipient, $recipientapproved, $recipienttype, $amount, $datepaid, $transaction, $id));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID #" . $id . " was Saved!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID #" . $id . " was Saved!</strong></div>";
 
     }
 
@@ -58,7 +58,7 @@ class Money
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID " . $id . " was Deleted</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID " . $id . " was Deleted</strong></div>";
 
     }
 

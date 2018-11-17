@@ -53,7 +53,7 @@ class Page
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $htmlcode, $slug));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Page: " . $name . " was Added!</strong><br>New URL: <a href=" . $domain . "/" . $slug . ">" . $domain . "/" . $slug . "</a></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Page: " . $name . " was Added!</strong><br>New URL: <a href=" . $domain . "/" . $slug . ">" . $domain . "/" . $slug . "</a></div>";
 
     }
 
@@ -76,7 +76,7 @@ class Page
             $q->execute(array($name, $htmlcode, $id));      
         }
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Page Content for " . $name . " was Saved!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Page Content for " . $name . " was Saved!</strong></div>";
 
     }
 
@@ -89,7 +89,7 @@ class Page
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Page Content for " . $name . " was Deleted</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Page Content for " . $name . " was Deleted</strong></div>";
 
     }
 }

@@ -39,7 +39,7 @@ class Admin
 		$sendsiteemail = new Email();
 		$send = $sendsiteemail->sendEmail($adminemail,$adminemail,$subject,$message,$sitename,$domain,$adminemail, '');
 		Database::disconnect();
-		return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your admin details were sent to your email address.</strong></div>";
+		return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your admin details were sent to your email address.</strong></div>";
 	}
 
 	public function getGravatar($adminemail) {

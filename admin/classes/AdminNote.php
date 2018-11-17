@@ -23,7 +23,7 @@ class AdminNote
         $q = $pdo->prepare($sql);
         $q->execute(array($htmlcode));
         Database::disconnect();
-        return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Saved Your Admin Notes!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Saved Your Admin Notes!</strong></div>";
     }
 
     public function getAdminNote()

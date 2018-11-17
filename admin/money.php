@@ -51,14 +51,14 @@ $transactions = $alltransactions->getAllTransactions();
                         </td>
                         <td>
                             <label class="sr-only" for="recipientapproved">Payee Approved:</label>
-                            <select name="recipientapproved" value="<?php echo $transaction['recipientapproved']; ?>" class="form-control widetableselect">
+                            <select name="recipientapproved" class="form-control widetableselect">
                                 <option value="no" <?php if ($transaction['recipientapproved'] !== "yes") { echo "selected"; } ?>>No</option>
                                 <option value="yes" <?php if ($transaction['recipientapproved'] === "yes") { echo "selected"; } ?>>Yes</option>
                             </select>
                         </td>
                         <td>
                             <label class="sr-only" for="recipienttype">Payment Type:</label>
-                            <select name="recipienttype" value="<?php echo $transaction['recipienttype']; ?>" class="form-control widetableselect">
+                            <select name="recipienttype" class="form-control widetableselect">
                                 <option value="random" <?php if ($transaction['recipienttype'] !== "sponsor") { echo "selected"; } ?>>Random</option>
                                 <option value="sponsor" <?php if ($transaction['recipienttype'] === "sponsor") { echo "selected"; } ?>>Sponsor</option>
                             </select>

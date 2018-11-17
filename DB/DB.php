@@ -5,7 +5,8 @@ adminpass varchar(255) not null,
 adminname varchar(255) not null,
 adminemail varchar(255) not null,
 sitename varchar(255) not null,
-domain varchar(255) not null
+domain varchar(255) not null,
+adminratio integer unsigned not null default '5'
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `adminnotes` (
@@ -26,6 +27,7 @@ promotionaladbody longtext not null
 
 create table ads (
 id integer unsigned not null primary key auto_increment,
+transactionid integer unsigned not null,
 username varchar(255) not null default 'admin',
 name varchar(255) not null,
 title varchar(255) not null,
@@ -37,7 +39,8 @@ added tinyint(4) not null default '0',
 approved tinyint(4) not null default '0',
 hits integer unsigned not null default '0',
 clicks integer unsigned not null default '0',
-adddate datetime not null
+adddate datetime not null,
+foreign key (transactionid) references transactions(id)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `countries` (
@@ -119,7 +122,7 @@ INSERT INTO pages (name, htmlcode, slug, core) values ('Logout Page', '', 'logou
 INSERT INTO pages (name, htmlcode, slug, core) values ('About Us Page', '', 'aboutus', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Terms Page', '', 'terms', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('FAQ Page', '', 'faq', 'yes');
-INSERT INTO pages (name, htmlcode, slug, core) values ('404 Page', '', '404', 'yes');
+INSERT INTO pages (name, htmlcode, slug, core) values ('404 Page', 'Your custom 404 content here!', '404', 'yes');
 
 INSERT INTO `countries` (`country_id`, `country_name`, `iso_code2`, `iso_code3`, `reserved1`) values (1, 'Afghanistan', 'AF', 'AFG', 0);
 INSERT INTO `countries` (`country_id`, `country_name`, `iso_code2`, `iso_code3`, `reserved1`) values (2, 'Albania', 'AL', 'ALB', 0);
