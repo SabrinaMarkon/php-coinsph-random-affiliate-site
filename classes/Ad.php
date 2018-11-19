@@ -35,11 +35,12 @@ class Ad {
         return $adsarray;
     }
 
-    public function getBlankAd($adid) {
+    /* Call this when we need to get the member a blank ad to create a new ad in the form. */
+    public function getBlankAd($username) {
         
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "select * from ads where id=?";
+        $sql = "select * from ads where username=? and added=0";
         $q = $pdo->prepare($sql);
         $q->execute([$adid]);
         $ad = $q->fetch();
@@ -48,6 +49,7 @@ class Ad {
         return $ad['id'];
     }
 
+    /* Call this when the user submits their ad. */
     public function createAd($username) {
 
         $newname = $_POST['name'];
@@ -56,7 +58,8 @@ class Ad {
         $newdescription = $_POST['description'];
         $newimageurl = $_POST['imageurl'];
 
-        # generate shorturl with GOOGLE!!?!?!?!?
+        # generate shorturl - FIREBASE
+        $newshorturl = '';
         
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -68,29 +71,13 @@ class Ad {
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your New Ad: " . $name . " was Created!</strong></div>";
     }
 
-    // create table ads (
-    //     id integer unsigned not null primary key auto_increment,
-    //     username varchar(255) not null default 'admin',
-    //     name varchar(255) not null,
-    //     title varchar(255) not null,
-    //     url varchar(500) not null,
-    //     shorturl varchar(255) not null,
-    //     description varchar(255) not null,
-    //     imageurl varchar(500) not null,
-    //     added tinyint(1) not null default '0',
-    //     approved tinyint(1) not null default '0',
-    //     hits integer unsigned not null default '0',
-    //     clicks integer unsigned not null default '0',
-    //     adddate datetime not null
-    //     ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
-
-    /* Called when there are two paid transactions, one for sponsor and one for random recipient,
-    that aren't yet assigned an adid. In this case, we need to create a new blank ad for the user. */
+    /* When the second recipient (either the sponsor or the random member) confirms that they have received payment from the user, we
+    call this method to create the blank ad for the user. */
     public function createBlankAd($username) {
        
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "insert into ads (username,added,adddate) values (?,1,NOW())";
+        $sql = "insert into ads (username,adddate) values (?,NOW())";
         $q = $pdo->prepare($sql);
         $q->execute([$username]);
 
@@ -102,6 +89,7 @@ class Ad {
         return $adid;
     }
 
+    /* Call this when the user edits their existing ad. */
     public function saveAd($id) {
 
         $newname = $_POST['name'];
@@ -110,7 +98,8 @@ class Ad {
         $newdescription = $_POST['description'];
         $newimageurl = $_POST['imageurl'];
 
-        # generate shorturl with GOOGLE!!?!?!?!?
+        # generate shorturl - FIREBASE
+        $newshorturl = '';
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -122,6 +111,7 @@ class Ad {
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Ad " . $newname . " was Saved!</strong></div>";
     }
 
+    /* Call this to delete an ad. */
     public function deleteAd($id, $name) {
 
         $pdo = DATABASE::connect();
