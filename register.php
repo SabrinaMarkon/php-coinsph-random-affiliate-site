@@ -66,7 +66,7 @@ echo $showcontent->showPage('Registration Page');
 						</select>
 
 						<label for="referid" class="ja-toppadding">Your Sponsor:</label>
-						<input type="text" name="referid" value="" class="form-control input-lg" placeholder="<?php echo $_SESSION['referid']; ?>" required>
+						<input type="text" name="referid" value="<?php echo $_SESSION['referid']; ?>" class="form-control input-lg" placeholder="<?php echo $_SESSION['referid']; ?>" required>
 
 						<span class="help-block">By clicking Create My Account, you agree to our <a href="#" data-toggle="modal" data-target="#termsModal">Terms</a></span>
 						

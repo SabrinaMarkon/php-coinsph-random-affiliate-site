@@ -26,15 +26,15 @@ $ads = $allads->getAds($username);
 			if (empty($ads)) {
 
 				# means the person hasn't paid someone yet. Show pay buttons (either one or two).
-				echo "<p>You have no paid ads yet. Please pay BOTH your sponsor and a random member below, 
-				or if you already have, please wait for both recipients to validate that they have received their payment,
-				then the form to create your ad will become available here.</p><p>If you have already paid, and have
-				been waiting a long time for the recipients to validate, please contact us with proof of
-				both your payments, so we can approve release of your ads, as well as your addition to the randomizer.</p>";
+				echo "<div class=\"ja-bottompadding ja-topadding\">You have no paid ads yet. Please pay BOTH your sponsor and a random member below. 
+				If you already have, please wait for BOTH recipients to verify that they have received a payment from you,
+				then the form to create your ad will become available here.</p><p>If you have ALREADY paid them BOTH, and have
+				been waiting a long time for the recipients to validate, please contact us with PROOF of
+				both your payments, so we can approve release of your ads, as well as your position in the randomizer.</div>";
 
-				# TWO BITCOIN PAYMENT BUTTONS - one for sponsor, and one for random member. Ratio for admin button to appear in randomizer button.
-				$bitcoinbuttons = new Bitcoin();
-				echo $bitcoinbuttons->getBitcoinButtons($username);
+				# TWO BITCOIN PAYMENT BUTTONS - one for sponsor, and one for random member.
+				$bitcoin = new Bitcoin();
+				echo $bitcoin->showBitCoinWalletIds($username, $settings['paysponsor'], $settings['payrandom']);
 			
 			} else {
 				/* person has at least one ad they paid (2 people) for waiting for them to create.

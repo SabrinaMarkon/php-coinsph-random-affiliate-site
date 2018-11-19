@@ -114,8 +114,8 @@ class User
 			$message .= "Login URL: " . $settings['domain'] . "/login\nUsername: " . $username . "\nPassword: " . $password . "\n\n";
 			$message .= "Your Referral URL: " . $settings['domain'] . "/r/" . $username . "\n\n";
 			$message .= "Before receiving your ad and randomizer spot, you will need to send:\n";
-			$message .= "1) " . $paysponsor . " to Bitcoin: " . $walletidsponsor . "\n";
-			$message .= "2) " . $payrandom . " to Bitcoin: " . $walletidrandom . "\n\n";
+			$message .= "1) " . $settings['paysponsor'] . " to Bitcoin: " . $referidwalletid . "\n";
+			$message .= "2) " . $settings['payrandom'] . " to Bitcoin: " . $randomwalletid . "\n\n";
 			$sendsiteemail = new Email();
 			$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['adminemail'], '');
 

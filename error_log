@@ -68,3 +68,19 @@ Stack trace:
 #2 /home/randombtcads/public_html/index.php(131): include('/home/randombtc...')
 #3 {main}
   thrown in /home/randombtcads/public_html/classes/PageContent.php on line 27
+[19-Nov-2018 16:40:30 UTC] PHP Notice:  Undefined variable: paysponsor in /home/randombtcads/public_html/classes/User.php on line 117
+[19-Nov-2018 16:40:30 UTC] PHP Notice:  Undefined variable: walletidsponsor in /home/randombtcads/public_html/classes/User.php on line 117
+[19-Nov-2018 16:40:30 UTC] PHP Notice:  Undefined variable: payrandom in /home/randombtcads/public_html/classes/User.php on line 118
+[19-Nov-2018 16:40:30 UTC] PHP Notice:  Undefined variable: walletidrandom in /home/randombtcads/public_html/classes/User.php on line 118
+[19-Nov-2018 16:47:27 UTC] PHP Fatal error:  Call to private method Bitcoin::getBitcoinButtons() from context '' in /home/randombtcads/public_html/ads.php on line 37
+[19-Nov-2018 16:49:41 UTC] PHP Fatal error:  Call to private method Bitcoin::getBitcoinButtons() from context '' in /home/randombtcads/public_html/ads.php on line 37
+[19-Nov-2018 16:49:41 UTC] PHP Fatal error:  Call to private method Bitcoin::getBitcoinButtons() from context '' in /home/randombtcads/public_html/ads.php on line 37
+[19-Nov-2018 16:58:01 UTC] PHP Fatal error:  Call to private method Bitcoin::getBitcoinButtons() from context '' in /home/randombtcads/public_html/ads.php on line 37
+[19-Nov-2018 17:08:08 UTC] PHP Fatal error:  Call to undefined method PDO::setAttributes() in /home/randombtcads/public_html/classes/Bitcoin.php on line 50
+[19-Nov-2018 17:08:42 UTC] PHP Notice:  Undefined variable: adminratio in /home/randombtcads/public_html/classes/Bitcoin.php on line 112
+[19-Nov-2018 17:08:42 UTC] PHP Notice:  Undefined variable: ratiocounter in /home/randombtcads/public_html/classes/Bitcoin.php on line 112
+[19-Nov-2018 17:08:42 UTC] PHP Fatal error:  Call to undefined function makeBitcoinButton() in /home/randombtcads/public_html/classes/Bitcoin.php on line 117
+[19-Nov-2018 17:29:36 UTC] PHP Notice:  Use of undefined constant DATABASE - assumed 'DATABASE' in /home/randombtcads/public_html/classes/Bitcoin.php on line 24
+[19-Nov-2018 17:29:36 UTC] PHP Fatal error:  Call to undefined function connect() in /home/randombtcads/public_html/classes/Bitcoin.php on line 24
+[19-Nov-2018 17:30:36 UTC] PHP Fatal error:  Call to undefined function prepare() in /home/randombtcads/public_html/classes/Bitcoin.php on line 29
+[19-Nov-2018 17:34:31 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/randombtcads/public_html/classes/Bitcoin.php on line 59
