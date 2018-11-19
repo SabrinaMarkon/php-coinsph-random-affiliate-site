@@ -61,3 +61,10 @@ Stack trace:
 [19-Nov-2018 10:40:05 UTC] PHP Parse error:  syntax error, unexpected ',', expecting ']' in /home/randombtcads/public_html/index.php on line 90
 [19-Nov-2018 10:58:26 UTC] PHP Fatal error:  Call to private method Bitcoin::getBitcoinButtons() from context '' in /home/randombtcads/public_html/ads.php on line 37
 [19-Nov-2018 11:11:09 UTC] PHP Parse error:  syntax error, unexpected ',', expecting ']' in /home/randombtcads/public_html/index.php on line 90
+[19-Nov-2018 16:05:37 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home/randombtcads/public_html/classes/PageContent.php:27
+Stack trace:
+#0 /home/randombtcads/public_html/classes/PageContent.php(27): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/dynamic.php(9): PageContent->showPage('testing')
+#2 /home/randombtcads/public_html/index.php(131): include('/home/randombtc...')
+#3 {main}
+  thrown in /home/randombtcads/public_html/classes/PageContent.php on line 27

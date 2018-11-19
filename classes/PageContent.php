@@ -22,9 +22,9 @@ class PageContent
 		
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		$sql = "select htmlcode from pages where name=?";
+		$sql = "select htmlcode from pages where name=? or slug=?";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($pagename));
+		$q->execute(array($pagename,$pagename));
 		$q->setFetchMode(PDO::FETCH_ASSOC);
 		$data = $q->fetch();
 		$content = $data['htmlcode'];
@@ -36,7 +36,4 @@ HEREDOC;
 		return $content;
 	}
 
-	public function deletePage() {
-
-	}
 }

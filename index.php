@@ -124,9 +124,12 @@ if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET
 
     $page = $_REQUEST['page'];
     include $page . ".php";
-}
-else
-{
+} elseif ((!empty($_GET['page'])) and (!file_exists($_GET['page'] . ".php"))) {
+
+	# show the admin create page.
+	$page = $_GET['page'];
+	include "dynamic.php";
+} else {
 
     include "main.php";
 }
