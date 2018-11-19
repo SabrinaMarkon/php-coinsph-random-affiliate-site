@@ -1,6 +1,6 @@
 <?php
 /**
-Handles user interactions with the application.
+Handles Bitcoin payment buttons and ad assignment to users.
 PHP 5.4++
 @author Sabrina Markon
 @copyright 2018 Sabrina Markon, PHPSiteScripts.com
@@ -14,15 +14,28 @@ class Bitcoin {
 
         # create a button for a user to pay another user with Bitcoin.
         # 'sponsor', 'admin', or 'random'.
+        $bitcoinbutton;
 
         if ($whotopay === 'sponsor') {
 
+
+            $bitcoinbutton = "I'm a REFERID BC button!";
+            
         } elseif ($whotopay === 'admin') {
+            
+
+            $bitcoinbutton = "I'm an ADMIN BC button!";
 
         } else {
-            
+
+            # get a random user from the randomizer.
+            $randomizer = new Randomizer();
+            $payee = $randomizer->getUser();
+
+            $bitcoinbutton = "I'm a RANDOM BC button!";
         }
 
+        return $bitcoinbutton;
     }
 
     private function getBitcoinButtons($username) {
@@ -58,6 +71,15 @@ class Bitcoin {
             $sqladid = "update transactions set adid=? where id=? or id=?";
             $q = $pdo->prepare($sqladid);
             $q->execute([$adid,$sponsortransid,$randomtransid]);
+
+            # add the user to the randomizer (it is possible to have multiple entries!).
+            $randomizer = new Randomizer();
+            $payee = $randomizer->addUser($username);
+
+            ###### ALSO NEED TO DELETE FROM RANDOMIZER WHENEVER A MEMBER IS DELETED!!!!! ##########
+            $randomizer = new Randomizer();
+            $randomizer->addUser($username);
+
             Database::disconnect();        
 
             return;

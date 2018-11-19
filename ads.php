@@ -31,8 +31,12 @@ $ads = $allads->getAds($username);
 				echo $bitcoinbuttons->getBitcoinButtons($username);
 			
 			} else {
-				# person has at least one ad they paid (2 people) for waiting for them to create.
-				# show form to create ad.
+				/* person has at least one ad they paid (2 people) for waiting for them to create.
+				show form to create ad with an id to update the 2 paid transactions' adid. */
+
+				# get the first available ad in the ads 
+				$ad = $allads->getBlankAd();
+
 				?>
 				<form action="/ads" method="post" accept-charset="utf-8" class="form" role="form">
 

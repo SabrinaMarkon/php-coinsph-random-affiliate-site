@@ -76,7 +76,7 @@ $showverify = $verify->verifyUser($verificationcode);
 if (isset($_POST['saveprofile']))
 {
 $update = new User();
-$showupdate = $update->saveProfile($_SESSION['username']);
+$showupdate = $update->saveProfile($_SESSION['username'],$settings);
 }
 if (isset($_POST['createad'])) {
 $create = new Ad();

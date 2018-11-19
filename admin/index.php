@@ -44,8 +44,6 @@ if (isset($_POST['login']))
     $newlogin = $logincheck->adminLogin($_SESSION['username'],$_SESSION['password']);
     if ($newlogin === false)
     {
-        // $logout = new Admin();
-        // $logout->adminLogout();
         $logout = new Admin();
         $logout->adminLogout();  
         $showcontent = new LoginForm();
@@ -127,7 +125,11 @@ if (isset($_POST['deletepage']))
     $delete = new Page();
     $showupdate = $delete->deletePage($id);
 }
-
+if (isset($_POST['addmember']))
+{
+    $add = new Member();
+    $showadd = $add->addMember();
+}
 if (isset($_POST['savemember']))
 {
     $update = new Member();

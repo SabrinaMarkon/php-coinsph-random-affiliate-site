@@ -29,10 +29,40 @@ class Member
 
     }
 
+    public function addMember($settings) {
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $walletid = $_POST['walletid'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $country = $_POST['country'];
+        $email = $_POST['email'];
+        $signupip = $_SERVER['REMOTE_ADDR'];
+        $verified = $_POST['verified'];
+        $referid = $_POST['referid'];
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "insert into members (username,password,walletid,firstname,lastname,email,country,referid,signupdate,signupip,verificationcode) values (?,?,?,?,?,?,?,?,NOW(),?,?)";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($username,$password,$walletid,$firstname,$lastname,$email,$country,$referid,$signupip,$verificationcode));
+        Database::disconnect();
+
+        $subject = "Welcome to " . $settings['sitename'] . "!";
+        $message = "Click to Verify your Email: " . $settings['domain'] . "/verify/" . $verificationcode . "\n\n";
+        $message .= "Login URL: " . $settings['domain'] . "/login\nUsername: " . $username . "\nPassword: " . $password . "\n\n";
+        $message .= "Your Referral URL: " . $settings['domain'] . "/r/" . $username . "\n\n";
+        $sendsiteemail = new Email();
+        $send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['domain'], $settings['adminemail'], '');
+
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Member " . $username . " was Added!</strong></div>"; 
+    }
+
     public function saveMember($id) {
 
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $walletid = $_POST['walletid'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $country = $_POST['country'];
@@ -42,16 +72,11 @@ class Member
         $referid = $_POST['referid'];
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "update `members` set username=?, password=?, firstname=?, lastname=?, country=?, email=?, signupip=?, verified=?, referid=? where id=?";
+        $sql = "update `members` set username=?, password=?, walletid=?, firstname=?, lastname=?, country=?, email=?, signupip=?, verified=?, referid=? where id=?";
         $q = $pdo->prepare($sql);
         $q->execute(array($username, $password, $firstname, $lastname, $country, $email, $signupip, $verified, $referid, $id));
-
-//        if (!$q->execute(array($id, $username, $password, $firstname, $lastname, $country, $email, $signupip, $verified, $referid))) {
-//            echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-//        }
- //     echo $q->rowCount();
-
         Database::disconnect();
+
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was Saved!</strong></div>";
 
     }

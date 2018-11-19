@@ -12,6 +12,58 @@ $members = $allmembers->getAllMembers();
     <div class="row">
         <div class="col-sm-12">
 
+			<h1 class="ja-bottompadding">Add New Member</h1>
+			
+			<form action="//admin/members" method="post" accept-charset="utf-8" class="form" role="form">
+			
+				<div class="row">
+					<div class="col-xs-6 col-md-6">
+						<label class="sr-only" for="firstname">First Name</label>
+						<input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name" required>
+					</div>
+					<div class="col-xs-6 col-md-6">
+						<label class="sr-only" for="lastname">Last Name</label>
+						<input type="text" name="lastname" value="" class="form-control input-lg" placeholder="Last Name" required>
+					</div>
+				</div>
+				
+                <label class="sr-only" for="email">Email</label>
+                <input type="text" name="email" value="" class="form-control input-lg" placeholder="Your Email" required>
+
+                <label class="sr-only" for="username">Username</label>
+                <input type="text" name="username" value="" class="form-control input-lg" placeholder="Username" required>
+
+                <label class="sr-only" for="confirm_password">Password</label>
+                <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password" required>
+
+                <label class="sr-only" for="confirm_password">Confirm Password</label>
+                <input type="password" name="password" value="" class="form-control input-lg" placeholder="Confirm Password" required>
+
+                <label class="sr-only" for="walletid">Bitcoin Wallet ID</label>
+                <input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
+
+                <label class="sr-only" for="country">Country</label>
+                <select name="country" class="form-control input-lg">
+                    <option value="United States">United States</option>
+                    <option value="Canada">Canada</option>
+                    <?php
+                    $country = '';
+                    $countrylist = new Countries();
+                    echo $countrylist->showCountries($country);
+                    ?>
+                </select>
+
+                <label class="sr-only" for="referid">Sponsor</label>
+                <input type="text" name="referid" value="" class="form-control input-lg" placeholder="Sponsor" required>
+
+                <div class="ja-bottompadding"></div>
+
+                <button class="btn btn-lg btn-primary" type="submit" name="addmember">Create Account</button>
+
+			</form>				
+
+			<div class="ja-bottompadding"></div>
+
             <h1 class="ja-bottompadding">Website Members</h1>
 
             <div class="table-responsive">
@@ -21,6 +73,7 @@ $members = $allmembers->getAllMembers();
                         <th class="text-center small">#</th>
                         <th class="text-center small">Username</th>
                         <th class="text-center small">Password</th>
+                        <th class="text-center small">Wallet ID</th>
                         <th class="text-center small">First Name</th>
                         <th class="text-center small">Last Name</th>
                         <th class="text-center small">Email</th>
@@ -55,23 +108,27 @@ $members = $allmembers->getAllMembers();
                             </td>
                             <td>
                                 <label class="sr-only" for="username">Username:</label>
-                                <input type="text" name="username" value="<?php echo $member['username']; ?>" class="form-control input-sm small" size="40" placeholder="Username">
+                                <input type="text" name="username" value="<?php echo $member['username']; ?>" class="form-control input-sm small" size="40" placeholder="Username" required>
                             </td>
                             <td>
                                 <label class="sr-only" for="password">Password:</label>
-                                <input type="text" name="password" value="<?php echo $member['password']; ?>" class="form-control input-sm small" size="40" placeholder="Password">
+                                <input type="text" name="password" value="<?php echo $member['password']; ?>" class="form-control input-sm small" size="40" placeholder="Password" required>
+                            </td>
+                            <td>
+                                <label class="sr-only" for="walletid">Bitcoin Wallet ID:</label>
+                                <input type="text" name="walletid" value="<?php echo $member['walletid']; ?>" class="form-control input-sm small" size="40" placeholder="Wallet ID" required>
                             </td>
                             <td>
                                 <label class="sr-only" for="firstname">First Name:</label>
-                                <input type="text" name="firstname" value="<?php echo $member['firstname']; ?>" class="form-control input-sm small" size="40" placeholder="First Name">
+                                <input type="text" name="firstname" value="<?php echo $member['firstname']; ?>" class="form-control input-sm small" size="40" placeholder="First Name" required>
                             </td>
                             <td>
                                 <label class="sr-only" for="lastname">Last Name:</label>
-                                <input type="text" name="lastname" value="<?php echo $member['lastname']; ?>" class="form-control input-sm small" size="40" placeholder="Last Name">
+                                <input type="text" name="lastname" value="<?php echo $member['lastname']; ?>" class="form-control input-sm small" size="40" placeholder="Last Name" required>
                             </td>
                             <td>
                                 <label class="sr-only" for="email">Email:</label>
-                                <input type="text" name="email" value="<?php echo $member['email']; ?>" class="form-control input-sm small" size="60" placeholder="Email">
+                                <input type="text" name="email" value="<?php echo $member['email']; ?>" class="form-control input-sm small" size="60" placeholder="Email" required>
                             </td>
                             <td>
                                 <label class="sr-only" for="verified">Verified:</label>
@@ -99,14 +156,14 @@ $members = $allmembers->getAllMembers();
                             </td>
                             <td>
                                 <label class="sr-only" for="signupip">IP:</label>
-                                <input type="text" name="signupip" value="<?php echo $member['signupip']; ?>" class="form-control input-sm small" size="60" placeholder="IP">
+                                <input type="text" name="signupip" value="<?php echo $member['signupip']; ?>" class="form-control input-sm small" size="60" placeholder="IP" required>
                             </td>
                             <td class="small">
                                 <?php echo $datelastlogin ?>
                             </td>
                             <td>
                                 <label class="sr-only" for="referid">Sponsor:</label>
-                                <input type="text" name="referid" value="<?php echo $member['referid']; ?>" class="form-control input-sm small" size="40" placeholder="Sponsor">
+                                <input type="text" name="referid" value="<?php echo $member['referid']; ?>" class="form-control input-sm small" size="40" placeholder="Sponsor" required>
                             </td>
                             <td>
                                 <input type="hidden" name="_method" value="PATCH">

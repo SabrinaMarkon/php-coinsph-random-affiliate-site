@@ -21,6 +21,15 @@ echo $showcontent->showPage('Members Area Earnings Page');
 
 			<div class="ja-bottompadding"></div>
 
+			<h1 class="ja-bottompadding">Randomizer</h1>
+			
+
+					
+
+
+
+			<div class="ja-bottompadding"></div>
+
 		</div>
 	</div>
 </div>

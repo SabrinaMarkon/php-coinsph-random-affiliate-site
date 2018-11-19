@@ -11,6 +11,12 @@ ratiocounter tinyint(4) unsigned not null default '0',
 adminautoapprove tinyint(1) not null default '0'
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
+CREATE TABLE adminwallets (
+  id integer unsigned not null primary key auto_increment,
+  name varchar(255) not null default 'Main Admin',
+  walletid varchar(500) not null
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
 CREATE TABLE `adminnotes` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(25) NOT NULL default '',
@@ -71,7 +77,7 @@ create table members (
 id integer unsigned not null primary key auto_increment,
 username varchar(255) not null,
 password varchar(255) not null,
-accounttype varchar(255) not null default 'Member',
+walletid varchar(500) not null,
 firstname varchar(255) not null,
 lastname varchar(255) not null,
 country varchar(255) not null,
@@ -92,6 +98,13 @@ CREATE TABLE `pages` (
   `core` varchar(4) not null default 'no',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
+create table randomizer (
+  id integer unsigned not null auto_increment primary key,
+  username varchar(255) not null,
+  walletid varchar(255) not null,
+  foreign key (username) references members(username)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 create table transactions (

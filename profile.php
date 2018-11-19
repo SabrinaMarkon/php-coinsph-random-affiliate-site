@@ -26,19 +26,23 @@ echo $showcontent->showPage('Members Area Profile Page');
 					<form action="/profile" method="post" accept-charset="utf-8" class="form" role="form">
 
 						<label class="sr-only" for="firstname">First Name</label>
-						<input type="text" name="firstname" value="<?php echo $firstname ?>" class="form-control input-lg" placeholder="First Name">
+						<input type="text" name="firstname" value="<?php echo $firstname ?>" class="form-control input-lg" placeholder="First Name" required>
 
 						<label class="sr-only" for="lastname">Last Name</label>
-						<input type="text" name="lastname" value="<?php echo $lastname ?>" class="form-control input-lg" placeholder="Last Name">
+						<input type="text" name="lastname" value="<?php echo $lastname ?>" class="form-control input-lg" placeholder="Last Name" required>
 
 						<label class="sr-only" for="email">Your Email</label>
-						<input type="text" name="email" value="<?php echo $email ?>" class="form-control input-lg" placeholder="Your Email">
+						<input type="hidden" name="oldemail" value="<?php echo $email ?>">
+						<input type="text" name="email" value="<?php echo $email ?>" class="form-control input-lg" placeholder="Your Email" required>
 
 						<label class="sr-only" for="password">Password</label>
-						<input type="password" name="password" value="<?php echo $password ?>" class="form-control input-lg" placeholder="Password">
+						<input type="password" name="password" value="<?php echo $password ?>" class="form-control input-lg" placeholder="Password" required>
 
 						<label class="sr-only" for="confirm_password">Confirm Password</label>
-						<input type="password" name="confirm_password" value="<?php echo $password ?>" class="form-control input-lg" placeholder="Confirm Password">
+						<input type="password" name="confirm_password" value="<?php echo $password ?>" class="form-control input-lg" placeholder="Confirm Password" required>
+
+						<label class="sr-only" for="walletid">Bitcoin Wallet ID</label>
+						<input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
 
 						<label class="sr-only" for="country">Country</label>
 						<select name="country" class="form-control input-lg">
