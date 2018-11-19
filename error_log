@@ -17,3 +17,47 @@ Stack trace:
 [19-Nov-2018 09:52:34 UTC] PHP Notice:  Undefined variable: mktime in /home/randombtcads/public_html/classes/User.php on line 126
 [19-Nov-2018 09:52:34 UTC] PHP Fatal error:  Function name must be a string in /home/randombtcads/public_html/classes/User.php on line 126
 [19-Nov-2018 09:52:56 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/randombtcads/public_html/classes/User.php on line 126
+[19-Nov-2018 10:14:59 UTC] PHP Notice:  Undefined variable: verificationcode in /home/randombtcads/public_html/classes/User.php on line 199
+[19-Nov-2018 10:14:59 UTC] PHP Notice:  Undefined variable: verificationcode in /home/randombtcads/public_html/classes/User.php on line 202
+[19-Nov-2018 10:21:32 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 219
+[19-Nov-2018 10:21:32 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 220
+[19-Nov-2018 10:21:32 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 221
+[19-Nov-2018 10:21:32 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 222
+[19-Nov-2018 10:21:32 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:21:32 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:21:32 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:22:42 UTC] PHP Notice:  Undefined variable: sitename in /home/randombtcads/public_html/classes/User.php on line 219
+[19-Nov-2018 10:22:42 UTC] PHP Notice:  Undefined variable: domain in /home/randombtcads/public_html/classes/User.php on line 220
+[19-Nov-2018 10:22:42 UTC] PHP Notice:  Undefined variable: domain in /home/randombtcads/public_html/classes/User.php on line 221
+[19-Nov-2018 10:22:42 UTC] PHP Notice:  Undefined variable: domain in /home/randombtcads/public_html/classes/User.php on line 222
+[19-Nov-2018 10:22:42 UTC] PHP Notice:  Undefined variable: adminemail in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:22:42 UTC] PHP Notice:  Undefined variable: sitename in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:22:42 UTC] PHP Notice:  Undefined variable: adminemail in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:23:24 UTC] PHP Notice:  Undefined variable: username in /home/randombtcads/public_html/classes/User.php on line 209
+[19-Nov-2018 10:23:24 UTC] PHP Notice:  Undefined variable: username in /home/randombtcads/public_html/classes/User.php on line 217
+[19-Nov-2018 10:23:24 UTC] PHP Warning:  Illegal string offset 'sitename' in /home/randombtcads/public_html/classes/User.php on line 219
+[19-Nov-2018 10:23:24 UTC] PHP Warning:  Illegal string offset 'domain' in /home/randombtcads/public_html/classes/User.php on line 220
+[19-Nov-2018 10:23:24 UTC] PHP Warning:  Illegal string offset 'domain' in /home/randombtcads/public_html/classes/User.php on line 221
+[19-Nov-2018 10:23:24 UTC] PHP Notice:  Undefined variable: username in /home/randombtcads/public_html/classes/User.php on line 221
+[19-Nov-2018 10:23:24 UTC] PHP Warning:  Illegal string offset 'domain' in /home/randombtcads/public_html/classes/User.php on line 222
+[19-Nov-2018 10:23:24 UTC] PHP Notice:  Undefined variable: username in /home/randombtcads/public_html/classes/User.php on line 222
+[19-Nov-2018 10:23:24 UTC] PHP Warning:  Illegal string offset 'adminemail' in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:23:24 UTC] PHP Warning:  Illegal string offset 'sitename' in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:23:24 UTC] PHP Warning:  Illegal string offset 'adminemail' in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:24:36 UTC] PHP Warning:  Missing argument 3 for User::saveProfile(), called in /home/randombtcads/public_html/index.php on line 80 and defined in /home/randombtcads/public_html/classes/User.php on line 194
+[19-Nov-2018 10:24:36 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 219
+[19-Nov-2018 10:24:36 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 220
+[19-Nov-2018 10:24:36 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 221
+[19-Nov-2018 10:24:36 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 222
+[19-Nov-2018 10:24:36 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:24:36 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:24:36 UTC] PHP Notice:  Undefined variable: settings in /home/randombtcads/public_html/classes/User.php on line 224
+[19-Nov-2018 10:38:07 UTC] PHP Notice:  Undefined variable: pdo in /home/randombtcads/public_html/classes/User.php on line 141
+[19-Nov-2018 10:38:07 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/classes/User.php on line 141
+[19-Nov-2018 10:38:37 UTC] PHP Notice:  Undefined variable: pdo in /home/randombtcads/public_html/classes/User.php on line 141
+[19-Nov-2018 10:38:37 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/classes/User.php on line 141
+[19-Nov-2018 10:38:57 UTC] PHP Notice:  Undefined variable: password in /home/randombtcads/public_html/classes/User.php on line 148
+[19-Nov-2018 10:38:57 UTC] PHP Notice:  Undefined variable: email in /home/randombtcads/public_html/classes/User.php on line 151
+[19-Nov-2018 10:40:05 UTC] PHP Parse error:  syntax error, unexpected ',', expecting ']' in /home/randombtcads/public_html/index.php on line 90
+[19-Nov-2018 10:58:26 UTC] PHP Fatal error:  Call to private method Bitcoin::getBitcoinButtons() from context '' in /home/randombtcads/public_html/ads.php on line 37
+[19-Nov-2018 11:11:09 UTC] PHP Parse error:  syntax error, unexpected ',', expecting ']' in /home/randombtcads/public_html/index.php on line 90

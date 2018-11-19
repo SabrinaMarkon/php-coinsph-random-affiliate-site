@@ -54,62 +54,80 @@ else
 ###################################### below is still ugly. Refactor.
 if (isset($_POST['forgotlogin']))
 {
+
 $forgot = new User();
-$showforgot = $forgot->forgotLogin($sitename,$domain,$adminemail);
+$show = $forgot->forgotLogin($sitename,$domain,$adminemail);
 }
 if (isset($_POST['contactus']))
 {
+
 $contact = new Contact();
-$sentcontact = $contact->sendContact($settings);
+$show = $contact->sendContact($settings);
 }
 if (isset($_POST['register']))
 {
+
 $register = new User();
-$showregistration = $register->newSignup($settings);
+$show = $register->newSignup($settings);
 }
 if (isset($_GET['page']) && ($_GET['page'] === "verify"))
 {
+
 $verify = new User();
-# the last part of the url is code this time not referid like other urls. Don't fix cuz it ain't broken.
+# the last part of the url is code this time not referid like other urls. Don't fix cuz it ain't broke.
 $verificationcode = $_SESSION['referid']; 
-$showverify = $verify->verifyUser($verificationcode);
+$show = $verify->verifyUser($verificationcode);
 }
 if (isset($_POST['saveprofile']))
 {
+
 $update = new User();
-$showupdate = $update->saveProfile($_SESSION['username'],$settings);
+$show = $update->saveProfile($_SESSION['username'],$settings);
+}
+if (isset($_POST['resendverification'])) {
+
+$resend = new User();
+$show = $resend->resendVerify($_SESSION['username'],$_SESSION['password'],$_SESSION['email'],$settings);
 }
 if (isset($_POST['createad'])) {
+
 $create = new Ad();
-$showcreate = $create->createAd($username);
+$show = $create->createAd($username);
 }
 if (isset($_POST['savead'])) {
+
 $save = new Ad();
-$showsave = $save->saveAd($id);
+$show = $save->saveAd($id);
 }
 if (isset($_POST['deletead'])) {
+
 $delete = new Ad();
-$showdelete = $delete->deleteAd($id);
+$show = $delete->deleteAd($id);
 }
 if (isset($_GET['page']) && ($_GET['page'] === "logout"))
 {
+
 $logout = new User();
 $logout->userLogout();
 $logoutpage = new PageContent();
-$showlogout = $logoutpage->showPage('Logout Page');
+$show = $logoutpage->showPage('Logout Page');
 }
 ######################################
 
 $Layout = new Layout();
 $Layout->showHeader();
 
+if (!empty($show)) { echo $show; }
+
 if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET['page'] !== "index"))))
 {
+
     $page = $_REQUEST['page'];
     include $page . ".php";
 }
 else
 {
+
     include "main.php";
 }
 $Layout->showFooter();

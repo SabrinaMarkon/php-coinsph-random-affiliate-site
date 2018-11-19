@@ -64,7 +64,9 @@ echo $showcontent->showPage('Members Area Profile Page');
 
 						<button class="btn btn-lg btn-primary ja-toppadding" type="submit" name="saveprofile">Save My Profile</button>
 
-					</form>
+						<button class="btn btn-lg btn-primary ja-toppadding" type="submit" name="resendverification">Resend Email Verification</button>
+
+					</form>									
 
 			<div class="ja-bottompadding"></div>
 

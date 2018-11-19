@@ -50,7 +50,7 @@ class User
 		if ($data['username'] == $username)
 		{
 			Database::disconnect();
-			return "<center><div class=\"alert alert-danger\" style=\"width:75%;\"><strong>The username you chose isn't available.</strong></div>";
+			return "<div class=\"alert alert-danger\" style=\"width:75%;\"><strong>The username you chose isn't available.</strong></div>";
 		}
 		else
 		{
@@ -74,7 +74,7 @@ class User
 			$sendsiteemail = new Email();
 			$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['adminemail'], '');
 
-			return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Success! Thanks for Joining!</strong><p>Please click the link in the email we sent to you to verify your email address.</p></div>";
+			return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Success! Thanks for Joining!</strong><p>Please click the link in the email we sent to you to verify your email address.</p></div>";
 
 			$username = null;
 			$password = null;
@@ -127,10 +127,31 @@ class User
 			$q = $pdo->prepare($sql);
 			$q->execute(array($verificationcode));
 			Database::disconnect();
-			return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your email address was verified!</strong></div>";
+			return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your email address was verified!</strong></div>";
 		} else {
-			return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your verification code was invalid. Please check the link in the welcome email.</strong></div>";
+			return "<div class=\"alert alert-danger\" style=\"width:75%;\"><strong>Your verification code was invalid. Please check the link in the welcome email.</strong></div>";
 		}	
+	}
+
+	public function resendVerify($username,$password,$email,$settings) {
+
+		$verificationcode = time() . mt_rand(10, 100);
+
+		$pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		$sql = "update members set verified='', verificationcode=? where username=?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($verificationcode, $username));
+		Database::disconnect();
+		
+		$subject = "Welcome to " . $settings['sitename'] . "!";
+		$message = "Click to Verify your Email: " . $settings['domain'] . "/verify/" . $verificationcode . "\n\n";
+		$message .= "Login URL: " . $settings['domain'] . "/login\nUsername: " . $username . "\nPassword: " . $password . "\n\n";
+		$message .= "Your Referral URL: " . $settings['domain'] . "/r/" . $username . "\n\n";
+		$sendsiteemail = new Email();
+		$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['adminemail'], '');
+
+		return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your verification email was resent!</strong></div>";
 	}
 
 	public function forgotLogin($sitename,$domain,$adminemail) {
@@ -156,12 +177,12 @@ class User
 			$send = $sendsiteemail->sendEmail($email,$adminemail,$subject,$message,$sitename,$adminemail, '');
 			
 			Database::disconnect();
-			return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your login details were sent to your email address.</strong></div>";
+			return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your login details were sent to your email address.</strong></div>";
 			}
 		else
 			{
 			Database::disconnect();
-			return "<center><div class=\"alert alert-danger\" style=\"width:75%;\"><strong>The username or email address you entered was not found.</strong></div>";
+			return "<div class=\"alert alert-danger\" style=\"width:75%;\"><strong>The username or email address you entered was not found.</strong></div>";
 			}
 
 	}
@@ -183,16 +204,19 @@ class User
 		$email = $_POST['email'];
 		$oldemail = $_POST['oldemail'];
 		$country = $_POST['country'];
+		$walletid = $_POST['walletid'];
 		$signupip = $_SERVER['REMOTE_ADDR'];
 
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		$sql = "update members set password=?, firstname=?, lastname=?, email=?, country=?, signupip=? where username=?";
+		$sql = "update members set password=?, firstname=?, lastname=?, email=?, country=?, signupip=?, walletid=? where username=?";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($password, $firstname, $lastname, $email, $country, $signupip, $username));
+		$q->execute(array($password, $firstname, $lastname, $email, $country, $signupip, $walletid, $username));
 
 		if ($email !== $oldemail) {
 			
+			$verificationcode = time() . mt_rand(10, 100);
+
 			$sql = "update members set verified='', verificationcode=? where username=?";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($verificationcode, $username));
@@ -207,14 +231,16 @@ class User
 		}
 
 		Database::disconnect();
+
 		$_SESSION['password'] = $password;
 		$_SESSION['firstname'] = $firstname;
 		$_SESSION['lastname'] = $lastname;
 		$_SESSION['email'] = $email;
 		$_SESSION['country'] = $country;
+		$_SESSION['walletid'] = $walletid;
 		$_SESSION['signupip'] = $signupip;
 
-		return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Account Details Were Saved!</strong><p>If you changed your email address, you will need to re-verify your account.</p></div>";
+		return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Account Details Were Saved!</strong><p>If you changed your email address, you will need to re-verify your account.</p></div>";
 
 	}
 
@@ -233,7 +259,7 @@ class User
 		$q = $pdo->prepare($sql);
 		$q->execute(array($username));
 		Database::disconnect();
-		return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Account " . $username . " Was Deleted</strong></div>";
+		return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Account " . $username . " Was Deleted</strong></div>";
 
 	}
 

@@ -33,6 +33,8 @@ class Email
 
 	@mail($toemail, $subject, wordwrap(stripslashes($message)), $headers, "-f$fromemail");
 
+	return;
+
 	}
 
 }
