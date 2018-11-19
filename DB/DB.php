@@ -121,7 +121,7 @@ create table transactions (
   recipientwalletid varchar(500) not null,
   recipienttype varchar(255) not null default 'sponsor',
   recipientapproved tinyint(1) not null default '0',
-  datepaid datetime not null,
+  datepaid varchar(255) not null,
   transaction varchar(255) not null default 'Bitcoin',
   foreign key (adid) references ads(id)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
@@ -129,13 +129,13 @@ create table transactions (
 insert into adminsettings (adminuser, adminpass, adminname, adminemail, sitename, domain) values ('Admin', 'admin', 'YOUR NAME', 'YOUR ADMIN EMAIL', 'YOUR SITE NAME','http://YOURDOMAIN.COM');
 
 INSERT INTO `adminnotes` (`id`, `name`, `htmlcode`) values (1, 'Admin Notes', '');
-
 INSERT INTO pages (name, htmlcode, slug, core) values ('Home Page', '', '', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Login Page', '', 'login', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Main Page', '', 'members', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Profile Page', '', 'profile', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Promotion Page', '', 'promotion', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Earnings Page', '', 'earnings', 'yes');
+INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Randomizer Page', '', 'randomizer', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Ads Page', '', 'ads', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Registration Page', '', 'register', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Thank You Page - New Member Signup', '', 'thankyou', 'yes');

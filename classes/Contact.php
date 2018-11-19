@@ -34,7 +34,7 @@ class Contact
 		}
 	
 	$sendsiteemail = new Email();
-	$send = $sendsiteemail->sendEmail($settings['adminemail'], $email, $subject, $message,$settings['sitename'], $settings['adminemail']);
+	$send = $sendsiteemail->sendEmail($settings['adminemail'],$email,$subject,$message,$settings['sitename'],$settings['adminemail'],'');
 
 	return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Message was Sent!</strong></div>";
 	

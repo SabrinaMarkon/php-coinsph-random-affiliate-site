@@ -25,7 +25,7 @@ class Bitcoin {
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         
         # Does the user still have to pay their sponsor (or have them confirm the payment)?
-        $sql = "select * from transactions where username=? and recipientapproved=0 and recipienttype='sponsor' limit 1";
+        $sql = "select * from transactions where username=? and recipientapproved=0 and recipienttype='sponsor' order by id limit 1";
         $q = $pdo->prepare($sql);
         $q->execute([$username]);
         $data = $q->fetch();
@@ -36,7 +36,7 @@ class Bitcoin {
         }
 
         # Does the user still have to pay their sponsor (or have them confirm the payment)?
-        $sql = "select * from transactions where username=? and recipientapproved=0 and recipienttype='random' limit 1";
+        $sql = "select * from transactions where username=? and recipientapproved=0 and recipienttype='random' order by id limit 1";
         $q = $pdo->prepare($sql);
         $q->execute([$username]);
         $data = $q->fetch();
@@ -54,6 +54,24 @@ class Bitcoin {
         DATABASE::disconnect();
 
         return $showbitcoin;
+    }
+
+    /* Call this to get both the owed and paid payments for this randomizer position. */
+    public function getPaymentsReceived($username,$walletid) {
+
+        $sql = "select * from transactions where recipient=? and recipientwalletid=?";
+        $q = $pdo->prepare($sql);
+        $q->execute([$username,$walletid]);
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $transactions = $q->fetchAll();
+        $transactionarray = array();
+        foreach ($transactions as $transaction) {
+            array_push($transactionarray, $transaction);
+        }
+
+        Database::disconnect();
+
+        return $transactionarray;        
     }
 
 }

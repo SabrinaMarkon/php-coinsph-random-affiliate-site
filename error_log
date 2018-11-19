@@ -84,3 +84,8 @@ Stack trace:
 [19-Nov-2018 17:29:36 UTC] PHP Fatal error:  Call to undefined function connect() in /home/randombtcads/public_html/classes/Bitcoin.php on line 24
 [19-Nov-2018 17:30:36 UTC] PHP Fatal error:  Call to undefined function prepare() in /home/randombtcads/public_html/classes/Bitcoin.php on line 29
 [19-Nov-2018 17:34:31 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/randombtcads/public_html/classes/Bitcoin.php on line 59
+[19-Nov-2018 20:00:51 UTC] PHP Fatal error:  Call to private method Randomizer::getAllForOneUser() from context '' in /home/randombtcads/public_html/randomizer.php on line 16
+[19-Nov-2018 20:05:32 UTC] PHP Warning:  Missing argument 7 for Email::sendEmail(), called in /home/randombtcads/public_html/classes/Contact.php on line 37 and defined in /home/randombtcads/public_html/classes/Email.php on line 24
+[19-Nov-2018 20:05:32 UTC] PHP Notice:  Undefined variable: htmlheader in /home/randombtcads/public_html/classes/Email.php on line 32
+[19-Nov-2018 20:06:47 UTC] PHP Warning:  Missing argument 7 for Email::sendEmail(), called in /home/randombtcads/public_html/classes/Contact.php on line 37 and defined in /home/randombtcads/public_html/classes/Email.php on line 24
+[19-Nov-2018 20:06:47 UTC] PHP Notice:  Undefined variable: htmlheader in /home/randombtcads/public_html/classes/Email.php on line 32

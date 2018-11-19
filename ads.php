@@ -6,9 +6,9 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 }
 
 require "control.php";
-if (isset($showupdate))
+if (isset($show))
 {
-echo $showupdate;
+echo $show;
 }
 $showcontent = new PageContent();
 echo $showcontent->showPage('Members Area Ads Page');
@@ -37,7 +37,7 @@ $ads = $allads->getAds($username);
 				echo $bitcoin->showBitCoinWalletIds($username, $settings['paysponsor'], $settings['payrandom']);
 			
 			} else {
-				/* person has at least one ad they paid (2 people) for waiting for them to create.
+				/* person has at least one blank ad they paid (2 people) for.
 				show form to create ad with an id to update the 2 paid transactions' adid. */
 
 				# get the first available ad in the ads 

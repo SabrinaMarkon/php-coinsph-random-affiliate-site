@@ -18,7 +18,7 @@ class Randomizer {
     private $pdo;
 
     /* Get an array of all records in the randomizer table.*/
-    private function getAllUsers() {
+    public function getAllUsers() {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -37,7 +37,7 @@ class Randomizer {
     }
 
     /* Get all positions for ONE USERNAME from the randomizer table.*/
-    private function getAllForOneUser($username) {
+    public function getAllForOneUser($username) {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -56,8 +56,8 @@ class Randomizer {
 
     }
 
-    /* Get one POSITION ONLY from the randomizer table.*/
-    private function getOneUser() {
+    /* Get one POSITION ONLY from the randomizer table. Not sure if I need this? */
+    public function getOneUser() {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,ERRMODE_EXCEPTION);
@@ -67,8 +67,9 @@ class Randomizer {
         return $randomuser;
     }
 
-    /* Add a username to the randomizer table.*/
-    private function addUser($username) {
+    /* Add a username to the randomizer table.This is called when the second payee (either the sponsor or the
+    random user) confirms that they have received payment.*/
+    public function addUser($username) {
 
         $walletid = $_POST['walletid'];
         $pdo = DATABASE::connect();
@@ -81,7 +82,7 @@ class Randomizer {
     }
 
     /* Delete a single id, OR all ids for a deleted user from the randomizer table.*/
-    private function deleteUser($username, $id) {
+    public function deleteUser($username, $id) {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -103,7 +104,8 @@ class Randomizer {
         }  
     }
 
-    private function saveUser($username, $id) {
+    /* Admin can change randomizer positions to whichever wallet IDs they need to. */
+    public function saveUser($username, $id) {
 
         $updateusername = $_POST['updateusername'];
         $updatewalletid = $_POST['updatewalletid'];
