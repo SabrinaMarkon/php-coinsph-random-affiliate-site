@@ -27,6 +27,10 @@ class Setting
         $newadminratio = $_POST['adminratio'];
         $newadminautoapprove = $_POST['adminautoapprove'];
         $newadmindefaultwalletid = $_POST['admindefaultwalletid'];
+        $oldadmindefaultwalletid = $_POST['oldadmindefaultwalletid'];
+        $newgiveextratoadmin = $_POST['giveextratoadmin'];
+        $newpaysponsor = $_POST['paysponsor'];
+        $newpayrandom = $_POST['payrandom'];
 
         # if either username or password changed, update session.
         if (($adminuser !== $newadminuser) or ($adminpass !== $newadminpass)) {
@@ -36,9 +40,29 @@ class Setting
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "update adminsettings set adminuser=?, adminpass=?, adminname=?, adminemail=?, sitename=?, domain=?, adminratio=?, adminautoapprove=?, admindefaultwalletid=?";
+
+        # update any adminwallets.
+        $sql = "select count(1) from adminwallets where walletid=?";
         $q = $pdo->prepare($sql);
-        $q-> execute(array($newadminuser, $newadminpass, $newadminname, $newadminemail, $newsitename, $newdomain, $newadminratio, $newadminautoapprove, $newadmindefaultwalletid));
+        $q->execute([$oldadmindefaultwalletid]);
+        $rows = $q->fetchColumn();
+        if ($rows) {
+            echo "yes";
+            $sql = "update adminwallets set walletid=? where walletid=?";
+            $q = $pdo->prepare($sql);
+            $q->execute([$newadmindefaultwalletid,$oldadmindefaultwalletid]);
+        } else {
+            echo "no";
+            $sql = "insert into adminwallets (name,walletid) values ('Admin Default Wallet ID',?)";
+            $q = $pdo->prepare($sql);
+            $q->execute([$newadmindefaultwalletid]);
+        }
+
+        $sql = "update adminsettings set adminuser=?, adminpass=?, adminname=?, adminemail=?, sitename=?, 
+        domain=?, adminratio=?, adminautoapprove=?, admindefaultwalletid=?, giveextratoadmin=?, paysponsor=?, payrandom=?";
+        $q = $pdo->prepare($sql);
+        $q-> execute(array($newadminuser, $newadminpass, $newadminname, $newadminemail, $newsitename, 
+        $newdomain, $newadminratio, $newadminautoapprove, $newadmindefaultwalletid, $newgiveextratoadmin, $newpaysponsor, $newpayrandom));
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Site Settings Were Saved!</strong></div>";

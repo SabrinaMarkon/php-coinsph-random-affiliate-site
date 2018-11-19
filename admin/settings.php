@@ -48,6 +48,7 @@ foreach ($settings as $key => $value)
                 <input type="url" name="domain" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Website URL (start with http://)" required>
 
                 <label for="admindefaultwalletid" class="ja-toppadding">Admin Default Wallet ID:</label>
+                <input type="hidden" name="oldadmindefaultwalletid" value="<?php echo $admindefaultwalletid ?>">
                 <input type="text" name="admindefaultwalletid" value="<?php echo $admindefaultwalletid ?>" class="form-control input-lg" placeholder="Admin Default Wallet ID" required>
 
                 <div>
@@ -64,9 +65,25 @@ foreach ($settings as $key => $value)
                     </select>&nbsp;Times (0 for never, 1 for every single time)
                 </div>
                 
+                <label for="paysponsor" class="ja-toppadding">Users Should Pay Their Sponsor:</label>
+                $&nbsp;<input type="text" name="paysponsor" value="<?php echo $paysponsor ?>" class="form-control smallselect" required>
+
+                <div></div>
+
+                <label for="payrandom" class="ja-toppadding">Users Should Pay a Random Member:</label>
+                $&nbsp;<input type="text" name="payrandom" value="<?php echo $payrandom ?>" class="form-control smallselect" required>
+
+                <div>
+                    <label for="giveextratoadmin" class="ja-toppadding">If Member is Deleted, Give Randomizer Positions to Admin:</label>
+                    <select name="giveextratoadmin" class="form-control smallselect">
+                        <option value="1" <?php if (intval($giveextratoadmin) === 1) { echo "selected"; } ?>>Yes</option>
+                        <option value="0" <?php if (intval($giveextratoadmin) !== 1) { echo "selected"; } ?>>No</option>
+                    </select>
+                </div>
+
                 <div>
                     <label for="adminautoapprove" class="ja-toppadding">Auto-approve Ads:</label>
-                    Auto-approve Ads:&nbsp;<select name="adminautoapprove" class="form-control smallselect">
+                    <select name="adminautoapprove" class="form-control smallselect">
                         <option value="1" <?php if (intval($adminautoapprove) === 1) { echo "selected"; } ?>>Yes</option>
                         <option value="0" <?php if (intval($adminautoapprove) !== 1) { echo "selected"; } ?>>No</option>
                     </select>

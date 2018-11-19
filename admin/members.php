@@ -20,7 +20,7 @@ $members = $allmembers->getAllMembers();
 
 			<h1 class="ja-bottompadding">Add New Member</h1>
 			
-			<form action="//admin/members" method="post" accept-charset="utf-8" class="form" role="form">
+			<form action="/admin/members" method="post" accept-charset="utf-8" class="form" role="form">
 			
 				<div class="row">
 					<div class="col-xs-6 col-md-6">

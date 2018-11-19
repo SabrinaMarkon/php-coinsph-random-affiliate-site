@@ -46,8 +46,10 @@ class Member
         $country = $_POST['country'];
         $email = $_POST['email'];
         $signupip = $_SERVER['REMOTE_ADDR'];
-        $verified = $_POST['verified'];
         $referid = $_POST['referid'];
+
+        $verificationcode = time() . mt_rand(10, 100);
+        
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "insert into members (username,password,walletid,firstname,lastname,email,country,referid,signupdate,signupip,verificationcode) values (?,?,?,?,?,?,?,?,NOW(),?,?)";
@@ -92,9 +94,31 @@ class Member
         $username = $_POST['username'];
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        
+        # delete randomizer positions - reassign to admin or delete depending on admin setting giveextratoadmin.
+        if ($giveextratoadmin === 1) {
+            $sql = "update randomizer set username='admin' where username=?";
+        } else {
+            $sql = "delete from randomizer where username=?";
+        }
+        $q = $pdo->prepare($sql);
+        $q->execute(array($username));
+
+        # delete ads.
+        $sql = "delete from ads where username=?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($username));
+
+        # delete transactions.
+        $sql = "delete from transactions where username=?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($username));
+
+        # delete account.
         $sql = "delete from members where id=?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
+
         Database::disconnect();
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was Deleted</strong></div>";
 

@@ -53,9 +53,7 @@
             {
             ?>
               <li class="nav-item active">
-                <a class="nav-link" href="/../" target="_blank">Site
-                <span class="sr-only">(current)</span>
-                </a>
+                <a class="nav-link" href="/../" target="_blank">Site</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/admin/main">Main</a>
