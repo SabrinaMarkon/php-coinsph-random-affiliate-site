@@ -24,31 +24,31 @@ $members = $allmembers->getAllMembers();
 			
 				<div class="row">
 					<div class="col-xs-6 col-md-6">
-						<label class="sr-only" for="firstname">First Name</label>
+						<label for="firstname">First Name:</label>
 						<input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name" required>
 					</div>
 					<div class="col-xs-6 col-md-6">
-						<label class="sr-only" for="lastname">Last Name</label>
+						<label for="lastname" class="ja-toppadding">Last Name:</label>
 						<input type="text" name="lastname" value="" class="form-control input-lg" placeholder="Last Name" required>
 					</div>
 				</div>
 				
-                <label class="sr-only" for="email">Email</label>
+                <label for="email" class="ja-toppadding">Email:</label>
                 <input type="email" name="email" value="" class="form-control input-lg" placeholder="Your Email" required>
 
-                <label class="sr-only" for="username">Username</label>
+                <label for="username" class="ja-toppadding">Username:</label>
                 <input type="text" name="username" value="" class="form-control input-lg" placeholder="Username" required>
 
-                <label class="sr-only" for="password">Password</label>
+                <label for="password" class="ja-toppadding">Password:</label>
                 <input type="password" name="password" id="password" value="" class="form-control input-lg" placeholder="Password" required>
 
-                <label class="sr-only" for="confirm_password">Confirm Password</label>
+                <label for="confirm_password" class="ja-toppadding">Confirm Password:</label>
                 <input type="password" name="confirm_password" id="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password" required>
 
-                <label class="sr-only" for="walletid">Bitcoin Wallet ID</label>
+                <label for="walletid" class="ja-toppadding">Bitcoin Wallet ID:</label>
                 <input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
 
-                <label class="sr-only" for="country">Country</label>
+                <label for="country" class="ja-toppadding">Country:</label>
                 <select name="country" class="form-control input-lg">
                     <option value="United States">United States</option>
                     <option value="Canada">Canada</option>
@@ -59,12 +59,12 @@ $members = $allmembers->getAllMembers();
                     ?>
                 </select>
 
-                <label class="sr-only" for="referid">Sponsor</label>
+                <label for="referid" class="ja-toppadding">Sponsor:</label>
                 <input type="text" name="referid" value="" class="form-control input-lg" placeholder="Sponsor" required>
 
                 <div class="ja-bottompadding"></div>
 
-                <button class="btn btn-lg btn-primary" type="submit" name="addmember">Create Account</button>
+                <button class="btn btn-lg btn-primary ja-toppadding" type="submit" name="addmember">Create Account</button>
 
 			</form>				
 
@@ -113,31 +113,31 @@ $members = $allmembers->getAllMembers();
                             <td class="small"><?php echo $member['id']; ?>
                             </td>
                             <td>
-                                <label class="sr-only" for="username">Username:</label>
+                                <label for="username">Username:</label>
                                 <input type="text" name="username" value="<?php echo $member['username']; ?>" class="form-control input-sm small" size="40" placeholder="Username" required>
                             </td>
                             <td>
-                                <label class="sr-only" for="password">Password:</label>
+                                <label for="password">Password:</label>
                                 <input type="text" name="password" value="<?php echo $member['password']; ?>" class="form-control input-sm small" size="40" placeholder="Password" required>
                             </td>
                             <td>
-                                <label class="sr-only" for="walletid">Bitcoin Wallet ID:</label>
+                                <label for="walletid">Bitcoin Wallet ID:</label>
                                 <input type="text" name="walletid" value="<?php echo $member['walletid']; ?>" class="form-control input-sm small" size="40" placeholder="Wallet ID" required>
                             </td>
                             <td>
-                                <label class="sr-only" for="firstname">First Name:</label>
+                                <label for="firstname">First Name:</label>
                                 <input type="text" name="firstname" value="<?php echo $member['firstname']; ?>" class="form-control input-sm small" size="40" placeholder="First Name" required>
                             </td>
                             <td>
-                                <label class="sr-only" for="lastname">Last Name:</label>
+                                <label for="lastname">Last Name:</label>
                                 <input type="text" name="lastname" value="<?php echo $member['lastname']; ?>" class="form-control input-sm small" size="40" placeholder="Last Name" required>
                             </td>
                             <td>
-                                <label class="sr-only" for="email">Email:</label>
+                                <label for="email">Email:</label>
                                 <input type="email" name="email" value="<?php echo $member['email']; ?>" class="form-control input-sm small" size="60" placeholder="Email" required>
                             </td>
                             <td>
-                                <label class="sr-only" for="verified">Verified:</label>
+                                <label for="verified">Verified:</label>
                                 <select name="verified" class="form-control input-md">
                                     <option value="yes"<?php if ($member['verified'] === 'yes') { echo " selected"; } ?>>yes</option>
                                     <option value="no"<?php if ($member['verified'] !== 'yes') { echo " selected"; } ?>>no</option>
@@ -147,7 +147,7 @@ $members = $allmembers->getAllMembers();
                                 <?php echo $dateverified ?>
                             </td>
                             <td>
-                                <label class="sr-only" for="country">Country:</label>
+                                <label for="country">Country:</label>
                                 <select name="country" class="form-control input-md">
                                     <option value="United States"<?php if ($member['country'] == "United States") { echo " selected"; } ?> >United States</option>
                                     <option value="Canada"<?php if ($member['country'] === "Canada") { echo " selected"; } ?>>Canada</option>
@@ -161,14 +161,14 @@ $members = $allmembers->getAllMembers();
                                 <?php echo $datesignedup ?>
                             </td>
                             <td>
-                                <label class="sr-only" for="signupip">IP:</label>
+                                <label for="signupip">IP:</label>
                                 <input type="text" name="signupip" value="<?php echo $member['signupip']; ?>" class="form-control input-sm small" size="60" placeholder="IP" required>
                             </td>
                             <td class="small">
                                 <?php echo $datelastlogin ?>
                             </td>
                             <td>
-                                <label class="sr-only" for="referid">Sponsor:</label>
+                                <label for="referid">Sponsor:</label>
                                 <input type="text" name="referid" value="<?php echo $member['referid']; ?>" class="form-control input-sm small" size="40" placeholder="Sponsor" required>
                             </td>
                             <td>

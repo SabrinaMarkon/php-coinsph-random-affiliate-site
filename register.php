@@ -30,31 +30,31 @@ echo $showcontent->showPage('Registration Page');
 			
 				<div class="row">
 					<div class="col-xs-6 col-md-6">
-						<label class="sr-only" for="firstname">First Name</label>
+						<label for="firstname">First Name:</label>
 						<input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name" required>
 					</div>
 					<div class="col-xs-6 col-md-6">
-						<label class="sr-only" for="lastname">Last Name</label>
+						<label for="lastname" class="ja-toppadding">Last Name:</label>
 						<input type="text" name="lastname" value="" class="form-control input-lg" placeholder="Last Name" required>
 					</div>
 				</div>
 				
-						<label class="sr-only" for="email">Your Email</label>
+						<label for="email" class="ja-toppadding">Your Email:</label>
 						<input type="email" name="email" value="" class="form-control input-lg" placeholder="Your Email" required>
 
-						<label class="sr-only" for="username">Username</label>
+						<label for="username" class="ja-toppadding">Username:</label>
 						<input type="text" name="username" value="" class="form-control input-lg" placeholder="Username" required>
 
-						<label class="sr-only" for="password">Password</label>
+						<label for="password" class="ja-toppadding">Password:</label>
 						<input type="password" name="password" id="password1" value="" class="form-control input-lg" placeholder="Password" required>
 
-						<label class="sr-only" for="confirm_password">Confirm Password</label>
+						<label for="confirm_password" class="ja-toppadding">Confirm Password:</label>
 						<input type="password" name="confirm_password" id="password2" value="" class="form-control input-lg" placeholder="Confirm Password" required>
 
-						<label class="sr-only" for="walletid">Bitcoin Wallet ID</label>
+						<label for="walletid" class="ja-toppadding">Bitcoin Wallet ID:</label>
 						<input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
 
-						<label class="sr-only" for="country">Country</label>
+						<label for="country" class="ja-toppadding">Country:</label>
 						<select name="country" class="form-control input-lg">
 							<option value="United States">United States</option>
 							<option value="Canada">Canada</option>
@@ -65,7 +65,7 @@ echo $showcontent->showPage('Registration Page');
 							?>
 						</select>
 
-						<label class="sr-only" for="referid">Your Sponsor</label>
+						<label for="referid" class="ja-toppadding">Your Sponsor:</label>
 						<input type="text" name="referid" value="" class="form-control input-lg" placeholder="<?php echo $_SESSION['referid']; ?>" required>
 
 						<span class="help-block">By clicking Create My Account, you agree to our <a href="#" data-toggle="modal" data-target="#termsModal">Terms</a></span>
