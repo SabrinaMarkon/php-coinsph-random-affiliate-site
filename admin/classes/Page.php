@@ -45,6 +45,7 @@ class Page
         $found = $q->rowCount();
         Database::disconnect();
         if ($found > 0) {
+            
             return $editpage;
         }
     }
@@ -60,6 +61,7 @@ class Page
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $htmlcode, $slug));
         Database::disconnect();
+
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Page: " . $name . " was Added!</strong><br>New URL: <a href=" . $domain . "/" . $slug . ">" . $domain . "/" . $slug . "</a></div>";
 
     }
@@ -73,16 +75,19 @@ class Page
         # if slug cannot be edited, it means the page is a core url that cannot be changed,
         # even if its content can.
         if (isset($_POST['slug'])) {
+
             $slug = $_POST['slug'];
-            $sql = "update `pages` set name=?, htmlcode=?, slug=? where id=?";
+            $sql = "update pages set name=?, htmlcode=?, slug=? where id=?";
             $q = $pdo->prepare($sql);
-            $q->execute(array($name, $htmlcode, $id, $slug));
+            $q->execute(array($name, $htmlcode, $slug, $id));
         } else {
-            $sql = "update `pages` set name=?, htmlcode=? where id=?";
+
+            $sql = "update pages set name=?, htmlcode=? where id=?";
             $q = $pdo->prepare($sql);
             $q->execute(array($name, $htmlcode, $id));      
         }
         Database::disconnect();
+
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Page Content for " . $name . " was Saved!</strong></div>";
 
     }
@@ -96,7 +101,8 @@ class Page
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Page Content for " . $name . " was Deleted</strong></div>";
+
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>The Page " . $name . " was Deleted</strong></div>";
 
     }
 }

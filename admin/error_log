@@ -36,3 +36,9 @@ Stack trace:
 [19-Nov-2018 13:50:02 UTC] PHP Notice:  Undefined variable: giveextratoadmin in /home/randombtcads/public_html/admin/classes/Member.php on line 157
 [19-Nov-2018 13:56:12 UTC] PHP Warning:  Missing argument 2 for Member::deleteMember(), called in /home/randombtcads/public_html/admin/index.php on line 187 and defined in /home/randombtcads/public_html/admin/classes/Member.php on line 150
 [19-Nov-2018 13:56:12 UTC] PHP Notice:  Undefined variable: giveextratoadmin in /home/randombtcads/public_html/admin/classes/Member.php on line 157
+[19-Nov-2018 15:45:47 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Sabrina' for key 'name'' in /home/randombtcads/public_html/admin/classes/Page.php:61
+Stack trace:
+#0 /home/randombtcads/public_html/admin/classes/Page.php(61): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(147): Page->addPage('http://randombt...')
+#2 {main}
+  thrown in /home/randombtcads/public_html/admin/classes/Page.php on line 61

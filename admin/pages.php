@@ -147,12 +147,13 @@ $pages = $allpages->getAllPages();
                     <div class="row">
                         <div class="col-sm-12">
                             <input type="hidden" name="_method" value="GET">
-                            <span><button class="btn btn-md btn-primary" type="button" name="showallpages" onclick="parent.location = '/admin/pages'">CREATE NEW</button></span>
                             <span>
                                 <input type="hidden" name="_method" value="PATCH">
+                                <input type="hidden" name="id" value="<?php echo $showeditpage['id']; ?>">
                                 <button class="btn btn-md btn-primary" type="submit" name="savepage">SAVE</button>
-                                </form>
                             </span>
+                            <span><button class="btn btn-md btn-primary" type="button" name="showallpages" onclick="parent.location = '/admin/pages'">CREATE NEW</button></span>
+                </form>
                             <span>
                                 <form action="/admin/pages/<?php echo $showeditpage['id']; ?>" method="post" accept-charset="utf-8" class="form inlineform" role="form">
                                 <input type="hidden" name="_method" value="DELETE">
