@@ -67,12 +67,10 @@ if (isset($_POST['login'])) {
     }
 } else {
 
-    # show the header.
-    $Layout->showHeader();
-
     if (isset($_POST['saveadminnotes'])) {
 
         # admin clicked to save the admin notes.
+        $Layout->showHeader();
         $update = new AdminNote();
         $showupdate = $update->setAdminNote($_POST['htmlcode']);
     }
@@ -80,6 +78,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['savesettings'])) {
     
         # admin clicked the button to save main settings.
+        $Layout->showHeader();
         $update = new Setting();
         $showupdate = $update->saveSettings($_SESSION['adminusername'], $_SESSION['adminpassword']);
     }
@@ -87,6 +86,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['editmail'])) {
     
         # admin clicked to edit a saved email.
+        $Layout->showHeader();
         $editmail = new Mail();
         $showeditmail = $editmail->editMail($id);
     }
@@ -94,6 +94,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['addmail'])) {
     
         # admin added a new email.
+        $Layout->showHeader();
         $update = new Mail();
         $showupdate = $update->addMail();
     }
@@ -101,6 +102,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['savemail'])) {
     
         # admin saved an existing email they were editing. 
+        $Layout->showHeader();
         $update = new Mail();
         $showupdate = $update->saveMail($id);
     }
@@ -108,6 +110,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['sendverifications'])) {
     
         # admin resent verification emails to all unverified members.
+        $Layout->showHeader();
         $verify = new Mail();
         $showverify = $verify->sendVerifications($settings);
     }
@@ -115,6 +118,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['deletemail'])) {
     
         # admin deleted an email.
+        $Layout->showHeader();
         $delete = new Mail();
         $showupdate = $delete->deleteMail($id);
     }
@@ -122,6 +126,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['sendmail'])) {
     
         # admin clicked to send an email.
+        $Layout->showHeader();
         $send = new Mail();
         $showupdate = $send->sendMail($id);
     }
@@ -129,6 +134,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['editpage'])) {
     
         # admin selected an existing page to edit.
+        $Layout->showHeader();
         $editpage = new Page();
         $showeditpage = $editpage->editPage($id);
     }
@@ -136,6 +142,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['addpage'])) {
     
         # admin added a new page.
+        $Layout->showHeader();
         $update = new Page();
         $showupdate = $update->addPage($domain);
     }
@@ -143,6 +150,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['savepage'])) {
         
         # admin saved a page they were editing.
+        $Layout->showHeader();
         $update = new Page();
         $showupdate = $update->savePage($id);
     }
@@ -150,13 +158,15 @@ if (isset($_POST['login'])) {
     if (isset($_POST['deletepage'])) {
     
         # admin deleted a page.
+        $Layout->showHeader();
         $delete = new Page();
         $showupdate = $delete->deletePage($id);
     }
     
     if (isset($_POST['addmember'])) {
     
-        # admin added a new member
+        # admin added a new member.
+        $Layout->showHeader();
         $add = new Member();
         $showadd = $add->addMember();
     }
@@ -164,6 +174,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['savemember'])) {
     
         # admin saved a member they edited.
+        $Layout->showHeader();
         $update = new Member();
         $showupdate = $update->saveMember($id);
     }
@@ -171,6 +182,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['deletemember'])) {
     
         # admin deleted a member and their ads and positions.
+        $Layout->showHeader();
         $delete = new Member();
         $showupdate = $delete->deleteMember($id);
     }
@@ -178,6 +190,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['savetransaction'])) {
     
         # admin saved a transaction they were editing.
+        $Layout->showHeader();
         $update = new Money();
         $showupdate = $update->saveTransaction($id);
     }
@@ -185,10 +198,11 @@ if (isset($_POST['login'])) {
     if (isset($_POST['deletetransaction'])) {
     
         # admin deleted a transaction.
+        $Layout->showHeader();
         $delete = new Money();
         $showupdate = $delete->deleteTransaction($id);
     }
-    
+        
     if ((empty($_REQUEST['page'])) or 
     ((!empty($_REQUEST['page']) and ($_REQUEST['page'] === 'index' or $_REQUEST['page'] === 'logout' or $_REQUEST['page'] === 'forgot' or $_REQUEST['page'] === 'control'))) or 
     ((!empty($_GET['page'])) and ((!file_exists($_GET['page'] . ".php"))))) {
@@ -208,16 +222,17 @@ if (isset($_POST['login'])) {
         if ((!empty($_REQUEST['page']) and $_REQUEST['page'] === 'forgot')) {
     
             # we need to email the forgotten login details, and say so before we show the login form.
+            $Layout->showHeader();
             $logout->forgotLogin($sitename,$domain,$adminemail,$adminuser,$adminpass);
         }
-    
+
+        $Layout->showHeader();
         echo $showcontent->showLoginForm(0);
-        $Layout->showFooter();
-        exit;
     
     } elseif ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php")))) {
     
         # there is a page.php that exists, and is not /admin/index (this file) or /admin/logout or /admin/forgot or some non-existent file. Send user to that page.
+        $Layout->showHeader();
         $page = $_REQUEST['page'];
         include $page . ".php";
     }
@@ -225,9 +240,10 @@ if (isset($_POST['login'])) {
     else {
         
         # show the main admin area page because everything was ok to login, but no specific admin page was specified in the request.
+        $Layout->showHeader();
         include "main.php";
     }
-    
+
     # show the admin footer design.
     $Layout->showFooter();
 
