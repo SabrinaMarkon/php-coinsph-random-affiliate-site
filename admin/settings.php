@@ -20,33 +20,33 @@ foreach ($settings as $key => $value)
 
             <form action="/admin/settings" method="post" accept-charset="utf-8" class="form" role="form">
 
-                <label class="sr-only" for="adminuser">Your Website Name:</label>
+                <label for="adminuser">Admin Username:</label>
                 <input type="text" name="adminuser" value="<?php echo $adminuser ?>" class="form-control input-lg" placeholder="Admin Username" required>
 
-                <label class="sr-only" for="adminpass">Admin Password</label>
-                <input type="password" name="adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Admin Password" required>
+                <label for="adminpass" class="ja-toppadding">Admin Password:</label>
+                <input type="password" name="adminpass" id="adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Admin Password" required>
 
-                <label class="sr-only" for="confirm_adminpass">Confirm Password</label>
-                <input type="password" name="confirm_adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Confirm Password" required>
+                <label for="confirm_adminpass" class="ja-toppadding">Confirm Password:</label>
+                <input type="password" name="confirm_adminpass" id="confirm_adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Confirm Password" required>
 
-                <label class="sr-only" for="adminemail">Admin Name</label>
+                <label for="adminemail" class="ja-toppadding">Admin Name:</label>
                 <input type="text" name="adminname" value="<?php echo $adminname ?>" class="form-control input-lg" placeholder="Admin Name" required>
 
-                <label class="sr-only" for="adminemail">Your Admin Email</label>
-                <input type="text" name="email" value="<?php echo $adminemail ?>" class="form-control input-lg" placeholder="Admin Email" required>
+                <label for="adminemail" class="ja-toppadding">Your Admin Email:</label>
+                <input type="text" name="adminemail" value="<?php echo $adminemail ?>" class="form-control input-lg" placeholder="Admin Email" required>
 
-                <label class="sr-only" for="sitename">Your Website Name:</label>
+                <label for="sitename" class="ja-toppadding">Your Website Name:</label>
                 <input type="text" name="sitename" value="<?php echo $sitename ?>" class="form-control input-lg" placeholder="Website Name" required>
 
-                <label class="sr-only" for="domain">Your Domain:</label>
+                <label for="domain" class="ja-toppadding">Your Domain:</label>
                 <input type="url" name="domain" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Website URL (start with http://)" required>
 
-                <label class="sr-only" for="admindefaultwalletid">Admin Default Wallet ID:</label>
-                <input type="url" name="admindefaultwalletid" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Admin Default Wallet ID" required>
+                <label for="admindefaultwalletid" class="ja-toppadding">Admin Default Wallet ID:</label>
+                <input type="text" name="admindefaultwalletid" value="<?php echo $admindefaultwalletid ?>" class="form-control input-lg" placeholder="Admin Default Wallet ID" required>
 
                 <div>
-                    <label class="sr-only" for="adminratio">Admin Ratio for Randomizer:</label>
-                    Show Admin Payment Button Every&nbsp;
+                    <label for="adminratio" class="ja-toppadding">Admin Ratio for Randomizer:</label>
+                    <br/>Show an Admin Wallet ID Every&nbsp;
                     <select name="adminratio" class="form-control smallselect">
                         <?php
                         for ($i = 0; $i <= 50; $i++) {
@@ -59,7 +59,7 @@ foreach ($settings as $key => $value)
                 </div>
                 
                 <div>
-                    <label class="sr-only" for="adminautoapprove">Auto-approve Ads</label>
+                    <label for="adminautoapprove" class="ja-toppadding">Auto-approve Ads:</label>
                     Auto-approve Ads:&nbsp;<select name="adminautoapprove" class="form-control smallselect">
                         <option value="1" <?php if (intval($adminautoapprove) === 1) { echo "selected"; } ?>>Yes</option>
                         <option value="0" <?php if (intval($adminautoapprove) !== 1) { echo "selected"; } ?>>No</option>

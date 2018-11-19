@@ -18,7 +18,6 @@ class Bitcoin {
 
         if ($whotopay === 'sponsor') {
 
-
             $bitcoinbutton = "I'm a REFERID BC button!";
             
         } elseif ($whotopay === 'admin') {

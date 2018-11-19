@@ -19,19 +19,19 @@ class Setting
         $newdomain = $_POST['domain'];
         $newadminratio = $_POST['adminratio'];
         $newadminautoapprove = $_POST['adminautoapprove'];
-        $admindefaultwalletid = $_POST['admindefaultwalletid'];
+        $newadmindefaultwalletid = $_POST['admindefaultwalletid'];
 
         # if either username or password changed, update session.
         if (($adminuser !== $newadminuser) or ($adminpass !== $newadminpass)) {
-            $_SESSION['username'] = $newadminuser;
-            $_SESSION['password'] = $newadminpass;
+            $_SESSION['adminusername'] = $newadminuser;
+            $_SESSION['adminassword'] = $newadminpass;
         }
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "update adminsettings set adminuser=?, adminpass=?, adminname=?, adminemail=?, sitename=?, domain=?, adminratio=?, adminautoapprove=?, admindefaultwalletid=?";
         $q = $pdo->prepare($sql);
-        $q-> execute(array($newadminuser, $newadminpass, $newadminname, $newadminemail, $newsitename, $newdomain, $newadminratio, $newadminautoapprove, $admindefaultwalletid));
+        $q-> execute(array($newadminuser, $newadminpass, $newadminname, $newadminemail, $newsitename, $newdomain, $newadminratio, $newadminautoapprove, $newadmindefaultwalletid));
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Site Settings Were Saved!</strong></div>";

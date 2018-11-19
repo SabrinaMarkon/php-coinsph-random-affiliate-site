@@ -52,12 +52,18 @@ class User
 			$sql = "insert into members (username,password,walletid,firstname,lastname,email,country,referid,signupdate,signupip,verificationcode) values (?,?,?,?,?,?,?,?,NOW(),?,?)";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($username,$password,$walletid,$firstname,$lastname,$email,$country,$referid,$signupip,$verificationcode));
+
+			# create two unpaid transactions, one for the sponsor, and one for a random walletid in the randomizer. If none exist, add admin walletid.
+			
 			Database::disconnect();
 
 			$subject = "Welcome to " . $settings['sitename'] . "!";
 			$message = "Click to Verify your Email: " . $settings['domain'] . "/verify/" . $verificationcode . "\n\n";
 			$message .= "Login URL: " . $settings['domain'] . "/login\nUsername: " . $username . "\nPassword: " . $password . "\n\n";
 			$message .= "Your Referral URL: " . $settings['domain'] . "/r/" . $username . "\n\n";
+			$message .= "Before receiving your ad and randomizer spot, you will need to send:\n";
+			$message .= "1) " . $paysponsor . " to Bitcoin: " . $walletidsponsor . "\n";
+			$message .= "2) " . $payrandom . " to Bitcoin: " . $walletidrandom . "\n\n";
 			$sendsiteemail = new Email();
 			$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['domain'], $settings['adminemail'], '');
 

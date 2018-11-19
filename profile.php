@@ -36,10 +36,10 @@ echo $showcontent->showPage('Members Area Profile Page');
 						<input type="email" name="email" value="<?php echo $email ?>" class="form-control input-lg" placeholder="Your Email" required>
 
 						<label class="sr-only" for="password">Password</label>
-						<input type="password" name="password" value="<?php echo $password ?>" class="form-control input-lg" placeholder="Password" required>
+						<input type="password" name="password" id="password" value="<?php echo $password ?>" class="form-control input-lg" placeholder="Password" required>
 
 						<label class="sr-only" for="confirm_password">Confirm Password</label>
-						<input type="password" name="confirm_password" value="<?php echo $password ?>" class="form-control input-lg" placeholder="Confirm Password" required>
+						<input type="password" name="confirm_password" id="confirm_password" value="<?php echo $password ?>" class="form-control input-lg" placeholder="Confirm Password" required>
 
 						<label class="sr-only" for="walletid">Bitcoin Wallet ID</label>
 						<input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>

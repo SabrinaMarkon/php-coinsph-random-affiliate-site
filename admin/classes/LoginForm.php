@@ -8,10 +8,9 @@ class LoginForm
     public function showLoginForm($loginerror) {
 
         $showloginerror = "";
-        if ($loginerror == 1)
-        {
+        if ($loginerror == 1) {
             $showloginerror = "<div class=\"alert alert-danger\"><strong>Incorrect Login</strong></div>";
-        }
+		}
 
 $content = <<<HEREDOC
 	<div class="container">
@@ -24,15 +23,15 @@ $content = <<<HEREDOC
 
 				$showloginerror
 
-				<label class="sr-only" for="username">Username</label>
-				<input type="text" name="username" value="" class="form-control input-lg" placeholder="Username">
+				<label class="sr-only" for="adminuser">Username</label>
+				<input type="text" name="adminuser" value="" class="form-control input-lg" placeholder="Username">
 
-				<label class="sr-only" for="password">Password</label>
-				<input type="password" name="password" value="" class="form-control input-lg" placeholder="Password">
-
-				<span class="help-block"><a href="forgot">Forgot Password?</a></span>
+				<label class="sr-only" for="adminpass">Password</label>
+				<input type="password" name="adminpass" value="" class="form-control input-lg" placeholder="Password">
 
 				<button class="btn btn-lg btn-primary" type="submit" name="login">Login</button>
+
+				<span class="help-block"><a href="/admin/forgot">Forgot Password?</a></span>
 
 			</form>
 

@@ -35,52 +35,52 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
 
-			<?php
-			if ((isset($_SESSION['username'])) && (isset($_SESSION['password'])))
-			{
-			?>
-            <li class="nav-item active">
-              <a class="nav-link" href="/../" target="_blank">Site
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/main">Main</a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/settings">Settings</a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/members">Members</a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/mail">Mail</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/money">Money</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/pages">Pages</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/logout">Logout</a>
-            </li>
-			<?php
-			}
-			else
-			{
+            <?php
+            if ((!isset($_SESSION['adminusername'])) || (!isset($_SESSION['adminpassword'])))
+            {
+              ?>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home
+                  <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin">Admin Login</a>
+                </li>     
+              <?php
+            }
+            else
+            {
             ?>
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home
+              <li class="nav-item active">
+                <a class="nav-link" href="/../" target="_blank">Site
                 <span class="sr-only">(current)</span>
-              </a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin">Admin Login</a>
-			</li>
-			<?php
-			}
-			?>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/main">Main</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/settings">Settings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/members">Members</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/mail">Mail</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/money">Money</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/pages">Pages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/logout">Logout</a>
+              </li>
+            <?php
+            }
+            ?>
 					
           </ul>
         </div>

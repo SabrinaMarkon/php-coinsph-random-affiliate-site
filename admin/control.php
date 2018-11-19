@@ -1,8 +1,8 @@
 <?php
-if ((isset($_SESSION['username'])) && (isset($_SESSION['password'])))
+if ((isset($_SESSION['adminusername'])) && (isset($_SESSION['adminpassword'])))
 {
 $logincheck = new Admin();
-$newlogin = $logincheck->adminLogin($_SESSION['username'],$_SESSION['password']);
+$newlogin = $logincheck->adminLogin($_SESSION['adminusername'],$_SESSION['adminpassword']);
  if ($newlogin === false)
 	{
 	$logincheck->adminLogout();

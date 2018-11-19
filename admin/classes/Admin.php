@@ -12,12 +12,12 @@ class Admin
 	private $emailhash;
 	private $gravatarimagelg;
 
-	public function adminLogin($username,$password) {
+	public function adminLogin($adminuser,$adminpass) {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		$sql = "select * from adminsettings where adminuser=? and adminpass=? limit 1";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($username,$password));
+		$q->execute(array($adminuser,$adminpass));
 		$valid = $q->rowCount();
 		if ($valid > 0) {
 			# successful login.
@@ -28,7 +28,6 @@ class Admin
 			return false;
 			}
 		Database::disconnect();
-
 	}
 
 	public function forgotLogin($sitename,$domain,$adminemail,$adminuser,$adminpass) {
@@ -37,7 +36,7 @@ class Admin
 		$message = "Admin URL: " . $domain . "/admin\nUsername: " . $adminuser . "\nPassword: " . $adminpass . "\n\n";
 		
 		$sendsiteemail = new Email();
-		$send = $sendsiteemail->sendEmail($adminemail,$adminemail,$subject,$message,$sitename,$domain,$adminemail, '');
+		$send = $sendsiteemail->sendEmail($adminemail,$adminemail,$subject,$message,$sitename,$adminemail, '');
 		Database::disconnect();
 		return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your admin details were sent to your email address.</strong></div>";
 	}
@@ -47,15 +46,13 @@ class Admin
 		$emailhash = trim($adminemail);
 		$emailhash = md5($emailhash);
 		$gravatarimagelg = "<img src=\"http://gravatar.com/avatar/" . $emailhash . "?s=130\" alt=\"admin\" class=\"avatar img-circle img-thumbnail gravatar-lg\">";
-		return $gravatarimagelg;
-		
+		return $gravatarimagelg;		
 	}
 
 	public function adminLogout() {
 
 		session_unset();
 		return;
-
 	}
 
 }

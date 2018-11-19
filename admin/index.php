@@ -10,6 +10,7 @@ require_once "../config/Settings.php";
 require_once "../config/Layout.php";
 require_once "../classes/Countries.php";
 require_once "../classes/Email.php";
+require_once "../classes/Randomizer.php";
 require_once "classes/LoginForm.php";
 require_once "classes/Admin.php";
 
@@ -18,139 +19,225 @@ function sabrina_autoloader($class) {
 }
 spl_autoload_register("sabrina_autoloader");
 
+# get main site settings.
 $sitesettings = new Settings();
 $settings = $sitesettings->getSettings();
-foreach ($settings as $key => $value)
-{
+foreach ($settings as $key => $value) {
     $$key = $value;
 }
 
 # id variable is for the id of a single member, mail, etc. to update in the database.
-if (isset($_REQUEST['id']))
-{
+if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
-}
-else
-{
+} else {
     $id = "";
 }
 
-######################################
-if (isset($_POST['login']))
-{
-    $_SESSION['username'] = $_REQUEST['username'];
-    $_SESSION['password'] = $_REQUEST['password'];
+# get the Layout template.
+$Layout = new Layout();
+
+if (isset($_POST['login'])) {
+
+    # admin clicked the login button.
+
+    $_SESSION['adminusername'] = $_REQUEST['adminuser'];
+    $_SESSION['adminpassword'] = $_REQUEST['adminpass'];
+
     $logincheck = new Admin();
-    $newlogin = $logincheck->adminLogin($_SESSION['username'],$_SESSION['password']);
-    if ($newlogin === false)
-    {
+    $newlogin = $logincheck->adminLogin($_SESSION['adminusername'],$_SESSION['adminpassword']);
+
+    if ($newlogin === false) {
+
+        # failed login.
         $logout = new Admin();
-        $logout->adminLogout();  
+        $logout->adminLogout();
+        $Layout->showHeader();
         $showcontent = new LoginForm();
         echo $showcontent->showLoginForm(1);
-        $Layout = new Layout();
+        $Layout->showFooter();
+        exit;
+    } else {
+
+        # successful admin login. Show the admin menu (in the header if the session vars are present).
+        $Layout->showHeader();
+        $showgravatar = $logincheck->getGravatar($adminemail);
+        include 'main.php';
         $Layout->showFooter();
         exit;
     }
-    else
-    {
-        # successful admin login.
-        $showgravatar = $logincheck->getGravatar($adminemail);
+} else {
+
+    # show the header.
+    $Layout->showHeader();
+
+    if (isset($_POST['saveadminnotes'])) {
+
+        # admin clicked to save the admin notes.
+        $update = new AdminNote();
+        $showupdate = $update->setAdminNote($_POST['htmlcode']);
     }
-}
-if (isset($_GET['forgot']))
-{
-$forgot = new Admin();
-$showforgot = $forgot->forgotLogin($sitename,$domain,$adminemail,$adminuser,$adminpass);
-}
-if (isset($_POST['saveadminnotes']))
-{
-    $update = new AdminNote();
-    $showupdate = $update->setAdminNote($_POST['htmlcode']);
-}
-if (isset($_POST['savesettings']))
-{
-    $update = new Setting();
-    $showupdate = $update->saveSettings($_SESSION['username'], $_SESSION['password']);
+    
+    if (isset($_POST['savesettings'])) {
+    
+        # admin clicked the button to save main settings.
+        $update = new Setting();
+        $showupdate = $update->saveSettings($_SESSION['adminusername'], $_SESSION['adminpassword']);
+    }
+    
+    if (isset($_POST['editmail'])) {
+    
+        # admin clicked to edit a saved email.
+        $editmail = new Mail();
+        $showeditmail = $editmail->editMail($id);
+    }
+    
+    if (isset($_POST['addmail'])) {
+    
+        # admin added a new email.
+        $update = new Mail();
+        $showupdate = $update->addMail();
+    }
+    
+    if (isset($_POST['savemail'])) {
+    
+        # admin saved an existing email they were editing. 
+        $update = new Mail();
+        $showupdate = $update->saveMail($id);
+    }
+    
+    if (isset($_POST['sendverifications'])) {
+    
+        # admin resent verification emails to all unverified members.
+        $verify = new Mail();
+        $showverify = $verify->sendVerifications($settings);
+    }
+    
+    if (isset($_POST['deletemail'])) {
+    
+        # admin deleted an email.
+        $delete = new Mail();
+        $showupdate = $delete->deleteMail($id);
+    }
+    
+    if (isset($_POST['sendmail'])) {
+    
+        # admin clicked to send an email.
+        $send = new Mail();
+        $showupdate = $send->sendMail($id);
+    }
+    
+    if (isset($_POST['editpage'])) {
+    
+        # admin selected an existing page to edit.
+        $editpage = new Page();
+        $showeditpage = $editpage->editPage($id);
+    }
+    
+    if (isset($_POST['addpage'])) {
+    
+        # admin added a new page.
+        $update = new Page();
+        $showupdate = $update->addPage($domain);
+    }
+    
+    if (isset($_POST['savepage'])) {
+        
+        # admin saved a page they were editing.
+        $update = new Page();
+        $showupdate = $update->savePage($id);
+    }
+    
+    if (isset($_POST['deletepage'])) {
+    
+        # admin deleted a page.
+        $delete = new Page();
+        $showupdate = $delete->deletePage($id);
+    }
+    
+    if (isset($_POST['addmember'])) {
+    
+        # admin added a new member
+        $add = new Member();
+        $showadd = $add->addMember();
+    }
+    
+    if (isset($_POST['savemember'])) {
+    
+        # admin saved a member they edited.
+        $update = new Member();
+        $showupdate = $update->saveMember($id);
+    }
+    
+    if (isset($_POST['deletemember'])) {
+    
+        # admin deleted a member and their ads and positions.
+        $delete = new Member();
+        $showupdate = $delete->deleteMember($id);
+    }
+    
+    if (isset($_POST['savetransaction'])) {
+    
+        # admin saved a transaction they were editing.
+        $update = new Money();
+        $showupdate = $update->saveTransaction($id);
+    }
+    
+    if (isset($_POST['deletetransaction'])) {
+    
+        # admin deleted a transaction.
+        $delete = new Money();
+        $showupdate = $delete->deleteTransaction($id);
+    }
+    
+    if ((empty($_REQUEST['page'])) or 
+    ((!empty($_REQUEST['page']) and ($_REQUEST['page'] === 'index' or $_REQUEST['page'] === 'logout' or $_REQUEST['page'] === 'forgot' or $_REQUEST['page'] === 'control'))) or 
+    ((!empty($_GET['page'])) and ((!file_exists($_GET['page'] . ".php"))))) {
+    
+        # 1 - the URL is simply /admin without a /page on the end, so just go to the login form.
+        # 2 - OR the URL has a page like /admin/page, but that page is /admin/index (this file).
+        # 3 - OR the URL has a page like /admin/page, but that page is /admin/logout.
+        # 4 - OR the URL has a page like /admin/page, but that page is /admin/forgot (which doesn't have its own view. It sends an email than shows the login form again).
+        # 5 - OR a page was requested like /admin/page, but the filename to match does not exist ie. /admin/blahblah.
+        # 6 - OR the session control.php file was requested.
+        ### going to admin/index (this file) or /admin/logout or /admin/forgot or /admin/adfadsfadslkjal or /admin/control is the same as going to admin/ and killing the login session.
+        $logout = new Admin();
+        $logout->adminLogout();  
+        $showcontent = new LoginForm();
+    
+        # admin clicked the forgotten password link.
+        if ((!empty($_REQUEST['page']) and $_REQUEST['page'] === 'forgot')) {
+    
+            # we need to email the forgotten login details, and say so before we show the login form.
+            $logout->forgotLogin($sitename,$domain,$adminemail,$adminuser,$adminpass);
+        }
+    
+        echo $showcontent->showLoginForm(0);
+        $Layout->showFooter();
+        exit;
+    
+    } elseif ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php")))) {
+    
+        # there is a page.php that exists, and is not /admin/index (this file) or /admin/logout or /admin/forgot or some non-existent file. Send user to that page.
+        $page = $_REQUEST['page'];
+        include $page . ".php";
+    }
+    
+    else {
+        
+        # show the main admin area page because everything was ok to login, but no specific admin page was specified in the request.
+        include "main.php";
+    }
+    
+    # show the admin footer design.
+    $Layout->showFooter();
+
 }
 
-if (isset($_POST['editmail']))
-{
-    $editmail = new Mail();
-    $showeditmail = $editmail->editMail($id);
-}
-if (isset($_POST['addmail']))
-{
-    $update = new Mail();
-    $showupdate = $update->addMail();
-}
-if (isset($_POST['savemail']))
-{
-    $update = new Mail();
-    $showupdate = $update->saveMail($id);
-}
-if (isset($_POST['sendverifications']))
-{
-    $verify = new Mail();
-    $showverify = $verify->sendVerifications($settings);
-}
-if (isset($_POST['deletemail']))
-{
-    $delete = new Mail();
-    $showupdate = $delete->deleteMail($id);
-}
-if (isset($_POST['sendmail']))
-{
-    $send = new Mail();
-    $showupdate = $send->sendMail($id);
-}
 
-if (isset($_POST['editpage']))
-{
-    $editpage = new Page();
-    $showeditpage = $editpage->editPage($id);
-}
-if (isset($_POST['addpage']))
-{
-    $update = new Page();
-    $showupdate = $update->addPage($domain);
-}
-if (isset($_POST['savepage']))
-{
-    $update = new Page();
-    $showupdate = $update->savePage($id);
-}
-if (isset($_POST['deletepage']))
-{
-    $delete = new Page();
-    $showupdate = $delete->deletePage($id);
-}
-if (isset($_POST['addmember']))
-{
-    $add = new Member();
-    $showadd = $add->addMember();
-}
-if (isset($_POST['savemember']))
-{
-    $update = new Member();
-    $showupdate = $update->saveMember($id);
-}
-if (isset($_POST['deletemember']))
-{
-    $delete = new Member();
-    $showupdate = $delete->deleteMember($id);
-}
 
-if (isset($_POST['savetransaction']))
-{
-    $update = new Money();
-    $showupdate = $update->saveTransaction($id);
-}
-if (isset($_POST['deletetransaction']))
-{
-    $delete = new Money();
-    $showupdate = $delete->deleteTransaction($id);
-}
+
+
+// IGNORE BELOW for now (works without but it would be nicer is all)
 // REFACTOR LATER to make better routes etc.
 //if (isset($_POST['_method'])) {
 //
@@ -169,34 +256,4 @@ if (isset($_POST['deletetransaction']))
 //    }
 //}
 
-if (isset($_GET['page']) && ($_GET['page'] === "logout"))
-{
-   $logout = new Admin();
-   $logout->adminLogout();
-   $showcontent = new LoginForm();
-   echo $showcontent->showLoginForm(1);
-   $Layout = new Layout();
-   $Layout->showFooter();
-   exit;
-}
 ######################################
-
-$Layout = new Layout();
-$Layout->showHeader();
-
-//echo $_GET['page'] . "<br>";
-if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET['page'] !== "index")))) {
-    $page = $_REQUEST['page'];
-    include $page . ".php";
-} elseif (empty($_GET['page']) or ($_GET['page'] === "index")) {
-    $logout = new Admin();
-    $logout->adminLogout();  
-    $showcontent = new LoginForm();
-    echo $showcontent->showLoginForm(1);
-    $Layout = new Layout();
-    $Layout->showFooter();
-    exit;
-} else {
-    include "main.php";
-}
-$Layout->showFooter();

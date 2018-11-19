@@ -30,10 +30,10 @@ $content = <<<HEREDOC
 				<label class="sr-only" for="password">Password</label>
 				<input type="password" name="password" value="" class="form-control input-lg" placeholder="Password">
 
-				<span class="help-block"><a href="/forgot">Forgot Password?</a></span>
-
 				<button class="btn btn-lg btn-primary" type="submit" name="login">Login</button>
 
+				<span class="help-block"><a href="/forgot">Forgot Password?</a></span>
+				
 			</form>
 
 			<div class="ja-bottompadding"></div>

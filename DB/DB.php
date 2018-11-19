@@ -8,7 +8,8 @@ sitename varchar(255) not null,
 domain varchar(255) not null,
 adminratio integer unsigned not null default '5',
 ratiocounter tinyint(4) unsigned not null default '0',
-adminautoapprove tinyint(1) not null default '0'
+adminautoapprove tinyint(1) not null default '0',
+admindefaultwalletid varchar(500) not null default ''
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE adminwallets (
@@ -113,6 +114,7 @@ create table transactions (
   username varchar(255) not null,
   amount decimal(9,2) not null default '0.00',
   recipient varchar(255) not null default 'admin',
+  recipientwalletid varchar(500) not null,
   recipienttype varchar(255) not null default 'sponsor',
   recipientapproved tinyint(1) not null default '0',
   datepaid datetime not null,
