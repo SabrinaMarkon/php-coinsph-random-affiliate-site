@@ -31,3 +31,8 @@ Stack trace:
 #2 {main}
   thrown in /home/randombtcads/public_html/admin/classes/Setting.php on line 51
 [19-Nov-2018 13:06:11 UTC] PHP Notice:  Undefined index: oldadmindefaultwalletid in /home/randombtcads/public_html/admin/classes/Setting.php on line 30
+[19-Nov-2018 13:38:19 UTC] PHP Notice:  Undefined variable: setting in /home/randombtcads/public_html/admin/classes/Member.php on line 72
+[19-Nov-2018 13:38:19 UTC] PHP Notice:  Undefined variable: setting in /home/randombtcads/public_html/admin/classes/Member.php on line 72
+[19-Nov-2018 13:50:02 UTC] PHP Notice:  Undefined variable: giveextratoadmin in /home/randombtcads/public_html/admin/classes/Member.php on line 157
+[19-Nov-2018 13:56:12 UTC] PHP Warning:  Missing argument 2 for Member::deleteMember(), called in /home/randombtcads/public_html/admin/index.php on line 187 and defined in /home/randombtcads/public_html/admin/classes/Member.php on line 150
+[19-Nov-2018 13:56:12 UTC] PHP Notice:  Undefined variable: giveextratoadmin in /home/randombtcads/public_html/admin/classes/Member.php on line 157

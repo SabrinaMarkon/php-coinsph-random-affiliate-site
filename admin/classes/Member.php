@@ -49,12 +49,64 @@ class Member
         $referid = $_POST['referid'];
 
         $verificationcode = time() . mt_rand(10, 100);
-        
+
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "insert into members (username,password,walletid,firstname,lastname,email,country,referid,signupdate,signupip,verificationcode) values (?,?,?,?,?,?,?,?,NOW(),?,?)";
         $q = $pdo->prepare($sql);
         $q->execute(array($username,$password,$walletid,$firstname,$lastname,$email,$country,$referid,$signupip,$verificationcode));
+
+        # get the walletid of the sponsor.
+        if ($referid === 'admin') {
+            $referidwalletid = $settings['admindefaultwalletid'];
+        } else {
+            $sql = "select walletid from members where username=?";
+            $q = $pdo->prepare($sql);
+            $q->execute(['walletid']);
+            $referidwalletid = $q->fetchColumn();
+
+            // echo $referidwalletid;
+        }
+
+        # get a random payee from the randomizer, or an admin wallet depending on the ratio. Then add 1 to the ratiocounter.
+        if ($settings['ratiocounter'] === $settings['adminratio']) {
+            
+            # time to give the admin a random payment.
+            $sql = "select walletid from adminwallets order by rand() limit 1";
+            $q = $pdo->query($sql);
+            $randomwalletid = $q->fetchColumn();
+            $randompayee = 'admin';
+
+            // echo $randomwalletid;
+
+            # reset the ratiocounter.
+            $sql = "update adminsettings set adminratio=0";
+            $q = $pdo->query($sql);
+        } else {
+
+            # get a random wallet from the randomizer.
+            $sql = "select * from randomizer order by rand() limit 1";
+            $q = $pdo->query($sql);
+            $data = $q->fetch();
+            $randompayee = $data['username'];
+            $randomwalletid = $data['walletid'];
+
+            // echo $randompayee . ' ' . $randomwalletid;
+
+            # add 1 to the ratiocounter.
+            $sql = "update adminsettings set adminratio=adminratio+1";
+            $q = $pdo->query($sql);
+        }
+
+        # create two unpaid transactions, one for the sponsor, and one for a random walletid in the randomizer. If none exist, add admin walletid.
+        $sql = "insert into transactions (username,amount,recipient,recipientwalletid,recipienttype) values (?,?,?,?,'sponsor')";
+        $q = $pdo->prepare($sql);
+        $q->execute([$username,$settings['paysponsor'],$referid,$referidwalletid]);
+
+        $sql = "insert into transactions (username,amount,recipient,recipientwalletid,recipienttype) values (?,?,?,?,'random')";
+        $q = $pdo->prepare($sql);
+        $q->execute([$username,$settings['payrandom'],$randompayee,$randomwalletid]);
+                
         Database::disconnect();
 
         $subject = "Welcome to " . $settings['sitename'] . "!";
@@ -83,13 +135,19 @@ class Member
         $sql = "update `members` set username=?, password=?, walletid=?, firstname=?, lastname=?, country=?, email=?, signupip=?, referid=? where id=?";
         $q = $pdo->prepare($sql);
         $q->execute(array($username, $password, $walletid, $firstname, $lastname, $country, $email, $signupip, $referid, $id));
+
+        # update randomizer wallet ids.
+		$sql = "update randomizer set walletid=? where username=?";
+		$q = $pdo->prepare($sql);
+        $q->execute([$walletid,$username]);
+        
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was Saved!</strong></div>";
 
     }
 
-    public function deleteMember($id) {
+    public function deleteMember($id,$giveextratoadmin) {
 
         $username = $_POST['username'];
         $pdo = Database::connect();

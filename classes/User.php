@@ -35,11 +35,6 @@ class User
 		$signupip = $_SERVER['REMOTE_ADDR'];
 		$referid = $_POST['referid'];
 		
-		# error checking.
-		# make sure fields filled in. Make sure email is valid. Make sure passwords match.
-		# make sure fields > x chars.
-		
-
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		$sql = "select * from members where username=?";
@@ -58,10 +53,60 @@ class User
 
 			$sql = "insert into members (username,password,walletid,firstname,lastname,email,country,referid,signupdate,signupip,verificationcode) values (?,?,?,?,?,?,?,?,NOW(),?,?)";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($username,$password,$walletid,$firstname,$lastname,$email,$country,$referid,$signupip,$verificationcode));
+			$q->execute([$username,$password,$walletid,$firstname,$lastname,$email,$country,$referid,$signupip,$verificationcode]);
+
+
+			# get the walletid of the sponsor.
+			if ($referid === 'admin') {
+				$referidwalletid = $settings['admindefaultwalletid'];
+			} else {
+				$sql = "select walletid from members where username=?";
+				$q = $pdo->prepare($sql);
+				$q->execute(['walletid']);
+				$referidwalletid = $q->fetchColumn();
+
+				// echo $referidwalletid;
+			}
+
+			# get a random payee from the randomizer, or an admin wallet depending on the ratio. Then add 1 to the ratiocounter.
+			if ($settings['ratiocounter'] === $settings['adminratio']) {
+				
+				# time to give the admin a random payment.
+				$sql = "select walletid from adminwallets order by rand() limit 1";
+				$q = $pdo->query($sql);
+				$randomwalletid = $q->fetchColumn();
+				$randompayee = 'admin';
+
+				// echo $randomwalletid;
+
+				# reset the ratiocounter.
+				$sql = "update adminsettings set adminratio=0";
+				$q = $pdo->query($sql);
+			} else {
+
+				# get a random wallet from the randomizer.
+				$sql = "select * from randomizer order by rand() limit 1";
+				$q = $pdo->query($sql);
+				$data = $q->fetch();
+				$randompayee = $data['username'];
+				$randomwalletid = $data['walletid'];
+
+				// echo $randompayee . ' ' . $randomwalletid;
+
+				# add 1 to the ratiocounter.
+				$sql = "update adminsettings set adminratio=adminratio+1";
+				$q = $pdo->query($sql);
+			}
 
 			# create two unpaid transactions, one for the sponsor, and one for a random walletid in the randomizer. If none exist, add admin walletid.
-			
+			$sql = "insert into transactions (username,amount,recipient,recipientwalletid,recipienttype) values (?,?,?,?,'sponsor')";
+			$q = $pdo->prepare($sql);
+			$q->execute([$username,$settings['paysponsor'],$referid,$referidwalletid]);
+
+			$sql = "insert into transactions (username,amount,recipient,recipientwalletid,recipienttype) values (?,?,?,?,'random')";
+			$q = $pdo->prepare($sql);
+			$q->execute([$username,$settings['payrandom'],$randompayee,$randomwalletid]);
+
 			Database::disconnect();
 
 			$subject = "Welcome to " . $settings['sitename'] . "!";
@@ -213,6 +258,11 @@ class User
 		$q = $pdo->prepare($sql);
 		$q->execute(array($password, $firstname, $lastname, $email, $country, $signupip, $walletid, $username));
 
+		# update randomizer wallet ids.
+		$sql = "update randomizer set walletid=? where username=?";
+		$q = $pdo->prepare($sql);
+		$q->execute([$walletid,$username]);
+
 		if ($email !== $oldemail) {
 			
 			$verificationcode = time() . mt_rand(10, 100);
@@ -251,14 +301,41 @@ class User
 
 	}
 
-	public function deleteUser($username) {
+	public function deleteUser($username,$giveextratoadmin) {
 		
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+		# delete randomizer positions - reassign to admin or delete depending on admin setting giveextratoadmin.
+		if ($giveextratoadmin === 1) {
+			$sql = "update randomizer set username='admin' where username=?";
+		} else {
+			$sql = "delete from randomizer where username=?";
+		}
+		$q = $pdo->prepare($sql);
+		$q->execute(array($username));
+
+		# delete ads.
+		$sql = "delete from ads where username=?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($username));
+
+		# delete transactions.
+		$sql = "delete from transactions where username=?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($username));
+
+		# delete account.
+		$sql = "delete from members where id=?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($id));
+
 		$sql = "delete from members where username=?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($username));
+
 		Database::disconnect();
+		
 		return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Account " . $username . " Was Deleted</strong></div>";
 
 	}

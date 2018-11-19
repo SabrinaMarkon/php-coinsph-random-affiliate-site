@@ -184,7 +184,7 @@ if (isset($_POST['login'])) {
         # admin deleted a member and their ads and positions.
         // $Layout->showHeader();
         $delete = new Member();
-        $showupdate = $delete->deleteMember($id);
+        $showupdate = $delete->deleteMember($id,$giveextratoadmin);
     }
     
     if (isset($_POST['savetransaction'])) {

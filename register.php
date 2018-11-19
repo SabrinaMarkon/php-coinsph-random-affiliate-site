@@ -30,7 +30,7 @@ echo $showcontent->showPage('Registration Page');
 			
 				<div class="row">
 					<div class="col-xs-6 col-md-6">
-						<label for="firstname">First Name:</label>
+						<label for="firstname" class="ja-toppadding">First Name:</label>
 						<input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name" required>
 					</div>
 					<div class="col-xs-6 col-md-6">
