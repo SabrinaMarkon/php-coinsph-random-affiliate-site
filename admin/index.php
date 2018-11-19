@@ -231,7 +231,7 @@ if (isset($_POST['login'])) {
     
     } elseif ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php")))) {
     
-        # there is a page.php that exists, and is not /admin/index (this file) or /admin/logout or /admin/forgot or some non-existent file. Send user to that page.
+        # there is a page.php that exists, and is not /admin/index (this file) or /admin/logout or /admin/forgot or some non-existent file. 
         $Layout->showHeader();
         $page = $_REQUEST['page'];
         include $page . ".php";
