@@ -63,12 +63,12 @@ class Randomizer {
     /* Add a username to the randomizer table.*/
     private function addUser($username) {
 
-        $bitcoin = $_POST['bitcoin'];
+        $walletid = $_POST['walletid'];
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "insert into randomizer (username,bitcoin) values (?,?)";
+        $sql = "insert into randomizer (username,walletid) values (?,?)";
         $q = $pdo->prepare($sql);
-        $q->execute([$username,$bitcoin]);
+        $q->execute([$username,$walletid]);
         DATABASE::disconnect();
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was added to the Randomizer!</strong></div>";
     }
@@ -99,22 +99,22 @@ class Randomizer {
     private function saveUser($username, $id) {
 
         $updateusername = $_POST['updateusername'];
-        $updatebitcoin = $_POST['updatebitcoin'];
+        $updatewalletid = $_POST['updatewalletid'];
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         # if $username is empty, just update the single $id
         if(empty($username)) {
-            $sql = "update randomizer set bitcoin=?,username=? where id=?";
+            $sql = "update randomizer set walletid=?,username=? where id=?";
             $q = $pdo->prepare($sql);
-            $q->execute([$updatebitcoin,$updateusername,$id]);
+            $q->execute([$updatewalletid,$updateusername,$id]);
             DATABASE::disconnect();
             return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Position #" . $id . " was Saved!</strong></div>";
         }
         # if $username is not empty, update all randomizer positions for that username.
         else {
-            $sql = "update randomizer set bitcoin=?,username=? where username=?";
+            $sql = "update randomizer set walletid=?,username=? where username=?";
             $q = $pdo->prepare($sql);
-            $q->execute([$updatebitcoin,$updateusername,$username]);
+            $q->execute([$updatewalletid,$updateusername,$username]);
             DATABASE::disconnect();
             return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Positions for " . $username . " were Saved!</strong></div>";
         }

@@ -21,25 +21,25 @@ foreach ($settings as $key => $value)
             <form action="/admin/settings" method="post" accept-charset="utf-8" class="form" role="form">
 
                 <label class="sr-only" for="adminuser">Your Website Name:</label>
-                <input type="text" name="adminuser" value="<?php echo $adminuser ?>" class="form-control input-lg" placeholder="Admin Username">
+                <input type="text" name="adminuser" value="<?php echo $adminuser ?>" class="form-control input-lg" placeholder="Admin Username" required>
 
                 <label class="sr-only" for="adminpass">Admin Password</label>
-                <input type="password" name="adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Admin Password">
+                <input type="password" name="adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Admin Password" required>
 
                 <label class="sr-only" for="confirm_adminpass">Confirm Password</label>
-                <input type="password" name="confirm_adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Confirm Password">
+                <input type="password" name="confirm_adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Confirm Password" required>
 
                 <label class="sr-only" for="adminemail">Admin Name</label>
-                <input type="text" name="adminname" value="<?php echo $adminname ?>" class="form-control input-lg" placeholder="Admin Name">
+                <input type="text" name="adminname" value="<?php echo $adminname ?>" class="form-control input-lg" placeholder="Admin Name" required>
 
                 <label class="sr-only" for="adminemail">Your Admin Email</label>
-                <input type="text" name="adminemail" value="<?php echo $adminemail ?>" class="form-control input-lg" placeholder="Admin Email">
+                <input type="text" name="email" value="<?php echo $adminemail ?>" class="form-control input-lg" placeholder="Admin Email" required>
 
                 <label class="sr-only" for="sitename">Your Website Name:</label>
-                <input type="text" name="sitename" value="<?php echo $sitename ?>" class="form-control input-lg" placeholder="Website Name">
+                <input type="text" name="sitename" value="<?php echo $sitename ?>" class="form-control input-lg" placeholder="Website Name" required>
 
                 <label class="sr-only" for="domain">Your Domain:</label>
-                <input type="text" name="domain" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Website URL (start with http://)">
+                <input type="url" name="domain" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Website URL (start with http://)" required>
 
                 <div>
                     <label class="sr-only" for="adminratio">Admin Ratio for Randomizer:</label>

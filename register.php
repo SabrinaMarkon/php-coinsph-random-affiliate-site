@@ -34,7 +34,7 @@ echo $showcontent->showPage('Registration Page');
 				</div>
 				
 						<label class="sr-only" for="email">Your Email</label>
-						<input type="text" name="email" value="" class="form-control input-lg" placeholder="Your Email" required>
+						<input type="email" name="email" value="" class="form-control input-lg" placeholder="Your Email" required>
 
 						<label class="sr-only" for="username">Username</label>
 						<input type="text" name="username" value="" class="form-control input-lg" placeholder="Username" required>

@@ -43,11 +43,11 @@ $transactions = $alltransactions->getAllTransactions();
                         </td>
                         <td>
                             <label class="sr-only" for="username">Payer:</label>
-                            <input type="text" name="username" value="<?php echo $transaction['username']; ?>" class="form-control input-sm widetableinput" placeholder="Payer">
+                            <input type="text" name="username" value="<?php echo $transaction['username']; ?>" class="form-control input-sm widetableinput" placeholder="Payer" required>
                         </td>
                         <td>
                             <label class="sr-only" for="recipient">Payee:</label>
-                            <input type="text" name="recipient" value="<?php echo $transaction['recipient']; ?>" class="form-control input-sm widetableinput" placeholder="Payee">
+                            <input type="text" name="recipient" value="<?php echo $transaction['recipient']; ?>" class="form-control input-sm widetableinput" placeholder="Payee" required>
                         </td>
                         <td>
                             <label class="sr-only" for="recipientapproved">Payee Approved:</label>
@@ -65,15 +65,15 @@ $transactions = $alltransactions->getAllTransactions();
                         </td>
                         <td>
                             <label class="sr-only" for="amount">Amount:</label>
-                            <input type="text" name="amount" value="<?php echo $transaction['amount']; ?>" class="form-control input-sm widetableinput" placeholder="Amount">
+                            <input type="text" name="amount" value="<?php echo $transaction['amount']; ?>" class="form-control input-sm widetableinput" placeholder="Amount" required>
                         </td>
                         <td>
                             <label class="sr-only" for="datepaid">Date Paid:</label>
-                            <input type="text" name="datepaid" value="<?php echo $datepaid ?>" class="form-control input-sm widetableinput" size="50" placeholder="Date Paid">
+                            <input type="text" name="datepaid" value="<?php echo $datepaid ?>" class="form-control input-sm widetableinput" size="50" placeholder="Date Paid" required>
                         </td>
                         <td>
                             <label class="sr-only" for="transaction">Transaction:</label>
-                            <input type="text" name="transaction" value="<?php echo $transaction['transaction']; ?>" class="form-control input-sm widetableinput" size="60" placeholder="Transaction">
+                            <input type="text" name="transaction" value="<?php echo $transaction['transaction']; ?>" class="form-control input-sm widetableinput" size="60" placeholder="Transaction" required>
                         </td>
                         <td>
                             <input type="hidden" name="_method" value="PATCH">

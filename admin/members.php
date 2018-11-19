@@ -28,7 +28,7 @@ $members = $allmembers->getAllMembers();
 				</div>
 				
                 <label class="sr-only" for="email">Email</label>
-                <input type="text" name="email" value="" class="form-control input-lg" placeholder="Your Email" required>
+                <input type="email" name="email" value="" class="form-control input-lg" placeholder="Your Email" required>
 
                 <label class="sr-only" for="username">Username</label>
                 <input type="text" name="username" value="" class="form-control input-lg" placeholder="Username" required>
@@ -128,7 +128,7 @@ $members = $allmembers->getAllMembers();
                             </td>
                             <td>
                                 <label class="sr-only" for="email">Email:</label>
-                                <input type="text" name="email" value="<?php echo $member['email']; ?>" class="form-control input-sm small" size="60" placeholder="Email" required>
+                                <input type="email" name="email" value="<?php echo $member['email']; ?>" class="form-control input-sm small" size="60" placeholder="Email" required>
                             </td>
                             <td>
                                 <label class="sr-only" for="verified">Verified:</label>

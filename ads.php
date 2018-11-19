@@ -41,19 +41,19 @@ $ads = $allads->getAds($username);
 				<form action="/ads" method="post" accept-charset="utf-8" class="form" role="form">
 
 				<label class="sr-only" for="name">Name of Ad</label>
-				<input type="text" name="name" class="form-control input-lg" placeholder="Name of Ad">
+				<input type="text" name="name" class="form-control input-lg" placeholder="Name of Ad" required>
 
 				<label class="sr-only" for="title">Title</label>
-				<input type="text" name="title" class="form-control input-lg" placeholder="Title">
+				<input type="text" name="title" class="form-control input-lg" placeholder="Title" required>
 
 				<label class="sr-only" for="url">Click-Thru URL</label>
-				<input type="text" name="url" class="form-control input-lg" placeholder="Click-Thru URL">
+				<input type="url" name="url" class="form-control input-lg" placeholder="Click-Thru URL" required>
 
 				<label class="sr-only" for="description">Ad Text</label>
-				<input type="text" name="description" class="form-control input-lg" placeholder="Ad Text">
+				<input type="text" name="description" class="form-control input-lg" placeholder="Ad Text" required>
 
 				<label class="sr-only" for="imageurl">Image URL (image will be resized to 100 x 100!)</label>
-				<input type="text" name="imageurl" class="form-control input-lg" placeholder="Image URL (image will be resized to 100 x 100!)">
+				<input type="url" name="imageurl" class="form-control input-lg" placeholder="Image URL (image will be resized to 100 x 100!)">
 
 				<div class="ja-bottompadding"></div>
 
@@ -118,22 +118,22 @@ $ads = $allads->getAds($username);
 								</td>
 								<td>
 									<label class="sr-only" for="name">Name:</label>
-									<input type="text" name="name" value="<?php echo $ad['name']; ?>" class="form-control input-sm small" size="40" placeholder="Name">
+									<input type="text" name="name" value="<?php echo $ad['name']; ?>" class="form-control input-sm small" size="40" placeholder="Name" required>
 								</td>
 								<td>
 									<label class="sr-only" for="url">Click-Thru URL:</label>
-									<input type="text" name="url" value="<?php echo $ad['url']; ?>" class="form-control input-sm small" size="40" placeholder="Click-Thru URL">
+									<input type="url" name="url" value="<?php echo $ad['url']; ?>" class="form-control input-sm small" size="40" placeholder="Click-Thru URL" required>
 								</td>
 								<td>
 									<a href="<?php echo $ad['shorturl'] ?>" target="_blank"><?php echo $ad['shorturl'] ?></a>
 								</td>
 								<td>
 									<label class="sr-only" for="description">Ad Text:</label>
-									<input type="text" name="description" value="<?php echo $ad['description']; ?>" class="form-control input-sm small" size="40" placeholder="Ad Text">
+									<input type="text" name="description" value="<?php echo $ad['description']; ?>" class="form-control input-sm small" size="40" placeholder="Ad Text" required>
 								</td>
 								<td>
 									<label class="sr-only" for="imageurl">Image URL:</label>
-									<input type="text" name="imageurl" value="<?php echo $ad['imageurl']; ?>" class="form-control input-sm small" size="60" placeholder="Image URL">
+									<input type="url" name="imageurl" value="<?php echo $ad['imageurl']; ?>" class="form-control input-sm small" size="60" placeholder="Image URL" required>
 								</td>
 								<td>
 									<label class="sr-only" for="approved">Verified:</label>
