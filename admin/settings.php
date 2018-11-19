@@ -41,6 +41,9 @@ foreach ($settings as $key => $value)
                 <label class="sr-only" for="domain">Your Domain:</label>
                 <input type="url" name="domain" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Website URL (start with http://)" required>
 
+                <label class="sr-only" for="admindefaultwalletid">Admin Default Wallet ID:</label>
+                <input type="url" name="admindefaultwalletid" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Admin Default Wallet ID" required>
+
                 <div>
                     <label class="sr-only" for="adminratio">Admin Ratio for Randomizer:</label>
                     Show Admin Payment Button Every&nbsp;
