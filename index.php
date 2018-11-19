@@ -67,10 +67,11 @@ if (isset($_POST['register']))
 $register = new User();
 $showregistration = $register->newSignup($settings);
 }
-if (isset($_GET['verify']))
+if (isset($_GET['page']) && ($_GET['page'] === "verify"))
 {
 $verify = new User();
-$verificationcode = $_SESSION['referid'];
+# the last part of the url is code this time not referid like other urls. Don't fix cuz it ain't broken.
+$verificationcode = $_SESSION['referid']; 
 $showverify = $verify->verifyUser($verificationcode);
 }
 if (isset($_POST['saveprofile']))

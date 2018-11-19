@@ -4,3 +4,16 @@
 [19-Nov-2018 07:30:56 UTC] PHP Fatal error:  Class 'PageContent' not found in /home/randombtcads/public_html/404.php on line 2
 [19-Nov-2018 07:31:09 UTC] PHP Fatal error:  Class 'PageContent' not found in /home/randombtcads/public_html/404.php on line 7
 [19-Nov-2018 07:32:20 UTC] PHP Fatal error:  Class 'PageContent' not found in /home/randombtcads/public_html/404.php on line 7
+[19-Nov-2018 09:43:13 UTC] PHP Notice:  Undefined variable: paysponsor in /home/randombtcads/public_html/classes/User.php on line 72
+[19-Nov-2018 09:43:13 UTC] PHP Notice:  Undefined variable: walletidsponsor in /home/randombtcads/public_html/classes/User.php on line 72
+[19-Nov-2018 09:43:13 UTC] PHP Notice:  Undefined variable: payrandom in /home/randombtcads/public_html/classes/User.php on line 73
+[19-Nov-2018 09:43:13 UTC] PHP Notice:  Undefined variable: walletidrandom in /home/randombtcads/public_html/classes/User.php on line 73
+[19-Nov-2018 09:50:54 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from members where verificationcode='154262059349'' at line 1' in /home/randombtcads/public_html/classes/User.php:122
+Stack trace:
+#0 /home/randombtcads/public_html/classes/User.php(122): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/index.php(75): User->verifyUser('154262059349')
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/User.php on line 122
+[19-Nov-2018 09:52:34 UTC] PHP Notice:  Undefined variable: mktime in /home/randombtcads/public_html/classes/User.php on line 126
+[19-Nov-2018 09:52:34 UTC] PHP Fatal error:  Function name must be a string in /home/randombtcads/public_html/classes/User.php on line 126
+[19-Nov-2018 09:52:56 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/randombtcads/public_html/classes/User.php on line 126

@@ -72,7 +72,7 @@ class User
 			$message .= "1) " . $paysponsor . " to Bitcoin: " . $walletidsponsor . "\n";
 			$message .= "2) " . $payrandom . " to Bitcoin: " . $walletidrandom . "\n\n";
 			$sendsiteemail = new Email();
-			$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['domain'], $settings['adminemail'], '');
+			$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['adminemail'], '');
 
 			return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Success! Thanks for Joining!</strong><p>Please click the link in the email we sent to you to verify your email address.</p></div>";
 
@@ -100,6 +100,10 @@ class User
 			# successful login.
 			$q->setFetchMode(PDO::FETCH_ASSOC);
 			$memberdetails = $q->fetch();
+			# update last login.
+			$sql = "update members set lastlogin=NOW() where username=?";
+			$q = $pdo->prepare($sql);
+			$q->execute(array($username));
 			return $memberdetails;
 			}
 		else {
@@ -113,13 +117,13 @@ class User
 	public function verifyUser($verificationcode) {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		$sql = "select from members where verificationcode=?";
+		$sql = "select * from members where verificationcode=?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($verificationcode));
 		$valid = $q->rowCount();
 		if ($valid) {
 			# successful email validation. Add time to verified field so we know when it happened.
-			$sql = "update members set verified=" . $mktime() . " where verificationcode=?";
+			$sql = "update members set verified=" . time() . " where verificationcode=?";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($verificationcode));
 			Database::disconnect();
@@ -149,7 +153,7 @@ class User
 			$message = "Login URL: " . $domain . "\nUsername: " . $username . "\nPassword: " . $password . "\n\n";
 			
 			$sendsiteemail = new Email();
-			$send = $sendsiteemail->sendEmail($email,$adminemail,$subject,$message,$sitename,$domain,$adminemail, '');
+			$send = $sendsiteemail->sendEmail($email,$adminemail,$subject,$message,$sitename,$adminemail, '');
 			
 			Database::disconnect();
 			return "<center><div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your login details were sent to your email address.</strong></div>";
@@ -198,7 +202,7 @@ class User
 			$message .= "Login URL: " . $settings['domain'] . "/login\nUsername: " . $username . "\nPassword: " . $password . "\n\n";
 			$message .= "Your Referral URL: " . $settings['domain'] . "/r/" . $username . "\n\n";
 			$sendsiteemail = new Email();
-			$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['domain'], $settings['adminemail'], '');
+			$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['adminemail'], '');
 
 		}
 

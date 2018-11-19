@@ -26,7 +26,7 @@ echo $showcontent->showPage('Registration Page');
 
 		<h1 class="ja-bottompadding">Sign Up</h1>
 
-			<form action="/register" method="post" accept-charset="utf-8" class="form" role="form">
+			<form action="/register" method="post" id="registerform" accept-charset="utf-8" class="form" role="form">
 			
 				<div class="row">
 					<div class="col-xs-6 col-md-6">
@@ -46,10 +46,10 @@ echo $showcontent->showPage('Registration Page');
 						<input type="text" name="username" value="" class="form-control input-lg" placeholder="Username" required>
 
 						<label class="sr-only" for="password">Password</label>
-						<input type="password" name="password" id="password" value="" class="form-control input-lg" placeholder="Password" required>
+						<input type="password" name="password" id="password1" value="" class="form-control input-lg" placeholder="Password" required>
 
 						<label class="sr-only" for="confirm_password">Confirm Password</label>
-						<input type="password" name="confirm_password" id="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password" required>
+						<input type="password" name="confirm_password" id="password2" value="" class="form-control input-lg" placeholder="Confirm Password" required>
 
 						<label class="sr-only" for="walletid">Bitcoin Wallet ID</label>
 						<input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
