@@ -174,7 +174,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['savemember'])) {
     
         # admin saved a member they edited.
-        $Layout->showHeader();
+        // $Layout->showHeader();
         $update = new Member();
         $showupdate = $update->saveMember($id);
     }
@@ -218,15 +218,15 @@ if (isset($_POST['login'])) {
         $logout->adminLogout();  
         $showcontent = new LoginForm();
     
+        $Layout->showHeader();
+        
         # admin clicked the forgotten password link.
         if ((!empty($_REQUEST['page']) and $_REQUEST['page'] === 'forgot')) {
     
             # we need to email the forgotten login details, and say so before we show the login form.
-            $Layout->showHeader();
-            $logout->forgotLogin($sitename,$domain,$adminemail,$adminuser,$adminpass);
+            echo $logout->forgotLogin($sitename,$domain,$adminemail,$adminuser,$adminpass);
         }
 
-        $Layout->showHeader();
         echo $showcontent->showLoginForm(0);
     
     } elseif ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php")))) {

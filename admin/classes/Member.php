@@ -75,13 +75,12 @@ class Member
         $country = $_POST['country'];
         $email = $_POST['email'];
         $signupip = $_POST['signupip'];
-        $verified = $_POST['verified'];
         $referid = $_POST['referid'];
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "update `members` set username=?, password=?, walletid=?, firstname=?, lastname=?, country=?, email=?, signupip=?, verified=?, referid=? where id=?";
+        $sql = "update `members` set username=?, password=?, walletid=?, firstname=?, lastname=?, country=?, email=?, signupip=?, referid=? where id=?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($username, $password, $firstname, $lastname, $country, $email, $signupip, $verified, $referid, $id));
+        $q->execute(array($username, $password, $walletid, $firstname, $lastname, $country, $email, $signupip, $referid, $id));
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was Saved!</strong></div>";

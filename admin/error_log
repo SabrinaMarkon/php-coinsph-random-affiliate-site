@@ -1,0 +1,13 @@
+[19-Nov-2018 11:44:40 UTC] PHP Notice:  Undefined index: verified in /home/randombtcads/public_html/admin/classes/Member.php on line 78
+[19-Nov-2018 11:44:40 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home/randombtcads/public_html/admin/classes/Member.php:84
+Stack trace:
+#0 /home/randombtcads/public_html/admin/classes/Member.php(84): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(179): Member->saveMember('1')
+#2 {main}
+  thrown in /home/randombtcads/public_html/admin/classes/Member.php on line 84
+[19-Nov-2018 11:45:44 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home/randombtcads/public_html/admin/classes/Member.php:83
+Stack trace:
+#0 /home/randombtcads/public_html/admin/classes/Member.php(83): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(179): Member->saveMember('1')
+#2 {main}
+  thrown in /home/randombtcads/public_html/admin/classes/Member.php on line 83
