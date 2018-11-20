@@ -91,7 +91,7 @@ class Money
             if ($totalverified === 2) {
 
                 $addposition = new Randomizer();
-                $randomizerid = $addposition->addUser($username,0);
+                $randomizerid = $addposition->addRandomizer($username,0);
 
                 $addad = new Ad();
                 $adid = $addad->createBlankAd($username);
@@ -107,14 +107,14 @@ class Money
                 $q->execute([$randomizerid,$tranactionidforsponsor,$tranactionidforrandom]);
                 
                 # Add the below message to the return output.
-                $returnshow = "<div class=\"ja-bottompadding ja-topadding\">Username " . $username . " now has 2 verified payments, with one to their sponsor
-                 and the other to a random user, so has been credited with an ad and a randomizer position.</div>";
+                $returnshow = "Username " . $username . " now has 2 verified payments, with one to their sponsor
+                 and the other to a random user, so has been credited with an ad and a randomizer position.";
             }
         }
 
         Database::disconnect();
 
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID #" . $id . " was Saved!</strong></div>" . $returnshow;
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID #" . $id . " was Saved!</strong>" . $returnshow . "</div>";
     }
 
     public function deleteTransaction($id) {

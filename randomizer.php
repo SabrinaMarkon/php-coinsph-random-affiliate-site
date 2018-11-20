@@ -13,7 +13,7 @@ echo $show;
 $showcontent = new PageContent();
 echo $showcontent->showPage('Members Area Randomizer Page');
 $allpositions = new Randomizer();
-$positions = $allpositions->getAllForOneUser($username);
+$positions = $allpositions->getAllRandomizersForOneUser($username);
 /* for generating the walletids to pay, if payment hasn't been made yet,
 or for getting the walletids paid from the transactions table. */
 $bitcoin = new Bitcoin();
@@ -43,8 +43,6 @@ $bitcoin = new Bitcoin();
                 
 				# person has at least one randomizer position they paid for (sponsor and random) that has been added.
                 # show those positions.
-                
-                ### ALONG WITH PAY BUTTONS IF THEY OWE FOR ANY OTHERS IN THE TRANSACTIONS TABLE!!
 
 				?>
 				<div class="table-responsive ja-toppadding">
