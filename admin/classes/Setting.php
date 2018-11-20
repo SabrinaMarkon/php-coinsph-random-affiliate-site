@@ -47,12 +47,10 @@ class Setting
         $q->execute([$oldadmindefaultwalletid]);
         $rows = $q->fetchColumn();
         if ($rows) {
-            echo "yes";
-            $sql = "update adminwallets set walletid=? where walletid=?";
+              $sql = "update adminwallets set walletid=? where walletid=?";
             $q = $pdo->prepare($sql);
             $q->execute([$newadmindefaultwalletid,$oldadmindefaultwalletid]);
         } else {
-            echo "no";
             $sql = "insert into adminwallets (name,walletid) values ('Admin Default Wallet ID',?)";
             $q = $pdo->prepare($sql);
             $q->execute([$newadmindefaultwalletid]);

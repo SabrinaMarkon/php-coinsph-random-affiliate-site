@@ -88,7 +88,7 @@ if (isset($_POST['login'])) {
         # admin clicked to edit a saved email.
         // $Layout->showHeader();
         $editmail = new Mail();
-        $showeditmail = $editmail->editMail($id);
+        $show = $editmail->editMail($id);
     }
     
     if (isset($_POST['addmail'])) {
@@ -112,7 +112,7 @@ if (isset($_POST['login'])) {
         # admin resent verification emails to all unverified members.
         // $Layout->showHeader();
         $verify = new Mail();
-        $showverify = $verify->sendVerifications($settings);
+        $show = $verify->sendVerifications($settings);
     }
     
     if (isset($_POST['deletemail'])) {
@@ -136,7 +136,7 @@ if (isset($_POST['login'])) {
         # admin selected an existing page to edit.
         // $Layout->showHeader();
         $editpage = new Page();
-        $showeditpage = $editpage->editPage($id);
+        $show = $editpage->editPage($id);
     }
     
     if (isset($_POST['addpage'])) {
@@ -168,7 +168,7 @@ if (isset($_POST['login'])) {
         # admin added a new member.
         // $Layout->showHeader();
         $add = new Member();
-        $showadd = $add->addMember($settings);
+        $show = $add->addMember($settings);
     }
     
     if (isset($_POST['savemember'])) {

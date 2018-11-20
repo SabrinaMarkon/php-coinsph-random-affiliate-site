@@ -142,7 +142,7 @@ class Mail
         }
 
         Database::disconnect();
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Verification Emailss were Resent!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Verification Emails were Resent!</strong></div>";
     }
 
     public function deleteMail($id) {
