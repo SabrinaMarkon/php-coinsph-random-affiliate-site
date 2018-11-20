@@ -15,8 +15,10 @@ $transactions = $alltransactions->getAllTransactions();
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12">		
 
+            <div class="ja-bottompadding"></div>
+            
             <h1 class="ja-bottompadding">Transaction Records</h1>
 
             <div class="table-responsive">
@@ -26,7 +28,7 @@ $transactions = $alltransactions->getAllTransactions();
                         <th class="text-center small">#</th>
                         <th class="text-center small">Payer</th>
                         <th class="text-center small">Payee</th>
-                        <th class="text-center small">Payee&nbsp;Approved</th>
+                        <th class="text-center small">Payee&nbsp;Verified</th>
                         <th class="text-center small">Payment&nbsp;Type</th>
                         <th class="text-center small">Amount</th>
                         <th class="text-center small">Date&nbsp;Paid</th>
@@ -56,10 +58,11 @@ $transactions = $alltransactions->getAllTransactions();
                             <input type="text" name="recipient" value="<?php echo $transaction['recipient']; ?>" class="form-control input-sm widetableinput" placeholder="Payee" required>
                         </td>
                         <td>
-                            <label class="sr-only" for="recipientapproved">Payee Approved:</label>
+                            <label class="sr-only" for="recipientapproved">Payee Verified:</label>
+                            <input type="hidden" name="oldrecipientapproved" value="<?php echo $transaction['recipientapproved']; ?>">
                             <select name="recipientapproved" class="form-control widetableselect">
-                                <option value="no" <?php if ($transaction['recipientapproved'] !== "yes") { echo "selected"; } ?>>No</option>
-                                <option value="yes" <?php if ($transaction['recipientapproved'] === "yes") { echo "selected"; } ?>>Yes</option>
+                                <option value="0" <?php if ($transaction['recipientapproved'] !== 1) { echo "selected"; } ?>>No</option>
+                                <option value="1" <?php if ($transaction['recipientapproved'] === 1) { echo "selected"; } ?>>Yes</option>
                             </select>
                         </td>
                         <td>

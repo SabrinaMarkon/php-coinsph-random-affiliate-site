@@ -46,11 +46,14 @@ class Setting
         $q = $pdo->prepare($sql);
         $q->execute([$oldadmindefaultwalletid]);
         $rows = $q->fetchColumn();
+
         if ($rows) {
-              $sql = "update adminwallets set walletid=? where walletid=?";
+
+            $sql = "update adminwallets set walletid=? where walletid=?";
             $q = $pdo->prepare($sql);
             $q->execute([$newadmindefaultwalletid,$oldadmindefaultwalletid]);
         } else {
+
             $sql = "insert into adminwallets (name,walletid) values ('Admin Default Wallet ID',?)";
             $q = $pdo->prepare($sql);
             $q->execute([$newadmindefaultwalletid]);
@@ -64,7 +67,6 @@ class Setting
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Site Settings Were Saved!</strong></div>";
-
     }
 
 }

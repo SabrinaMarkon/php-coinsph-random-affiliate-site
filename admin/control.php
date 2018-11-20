@@ -23,6 +23,7 @@ $newlogin = $logincheck->adminLogin($_SESSION['adminusername'],$_SESSION['adminp
 	$Layout->showHeader();
 	$logincheck->adminLogout();
 	$showcontent = new LoginForm();
+	echo "hurr";
 	echo $showcontent->showLoginForm(1);
 	$Layout->showFooter();
 	exit;
@@ -37,6 +38,7 @@ else
 	$Layout = new Layout();
 	$Layout->showHeader();
 	$showcontent = new LoginForm();
+	echo "durr";
 	echo $showcontent->showLoginForm(1);
 	$Layout->showFooter();
 	exit;
