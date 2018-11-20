@@ -28,7 +28,7 @@ $transactions = $alltransactions->getAllTransactions();
                         <th class="text-center small">#</th>
                         <th class="text-center small">Payer</th>
                         <th class="text-center small">Payee</th>
-                        <th class="text-center small">Payee&nbsp;Verified</th>
+                        <th class="text-center small">Verified&nbsp;by&nbsp;Payee</th>
                         <th class="text-center small">Payment&nbsp;Type</th>
                         <th class="text-center small">Amount</th>
                         <th class="text-center small">Date&nbsp;Paid</th>
@@ -42,61 +42,61 @@ $transactions = $alltransactions->getAllTransactions();
                     <?php
                     foreach ($transactions as $transaction) {
 
-                    $date = new DateTime($transaction['datepaid']);
-                    $datepaid = $date->format('Y-m-d');
+                        $datepaid = $transaction['datepaid'];
+                        if($datepaid === '') { $datepaid = 'Not Yet'; } else { $datepaid = date('Y-m-d'); }
                     ?>
-                    <tr>
-                        <form action="/admin/money/<?php echo $transaction['id']; ?>" method="post" accept-charset="utf-8" class="form" role="form">
-                        <td><?php echo $transaction['id']; ?>
-                        </td>
-                        <td>
-                            <label class="sr-only" for="username">Payer:</label>
-                            <input type="text" name="username" value="<?php echo $transaction['username']; ?>" class="form-control input-sm widetableinput" placeholder="Payer" required>
-                        </td>
-                        <td>
-                            <label class="sr-only" for="recipient">Payee:</label>
-                            <input type="text" name="recipient" value="<?php echo $transaction['recipient']; ?>" class="form-control input-sm widetableinput" placeholder="Payee" required>
-                        </td>
-                        <td>
-                            <label class="sr-only" for="recipientapproved">Payee Verified:</label>
-                            <input type="hidden" name="oldrecipientapproved" value="<?php echo $transaction['recipientapproved']; ?>">
-                            <select name="recipientapproved" class="form-control widetableselect">
-                                <option value="0" <?php if ($transaction['recipientapproved'] !== 1) { echo "selected"; } ?>>No</option>
-                                <option value="1" <?php if ($transaction['recipientapproved'] === 1) { echo "selected"; } ?>>Yes</option>
-                            </select>
-                        </td>
-                        <td>
-                            <label class="sr-only" for="recipienttype">Payment Type:</label>
-                            <select name="recipienttype" class="form-control widetableselect">
-                                <option value="random" <?php if ($transaction['recipienttype'] !== "sponsor") { echo "selected"; } ?>>Random</option>
-                                <option value="sponsor" <?php if ($transaction['recipienttype'] === "sponsor") { echo "selected"; } ?>>Sponsor</option>
-                            </select>
-                        </td>
-                        <td>
-                            <label class="sr-only" for="amount">Amount:</label>
-                            <input type="text" name="amount" value="<?php echo $transaction['amount']; ?>" class="form-control input-sm widetableinput" placeholder="Amount" required>
-                        </td>
-                        <td>
-                            <label class="sr-only" for="datepaid">Date Paid:</label>
-                            <input type="text" name="datepaid" value="<?php echo $datepaid ?>" class="form-control input-sm widetableinput" size="50" placeholder="Date Paid" required>
-                        </td>
-                        <td>
-                            <label class="sr-only" for="transaction">Transaction:</label>
-                            <input type="text" name="transaction" value="<?php echo $transaction['transaction']; ?>" class="form-control input-sm widetableinput" size="60" placeholder="Transaction" required>
-                        </td>
-                        <td>
-                            <input type="hidden" name="_method" value="PATCH">
-                            <button class="btn btn-sm btn-primary" type="submit" name="savetransaction">SAVE</button>
-                        </td>
-                        </form>
-                        <td>
-                            <form action="/admin/money/<?php echo $transaction['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <button class="btn btn-sm btn-primary" type="submit" name="deletetransaction">DELETE</button>
+                        <tr>
+                            <form action="/admin/money/<?php echo $transaction['id']; ?>" method="post" accept-charset="utf-8" class="form" role="form">
+                            <td><?php echo $transaction['id']; ?>
+                            </td>
+                            <td>
+                                <label class="sr-only" for="username">Payer:</label>
+                                <input type="text" name="username" value="<?php echo $transaction['username']; ?>" class="form-control input-sm widetableinput" placeholder="Payer" required>
+                            </td>
+                            <td>
+                                <label class="sr-only" for="recipient">Payee:</label>
+                                <input type="text" name="recipient" value="<?php echo $transaction['recipient']; ?>" class="form-control input-sm widetableinput" placeholder="Payee" required>
+                            </td>
+                            <td>
+                                <label class="sr-only" for="recipientapproved">Verified by Payee:</label>
+                                <input type="hidden" name="oldrecipientapproved" value="<?php echo $transaction['recipientapproved']; ?>">
+                                <select name="recipientapproved" class="form-control widetableselect">
+                                    <option value="0" <?php if ($transaction['recipientapproved'] !== "1") { echo "selected"; } ?>>No</option>
+                                    <option value="1" <?php if ($transaction['recipientapproved'] === "1") { echo "selected"; } ?>>Yes</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label class="sr-only" for="recipienttype">Payment Type:</label>
+                                <select name="recipienttype" class="form-control widetableselect">
+                                    <option value="random" <?php if ($transaction['recipienttype'] !== "sponsor") { echo "selected"; } ?>>Random</option>
+                                    <option value="sponsor" <?php if ($transaction['recipienttype'] === "sponsor") { echo "selected"; } ?>>Sponsor</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label class="sr-only" for="amount">Amount:</label>
+                                <input type="text" name="amount" value="<?php echo $transaction['amount']; ?>" class="form-control input-sm widetableinput" placeholder="Amount" required>
+                            </td>
+                            <td>
+                                <label class="sr-only" for="datepaid">Date Paid:</label>
+                                <input type="text" name="datepaid" value="<?php echo $datepaid ?>" class="form-control input-sm widetableinput" size="50" placeholder="Date Paid" required>
+                            </td>
+                            <td>
+                                <label class="sr-only" for="transaction">Transaction:</label>
+                                <input type="text" name="transaction" value="<?php echo $transaction['transaction']; ?>" class="form-control input-sm widetableinput" size="60" placeholder="Transaction" required>
+                            </td>
+                            <td>
+                                <input type="hidden" name="_method" value="PATCH">
+                                <button class="btn btn-sm btn-primary" type="submit" name="savetransaction">SAVE</button>
+                            </td>
                             </form>
-                        </td>
-                    </tr>
-                    <?php
+                            <td>
+                                <form action="/admin/money/<?php echo $transaction['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button class="btn btn-sm btn-primary" type="submit" name="deletetransaction">DELETE</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <?php
                     }
                     ?>
 

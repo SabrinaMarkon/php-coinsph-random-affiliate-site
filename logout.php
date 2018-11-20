@@ -5,8 +5,8 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
     exit;
 }
 
-if (isset($showlogout))
+if (isset($show))
 {
-echo $showlogout;
+echo $show;
 }
 ?>

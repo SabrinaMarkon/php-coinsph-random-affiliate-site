@@ -1,0 +1,13 @@
+[20-Nov-2018 04:39:16 UTC] PHP Notice:  Undefined index: walletid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[20-Nov-2018 04:39:16 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'walletid' cannot be null' in /home/randombtcads/public_html/classes/Randomizer.php:79
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Randomizer.php(79): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/classes/Money.php(91): Randomizer->addUser('lucas', 0)
+#2 /home/randombtcads/public_html/admin/index.php(195): Money->saveTransaction('7')
+#3 {main}
+  thrown in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[20-Nov-2018 04:40:41 UTC] PHP Warning:  require(classes/Ad.php): failed to open stream: No such file or directory in /home/randombtcads/public_html/admin/index.php on line 18
+[20-Nov-2018 04:40:41 UTC] PHP Warning:  require(classes/Ad.php): failed to open stream: No such file or directory in /home/randombtcads/public_html/admin/index.php on line 18
+[20-Nov-2018 04:40:41 UTC] PHP Fatal error:  require(): Failed opening required 'classes/Ad.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/randombtcads/public_html/admin/index.php on line 18
+[20-Nov-2018 04:41:51 UTC] PHP Warning:  PDOStatement::execute() expects at most 1 parameter, 3 given in /home/randombtcads/public_html/admin/classes/Money.php on line 99
+[20-Nov-2018 04:41:51 UTC] PHP Warning:  PDOStatement::execute() expects at most 1 parameter, 3 given in /home/randombtcads/public_html/admin/classes/Money.php on line 104

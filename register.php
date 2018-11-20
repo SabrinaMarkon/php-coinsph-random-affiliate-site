@@ -5,9 +5,9 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
     exit;
 }
 
-if (isset($showregistration))
+if (isset($show))
 {
-echo $showregistration;
+echo $show;
 $showcontent = new PageContent();
 echo $showcontent->showPage('Thank You Page - New Member Signup');
 $Layout = new Layout();
@@ -21,8 +21,6 @@ echo $showcontent->showPage('Registration Page');
 ?>
 
 <div class="container">
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
 
 		<h1 class="ja-bottompadding">Sign Up</h1>
 
@@ -96,7 +94,5 @@ echo $showcontent->showPage('Registration Page');
 			</div>
 
 			<div class="ja-bottompadding"></div>
- 
-		</div>
-	</div>
+
 </div>

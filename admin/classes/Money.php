@@ -44,6 +44,9 @@ class Money
         $recipienttype = $_POST['recipienttype'];
         $amount = $_POST['amount'];
         $datepaid = $_POST['datepaid'];
+        if (($datepaid === '') or ($datepaid === 'Not Yet')) { 
+            $datepaid = ''; 
+        }
         $transaction = $_POST['transaction'];
 
         $pdo = Database::connect();
@@ -54,11 +57,11 @@ class Money
 
         /* if the admin is verifying a transaction, check to see if that user now has 2 (sponsor and random) verified transactions that have no randomizerid yet.
         If this is the case, then reward the user with a randomizer position and an ad. */
-        if ($recipientapproved === 1 and $oldrecipientapproved === 0) {
+        $returnshow = '';
+        if ($recipientapproved === "1" and $oldrecipientapproved === "0") {
 
             # see if the user now has a verifed paid sponsor transaction and also a verified paid random transaction.
             $totalverified = 0;
-            $returnshow = '';
             $tranactionidforsponsor = 0;
             $tranactionidforrandom = 0;
             $adid = 0;
@@ -96,12 +99,12 @@ class Money
                 # update the transactions with the correct adid (the id of the ad given to the user for making the two payments).
                 $sql = "update transactions set adid=? where (id=? or id=?)";
                 $q = $pdo->prepare($sql);
-                $q->execute($adid,$tranactionidforsponsor,$tranactionidforrandom);
+                $q->execute([$adid,$tranactionidforsponsor,$tranactionidforrandom]);
 
                 # update the transactions with the correct randomizerid (the id of the randomizer position given to the user for making the two payments).
                 $sql = "update transactions set randomizerid=? where (id=? or id=?)";
                 $q = $pdo->prepare($sql);
-                $q->execute($randomizerid,$tranactionidforsponsor,$tranactionidforrandom);
+                $q->execute([$randomizerid,$tranactionidforsponsor,$tranactionidforrandom]);
                 
                 # Add the below message to the return output.
                 $returnshow = "<div class=\"ja-bottompadding ja-topadding\">Username " . $username . " now has 2 verified payments, with one to their sponsor

@@ -52,7 +52,7 @@
       <div class="container">
         <p class="m-0 text-center text-white">
 		&copy;2018 RandomBTCAds.com. All rights reserved. 
-		<br />Made with <i class="fa fa-heart" aria-hidden="true" style="color:#be1931"></i> by <a href="http://sabrinamarkon.com" target="_blank">SabrinaMarkon.com</a></p>
+		<br />Made with <i class="fa fa-heart" aria-hidden="true" style="color:#be1931"></i> by <a href="http://sabrinamarkon.com" target="_blank">Sabrina Markon</a></p>
 		</p>
       </div>
       <!-- /.container -->

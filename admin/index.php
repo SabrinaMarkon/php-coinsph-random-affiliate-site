@@ -11,6 +11,7 @@ require_once "../config/Layout.php";
 require_once "../classes/Countries.php";
 require_once "../classes/Email.php";
 require_once "../classes/Randomizer.php";
+require_once "../classes/Ad.php";
 require_once "classes/LoginForm.php";
 require_once "classes/Admin.php";
 
@@ -186,7 +187,7 @@ if (isset($_POST['login'])) {
         $delete = new Member();
         $show = $delete->deleteMember($id,$giveextratoadmin);
     }
-    
+  
     if (isset($_POST['savetransaction'])) {
     
         # admin saved a transaction they were editing.

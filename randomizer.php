@@ -19,8 +19,6 @@ or for getting the walletids paid from the transactions table. */
 $bitcoin = new Bitcoin();
 ?>
 <div class="container">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
 		
 			<h1 class="ja-bottompadding">Your Randomizer</h1>
 				
@@ -58,7 +56,7 @@ $bitcoin = new Bitcoin();
                             <th class="text-center small">Amount</th>
                             <th class="text-center small">Earning&nbsp;Type</th>
                             <th class="text-center small">Date&nbsp;Paid</th>
-                            <th class="text-center small" style="background:lightyellow;">Verify&nbsp;You&nbsp;Were&nbsp;Paid</th>
+                            <th class="text-center small" style="background:lightyellow;">Were&nbsp;You&nbsp;Paid?</th>
                             <th class="text-center small">Save</th>
 						</tr>
 						</thead>
@@ -81,22 +79,28 @@ $bitcoin = new Bitcoin();
                                 $recipienttype = $transaction['recipienttype'];
                                 $recipientapproved = $transaction['recipientapproved'];
                                 $datepaid = $transaction['datepaid'];
-                                if($datepaid === '') { $datepaid = 'Still Unpaid'; } else { $datepaid = date('Y-m-d'); }
+                                $bg = '';
+                                if($datepaid === '') {
+                                    
+                                    $datepaid = 'Still Unpaid';
+                                    $bg = 'style="background:#ffff66;"';
+                                } else {
+
+                                    $datepaid = date('Y-m-d'); 
+                                }
 
                                 ?>
-                                <tr>
+                                <tr <?php echo $bg; ?>>
                                     <form action="/randomizer/<?php echo $transactionid ?>" method="post" accept-charset="utf-8" class="form" role="form">
                                     <td class="small"><?php echo $id; ?></td>
-                                    <td class="small"><?php echo $transactionid; ?></td>
                                     <td class="small"><?php echo $walletid; ?></td>
                                     <td class="small"><?php echo $amount; ?></td>
                                     <td class="small"><?php echo $recipienttype; ?></td>
                                     <td class="small"><?php echo $datepaid; ?></td>
-                                    <td class="small"><?php echo $datepaid; ?></td>
                                     <td>
                                         <select name="recipientapproved" class="form-control input-md">
-                                            <option value="1"<?php if ($recipientapproved === 1) { echo " selected"; } ?>>Yes</option>
-                                            <option value="0"<?php if ($recipientapproved !== 1) { echo " selected"; } ?>>No</option>
+                                            <option value="1"<?php if ($recipientapproved === "1") { echo " selected"; } ?>>Yes</option>
+                                            <option value="0"<?php if ($recipientapproved !== "1") { echo " selected"; } ?>>No</option>
                                         </select>
                                     </td>
                                     <td>
@@ -117,6 +121,4 @@ $bitcoin = new Bitcoin();
 			?>
 			<div class="ja-bottompadding"></div>
 
-		</div>
-	</div>
 </div>

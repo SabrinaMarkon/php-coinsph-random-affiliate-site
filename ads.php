@@ -17,8 +17,6 @@ $ads = $allads->getAds($username);
 ?>
 
 <div class="container">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
 		
 			<h1 class="ja-bottompadding">Create Ad</h1>
 				
@@ -178,6 +176,4 @@ $ads = $allads->getAds($username);
 			?>
 			<div class="ja-bottompadding"></div>
 
-		</div>
-	</div>
 </div>

@@ -5,14 +5,12 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
     exit;
 }
 
-if (isset($showforgot))
+if (isset($show))
 {
-echo $showforgot;
+echo $show;
 }
 ?>
 <div class="container">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
 
 		<h1 class="ja-bottompadding">Email Password</h1>
 
@@ -29,6 +27,4 @@ echo $showforgot;
 
 		<div class="ja-bottompadding"></div>
 
-		</div>
-	</div>
 </div>

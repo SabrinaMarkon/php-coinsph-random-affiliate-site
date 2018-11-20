@@ -6,17 +6,15 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 }
 
 require "control.php";
-if (isset($showupdate))
+if (isset($show))
 {
-echo $showupdate;
+echo $show;
 }
 $showcontent = new PageContent();
 echo $showcontent->showPage('Members Area Profile Page');
 ?>
 
 <div class="container">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
 		
 			<h1 class="ja-bottompadding">Your Profile</h1>
 			
@@ -70,6 +68,4 @@ echo $showcontent->showPage('Members Area Profile Page');
 
 			<div class="ja-bottompadding"></div>
 
-		</div>
-	</div>
 </div>

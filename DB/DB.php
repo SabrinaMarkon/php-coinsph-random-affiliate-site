@@ -134,7 +134,6 @@ INSERT INTO pages (name, htmlcode, slug, core) values ('Login Page', '', 'login'
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Main Page', '', 'members', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Profile Page', '', 'profile', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Promotion Page', '', 'promotion', 'yes');
-INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Earnings Page', '', 'earnings', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Randomizer Page', '', 'randomizer', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Members Area Ads Page', '', 'ads', 'yes');
 INSERT INTO pages (name, htmlcode, slug, core) values ('Registration Page', '', 'register', 'yes');

@@ -5,14 +5,12 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
     exit;
 }
 
-if (isset($sentcontact))
+if (isset($show))
 {
-echo $sentcontact;
+echo $show;
 }
 ?>
 <div class="container">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
 			
 		<h1 class="ja-bottompadding">Send Us a Message!</h1>
 
@@ -36,6 +34,4 @@ echo $sentcontact;
 
 		</form>
 
-		</div>
-	</div>
 </div>

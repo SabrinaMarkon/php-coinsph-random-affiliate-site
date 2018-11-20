@@ -64,21 +64,40 @@ class Randomizer {
         $sql = "select * from randomizer order by rand() limit 1";
         $randomuser = $pdo->query($sql)->fetch();
         DATABASE::disconnect();
+
         return $randomuser;
     }
 
     /* Add a username to the randomizer table.This is called when the second payee (either the sponsor or the
     random user) confirms that they have received payment.*/
-    public function addUser($username) {
+    public function addUser($username,$returnmessage) {
 
-        $walletid = $_POST['walletid'];
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        # Get the user's wallet id.
+        $sql = "select walletid from members where username=?";
+        $q = $pdo->prepare($sql);
+        $q->execute([$username]);
+        $walletid = $q->fetchColumn();
+        
+        # Give a randomizer position.
         $sql = "insert into randomizer (username,walletid) values (?,?)";
         $q = $pdo->prepare($sql);
         $q->execute([$username,$walletid]);
+
+        # get the randomizerid of the newly inserted blank ad.
+        $randomizerid = $pdo->lastInsertId();
+
         DATABASE::disconnect();
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was added to the Randomizer!</strong></div>";
+
+        if ($returnmessage) {
+
+            return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was added to the Randomizer!</strong></div>";
+        } else {
+
+            return $randomizerid;
+        }
     }
 
     /* Delete a single id, OR all ids for a deleted user from the randomizer table.*/
@@ -88,18 +107,22 @@ class Randomizer {
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         # if $username is empty, just delete the $id
         if(empty($username)) {
+
             $sql = "delete from randomizer where id=?";
             $q = $pdo->prepare($sql);
             $q->execute([$id]);
             DATABASE::disconnect();
+
             return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Position #" . $id . " was Deleted!</strong></div>";
         }
         # if $username is not empty, delete all randomizer positions for that username.
         else {
+
             $sql = "delete from randomizer where username=?";
             $q = $pdo->prepare($sql);
             $q->execute([$username]);
             DATABASE::disconnect();
+
             return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>All Randomizer Positions for " . $username . " were Deleted!</strong></div>";
         }  
     }
@@ -111,20 +134,25 @@ class Randomizer {
         $updatewalletid = $_POST['updatewalletid'];
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
         # if $username is empty, just update the single $id
         if(empty($username)) {
+
             $sql = "update randomizer set walletid=?,username=? where id=?";
             $q = $pdo->prepare($sql);
             $q->execute([$updatewalletid,$updateusername,$id]);
             DATABASE::disconnect();
+
             return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Position #" . $id . " was Saved!</strong></div>";
         }
         # if $username is not empty, update all randomizer positions for that username.
         else {
+
             $sql = "update randomizer set walletid=?,username=? where username=?";
             $q = $pdo->prepare($sql);
             $q->execute([$updatewalletid,$updateusername,$username]);
             DATABASE::disconnect();
+
             return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Positions for " . $username . " were Saved!</strong></div>";
         }
     }

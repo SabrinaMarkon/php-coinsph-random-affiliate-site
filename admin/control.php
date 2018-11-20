@@ -19,26 +19,27 @@ $logincheck = new Admin();
 $newlogin = $logincheck->adminLogin($_SESSION['adminusername'],$_SESSION['adminpassword']);
  if ($newlogin === false)
 	{
+
 	$Layout = new Layout();
 	$Layout->showHeader();
 	$logincheck->adminLogout();
 	$showcontent = new LoginForm();
-	echo "hurr";
 	echo $showcontent->showLoginForm(1);
 	$Layout->showFooter();
 	exit;
 	}
 else
 	{
+
 	$showgravatar = $logincheck->getGravatar($adminemail);
 	}
 }
 else
 {
-	$Layout = new Layout();
-	$Layout->showHeader();
+
+	// $Layout = new Layout();
+	// $Layout->showHeader();
 	$showcontent = new LoginForm();
-	echo "durr";
 	echo $showcontent->showLoginForm(1);
 	$Layout->showFooter();
 	exit;
