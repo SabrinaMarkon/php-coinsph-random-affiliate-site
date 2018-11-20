@@ -63,16 +63,16 @@ $ads = $allads->getAds($username);
 
 				<div class="ja-bottompadding"></div>
 
-				<button class="btn btn-lg btn-primary" type="submit" name="createad">CREATE AD</button>
+				<button class="btn btn-lg btn-primary ja-bottompadding ja-toppadding" type="submit" name="createad">CREATE AD</button>
 
 				</form>
 				<?php
 			}
 			?>
 
-			<div class="ja-bottompadding"></div>
+			<div class="ja-bottompadding ja-toppadding"></div>
 
-			<h1 class="ja-bottompadding">Your Ads</h1>
+			<h1 class="ja-bottompadding ja-toppadding">Your Ads</h1>
 			
 			<?php
 			if (empty($ads)) {
@@ -87,7 +87,6 @@ $ads = $allads->getAds($username);
 				# show those ads and allow edit, save, delete.
 
 				?>
-				<div class="table-responsive">
 					<table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
 						<thead>
 						<tr>
@@ -112,41 +111,39 @@ $ads = $allads->getAds($username);
 						<?php
 						foreach ($ads as $ad) {
 
-							$adddate = new DateTime($ad['adddate']);
-							$dateadadded = $adddate->format('Y-m-d');
+							$adddate = $ad['adddate'];
+							$dateadadded = date('Y-m-d');
 							?>
 							<tr>
 								<form action="/ads" method="post" accept-charset="utf-8" class="form" role="form">
 								<td class="small"><?php echo $ad['id']; ?>
 								</td>
 								<td class="small">
-									<img src="<?php echo $ad['imageurl']; ?>" alt="<?php echo $ad['title'] ?>" height="100" width="100">
+									<img src="<?php echo $ad['imageurl']; ?>" alt="<?php echo $ad['title'] ?>" class="card-image">
+								</td>
+								<td class="small">
+									<input type="text" name="name" value="<?php echo $ad['name']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Name" required>
+								</td>
+								<td class="small">
+									<input type="text" name="title" value="<?php echo $ad['title']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Title" required>
 								</td>
 								<td>
-									<label for="name">Name:</label>
-									<input type="text" name="name" value="<?php echo $ad['name']; ?>" class="form-control input-sm small" size="40" placeholder="Name" required>
-								</td>
-								<td>
-									<label for="url">Click-Thru URL:</label>
-									<input type="url" name="url" value="<?php echo $ad['url']; ?>" class="form-control input-sm small" size="40" placeholder="Click-Thru URL" required>
+									<input type="url" name="url" value="<?php echo $ad['url']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="http://L" required>
 								</td>
 								<td>
 									<a href="<?php echo $ad['shorturl'] ?>" target="_blank"><?php echo $ad['shorturl'] ?></a>
 								</td>
 								<td>
-									<label for="description">Ad Text:</label>
-									<input type="text" name="description" value="<?php echo $ad['description']; ?>" class="form-control input-sm small" size="40" placeholder="Ad Text" required>
+									<input type="text" name="description" value="<?php echo $ad['description']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Ad Text" required>
 								</td>
 								<td>
-									<label for="imageurl">Image URL:</label>
-									<input type="url" name="imageurl" value="<?php echo $ad['imageurl']; ?>" class="form-control input-sm small" size="60" placeholder="Image URL" required>
+									<input type="url" name="imageurl" value="<?php echo $ad['imageurl']; ?>" class="form-control input-sm widetableinput" size="60" placeholder="http://" required>
 								</td>
 								<td>
-									<label for="approved">Verified:</label>
-									<select name="approved" class="form-control input-md">
-										<option value="1"<?php if ($ad['approved'] === 1) { echo " selected"; } ?>>Yes</option>
-										<option value="0"<?php if ($ad['approved'] !== 1) { echo " selected"; } ?>>No</option>
-									</select>
+									<?php 
+									if ($ad['approved'] === 1) { echo "Yes"; }
+									else { echo "No"; }
+									?>
 								</td>
 								<td class="small">
 									<?php echo $ad['hits']; ?>
@@ -155,7 +152,7 @@ $ads = $allads->getAds($username);
 									<?php echo $ad['clicks']; ?>
 								</td>
 								<td class="small">
-									<?php echo $adddate ?>
+									<?php echo $dateadadded ?>
 								</td>
 								<td>
 									<input type="hidden" name="_method" value="PATCH">
@@ -168,7 +165,6 @@ $ads = $allads->getAds($username);
 										<input type="hidden" name="username" value="<?php echo $ad['username']; ?>">
 										<button class="btn btn-sm btn-primary" type="submit" name="deletead">DELETE</button>
 									</form>
-									</form>
 								</td>
 							</tr>
 							<?php
@@ -177,7 +173,6 @@ $ads = $allads->getAds($username);
 
 						</tbody>
 					</table>
-				</div>
 				<?php
 			}
 			?>

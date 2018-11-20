@@ -116,12 +116,4 @@
     <!-- Page Content -->
     <div class="container">
 
-		<div class="row">
-			<div class="col-sm-12">		
-
 <!-- CENTRAL PAGE CONTENT APPEARS BELOW HERE -->		
-
-<!-- <p>Where the content, forms, etc. start to appear:</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean diam felis, ornare sed elit ac, convallis cursus arcu. Duis non feugiat augue. Cras auctor mauris quis tortor efficitur, venenatis auctor libero porttitor. Vivamus pharetra non est sit amet viverra. Aenean et arcu tellus. Mauris tincidunt odio eu orci finibus pulvinar. Fusce sit amet iaculis nulla, vel semper libero. Morbi vitae dolor ac dolor mattis consequat. Nulla vitae auctor magna, at varius nunc. Curabitur vehicula libero vel feugiat condimentum. Curabitur diam est, pulvinar in orci vel, gravida sagittis ligula. Praesent eget mi ullamcorper arcu vulputate dictum. Fusce a justo vel augue varius finibus nec nec arcu. Suspendisse et convallis nulla, sit amet fermentum erat. In vestibulum mauris vitae mattis tempor.</p>
-<p>Morbi accumsan quis mi vel interdum. Duis sit amet libero gravida, pharetra leo in, congue sem. Suspendisse potenti. Suspendisse dui ipsum, convallis id hendrerit in, euismod eget lectus. Nunc non lorem nec libero dapibus aliquam. Nunc porta ipsum tellus, quis tempus metus aliquam sit amet. Praesent ipsum magna, venenatis sit amet lacus ut, consectetur ornare libero. Aenean auctor sem nisl, ut fringilla enim mattis at. Sed finibus justo eu nulla molestie convallis. Aliquam nec arcu at dolor ornare tristique id et augue. Pellentesque non ultrices neque. Vestibulum tempor lorem sit amet dictum vulputate.</p>
-<p>Pellentesque non sem nec tortor euismod gravida. Nulla facilisis purus mauris, et facilisis tortor porta pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam imperdiet aliquet bibendum. Praesent vel pellentesque nisl, sit amet viverra purus. Vestibulum sed diam sit amet erat facilisis iaculis. Ut sodales elit nisi, eu lacinia lectus dapibus luctus.</p> -->

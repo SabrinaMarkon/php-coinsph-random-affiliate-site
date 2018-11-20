@@ -7,9 +7,9 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 
 
 require "control.php";
-if (isset($showupdate))
+if (isset($show))
 {
-    echo $showupdate;
+    echo $show;
 }
 $allsavedmails = new Mail();
 $savedmails = $allsavedmails->getAllSavedMails();

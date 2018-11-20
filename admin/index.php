@@ -72,7 +72,7 @@ if (isset($_POST['login'])) {
         # admin clicked to save the admin notes.
         // $Layout->showHeader();
         $update = new AdminNote();
-        $showupdate = $update->setAdminNote($_POST['htmlcode']);
+        $show = $update->setAdminNote($_POST['htmlcode']);
     }
     
     if (isset($_POST['savesettings'])) {
@@ -80,7 +80,7 @@ if (isset($_POST['login'])) {
         # admin clicked the button to save main settings.
         // $Layout->showHeader();
         $update = new Setting();
-        $showupdate = $update->saveSettings($_SESSION['adminusername'], $_SESSION['adminpassword']);
+        $show = $update->saveSettings($_SESSION['adminusername'], $_SESSION['adminpassword']);
     }
     
     if (isset($_POST['editmail'])) {
@@ -96,7 +96,7 @@ if (isset($_POST['login'])) {
         # admin added a new email.
         // $Layout->showHeader();
         $update = new Mail();
-        $showupdate = $update->addMail();
+        $show = $update->addMail();
     }
     
     if (isset($_POST['savemail'])) {
@@ -104,7 +104,7 @@ if (isset($_POST['login'])) {
         # admin saved an existing email they were editing. 
         // $Layout->showHeader();
         $update = new Mail();
-        $showupdate = $update->saveMail($id);
+        $show = $update->saveMail($id);
     }
     
     if (isset($_POST['sendverifications'])) {
@@ -120,7 +120,7 @@ if (isset($_POST['login'])) {
         # admin deleted an email.
         // $Layout->showHeader();
         $delete = new Mail();
-        $showupdate = $delete->deleteMail($id);
+        $show = $delete->deleteMail($id);
     }
     
     if (isset($_POST['sendmail'])) {
@@ -128,7 +128,7 @@ if (isset($_POST['login'])) {
         # admin clicked to send an email.
         // $Layout->showHeader();
         $send = new Mail();
-        $showupdate = $send->sendMail($id);
+        $show = $send->sendMail($id);
     }
     
     if (isset($_POST['editpage'])) {
@@ -144,7 +144,7 @@ if (isset($_POST['login'])) {
         # admin added a new page.
         // $Layout->showHeader();
         $update = new Page();
-        $showupdate = $update->addPage($domain);
+        $show = $update->addPage($domain);
     }
     
     if (isset($_POST['savepage'])) {
@@ -152,7 +152,7 @@ if (isset($_POST['login'])) {
         # admin saved a page they were editing.
         // $Layout->showHeader();
         $update = new Page();
-        $showupdate = $update->savePage($id);
+        $show = $update->savePage($id);
     }
     
     if (isset($_POST['deletepage'])) {
@@ -160,7 +160,7 @@ if (isset($_POST['login'])) {
         # admin deleted a page.
         // $Layout->showHeader();
         $delete = new Page();
-        $showupdate = $delete->deletePage($id);
+        $show = $delete->deletePage($id);
     }
     
     if (isset($_POST['addmember'])) {
@@ -176,7 +176,7 @@ if (isset($_POST['login'])) {
         # admin saved a member they edited.
         // $Layout->showHeader();
         $update = new Member();
-        $showupdate = $update->saveMember($id);
+        $show = $update->saveMember($id);
     }
     
     if (isset($_POST['deletemember'])) {
@@ -184,7 +184,7 @@ if (isset($_POST['login'])) {
         # admin deleted a member and their ads and positions.
         // $Layout->showHeader();
         $delete = new Member();
-        $showupdate = $delete->deleteMember($id,$giveextratoadmin);
+        $show = $delete->deleteMember($id,$giveextratoadmin);
     }
     
     if (isset($_POST['savetransaction'])) {
@@ -192,7 +192,7 @@ if (isset($_POST['login'])) {
         # admin saved a transaction they were editing.
         // $Layout->showHeader();
         $update = new Money();
-        $showupdate = $update->saveTransaction($id);
+        $show = $update->saveTransaction($id);
     }
     
     if (isset($_POST['deletetransaction'])) {
@@ -200,9 +200,33 @@ if (isset($_POST['login'])) {
         # admin deleted a transaction.
         // $Layout->showHeader();
         $delete = new Money();
-        $showupdate = $delete->deleteTransaction($id);
+        $show = $delete->deleteTransaction($id);
     }
-        
+
+    if (isset($_POST['addadminwallet'])) {
+    
+        # admin added a new member.
+        // $Layout->showHeader();
+        $add = new AdminWallet();
+        $show = $add->addAdminWallet();
+    }
+    
+    if (isset($_POST['saveadminwallet'])) {
+    
+        # admin saved a member they edited.
+        // $Layout->showHeader();
+        $update = new AdminWallet();
+        $show = $update->saveAdminWallet($id);
+    }
+    
+    if (isset($_POST['deleteadminwallet'])) {
+    
+        # admin deleted a member and their ads and positions.
+        // $Layout->showHeader();
+        $delete = new AdminWallet();
+        $show = $delete->deleteAdminWallet($id);
+    }
+
     if ((empty($_REQUEST['page'])) or 
     ((!empty($_REQUEST['page']) and ($_REQUEST['page'] === 'index' or $_REQUEST['page'] === 'logout' or $_REQUEST['page'] === 'forgot' or $_REQUEST['page'] === 'control'))) or 
     ((!empty($_GET['page'])) and ((!file_exists($_GET['page'] . ".php"))))) {
@@ -268,7 +292,7 @@ if (isset($_POST['login'])) {
 //    {
 //
 //        $update = new Money();
-//        $showupdate = $update->saveTransaction($id);
+//        $show = $update->saveTransaction($id);
 //    }
 //}
 

@@ -89,3 +89,10 @@ Stack trace:
 [19-Nov-2018 20:05:32 UTC] PHP Notice:  Undefined variable: htmlheader in /home/randombtcads/public_html/classes/Email.php on line 32
 [19-Nov-2018 20:06:47 UTC] PHP Warning:  Missing argument 7 for Email::sendEmail(), called in /home/randombtcads/public_html/classes/Contact.php on line 37 and defined in /home/randombtcads/public_html/classes/Email.php on line 24
 [19-Nov-2018 20:06:47 UTC] PHP Notice:  Undefined variable: htmlheader in /home/randombtcads/public_html/classes/Email.php on line 32
+[19-Nov-2018 20:14:21 UTC] PHP Notice:  Undefined variable: pdo in /home/randombtcads/public_html/classes/Bitcoin.php on line 63
+[19-Nov-2018 20:14:21 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/classes/Bitcoin.php on line 63
+[19-Nov-2018 20:40:54 UTC] PHP Notice:  Undefined variable: adid in /home/randombtcads/public_html/classes/Ad.php on line 45
+[19-Nov-2018 20:40:54 UTC] PHP Catchable fatal error:  Object of class DateTime could not be converted to string in /home/randombtcads/public_html/ads.php on line 158
+[19-Nov-2018 20:41:59 UTC] PHP Catchable fatal error:  Object of class DateTime could not be converted to string in /home/randombtcads/public_html/ads.php on line 158
+[19-Nov-2018 20:43:31 UTC] PHP Fatal error:  Call to a member function format() on string in /home/randombtcads/public_html/ads.php on line 116
+[19-Nov-2018 20:55:29 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/randombtcads/public_html/ads.php on line 147

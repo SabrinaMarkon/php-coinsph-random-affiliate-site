@@ -6,9 +6,9 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 }
 
 require "control.php";
-if (isset($showupdate))
+if (isset($show))
 {
-    echo $showupdate;
+    echo $show;
 }
 $allmembers = new Member();
 $members = $allmembers->getAllMembers();
@@ -108,7 +108,8 @@ $members = $allmembers->getAllMembers();
                         ?>
                         <tr>
                             <form action="/admin/members/<?php echo $member['id']; ?>" method="post" accept-charset="utf-8" class="form" role="form">
-                            <td class="small"><?php echo $member['id']; ?>
+                            <td class="small">
+                                <?php echo $member['id']; ?>
                             </td>
                             <td>
                                 <input type="text" name="username" value="<?php echo $member['username']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Username" required>
@@ -163,7 +164,6 @@ $members = $allmembers->getAllMembers();
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="username" value="<?php echo $member['username']; ?>">
                                     <button class="btn btn-sm btn-primary" type="submit" name="deletemember">DELETE</button>
-                                </form>
                                 </form>
                             </td>
                         </tr>

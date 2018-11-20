@@ -59,6 +59,8 @@ class Bitcoin {
     /* Call this to get both the owed and paid payments for this randomizer position. */
     public function getPaymentsReceived($username,$walletid) {
 
+        $pdo = DATABASE::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "select * from transactions where recipient=? and recipientwalletid=?";
         $q = $pdo->prepare($sql);
         $q->execute([$username,$walletid]);

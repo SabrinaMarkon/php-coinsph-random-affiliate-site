@@ -1,7 +1,7 @@
 
 <!-- CENTRAL PAGE CONTENT APPEARS ABOVE HERE -->
-			</div>
-		</div>
+			<!-- </div>
+		</div> -->
 	  <!-- /.row -->
 	  
 
@@ -42,11 +42,8 @@
 		</section>
 
 	</div>
-      <!-- /.row -->
-
-    </div>
-    <!-- /.container -->
-
+	<!-- /.container -->
+	
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
@@ -55,7 +52,6 @@
 		<br />Made with <i class="fa fa-heart" aria-hidden="true" style="color:#be1931"></i> by <a href="http://sabrinamarkon.com" target="_blank">SabrinaMarkon.com</a></p>
 		</p>
       </div>
-      <!-- /.container -->
     </footer>
 
     <!-- Bootstrap core JavaScript -->

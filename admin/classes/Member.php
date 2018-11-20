@@ -147,7 +147,6 @@ class Member
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was Saved!</strong></div>";
-
     }
 
     public function deleteMember($id,$giveextratoadmin) {
@@ -182,6 +181,5 @@ class Member
 
         Database::disconnect();
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was Deleted</strong></div>";
-
     }
 }

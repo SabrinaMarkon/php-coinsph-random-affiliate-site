@@ -42,7 +42,7 @@ class Ad {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "select * from ads where username=? and added=0";
         $q = $pdo->prepare($sql);
-        $q->execute([$adid]);
+        $q->execute([$username]);
         $ad = $q->fetch();
         Database::disconnect();
 

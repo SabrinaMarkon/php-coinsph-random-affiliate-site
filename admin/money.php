@@ -5,11 +5,10 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
     exit;
 }
 
-
 require "control.php";
-if (isset($showupdate))
+if (isset($show))
 {
-    echo $showupdate;
+    echo $show;
 }
 $alltransactions = new Money();
 $transactions = $alltransactions->getAllTransactions();

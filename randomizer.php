@@ -39,12 +39,17 @@ $bitcoin = new Bitcoin();
 				echo $bitcoin->showBitCoinWalletIds($username, $settings['paysponsor'], $settings['payrandom']);
 			
 			} else {
-				
+                
+                # check to see if the person owes for any other positions still.
+				echo $bitcoin->showBitCoinWalletIds($username, $settings['paysponsor'], $settings['payrandom']);
+                
 				# person has at least one randomizer position they paid for (sponsor and random) that has been added.
-				# show those positions.
+                # show those positions.
+                
+                ### ALONG WITH PAY BUTTONS IF THEY OWE FOR ANY OTHERS IN THE TRANSACTIONS TABLE!!
 
 				?>
-				<div class="table-responsive">
+				<div class="table-responsive ja-toppadding">
 					<table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
 						<thead>
 						<tr>
