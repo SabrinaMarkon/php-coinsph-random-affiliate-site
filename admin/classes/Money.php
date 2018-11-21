@@ -49,7 +49,7 @@ class Money
         }
         $transaction = $_POST['transaction'];
 
-        $pdo = Database::connect();
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "update transactions set username=?, recipient=?, recipientapproved=?, recipienttype=?, amount=?, datepaid=?, transaction=? where id=?";
         $q = $pdo->prepare($sql);
@@ -59,63 +59,21 @@ class Money
         If this is the case, then reward the user with a randomizer position and an ad. */
         $returnshow = '';
         if ($recipientapproved === "1" and $oldrecipientapproved === "0") {
-
-            # see if the user now has a verifed paid sponsor transaction and also a verified paid random transaction.
-            $totalverified = 0;
-            $tranactionidforsponsor = 0;
-            $tranactionidforrandom = 0;
-            $adid = 0;
-            $randomizerid = 0;
-
-            # is there a verified sponsor payment unassigned to a randomizer position and ad?
-            $sql = "select * from transactions where username=? and randomizerid='' and recipientapproved=1 and randomizerid='' and recipienttype='sponsor' order by id limit 1";
-            $q = $pdo->prepare($sql);
-            $q->execute([$username]);
-            $data = $q->fetch();
-            if ($data) {
-                $tranactionidforsponsor = $data['id'];
-                $totalverified++;
-            }
-
-            # is there a verified random payment unassigned to a randomizer position and ad?
-            $sql = "select * from transactions where username=? and randomizerid='' and recipientapproved=1 and randomizerid='' and recipienttype='random' order by id limit 1";
-            $q = $pdo->prepare($sql);
-            $q->execute([$username]);
-            $data = $q->fetch();
-            if ($data) {
-                $tranactionidforrandom = $data['id'];
-                $totalverified++;
-            }
-
-            # if totalverified = 2, it means the user should get an ad and a position!
-            if ($totalverified === 2) {
-
-                $addposition = new Randomizer();
-                $randomizerid = $addposition->addRandomizer($username,0);
-
-                $addad = new Ad();
-                $adid = $addad->createBlankAd($username);
-
-                # update the transactions with the correct adid (the id of the ad given to the user for making the two payments).
-                $sql = "update transactions set adid=? where (id=? or id=?)";
-                $q = $pdo->prepare($sql);
-                $q->execute([$adid,$tranactionidforsponsor,$tranactionidforrandom]);
-
-                # update the transactions with the correct randomizerid (the id of the randomizer position given to the user for making the two payments).
-                $sql = "update transactions set randomizerid=? where (id=? or id=?)";
-                $q = $pdo->prepare($sql);
-                $q->execute([$randomizerid,$tranactionidforsponsor,$tranactionidforrandom]);
+   
+            $checkifuserpaidtwo = new ConfirmPayment();
+            $checkifuserpaidtwo->maybeGiveAdandRandomizer($pdo,$username);
                 
-                # Add the below message to the return output.
-                $returnshow = "Username " . $username . " now has 2 verified payments, with one to their sponsor
-                 and the other to a random user, so has been credited with an ad and a randomizer position.";
+            # Add the below message to the return output.
+            $returnshow = "<br/>Username " . $username . " now has 2 verified payments, with one to their sponsor
+                and the other to a random user, so has been credited with an ad and a randomizer position.";
             }
-        }
 
-        Database::disconnect();
+        DATABASE::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID #" . $id . " was Saved!</strong>" . $returnshow . "</div>";
-    }
+
+    }        
+
 
     public function deleteTransaction($id) {
 

@@ -104,6 +104,11 @@ if (isset($_POST['deletead'])) {
 $delete = new Ad();
 $show = $delete->deleteAd($id);
 }
+if (isset($_POST['confirmpaid'])) {
+
+$confirm = new ConfirmPayment();
+$show = $confirm->confirmedPayment($id);	
+}
 if (isset($_GET['page']) && ($_GET['page'] === "logout"))
 {
 

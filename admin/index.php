@@ -12,6 +12,7 @@ require_once "../classes/Countries.php";
 require_once "../classes/Email.php";
 require_once "../classes/Randomizer.php";
 require_once "../classes/Ad.php";
+require_once "../classes/ConfirmPayment.php";
 require_once "classes/LoginForm.php";
 require_once "classes/Admin.php";
 

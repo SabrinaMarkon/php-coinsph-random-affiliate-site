@@ -117,7 +117,7 @@ class Randomizer {
 
     /* Add a username to the randomizer table.This is called when the second payee (either the sponsor or the
     random user) confirms that they have received payment.*/
-    public function addRandomizer($username,$walletid,$returnmessage) {
+    public function addRandomizer($username,$walletid,$returnmessage,$payrandom) {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -151,8 +151,9 @@ class Randomizer {
         $q->execute([$walletid,$username,$id]);
         DATABASE::disconnect();
 
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Positions for " . $username . " were Saved!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Position for " . $username . " were Saved!</strong></div>";
     }
+    
 
     /* Delete a single id, OR all ids for a deleted user from the randomizer table.*/
     public function deleteRandomizer($username,$id) {

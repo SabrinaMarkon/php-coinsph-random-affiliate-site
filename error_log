@@ -1,0 +1,10 @@
+[21-Nov-2018 06:43:35 UTC] PHP Notice:  Undefined variable: bg in /home/randombtcads/public_html/randomizer.php on line 91
+[21-Nov-2018 06:43:35 UTC] PHP Notice:  Undefined variable: bg in /home/randombtcads/public_html/randomizer.php on line 91
+[21-Nov-2018 06:43:35 UTC] PHP Notice:  Undefined variable: bg in /home/randombtcads/public_html/randomizer.php on line 91
+[21-Nov-2018 06:43:35 UTC] PHP Notice:  Undefined variable: bg in /home/randombtcads/public_html/randomizer.php on line 91
+[21-Nov-2018 06:47:13 UTC] PHP Notice:  Undefined index: name in /home/randombtcads/public_html/classes/Ad.php on line 95
+[21-Nov-2018 06:47:13 UTC] PHP Notice:  Undefined index: title in /home/randombtcads/public_html/classes/Ad.php on line 96
+[21-Nov-2018 06:47:13 UTC] PHP Notice:  Undefined index: url in /home/randombtcads/public_html/classes/Ad.php on line 97
+[21-Nov-2018 06:47:13 UTC] PHP Notice:  Undefined index: description in /home/randombtcads/public_html/classes/Ad.php on line 98
+[21-Nov-2018 06:47:13 UTC] PHP Notice:  Undefined index: imageurl in /home/randombtcads/public_html/classes/Ad.php on line 99
+[21-Nov-2018 06:47:13 UTC] PHP Notice:  Undefined variable: adminautoapprove in /home/randombtcads/public_html/classes/Ad.php on line 108

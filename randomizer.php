@@ -53,9 +53,8 @@ $bitcoin = new Bitcoin();
 							<th class="text-center small">Your&nbsp;Wallet</th>
                             <th class="text-center small">Amount</th>
                             <th class="text-center small">Earning&nbsp;Type</th>
-                            <th class="text-center small">Date&nbsp;Paid</th>
-                            <th class="text-center small" style="background:lightyellow;">Were&nbsp;You&nbsp;Paid?</th>
-                            <th class="text-center small">Save</th>
+                            <th class="text-center small">Date&nbsp;Paid&nbsp;to&nbsp;You</th>
+                            <th class="text-center small ja-yellowbg"><strong>Were&nbsp;You&nbsp;Paid?</strong></th>
 						</tr>
 						</thead>
 						<tbody>
@@ -72,38 +71,42 @@ $bitcoin = new Bitcoin();
                               foreach ($transactions as $transaction) {
 
                                 $transactionid = $transaction['id'];
-                                $payor = $transaction['username'];
+                                $payor = $transaction['username']; // this is NOT the user logged in. This is the user that pays the user logged in.
                                 $amount = $transaction['amount'];
+                                $recipient = $transaction['recipient']; // THIS is the user logged in who has received payment from $payor.
+                                $recipientwalletid = $transaction['recipientwalletid'];
                                 $recipienttype = $transaction['recipienttype'];
                                 $recipientapproved = $transaction['recipientapproved'];
                                 $datepaid = $transaction['datepaid'];
-                                $bg = '';
                                 if($datepaid === '') {
                                     
                                     $datepaid = 'Still Unpaid';
-                                    $bg = 'style="background:#ffff66;"';
                                 } else {
 
                                     $datepaid = date('Y-m-d'); 
                                 }
+                                if ($recipientapproved === "1") {
+
+                                    # the user has already received this payment.
+                                    $userverifiedpayment = "You Were Paid";
+                                } else {
+
+                                    # show the confirmation button so the user can click it when they receive payment.
+                                    $userverifiedpayment = '<form action="/randomizer/' . $transactionid . '" method="post" accept-charset="utf-8" class="form" role="form">
+                                    <input type="hidden" name="_method" value="PATCH">
+                                    <input type="hidden" name="userwhopaid" value="' . $payor . '">
+                                    <button class="btn btn-sm ja-yellowbg" type="submit" name="confirmpaid">CONFIRM!</button>';
+                                }
 
                                 ?>
-                                <tr <?php echo $bg; ?>>
-                                    <form action="/randomizer/<?php echo $transactionid ?>" method="post" accept-charset="utf-8" class="form" role="form">
+                                <tr>
                                     <td class="small"><?php echo $id; ?></td>
                                     <td class="small"><?php echo $walletid; ?></td>
                                     <td class="small"><?php echo $amount; ?></td>
                                     <td class="small"><?php echo $recipienttype; ?></td>
                                     <td class="small"><?php echo $datepaid; ?></td>
                                     <td>
-                                        <select name="recipientapproved" class="form-control input-md">
-                                            <option value="1"<?php if ($recipientapproved === "1") { echo " selected"; } ?>>Yes</option>
-                                            <option value="0"<?php if ($recipientapproved !== "1") { echo " selected"; } ?>>No</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <input type="hidden" name="_method" value="PATCH">
-                                        <button class="btn btn-sm btn-primary" type="submit" name="savead">SAVE</button>
+                                        <?php echo $userverifiedpayment; ?>
 								    </td>
                                 </tr>
                                 <?php
