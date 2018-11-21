@@ -89,7 +89,7 @@ class ConfirmPayment {
             $q->execute([$randomizerid,$transactionidforsponsor,$transactionidforrandom]);
 
             # Add the below message to the return output.
-            $returnshow = "<br/>Username " . $username . " now has 2 verified payments, with one to their sponsor 
+            $returnshow = "<br/>Username " . $userwhopaid . " now has 2 verified payments, with one to their sponsor 
             and the other to a random user, so has been credited with an ad and a randomizer position.";
 
         }

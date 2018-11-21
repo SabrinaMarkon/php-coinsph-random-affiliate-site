@@ -17,3 +17,10 @@
 [21-Nov-2018 10:26:33 UTC] PHP Notice:  Undefined variable: time in /home/randombtcads/public_html/classes/ConfirmPayment.php on line 29
 [21-Nov-2018 10:26:33 UTC] PHP Fatal error:  Function name must be a string in /home/randombtcads/public_html/classes/ConfirmPayment.php on line 29
 [21-Nov-2018 10:27:06 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/classes/ConfirmPayment.php on line 66
+[21-Nov-2018 11:23:30 UTC] PHP Notice:  Undefined variable: username in /home/randombtcads/public_html/classes/ConfirmPayment.php on line 92
+[21-Nov-2018 11:47:42 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'recipient' cannot be null' in /home/randombtcads/public_html/classes/User.php:108
+Stack trace:
+#0 /home/randombtcads/public_html/classes/User.php(108): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/index.php(78): User->newSignup(Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/User.php on line 108

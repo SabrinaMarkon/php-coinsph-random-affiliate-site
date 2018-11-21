@@ -34,6 +34,9 @@ class User
 		$country = $_POST['country'];
 		$signupip = $_SERVER['REMOTE_ADDR'];
 		$referid = $_POST['referid'];
+		if ($referid === '') {
+			$referid = 'admin';
+		}
 		
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -45,6 +48,7 @@ class User
 		if ($data['username'] == $username)
 		{
 			Database::disconnect();
+			
 			return "<div class=\"alert alert-danger\" style=\"width:75%;\"><strong>The username you chose isn't available.</strong></div>";
 		}
 		else
@@ -77,8 +81,6 @@ class User
 				$randomwalletid = $q->fetchColumn();
 				$randompayee = 'admin';
 
-				// echo $randomwalletid;
-
 				# reset the ratiocounter.
 				$sql = "update adminsettings set adminratio=0";
 				$q = $pdo->query($sql);
@@ -88,10 +90,18 @@ class User
 				$sql = "select * from randomizer order by rand() limit 1";
 				$q = $pdo->query($sql);
 				$data = $q->fetch();
-				$randompayee = $data['username'];
-				$randomwalletid = $data['walletid'];
+				if ($data) {
 
-				// echo $randompayee . ' ' . $randomwalletid;
+					$randompayee = $data['username'];
+					$randomwalletid = $data['walletid'];
+				} else {
+
+					# time to give the admin a random payment.
+					$sql = "select walletid from adminwallets order by rand() limit 1";
+					$q = $pdo->query($sql);
+					$randomwalletid = $q->fetchColumn();
+					$randompayee = 'admin';
+				}
 
 				# add 1 to the ratiocounter.
 				$sql = "update adminsettings set adminratio=adminratio+1";
