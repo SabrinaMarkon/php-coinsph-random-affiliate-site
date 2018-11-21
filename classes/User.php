@@ -48,7 +48,7 @@ class User
 		if ($data['username'] == $username)
 		{
 			Database::disconnect();
-			
+
 			return "<div class=\"alert alert-danger\" style=\"width:75%;\"><strong>The username you chose isn't available.</strong></div>";
 		}
 		else
@@ -96,7 +96,7 @@ class User
 					$randomwalletid = $data['walletid'];
 				} else {
 
-					# time to give the admin a random payment.
+					# time to give the admin a random payment because there are no people in the randomizer yet.
 					$sql = "select walletid from adminwallets order by rand() limit 1";
 					$q = $pdo->query($sql);
 					$randomwalletid = $q->fetchColumn();
@@ -129,7 +129,8 @@ class User
 			$sendsiteemail = new Email();
 			$send = $sendsiteemail->sendEmail($email, $settings['adminemail'], $subject, $message, $settings['sitename'], $settings['adminemail'], '');
 
-			return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Success! Thanks for Joining!</strong><p>Please click the link in the email we sent to you to verify your email address.</p></div>";
+			return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Success! Thanks for Joining!</strong>
+			<p>Please click the link in the email we sent to you to verify your email address.</p></div>";
 
 			$username = null;
 			$password = null;

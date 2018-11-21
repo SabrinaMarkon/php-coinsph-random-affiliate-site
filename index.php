@@ -129,8 +129,6 @@ $show = $logoutpage->showPage('Logout Page');
 $Layout = new Layout();
 $Layout->showHeader();
 
-if (!empty($show)) { echo $show; }
-
 if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET['page'] !== "index"))))
 {
 
