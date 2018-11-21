@@ -13,7 +13,7 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
     exit;
 }
 
-class LoginForm
+class AdminLoginForm
 {
     public $loginerror;
     public $showloginerror;

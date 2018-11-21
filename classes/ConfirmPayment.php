@@ -33,7 +33,7 @@ class ConfirmPayment {
        
         $pdo = DATABASE::disconnect();
 
-        return true;
+        return;
     }
 
     public function maybeGiveAdandRandomizer($pdo,$userwhopaid) {
@@ -87,7 +87,7 @@ class ConfirmPayment {
 
         }
 
-        return true;
+        return;
     }
 
 }

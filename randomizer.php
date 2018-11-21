@@ -49,6 +49,7 @@ $bitcoin = new Bitcoin();
 					<table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
 						<thead>
 						<tr>
+                            <th class="text-center small">Record ID #</th>
 							<th class="text-center small">Position ID #</th>
 							<th class="text-center small">Your&nbsp;Wallet</th>
                             <th class="text-center small">Amount</th>
@@ -100,12 +101,13 @@ $bitcoin = new Bitcoin();
 
                                 ?>
                                 <tr>
+                                    <td class="small"><?php echo $transactionid ?></td>
                                     <td class="small"><?php echo $id; ?></td>
                                     <td class="small"><?php echo $walletid; ?></td>
                                     <td class="small"><?php echo $amount; ?></td>
                                     <td class="small"><?php echo $recipienttype; ?></td>
                                     <td class="small"><?php echo $datepaid; ?></td>
-                                    <td>
+                                    <td class="small">
                                         <?php echo $userverifiedpayment; ?>
 								    </td>
                                 </tr>

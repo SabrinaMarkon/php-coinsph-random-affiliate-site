@@ -17,6 +17,25 @@ class Ad {
 
     private $pdo;
 
+    /* Get all the ads for all members. */
+    public function getAllAds() {
+
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "select * from ads order by id desc";
+        $q = $pdo->prepare($sql);
+        $q->execute();
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $ads = $q->fetchAll();
+        $adsarray = array();
+        foreach ($ads as $ad) {
+            array_push($adsarray, $ad);
+        }
+
+        return $adsarray;
+    }
+
+    /* Get all the ads for one member. */
     public function getAds($username) {
         
         $pdo = DATABASE::connect();

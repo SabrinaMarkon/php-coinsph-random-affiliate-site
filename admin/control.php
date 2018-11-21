@@ -23,7 +23,7 @@ $newlogin = $logincheck->adminLogin($_SESSION['adminusername'],$_SESSION['adminp
 	$Layout = new Layout();
 	$Layout->showHeader();
 	$logincheck->adminLogout();
-	$showcontent = new LoginForm();
+	$showcontent = new AdminLoginForm();
 	echo $showcontent->showLoginForm(1);
 	$Layout->showFooter();
 	exit;
@@ -39,7 +39,7 @@ else
 
 	// $Layout = new Layout();
 	// $Layout->showHeader();
-	$showcontent = new LoginForm();
+	$showcontent = new AdminLoginForm();
 	echo $showcontent->showLoginForm(1);
 	$Layout->showFooter();
 	exit;

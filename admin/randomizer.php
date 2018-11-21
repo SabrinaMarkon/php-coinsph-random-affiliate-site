@@ -41,7 +41,7 @@ $randomizers = $allrandomizers->getAllRandomizers();
                 <table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
                     <thead>
                     <tr>
-                        <th class="text-center small">#</th>
+                        <th class="text-center small">Position ID#</th>
                         <th class="text-center small">Username</th>
                         <th class="text-center small">Wallet ID</th>
                         <th class="text-center small">Was Paid as Sponsor</th>

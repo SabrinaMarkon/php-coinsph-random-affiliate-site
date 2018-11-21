@@ -8,16 +8,9 @@ if (!isset($_SESSION))
 require_once "../config/Database.php";
 require_once "../config/Settings.php";
 require_once "../config/Layout.php";
-require_once "../classes/Countries.php";
-require_once "../classes/Email.php";
-require_once "../classes/Randomizer.php";
-require_once "../classes/Ad.php";
-require_once "../classes/ConfirmPayment.php";
-require_once "classes/LoginForm.php";
-require_once "classes/Admin.php";
 
 function sabrina_autoloader($class) {
-    require 'classes/' . $class . ".php";
+    require '../classes/' . $class . ".php";
 }
 spl_autoload_register("sabrina_autoloader");
 
@@ -54,7 +47,7 @@ if (isset($_POST['login'])) {
         $logout = new Admin();
         $logout->adminLogout();
         $Layout->showHeader();
-        $showcontent = new LoginForm();
+        $showcontent = new AdminLoginForm();
         echo $showcontent->showLoginForm(1);
         $Layout->showFooter();
         exit;
@@ -248,7 +241,7 @@ if (isset($_POST['login'])) {
         ### going to admin/index (this file) or /admin/logout or /admin/forgot or /admin/adfadsfadslkjal or /admin/control is the same as going to admin/ and killing the login session.
         $logout = new Admin();
         $logout->adminLogout();  
-        $showcontent = new LoginForm();
+        $showcontent = new AdminLoginForm();
     
         $Layout->showHeader();
         

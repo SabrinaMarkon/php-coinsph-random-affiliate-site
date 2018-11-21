@@ -62,7 +62,7 @@ class User
 			} else {
 				$sql = "select walletid from members where username=?";
 				$q = $pdo->prepare($sql);
-				$q->execute(['walletid']);
+				$q->execute([$username]);
 				$referidwalletid = $q->fetchColumn();
 
 				// echo $referidwalletid;
