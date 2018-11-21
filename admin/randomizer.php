@@ -44,10 +44,10 @@ $randomizers = $allrandomizers->getAllRandomizers();
                         <th class="text-center small">#</th>
                         <th class="text-center small">Username</th>
                         <th class="text-center small">Wallet ID</th>
-                        <th class="text-center small">Paid as Sponsor</th>
-                        <th class="text-center small">Owed as Sponsor</th>
-                        <th class="text-center small">Paid as Random Payee</th>
-                        <th class="text-center small">Owed as Random Payee</th>
+                        <th class="text-center small">Was Paid as Sponsor</th>
+                        <th class="text-center small">Is Owed as Sponsor</th>
+                        <th class="text-center small">Was Paid as Random Payee</th>
+                        <th class="text-center small">Is Owed as Random Payee</th>
                         <th class="text-center small">Edit</th>
                         <th class="text-center small">Delete</th>
                     </tr>

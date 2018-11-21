@@ -60,7 +60,7 @@ $transactions = $alltransactions->getAllTransactions();
                             <td>
                                 <label class="sr-only" for="recipientapproved">Verified by Payee:</label>
                                 <input type="hidden" name="oldrecipientapproved" value="<?php echo $transaction['recipientapproved']; ?>">
-                                <select name="recipientapproved" class="form-control widetableselect">
+                                <select name="recipientapproved" class="form-control widetableselect<?php if ($transaction['recipientapproved'] !== "1") { echo ' ja-yellowbg'; } ?>">
                                     <option value="0" <?php if ($transaction['recipientapproved'] !== "1") { echo "selected"; } ?>>No</option>
                                     <option value="1" <?php if ($transaction['recipientapproved'] === "1") { echo "selected"; } ?>>Yes</option>
                                 </select>

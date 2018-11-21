@@ -107,6 +107,10 @@ img {
     width: 50%;
 }
 
+.ja-yellowbg {
+	background:#fffa96;
+}
+
 @media (min-width: 992px) {
 	body { padding-top: 56px; }
 }
