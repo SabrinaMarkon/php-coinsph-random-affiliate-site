@@ -60,12 +60,13 @@ class Money
         $returnshow = '';
         if ($recipientapproved === "1" and $oldrecipientapproved === "0") {
    
+            # get the walletid of the user who paid this one.
+            $bitcoin = new Bitcoin();
+            $walletid = $bitcoin->getUsersWalletID($username);
+
             $checkifuserpaidtwo = new ConfirmPayment();
-            $checkifuserpaidtwo->maybeGiveAdandRandomizer($pdo,$username);
+            $returnshow = $checkifuserpaidtwo->maybeGiveAdandRandomizer($pdo,$username,$walletid);
                 
-            # Add the below message to the return output.
-            $returnshow = "<br/>Username " . $username . " now has 2 verified payments, with one to their sponsor
-                and the other to a random user, so has been credited with an ad and a randomizer position.";
             }
 
         DATABASE::disconnect();

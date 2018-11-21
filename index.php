@@ -28,6 +28,13 @@ if (isset($_GET['referid'])) {
 		$_SESSION['referid'] = 'admin';
 }
 
+# id variable is for the id of a single member, mail, etc. to update in the database.
+if (isset($_REQUEST['id'])) {
+    $id = $_REQUEST['id'];
+} else {
+    $id = "";
+}
+
 ######################################
 if (isset($_POST['login']))
 {

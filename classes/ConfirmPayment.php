@@ -17,52 +17,55 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 
 class ConfirmPayment {
 
+    private $pdo;
+
     public function confirmedPayment($id) {
 
         $userwhopaid = $_POST['userwhopaid'];
+        $userwhopaidwalletid = $_POST['userwhopaidwalletid'];
 
         $pdo = DATABASE::connect();
-        $pdo = setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);       
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);       
 
         # update the transaction record $id as paid.
-        $sql = "update transactions set recipientapproved=1,datepaid=" . $time() . " where id=?";
+        $now = (string) date('Y-m-d');
+        $sql = "update transactions set recipientapproved=1,datepaid=? where id=?";
         $q = $pdo->prepare($sql);
-        $q->execute([$id]);
+        $q->execute([$now,$id]);
 
-        $this->maybeGiveAdandRandomizer($pdo,$userwhopaid);
+        $this->maybeGiveAdandRandomizer($pdo,$userwhopaid,$userwhopaidwalletid);
        
         $pdo = DATABASE::disconnect();
 
         return;
     }
 
-    public function maybeGiveAdandRandomizer($pdo,$userwhopaid) {
-        
+    public function maybeGiveAdandRandomizer($pdo,$userwhopaid,$userwhopaidwalletid) {
+
         /* check to see if the person who paid ($userwhopaid) now has two transaction ids, one THEY paid to THEIR sponsor,
         and one for a random member THEY paid. */
         $totalverified = 0;
-        $tranactionidforsponsor = 0;
-        $tranactionidforrandom = 0;
+        $transactionidforsponsor = 0;
+        $transactionidforrandom = 0;
         $adid = 0;
         $randomizerid = 0;
+        $returnshow = '';
 
         # is there a verified sponsor payment unassigned to a randomizer position and ad?
-        $sql = "select * from transactions where username=? and randomizerid='' and recipientapproved=1 and randomizerid='' and recipienttype='sponsor' order by id limit 1";
+        $sql = "select id from transactions where username=? and randomizerid='' and recipientapproved=1 and randomizerid=0 and recipienttype='sponsor' order by id limit 1";
         $q = $pdo->prepare($sql);
         $q->execute([$userwhopaid]);
-        $data = $q->fetch();
-        if ($data) {
-            $tranactionidforsponsor = $data['id'];
+        $transactionidforsponsor = $q->fetchColumn();
+        if ($transactionidforsponsor) {
             $totalverified++;
         }
 
         # is there a verified random payment unassigned to a randomizer position and ad?
-        $sql = "select * from transactions where username=? and randomizerid='' and recipientapproved=1 and randomizerid='' and recipienttype='random' order by id limit 1";
+        $sql = "select id from transactions where username=? and randomizerid='' and recipientapproved=1 and randomizerid=0 and recipienttype='random' order by id limit 1";
         $q = $pdo->prepare($sql);
         $q->execute([$userwhopaid]);
-        $data = $q->fetch();
-        if ($data) {
-            $tranactionidforrandom = $data['id'];
+        $transactionidforrandom = $q->fetchColumn();
+        if ($transactionidforrandom) {
             $totalverified++;
         }
 
@@ -70,7 +73,7 @@ class ConfirmPayment {
         if ($totalverified === 2) {
 
             $addposition = new Randomizer();
-            $randomizerid = $addposition->addRandomizer($userwhopaid,0);
+            $randomizerid = $addposition->addRandomizer($userwhopaid,$userwhopaidwalletid,0);
 
             $addad = new Ad();
             $adid = $addad->createBlankAd($userwhopaid);
@@ -78,16 +81,20 @@ class ConfirmPayment {
             # update the transactions with the correct adid (the id of the ad given to the user for making the two payments).
             $sql = "update transactions set adid=? where (id=? or id=?)";
             $q = $pdo->prepare($sql);
-            $q->execute([$adid,$tranactionidforsponsor,$tranactionidforrandom]);
+            $q->execute([$adid,$transactionidforsponsor,$transactionidforrandom]);
 
             # update the transactions with the correct randomizerid (the id of the randomizer position given to the user for making the two payments).
             $sql = "update transactions set randomizerid=? where (id=? or id=?)";
             $q = $pdo->prepare($sql);
-            $q->execute([$randomizerid,$tranactionidforsponsor,$tranactionidforrandom]);
+            $q->execute([$randomizerid,$transactionidforsponsor,$transactionidforrandom]);
+
+            # Add the below message to the return output.
+            $returnshow = "<br/>Username " . $username . " now has 2 verified payments, with one to their sponsor 
+            and the other to a random user, so has been credited with an ad and a randomizer position.";
 
         }
 
-        return;
+        return $returnshow;
     }
 
 }

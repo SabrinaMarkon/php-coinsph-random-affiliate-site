@@ -71,9 +71,25 @@ class Bitcoin {
             array_push($transactionarray, $transaction);
         }
 
-        Database::disconnect();
+        DATABASE::disconnect();
 
         return $transactionarray;        
+    }
+
+    /* Call this to just get a user's walletid. */
+    public function getUsersWalletID($username) {
+
+        $pdo = DATABASE::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "select walletid from members where username=?";
+        $q = $pdo->prepare($sql);
+        $q->execute([$username]);
+        $walletid = $q->fetchColumn();
+        if (!$walletid) {
+            $walletid = '';
+        }
+
+        return $walletid;
     }
 
 }

@@ -8,3 +8,12 @@
 [21-Nov-2018 06:47:13 UTC] PHP Notice:  Undefined index: description in /home/randombtcads/public_html/classes/Ad.php on line 98
 [21-Nov-2018 06:47:13 UTC] PHP Notice:  Undefined index: imageurl in /home/randombtcads/public_html/classes/Ad.php on line 99
 [21-Nov-2018 06:47:13 UTC] PHP Notice:  Undefined variable: adminautoapprove in /home/randombtcads/public_html/classes/Ad.php on line 108
+[21-Nov-2018 10:19:03 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/classes/Bitcoin.php on line 89
+[21-Nov-2018 10:19:03 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/classes/Bitcoin.php on line 89
+[21-Nov-2018 10:23:59 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/classes/Bitcoin.php on line 89
+[21-Nov-2018 10:23:59 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/classes/Bitcoin.php on line 89
+[21-Nov-2018 10:24:06 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/classes/Bitcoin.php on line 89
+[21-Nov-2018 10:24:06 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/classes/Bitcoin.php on line 89
+[21-Nov-2018 10:26:33 UTC] PHP Notice:  Undefined variable: time in /home/randombtcads/public_html/classes/ConfirmPayment.php on line 29
+[21-Nov-2018 10:26:33 UTC] PHP Fatal error:  Function name must be a string in /home/randombtcads/public_html/classes/ConfirmPayment.php on line 29
+[21-Nov-2018 10:27:06 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/classes/ConfirmPayment.php on line 66

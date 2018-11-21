@@ -92,10 +92,15 @@ $bitcoin = new Bitcoin();
                                     $userverifiedpayment = "You Were Paid";
                                 } else {
 
+                                    # get the walletid of the user who paid this one.
+                                    $payorswallet = $bitcoin->getUsersWalletID($payor);
+
                                     # show the confirmation button so the user can click it when they receive payment.
-                                    $userverifiedpayment = '<form action="/randomizer/' . $transactionid . '" method="post" accept-charset="utf-8" class="form" role="form">
+                                    $userverifiedpayment = '<form action="/randomizer" method="post" accept-charset="utf-8" class="form" role="form">
                                     <input type="hidden" name="_method" value="PATCH">
+                                    <input type="hidden" name="id" value="' . $transactionid . '">
                                     <input type="hidden" name="userwhopaid" value="' . $payor . '">
+                                    <input type="hidden" name="userwhopaidwalletid" value="' . $payorswallet . '">
                                     <button class="btn btn-sm ja-yellowbg" type="submit" name="confirmpaid">CONFIRM!</button>';
                                 }
 

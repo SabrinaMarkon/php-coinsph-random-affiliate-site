@@ -117,7 +117,7 @@ class Randomizer {
 
     /* Add a username to the randomizer table.This is called when the second payee (either the sponsor or the
     random user) confirms that they have received payment.*/
-    public function addRandomizer($username,$walletid,$returnmessage,$payrandom) {
+    public function addRandomizer($username,$walletid,$returnmessage) {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
