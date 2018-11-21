@@ -18,17 +18,64 @@ class Randomizer {
     private $pdo;
 
     /* Get an array of all records in the randomizer table.*/
-    public function getAllUsers() {
+    public function getAllRandomizers() {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "select * from randomizer order by username desc";
+        $sql = "select * from randomizer order by id desc";
         $q = $pdo->prepare($sql);
         $q->execute();
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $randomusers = $q->fetchAll();
-        $randomusersarray = array();
+        $randomusersarray = [];
+
+        # put the array of each randomizer row into 
         foreach ($randomusers as $randomuser) {
+
+            $username = $randomuser['username'];
+            $walletid = $randomuser['walletid'];
+                       
+            # get the total sums for this user of both their paid and owed earnings as a sponsor and as a random recipient.
+
+            # Sponsor was paid:
+            $sql= "select sum(amount) from transactions where recipienttype='sponsor' and recipientapproved=1 and recipientwalletid=?"; 
+            $q = $pdo->prepare($sql);
+            $q->execute([$walletid]);
+            $sponsorpaid = $q->fetchColumn();
+            if (!$sponsorpaid) {
+                $sponsorpaid = '0.00';
+            }
+            # Sponsor is owed:
+            $sql = "select sum(amount) from transactions where recipienttype='sponsor' and recipientapproved=0 and recipientwalletid=?";
+            $q = $pdo->prepare($sql);
+            $q->execute([$walletid]);
+            $sponsorowed = $q->fetchColumn();
+            if (!$sponsorowed) {
+                $sponsorowed = '0.00';
+            }
+            # Random Payee was paid:
+            $sql = "select sum(amount) from transactions where recipienttype='random' and recipientapproved=1 and recipientwalletid=?";
+            $q = $pdo->prepare($sql);
+            $q->execute([$walletid]);
+            $randompaid = $q->fetchColumn();
+            if (!$randompaid) {
+                $randompaid = '0.00';
+            }
+            # Random Payee is owed:
+            $sql = "select sum(amount) from transactions where recipienttype='random' and recipientapproved=0 and recipientwalletid=?";
+            $q = $pdo->prepare($sql);
+            $q->execute([$walletid]);
+            $randomowed = $q->fetchColumn();
+            if (!$randomowed) {
+                $randomowed = '0.00';
+            }
+
+            $randomuser['sponsorpaid'] = $sponsorpaid;
+            $randomuser['sponsorowed'] = $sponsorowed;
+            $randomuser['randompaid'] = $randompaid;
+            $randomuser['randomowed'] = $randomowed;
+
+            # add to the randomusersarray.
             array_push($randomusersarray, $randomuser);
         }
         Database::disconnect();
@@ -37,7 +84,7 @@ class Randomizer {
     }
 
     /* Get all positions for ONE USERNAME from the randomizer table.*/
-    public function getAllForOneUser($username) {
+    public function getAllRandomizersForOneUser($username) {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -57,7 +104,7 @@ class Randomizer {
     }
 
     /* Get one POSITION ONLY from the randomizer table. Not sure if I need this? */
-    public function getOneUser() {
+    public function getOneRandomizer() {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,ERRMODE_EXCEPTION);
@@ -70,16 +117,10 @@ class Randomizer {
 
     /* Add a username to the randomizer table.This is called when the second payee (either the sponsor or the
     random user) confirms that they have received payment.*/
-    public function addUser($username,$returnmessage) {
+    public function addRandomizer($username,$walletid,$returnmessage) {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        # Get the user's wallet id.
-        $sql = "select walletid from members where username=?";
-        $q = $pdo->prepare($sql);
-        $q->execute([$username]);
-        $walletid = $q->fetchColumn();
         
         # Give a randomizer position.
         $sql = "insert into randomizer (username,walletid) values (?,?)";
@@ -100,8 +141,21 @@ class Randomizer {
         }
     }
 
+    /* Admin can change randomizer positions to whichever wallet IDs they need to. */
+    public function saveRandomizer($username,$walletid,$id) {
+
+        $pdo = DATABASE::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "update randomizer set walletid=?,username=? where id=?";
+        $q = $pdo->prepare($sql);
+        $q->execute([$walletid,$username,$id]);
+        DATABASE::disconnect();
+
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Positions for " . $username . " were Saved!</strong></div>";
+    }
+
     /* Delete a single id, OR all ids for a deleted user from the randomizer table.*/
-    public function deleteUser($username, $id) {
+    public function deleteRandomizer($username,$id) {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -125,36 +179,6 @@ class Randomizer {
 
             return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>All Randomizer Positions for " . $username . " were Deleted!</strong></div>";
         }  
-    }
-
-    /* Admin can change randomizer positions to whichever wallet IDs they need to. */
-    public function saveUser($username, $id) {
-
-        $updateusername = $_POST['updateusername'];
-        $updatewalletid = $_POST['updatewalletid'];
-        $pdo = DATABASE::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
-        # if $username is empty, just update the single $id
-        if(empty($username)) {
-
-            $sql = "update randomizer set walletid=?,username=? where id=?";
-            $q = $pdo->prepare($sql);
-            $q->execute([$updatewalletid,$updateusername,$id]);
-            DATABASE::disconnect();
-
-            return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Position #" . $id . " was Saved!</strong></div>";
-        }
-        # if $username is not empty, update all randomizer positions for that username.
-        else {
-
-            $sql = "update randomizer set walletid=?,username=? where username=?";
-            $q = $pdo->prepare($sql);
-            $q->execute([$updatewalletid,$updateusername,$username]);
-            DATABASE::disconnect();
-
-            return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Randomizer Positions for " . $username . " were Saved!</strong></div>";
-        }
     }
 
 }

@@ -67,10 +67,13 @@
                 <a class="nav-link" href="/admin/members">Members</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/admin/mail">Mail</a>
+                <a class="nav-link" href="/admin/randomizer">Randomizer</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/admin/money">Money</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/mail">Mail</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/admin/pages">Pages</a>

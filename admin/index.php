@@ -191,23 +191,26 @@ if (isset($_POST['login'])) {
 
         # admin added a new randomizer position.
         $username = $_POST['username'];
+        $walletid = $_POST['walletid'];
         $returnmessage = 1;
-        $ad = new Randomizer();
-        $show = $ad->addRandomizer($username,$returnmessage);
+        $update = new Randomizer();
+        $show = $update->addRandomizer($username,$walletid,$returnmessage);
     }
 
     if (isset($_POST['saverandomizer'])) {
     
         # admin saved a randomizer position they edited.
+        $username = $_POST['username'];
+        $walletid = $_POST['walletid'];
         $update = new Randomizer();
-        $show = $update->saveRandomizer($username,$id);
+        $show = $update->saveRandomizer($username,$walletid,$id);
     }
     
     if (isset($_POST['deleterandomizer'])) {
     
         # admin deleted a randomizer position.
         $delete = new Randomizer();
-        $show = $delete->deleteRandomizer($username,$id);
+        $show = $delete->deleteRandomizer('',$id);
     }
 
     if (isset($_POST['addadminwallet'])) {

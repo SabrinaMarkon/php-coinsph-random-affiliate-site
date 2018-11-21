@@ -1,0 +1,598 @@
+[21-Nov-2018 02:40:18 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1' in /home/randombtcads/public_html/classes/Randomizer.php:41
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Randomizer.php(41): PDO->query('select sum(amou...')
+#1 /home/randombtcads/public_html/admin/randomizer.php(14): Randomizer->getAllRandomizers()
+#2 /home/randombtcads/public_html/admin/index.php(265): include('/home/randombtc...')
+#3 {main}
+  thrown in /home/randombtcads/public_html/classes/Randomizer.php on line 41
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:42:08 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:42:59 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:44:01 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:41 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:45 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:45:50 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:47:21 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:06 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:12 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:49:33 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:56:20 UTC] PHP Warning:  require(classes/Randomizer.php): failed to open stream: No such file or directory in /home/randombtcads/public_html/admin/index.php on line 19
+[21-Nov-2018 02:56:20 UTC] PHP Warning:  require(classes/Randomizer.php): failed to open stream: No such file or directory in /home/randombtcads/public_html/admin/index.php on line 19
+[21-Nov-2018 02:56:20 UTC] PHP Fatal error:  require(): Failed opening required 'classes/Randomizer.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/randombtcads/public_html/admin/index.php on line 19
+[21-Nov-2018 02:56:37 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1' in /home/randombtcads/public_html/classes/Randomizer.php:46
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Randomizer.php(46): PDO->query('select sum(amou...')
+#1 /home/randombtcads/public_html/admin/randomizer.php(14): Randomizer->getAllRandomizers()
+#2 /home/randombtcads/public_html/admin/index.php(265): include('/home/randombtc...')
+#3 {main}
+  thrown in /home/randombtcads/public_html/classes/Randomizer.php on line 46
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:57:57 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:59:01 UTC] PHP Warning:  require(classes/Randomizer.php): failed to open stream: No such file or directory in /home/randombtcads/public_html/admin/index.php on line 19
+[21-Nov-2018 02:59:01 UTC] PHP Warning:  require(classes/Randomizer.php): failed to open stream: No such file or directory in /home/randombtcads/public_html/admin/index.php on line 19
+[21-Nov-2018 02:59:01 UTC] PHP Fatal error:  require(): Failed opening required 'classes/Randomizer.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/randombtcads/public_html/admin/index.php on line 19
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 66
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 66
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 66
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 66
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 66
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 02:59:04 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:06:19 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/classes/Randomizer.php on line 44
+[21-Nov-2018 03:06:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/randombtcads/public_html/admin/randomizer.php on line 61
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:07:28 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 74
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 79
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:08:13 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:09:15 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:09:54 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:10:34 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:10:39 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 62
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 62
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 62
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 62
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 62
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:11:06 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:11:31 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:13:24 UTC] PHP Notice:  Undefined variable: dbh in /home/randombtcads/public_html/classes/Randomizer.php on line 39
+[21-Nov-2018 03:13:24 UTC] PHP Fatal error:  Call to a member function query() on null in /home/randombtcads/public_html/classes/Randomizer.php on line 39
+[21-Nov-2018 03:14:10 UTC] PHP Fatal error:  Call to undefined method PDOStatement::query() in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:19:45 UTC] PHP Notice:  Undefined variable: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:24:18 UTC] PHP Notice:  Undefined offset: 3 in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 03:24:18 UTC] PHP Notice:  Undefined offset: 3 in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 03:24:18 UTC] PHP Notice:  Undefined offset: 3 in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 03:24:18 UTC] PHP Notice:  Undefined offset: 3 in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 03:24:18 UTC] PHP Notice:  Undefined offset: 3 in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 03:29:49 UTC] PHP Fatal error:  Call to a member function fetch_array() on string in /home/randombtcads/public_html/classes/Randomizer.php on line 45
+[21-Nov-2018 03:30:12 UTC] PHP Fatal error:  Call to a member function fetch() on string in /home/randombtcads/public_html/classes/Randomizer.php on line 45
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 86
+[21-Nov-2018 03:54:29 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 89
+[21-Nov-2018 04:18:06 UTC] PHP Notice:  Undefined variable: walletid in /home/randombtcads/public_html/classes/Randomizer.php on line 42
+[21-Nov-2018 04:18:06 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/classes/Randomizer.php on line 44
+[21-Nov-2018 04:18:06 UTC] PHP Notice:  Undefined variable: walletid in /home/randombtcads/public_html/classes/Randomizer.php on line 52
+[21-Nov-2018 04:18:06 UTC] PHP Notice:  Undefined variable: walletid in /home/randombtcads/public_html/classes/Randomizer.php on line 59
+[21-Nov-2018 04:18:06 UTC] PHP Notice:  Undefined variable: walletid in /home/randombtcads/public_html/classes/Randomizer.php on line 64
+[21-Nov-2018 04:18:06 UTC] PHP Notice:  Undefined variable: pdo in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[21-Nov-2018 04:18:06 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[21-Nov-2018 04:30:03 UTC] PHP Parse error:  syntax error, unexpected 'Database' (T_STRING), expecting function (T_FUNCTION) in /home/randombtcads/public_html/classes/Randomizer.php on line 83
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined variable: randomizer in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined variable: randomizer in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined variable: randomizer in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined variable: randomizer in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined variable: randomizer in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 78
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 84
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 87
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 78
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 84
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 87
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 78
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 84
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 87
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 78
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 84
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 87
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 78
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 84
+[21-Nov-2018 04:30:48 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 87
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 78
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 84
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 87
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 78
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 84
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 87
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 78
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 84
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 87
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 78
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 84
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 87
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 78
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 81
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 84
+[21-Nov-2018 04:31:13 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 87
+[21-Nov-2018 04:38:35 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:38:35 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:38:35 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:38:35 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:38:35 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:39:02 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:39:02 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:39:02 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:39:02 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:39:02 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:39:05 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:39:05 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:39:05 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:39:05 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:39:05 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/classes/Randomizer.php on line 40
+[21-Nov-2018 04:45:29 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from transactions where recipienttype='random' and recipientapproved=1 and recip' at line 1' in /home/randombtcads/public_html/classes/Randomizer.php:59
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Randomizer.php(59): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/randomizer.php(14): Randomizer->getAllRandomizers()
+#2 /home/randombtcads/public_html/admin/index.php(265): include('/home/randombtc...')
+#3 {main}
+  thrown in /home/randombtcads/public_html/classes/Randomizer.php on line 59
+[21-Nov-2018 04:47:49 UTC] PHP Notice:  Undefined variable: username in /home/randombtcads/public_html/admin/index.php on line 203
+[21-Nov-2018 04:47:49 UTC] PHP Notice:  Undefined index: updateusername in /home/randombtcads/public_html/classes/Randomizer.php on line 180
+[21-Nov-2018 04:47:49 UTC] PHP Notice:  Undefined index: updatewalletid in /home/randombtcads/public_html/classes/Randomizer.php on line 181
+[21-Nov-2018 04:49:46 UTC] PHP Notice:  Undefined index: updateusername in /home/randombtcads/public_html/classes/Randomizer.php on line 180
+[21-Nov-2018 04:49:46 UTC] PHP Notice:  Undefined index: updatewalletid in /home/randombtcads/public_html/classes/Randomizer.php on line 181
+[21-Nov-2018 04:54:28 UTC] PHP Notice:  Undefined index: updateusername in /home/randombtcads/public_html/classes/Randomizer.php on line 180
+[21-Nov-2018 04:54:28 UTC] PHP Notice:  Undefined index: updatewalletid in /home/randombtcads/public_html/classes/Randomizer.php on line 181
+[21-Nov-2018 04:56:48 UTC] PHP Notice:  Undefined index: updateusername in /home/randombtcads/public_html/admin/index.php on line 204
+[21-Nov-2018 04:56:48 UTC] PHP Notice:  Undefined index: updatewalletid in /home/randombtcads/public_html/admin/index.php on line 205
+[21-Nov-2018 04:57:36 UTC] PHP Notice:  Undefined index: updateusername in /home/randombtcads/public_html/admin/index.php on line 204
+[21-Nov-2018 04:57:36 UTC] PHP Notice:  Undefined index: updatewalletid in /home/randombtcads/public_html/admin/index.php on line 205
+[21-Nov-2018 05:07:43 UTC] PHP Notice:  Undefined index: username in /home/randombtcads/public_html/admin/index.php on line 212
+[21-Nov-2018 05:09:28 UTC] PHP Parse error:  syntax error, unexpected '$pdo' (T_VARIABLE) in /home/randombtcads/public_html/classes/Randomizer.php on line 158
+[21-Nov-2018 05:10:07 UTC] PHP Notice:  Undefined index: username in /home/randombtcads/public_html/classes/Randomizer.php on line 156
+[21-Nov-2018 05:14:41 UTC] PHP Warning:  Missing argument 2 for Randomizer::deleteRandomizer(), called in /home/randombtcads/public_html/admin/index.php on line 213 and defined in /home/randombtcads/public_html/classes/Randomizer.php on line 154
+[21-Nov-2018 05:14:41 UTC] PHP Warning:  Missing argument 3 for Randomizer::deleteRandomizer(), called in /home/randombtcads/public_html/admin/index.php on line 213 and defined in /home/randombtcads/public_html/classes/Randomizer.php on line 154

@@ -27,9 +27,6 @@ $randomizers = $allrandomizers->getAllRandomizers();
                 <label for="walletid" class="ja-toppadding">Bitcoin Wallet ID:</label>
                 <input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
 
-                <label for="referid" class="ja-toppadding">Sponsor:</label>
-                <input type="text" name="referid" value="" class="form-control input-lg" placeholder="Sponsor" required>
-
                 <div class="ja-bottompadding"></div>
 
                 <button class="btn btn-lg btn-primary ja-toppadding ja-bottompadding" type="submit" name="addrandomizer">Add</button>
@@ -47,9 +44,10 @@ $randomizers = $allrandomizers->getAllRandomizers();
                         <th class="text-center small">#</th>
                         <th class="text-center small">Username</th>
                         <th class="text-center small">Wallet ID</th>
-                        <th class="text-center small">Paid from Sponsoring</th>
-                        <th class="text-center small">Paid from Randomizer</th>
-                        <th class="text-center small">Owed Payments</th>
+                        <th class="text-center small">Paid as Sponsor</th>
+                        <th class="text-center small">Owed as Sponsor</th>
+                        <th class="text-center small">Paid as Random Payee</th>
+                        <th class="text-center small">Owed as Random Payee</th>
                         <th class="text-center small">Edit</th>
                         <th class="text-center small">Delete</th>
                     </tr>
@@ -58,10 +56,6 @@ $randomizers = $allrandomizers->getAllRandomizers();
 
                     <?php
                     foreach ($randomizers as $randomizer) {
-
-                        # get user's earnings from sponsoring and from random payments. Also find out how much other members own them currently.
-
-                        # method in Randomizer class for this.
 
                         ?>
                         <tr>
@@ -76,15 +70,17 @@ $randomizers = $allrandomizers->getAllRandomizers();
                                 <input type="text" name="walletid" value="<?php echo $randomizer['walletid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Wallet ID" required>
                             </td>
                             <td>
-                                <?php echo $paidassponsor ?>
+                                <?php echo $randomizer['sponsorpaid']; ?>
                             </td>
                             <td>
-                                <?php echo $paidfromrandomizer ?>
+                                <?php echo $randomizer['sponsorowed']; ?>
                             </td>
                             <td>
-                                <?php echo $owedpayments ?>
+                                <?php echo $randomizer['randompaid']; ?>
                             </td>
-
+                            <td>
+                                <?php echo $randomizer['randomowed']; ?>
+                            </td>
                             <td>
                                 <input type="hidden" name="_method" value="PATCH">
                                 <button class="btn btn-sm btn-primary" type="submit" name="saverandomizer">SAVE</button>
@@ -93,6 +89,7 @@ $randomizers = $allrandomizers->getAllRandomizers();
                             <td>
                                 <form action="/admin/randomizer/<?php echo $randomizer['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
                                     <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="username" value="<?php echo $randomizer['username']; ?>">
                                     <button class="btn btn-sm btn-primary" type="submit" name="deleterandomizer">DELETE</button>
                                 </form>
                             </td>
