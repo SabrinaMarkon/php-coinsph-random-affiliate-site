@@ -90,6 +90,7 @@ $members = $allmembers->getAllMembers();
                         <th class="text-center small">Last&nbsp;Login</th>
                         <th class="text-center small">Sponsor</th>
                         <th class="text-center small">Edit</th>
+                        <th class="text-center small">Login</th>
                         <th class="text-center small">Delete</th>
                     </tr>
                     </thead>
@@ -157,6 +158,14 @@ $members = $allmembers->getAllMembers();
                             <td>
                                 <input type="hidden" name="_method" value="PATCH">
                                 <button class="btn btn-sm btn-primary" type="submit" name="savemember">SAVE</button>
+                            </td>
+                            </form>
+                            <td>
+                                <form action="../members" method="POST" target="_blank" accept-charset="utf-8" class="form" role="form">
+                                <input type="hidden" name="_method" value="POST">
+                                <input type="hidden" name="username" value="<?php echo $member['username']; ?>">
+                                <input type="hidden" name="password" value="<?php echo $member['password']; ?>">
+                                <button class="btn btn-sm btn-primary" type="submit" name="login">LOGIN</button>
                             </td>
                             </form>
                             <td>

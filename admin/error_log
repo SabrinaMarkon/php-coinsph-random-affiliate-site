@@ -25,3 +25,5 @@ Stack trace:
 [23-Nov-2018 09:09:59 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
 [23-Nov-2018 09:10:11 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
 [23-Nov-2018 09:11:05 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 10:33:04 UTC] PHP Notice:  Undefined index: adminuser in /home/randombtcads/public_html/admin/index.php on line 38
+[23-Nov-2018 10:33:04 UTC] PHP Notice:  Undefined index: adminpass in /home/randombtcads/public_html/admin/index.php on line 39
