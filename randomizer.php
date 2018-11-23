@@ -22,10 +22,10 @@ $bitcoin = new Bitcoin();
 		
 			<h1 class="ja-bottompadding">Your Randomizer</h1>
 
-            <form class="form-inline ja-bottompadding" disabled>
-            <label for="referralurl">Your Referral URL:</label>
-            <input type="text" id="referralurl" class="form-control mb-2 mr-sm-2" value="<?php echo $domain ?>/r/<?php echo $username ?>">
-            <button class="form-control mb-2 mr-sm-2" onClick="copyToClipboard(document.getElementById('referralurl').value;)">COPY</button>
+            <form class="form-group form-inline my-5" disabled>
+            <label for="referralurl" class="control-label">Your Referral URL:&nbsp;</label>
+            <input type="text" id="referralurl" class="form-control mr-2 w-50" value="<?php echo $domain ?>/r/<?php echo $username ?>">
+            <button class="form-control mr-2" onClick="copyToClipboard(document.getElementById('referralurl').value);return false;">COPY</button>
 			</form>
 
 			<?php
