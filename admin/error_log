@@ -12,3 +12,16 @@ Stack trace:
   thrown in /home/randombtcads/public_html/classes/Randomizer.php on line 128
 [21-Nov-2018 10:40:31 UTC] PHP Notice:  Undefined variable: bitcoin in /home/randombtcads/public_html/classes/Money.php on line 64
 [21-Nov-2018 10:40:31 UTC] PHP Fatal error:  Call to a member function getUsersWalletID() on null in /home/randombtcads/public_html/classes/Money.php on line 64
+[23-Nov-2018 08:14:16 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:03:20 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:03:33 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:03:41 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:03:46 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:07:52 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:08:03 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:09:26 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:09:31 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:09:44 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:09:59 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:10:11 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11
+[23-Nov-2018 09:11:05 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/pages.php on line 11

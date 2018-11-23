@@ -24,7 +24,7 @@ $bitcoin = new Bitcoin();
 
             <form class="form-group form-inline my-5" disabled>
             <label for="referralurl" class="control-label">Your Referral URL:&nbsp;</label>
-            <input type="text" id="referralurl" class="form-control mr-2 w-50" value="<?php echo $domain ?>/r/<?php echo $username ?>">
+            <input type="text" id="referralurl" class="form-control mr-2 w-50" value="<?php echo $domain ?>/r/<?php echo $username ?>" readonly>
             <button class="form-control mr-2" onClick="copyToClipboard(document.getElementById('referralurl').value);return false;">COPY</button>
 			</form>
 

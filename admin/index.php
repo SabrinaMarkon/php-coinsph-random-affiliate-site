@@ -122,7 +122,7 @@ if (isset($_POST['login'])) {
     
         # admin selected an existing page to edit.
         $editpage = new Page();
-        $show = $editpage->editPage($id);
+        $showeditpage = $editpage->editPage($id);
     }
     
     if (isset($_POST['addpage'])) {
