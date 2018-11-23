@@ -135,6 +135,7 @@ $members = $allmembers->getAllMembers();
                             </td>
                             <td>
                                 <select name="country" class="form-control widetableselect">
+                                    <option value="Philippines"<?php if ($member['country'] === "Philippines") { echo " selected"; } ?>>Philippines</option>
                                     <option value="United States"<?php if ($member['country'] == "United States") { echo " selected"; } ?> >United States</option>
                                     <option value="Canada"<?php if ($member['country'] === "Canada") { echo " selected"; } ?>>Canada</option>
                                     <?php

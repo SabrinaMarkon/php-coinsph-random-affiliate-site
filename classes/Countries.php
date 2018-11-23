@@ -21,7 +21,7 @@ class Countries
 	function showCountries($country) {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		$sql = "select * from countries where country_name!=\"United States\" and country_name!=\"Canada\" order by country_id";
+		$sql = "select * from countries where country_name!=\"United States\" and country_name!=\"Canada\" and country_name!=\"Philippines\" order by country_id";
 		$countryselectlist = "";
 		foreach($pdo->query($sql) as $row)
 		{

@@ -50,7 +50,8 @@ echo $showcontent->showPage('Members Area Profile Page');
 
 						<label for="country" class="ja-toppadding">Country:</label>
 						<select name="country" class="form-control input-lg">
-							<option value="United States"<?php if ($country == "United States") { echo " selected"; } ?> >United States</option>
+							<option value="Philippines"<?php if ($country === "Philippines") { echo " selected"; } ?>>Philippines</option>
+							<option value="United States"<?php if ($country == "United States") { echo " selected"; } ?>>United States</option>
 							<option value="Canada"<?php if ($country === "Canada") { echo " selected"; } ?>>Canada</option>
 							<?php
 							$countrylist = new Countries();

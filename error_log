@@ -39,3 +39,4 @@ Stack trace:
 [21-Nov-2018 13:06:24 UTC] PHP Notice:  Undefined index: name in /home/randombtcads/public_html/index.php on line 112
 [21-Nov-2018 13:07:48 UTC] PHP Notice:  Undefined index: name in /home/randombtcads/public_html/index.php on line 112
 [23-Nov-2018 06:26:59 UTC] PHP Warning:  Missing argument 3 for Bitcoin::showBitCoinWalletIds(), called in /home/randombtcads/public_html/randomizer.php on line 45 and defined in /home/randombtcads/public_html/classes/Bitcoin.php on line 20
+[23-Nov-2018 10:44:09 UTC] PHP Notice:  Undefined variable: member in /home/randombtcads/public_html/profile.php on line 53

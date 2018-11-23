@@ -54,6 +54,7 @@ echo $showcontent->showPage('Registration Page');
 
 						<label for="country" class="ja-toppadding">Country:</label>
 						<select name="country" class="form-control input-lg">
+							<option value="Philippines">Philippines</option>
 							<option value="United States">United States</option>
 							<option value="Canada">Canada</option>
 							<?php
