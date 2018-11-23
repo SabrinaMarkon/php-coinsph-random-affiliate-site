@@ -59,17 +59,20 @@ class Ad {
         
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "select * from ads where username=? and added=0";
+        $sql = "select id from ads where username=? and added=0 order by id";
         $q = $pdo->prepare($sql);
         $q->execute([$username]);
-        $ad = $q->fetch();
+        $ad = $q->fetchColumn();
+        if (!$ad) {
+            $ad = '';
+        }
         Database::disconnect();
 
-        return $ad['id'];
+        return $ad;
     }
 
     /* Call this when the user submits their ad. */
-    public function createAd($username) {
+    public function createAd($id,$username,$adminautoapprove) {
 
         $newname = $_POST['name'];
         $newtitle = $_POST['title'];
@@ -87,7 +90,7 @@ class Ad {
         $q->execute(array($newname, $newtitle, $newurl, $newdescription, $newimageurl, $newshorturl, $adminautoapprove, $id));
         Database::disconnect();
         
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your New Ad: " . $name . " was Created!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your New Ad: " . $newname . " was Created!</strong></div>";
     }
 
     /* When the second recipient (either the sponsor or the random member) confirms that they have received payment from the user, we
@@ -109,7 +112,7 @@ class Ad {
     }
 
     /* Call this when the user edits their existing ad. */
-    public function saveAd($id) {
+    public function saveAd($id,$adminautoapprove) {
 
         $newname = $_POST['name'];
         $newtitle = $_POST['title'];

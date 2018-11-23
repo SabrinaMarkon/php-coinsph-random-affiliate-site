@@ -17,9 +17,7 @@ $ads = $allads->getAds($username);
 ?>
 
 <div class="container">
-		
-			<h1 class="ja-bottompadding">Create Ad</h1>
-				
+					
 			<?php
 			if (empty($ads)) {
 
@@ -32,39 +30,44 @@ $ads = $allads->getAds($username);
 
 				# Show bitcoin wallet IDs for BOTH sponsor and the random payee.
 				$bitcoin = new Bitcoin();
-				echo $bitcoin->showBitCoinWalletIds($username, $settings['paysponsor'], $settings['payrandom']);
+				echo $bitcoin->showBitCoinWalletIds($username,$settings);
 			
 			} else {
 				/* person has at least one blank ad they paid (2 people) for.
 				show form to create ad with an id to update the 2 paid transactions' adid. */
 
 				# get the first available ad in the ads 
-				$ad = $allads->getBlankAd($username);
+				$adid = $allads->getBlankAd($username);
 
-				?>
-				<form action="/ads" method="post" accept-charset="utf-8" class="form" role="form">
+				if (empty($adid)) {
+					?>
+					<h1 class="ja-bottompadding">Create Ad</h1>
 
-				<label for="name">Name of Ad:</label>
-				<input type="text" name="name" class="form-control input-lg" placeholder="Name of Ad" required>
-
-				<label for="title">Title:</label>
-				<input type="text" name="title" class="form-control input-lg" placeholder="Title" required>
-
-				<label for="url">Click-Thru URL:</label>
-				<input type="url" name="url" class="form-control input-lg" placeholder="Click-Thru URL" required>
-
-				<label for="description">Ad Text:</label>
-				<input type="text" name="description" class="form-control input-lg" placeholder="Ad Text" required>
-
-				<label for="imageurl">Image URL: (image will be resized to 100 x 100!)</label>
-				<input type="url" name="imageurl" class="form-control input-lg" placeholder="Image URL (image will be resized to 100 x 100!)" required>
-
-				<div class="ja-bottompadding"></div>
-
-				<button class="btn btn-lg btn-primary ja-bottompadding ja-toppadding" type="submit" name="createad">CREATE AD</button>
-
-				</form>
-				<?php
+					<form action="/ads/<?php echo $adid ?>" method="post" accept-charset="utf-8" class="form" role="form">
+	
+					<label for="name">Name of Ad:</label>
+					<input type="text" name="name" class="form-control input-lg" placeholder="Name of Ad" required>
+	
+					<label for="title">Title:</label>
+					<input type="text" name="title" class="form-control input-lg" placeholder="Title" required>
+	
+					<label for="url">Click-Thru URL:</label>
+					<input type="url" name="url" class="form-control input-lg" placeholder="Click-Thru URL" required>
+	
+					<label for="description">Ad Text:</label>
+					<input type="text" name="description" class="form-control input-lg" placeholder="Ad Text" required>
+	
+					<label for="imageurl">Image URL: (image will be resized to 100 x 100!)</label>
+					<input type="url" name="imageurl" class="form-control input-lg" placeholder="Image URL (image will be resized to 100 x 100!)" required>
+	
+					<div class="ja-bottompadding"></div>
+	
+					<input type="hidden" name="id" value="<?php echo $adid ?>">
+					<button class="btn btn-lg btn-primary ja-bottompadding ja-toppadding" type="submit" name="createad">CREATE AD</button>
+	
+					</form>
+					<?php
+				}
 			}
 			?>
 
@@ -160,7 +163,7 @@ $ads = $allads->getAds($username);
 								<td>
 									<form action="/ads/<?php echo $ad['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
 										<input type="hidden" name="_method" value="DELETE">
-										<input type="hidden" name="username" value="<?php echo $ad['username']; ?>">
+										<input type="hidden" name="name" value="<?php echo $ad['name']; ?>">
 										<button class="btn btn-sm btn-primary" type="submit" name="deletead">DELETE</button>
 									</form>
 								</td>

@@ -17,7 +17,7 @@ class Bitcoin {
 
     private $pdo;
 
-    public function showBitCoinWalletIds($username, $paysponsor, $payrandom) {
+    public function showBitCoinWalletIds($username, $settings) {
 
         $showbitcoin = '';
 

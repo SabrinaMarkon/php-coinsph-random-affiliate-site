@@ -99,17 +99,17 @@ $show = $resend->resendVerify($_SESSION['username'],$_SESSION['password'],$_SESS
 if (isset($_POST['createad'])) {
 
 $create = new Ad();
-$show = $create->createAd($username);
+$show = $create->createAd($id,$_SESSION['username'],$adminautoapprove);
 }
 if (isset($_POST['savead'])) {
 
 $save = new Ad();
-$show = $save->saveAd($id);
+$show = $save->saveAd($id,$adminautoapprove);
 }
 if (isset($_POST['deletead'])) {
 
 $delete = new Ad();
-$show = $delete->deleteAd($id);
+$show = $delete->deleteAd($id,$_POST['name']);
 }
 if (isset($_POST['confirmpaid'])) {
 

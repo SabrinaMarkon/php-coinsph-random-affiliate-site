@@ -21,7 +21,13 @@ $bitcoin = new Bitcoin();
 <div class="container">
 		
 			<h1 class="ja-bottompadding">Your Randomizer</h1>
-				
+
+            <form class="form-inline ja-bottompadding" disabled>
+            <label for="referralurl">Your Referral URL:</label>
+            <input type="text" id="referralurl" class="form-control mb-2 mr-sm-2" value="<?php echo $domain ?>/r/<?php echo $username ?>">
+            <button class="form-control mb-2 mr-sm-2" onClick="copyToClipboard(document.getElementById('referralurl').value;)">COPY</button>
+			</form>
+
 			<?php
 			if (empty($positions)) {
 
@@ -34,12 +40,12 @@ $bitcoin = new Bitcoin();
 				both your payments, so we can approve addition of your position in the randomizer, as well as your ads.</div>";
 
 				# Show bitcoin wallet IDs for BOTH sponsor and the random payee.
-				echo $bitcoin->showBitCoinWalletIds($username, $settings['paysponsor'], $settings['payrandom']);
+				echo $bitcoin->showBitCoinWalletIds($username,$settings);
 			
 			} else {
                 
                 # check to see if the person owes for any other positions still.
-				echo $bitcoin->showBitCoinWalletIds($username, $settings['paysponsor'], $settings['payrandom']);
+				echo $bitcoin->showBitCoinWalletIds($username,$settings);
                 
 				# person has at least one randomizer position they paid for (sponsor and random) that has been added.
                 # show those positions.
