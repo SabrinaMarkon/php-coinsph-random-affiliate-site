@@ -1,0 +1,2 @@
+[24-Nov-2018 09:04:16 UTC] PHP Notice:  Use of undefined constant FILTER_SANITIZE_IP - assumed 'FILTER_SANITIZE_IP' in /home/randombtcads/public_html/classes/FormValidation.php on line 277
+[24-Nov-2018 09:04:16 UTC] PHP Warning:  filter_var() expects parameter 2 to be long, string given in /home/randombtcads/public_html/classes/FormValidation.php on line 277

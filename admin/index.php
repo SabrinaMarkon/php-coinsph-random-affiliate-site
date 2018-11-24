@@ -213,37 +213,72 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['addmember'])) {
     
-        # admin added a new member.
-        $add = new Member();
-        $show = $add->addMember($settings);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin added a new member.
+            $add = new Member();
+            $show = $add->addMember($settings);
+        }
     }
     
     if (isset($_POST['savemember'])) {
     
-        # admin saved a member they edited.
-        $update = new Member();
-        $show = $update->saveMember($id);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin saved a member they edited.
+            $update = new Member();
+            $show = $update->saveMember($id);
+        }
     }
 
     if (isset($_POST['deletemember'])) {
     
-        # admin deleted a member and their ads and positions.
-        $delete = new Member();
-        $show = $delete->deleteMember($id,$giveextratoadmin);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin deleted a member and their ads and positions.
+            $delete = new Member();
+            $show = $delete->deleteMember($id,$giveextratoadmin);
+        }
     }
   
     if (isset($_POST['savetransaction'])) {
     
-        # admin saved a transaction they were editing.
-        $update = new Money();
-        $show = $update->saveTransaction($id);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin saved a transaction they were editing.
+            $update = new Money();
+            $show = $update->saveTransaction($id);
+        }
     }
     
     if (isset($_POST['deletetransaction'])) {
     
-        # admin deleted a transaction.
-        $delete = new Money();
-        $show = $delete->deleteTransaction($id);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin deleted a transaction.
+            $delete = new Money();
+            $show = $delete->deleteTransaction($id);
+        }
     }
 
     if (isset($_POST['addrandomizer'])) {

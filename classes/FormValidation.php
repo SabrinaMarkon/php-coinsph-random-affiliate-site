@@ -274,7 +274,7 @@ class FormValidation {
 
                 # admin area signupip for members.
 
-                $varvalue = filter_var($varvalue, FILTER_SANITIZE_IP);
+                $varvalue = filter_var($varvalue, FILTER_SANITIZE_STRING);
                 
                 if (!filter_var($varvalue, FILTER_VALIDATE_IP)) {
 
