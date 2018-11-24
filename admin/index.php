@@ -297,49 +297,91 @@ if (isset($_POST['login'])) {
 
     if (isset($_POST['addrandomizer'])) {
 
-        # admin added a new randomizer position.
-        $username = $_POST['username'];
-        $walletid = $_POST['walletid'];
-        $returnmessage = 1;
-        $update = new Randomizer();
-        $show = $update->addRandomizer($username,$walletid,$returnmessage);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin added a new randomizer position.
+            $username = $_POST['username'];
+            $walletid = $_POST['walletid'];
+            $returnmessage = 1;
+            $update = new Randomizer();
+            $show = $update->addRandomizer($username,$walletid,$returnmessage);
+        }
     }
 
     if (isset($_POST['saverandomizer'])) {
     
-        # admin saved a randomizer position they edited.
-        $username = $_POST['username'];
-        $walletid = $_POST['walletid'];
-        $update = new Randomizer();
-        $show = $update->saveRandomizer($username,$walletid,$id);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin saved a randomizer position they edited.
+            $username = $_POST['username'];
+            $walletid = $_POST['walletid'];
+            $update = new Randomizer();
+            $show = $update->saveRandomizer($username,$walletid,$id);
+        }
     }
     
     if (isset($_POST['deleterandomizer'])) {
-    
-        # admin deleted a randomizer position.
-        $delete = new Randomizer();
-        $show = $delete->deleteRandomizer('',$id);
+
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin deleted a randomizer position.
+            $delete = new Randomizer();
+            $show = $delete->deleteRandomizer('',$id);
+        }
     }
 
     if (isset($_POST['addadminwallet'])) {
-    
-        # admin added a new admin wallet id.
-        $add = new AdminWallet();
-        $show = $add->addAdminWallet();
+
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin added a new admin wallet id.
+            $add = new AdminWallet();
+            $show = $add->addAdminWallet();
+        }     
     }
     
     if (isset($_POST['saveadminwallet'])) {
-    
-        # admin saved an admin wallet id they edited.
-        $update = new AdminWallet();
-        $show = $update->saveAdminWallet($id);
+   
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin saved an admin wallet id they edited.
+            $update = new AdminWallet();
+            $show = $update->saveAdminWallet($id);
+        } 
     }
     
     if (isset($_POST['deleteadminwallet'])) {
     
-        # admin deleted an admin wallet id.
-        $delete = new AdminWallet();
-        $show = $delete->deleteAdminWallet($id);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin deleted an admin wallet id.
+            $delete = new AdminWallet();
+            $show = $delete->deleteAdminWallet($id);
+        } 
     }
 
     if ((empty($_REQUEST['page'])) or 
