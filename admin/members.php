@@ -50,6 +50,7 @@ $members = $allmembers->getAllMembers();
 
                 <label sr-only for="country" class="ja-toppadding">Country:</label>
                 <select name="country" class="form-control input-lg">
+                    <option value="Philippines">Philippines</option>
                     <option value="United States">United States</option>
                     <option value="Canada">Canada</option>
                     <?php
@@ -60,7 +61,7 @@ $members = $allmembers->getAllMembers();
                 </select>
 
                 <label sr-only for="referid" class="ja-toppadding">Sponsor:</label>
-                <input type="text" name="referid" value="" class="form-control input-lg" placeholder="Sponsor" required>
+                <input type="text" name="referid" value="admin" class="form-control input-lg" placeholder="Sponsor" required>
 
                 <div class="ja-bottompadding"></div>
 

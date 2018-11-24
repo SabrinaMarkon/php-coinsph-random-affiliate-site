@@ -18,12 +18,18 @@ class User
 	private $pdo;
 	private $username;
 	private $password;
+	private $walletid;
+	private $firstname;
+	private $lastname;
 	private $email;
+	private $country;
+	private $signupip;
+	private $referid;
 	private $emailhash;
 	private $gravatarimagelg;
 	private $usernameoremail;
 
-	public function newSignup($settings) {
+	public function newSignup($settings,$post) {
 
 		$username = $_POST['username'];
 		$password = $_POST['password'];
@@ -34,7 +40,9 @@ class User
 		$country = $_POST['country'];
 		$signupip = $_SERVER['REMOTE_ADDR'];
 		$referid = $_POST['referid'];
+
 		if ($referid === '') {
+			
 			$referid = 'admin';
 		}
 		
@@ -294,11 +302,11 @@ class User
 		Database::disconnect();
 
 		$_SESSION['password'] = $password;
+		$_SESSION['walletid'] = $walletid;
 		$_SESSION['firstname'] = $firstname;
 		$_SESSION['lastname'] = $lastname;
 		$_SESSION['email'] = $email;
 		$_SESSION['country'] = $country;
-		$_SESSION['walletid'] = $walletid;
 		$_SESSION['signupip'] = $signupip;
 
 		return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Account Details Were Saved!</strong><p>If you changed your email address, you will need to re-verify your account.</p></div>";

@@ -15,7 +15,7 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 
 class Member
 {
-    private $pdo;
+    private $pdo,$username,$password,$walletid,$firstname,$lastname,$country,$email,$signupip,$referid;
 
     public function getAllMembers() {
 
@@ -48,6 +48,11 @@ class Member
         $signupip = $_SERVER['REMOTE_ADDR'];
         $referid = $_POST['referid'];
 
+        if (empty($referid)) {
+            
+            $referid = 'admin';
+        }
+
         $verificationcode = time() . mt_rand(10, 100);
 
         $pdo = Database::connect();
@@ -58,8 +63,10 @@ class Member
 
         # get the walletid of the sponsor.
         if ($referid === 'admin') {
+
             $referidwalletid = $settings['admindefaultwalletid'];
         } else {
+
             $sql = "select walletid from members where username=?";
             $q = $pdo->prepare($sql);
             $q->execute(['walletid']);
@@ -133,6 +140,12 @@ class Member
         $email = $_POST['email'];
         $signupip = $_POST['signupip'];
         $referid = $_POST['referid'];
+
+        if (empty($referid)) {
+
+            $referid = 'admin';
+        }
+        
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "update `members` set username=?, password=?, walletid=?, firstname=?, lastname=?, country=?, email=?, signupip=?, referid=? where id=?";

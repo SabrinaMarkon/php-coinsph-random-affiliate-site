@@ -73,9 +73,10 @@ $show = $contact->sendContact($settings);
 }
 if (isset($_POST['register']))
 {
-
+new FormValidation($_POST);
+exit;
 $register = new User();
-$show = $register->newSignup($settings);
+$show = $register->newSignup($settings,$post);
 }
 if (isset($_GET['page']) && ($_GET['page'] === "verify"))
 {
