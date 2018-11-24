@@ -31,6 +31,15 @@ if (isset($_REQUEST['id'])) {
 # get the Layout template.
 $Layout = new Layout();
 
+$show = '';
+$errors = '';
+
+# get the form validation class instance to use for all the pages that post.
+if (isset($_POST)) {
+
+    $formvalidation = new FormValidation($_POST);
+}
+
 if (isset($_POST['login'])) {
 
     # admin clicked the login button.
@@ -38,7 +47,7 @@ if (isset($_POST['login'])) {
     $_SESSION['adminusername'] = $_REQUEST['adminuser'];
     $_SESSION['adminpassword'] = $_REQUEST['adminpass'];
 
-    $logincheck = new Admin();
+    $logincheck = new Admin($_POST);
     $newlogin = $logincheck->adminLogin($_SESSION['adminusername'],$_SESSION['adminpassword']);
 
     if ($newlogin === false) {
@@ -71,9 +80,16 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['savesettings'])) {
     
-        # admin clicked the button to save main settings.
-        $update = new Setting();
-        $show = $update->saveSettings($_SESSION['adminusername'], $_SESSION['adminpassword']);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+
+            # admin clicked the button to save main settings.
+            $update = new Setting();
+            $show = $update->saveSettings($_SESSION['adminusername'], $_SESSION['adminpassword']);   
+        }
     }
     
     if (isset($_POST['editmail'])) {
@@ -159,7 +175,7 @@ if (isset($_POST['login'])) {
         $update = new Member();
         $show = $update->saveMember($id);
     }
-    
+
     if (isset($_POST['deletemember'])) {
     
         # admin deleted a member and their ads and positions.

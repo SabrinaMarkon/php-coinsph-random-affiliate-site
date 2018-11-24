@@ -15,11 +15,51 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 
 class FormValidation {
 
-    private $pdo;
-    private $post;
-    private $key;
-    private $val;
-    private $errors;
+    private 
+    $pdo,
+    $post,
+    $key,
+    $val,
+    $errors,
+    $username,
+    $password,
+    $confirm_password,
+    $adminpass,
+    $confirm_adminpass,
+    $adminuser,
+    $referid,
+    $walletid,
+    $admindefaultwalletid,
+    $sitename,
+    $recipient,
+    $transaction,
+    $slug,
+    $title,
+    $firstname,
+    $lastname,
+    $name,
+    $subject,
+    $country,
+    $adminname,
+    $datepaid,
+    $description,
+    $message,
+    $email,
+    $adminemail,
+    $url,
+    $imageurl,
+    $domain,
+    $recipienttype,
+    $giveextratoadmin,
+    $adminautoapprove,
+    $recipientapproved,
+    $signupip,
+    $adminratio,
+    $id,
+    $paysponsor,
+    $payrandom,
+    $amount;
+
 
     public function __construct($post) {
 
@@ -32,9 +72,46 @@ class FormValidation {
 
             $this->key = $key;
             $this->val = $val;
+        }    
+        
+    }
+
+    public function validateAll($post,$errors) {
+
+        $errors .= $this->checkLength($post,$errors);
+
+        if ($this->username) {
+    
+            # if a username was submitted, does it already exist in the system?
+            $errors .= $this->checkUsernameDuplicates($this->username,$errors);
+        }
+        if ($this->password && $this->confirm_password) {
+    
+            # if password fields were submitted, are they the same?
+            $errors .= $this->checkPasswordsMatch($this->password,$this->confirm_password,$errors);
+        }
+        if ($this->adminpass && $this->confirm_adminpass) {
+    
+            # if admin password fields were submitted, are they the same?
+            $errors .= $this->checkPasswordsMatch($this->adminpass,$this->confirm_adminpass,$this->errors);
+        }
+        if ($this->referid) {
+    
+            # if a referid was submitted, does it exist?
+            $errors .= $this->checkReferidExists($this->referid,$errors);
+        }
+
+        if (!empty($errors)) {
+
+            return "<div class=\"alert alert-danger\" style=\"width:75%;\"><strong>" . $errors . "</strong></div>";
+
+        } else {
+
+            return;
         }
 
     }
+
    
     # check the size limitations for each variable that was submitted.
     public function checkLength($post,$errors) {
@@ -56,9 +133,9 @@ class FormValidation {
                 if ($numchars === 0) {
 
                     $errors .= "<div><strong>". $varname . " cannot be blank.</strong></div>";
-                } elseif ($numchars < 6) {
+                } elseif ($numchars < 5) {
 
-                    $errors .= "<div><strong>The size of " . $varname . " must be 6 or more characters.</strong></div>";
+                    $errors .= "<div><strong>The size of " . $varname ." must be 5 or more characters.</strong></div>";
                 } elseif ($numchars > 50) {
 
                     $errors .= "<div><strong>The size of " . $varname . " must be 50 or less characters.</strong></div>";
@@ -143,7 +220,7 @@ class FormValidation {
 
                     $errors .= "<div><strong>The size of " . $varname . " must be 300 or less characters.</strong></div>";
                 }
-                elseif (!filter_var($varname,FILTER_VALIDATE_EMAIL)) {
+                elseif (!filter_var($varvalue,FILTER_VALIDATE_EMAIL)) {
 
                     $errors .= "<div><strong>The value of " . $varname . " must be a valid email address.</strong></div>";
                 }
