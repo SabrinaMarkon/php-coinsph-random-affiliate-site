@@ -29,3 +29,4 @@
 [24-Nov-2018 07:41:01 UTC] PHP Notice:  Undefined variable: referid in /home/randombtcads/public_html/classes/FormValidation.php on line 58
 [24-Nov-2018 07:48:55 UTC] PHP Notice:  Undefined variable: errors in /home/randombtcads/public_html/classes/FormValidation.php on line 81
 [24-Nov-2018 07:48:55 UTC] PHP Notice:  Undefined variable: errors in /home/randombtcads/public_html/classes/FormValidation.php on line 81
+[24-Nov-2018 08:20:38 UTC] PHP Notice:  Array to string conversion in /home/randombtcads/public_html/admin/mail.php on line 12

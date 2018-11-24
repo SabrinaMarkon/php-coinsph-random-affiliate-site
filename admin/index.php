@@ -96,21 +96,35 @@ if (isset($_POST['login'])) {
     
         # admin clicked to edit a saved email.
         $editmail = new Mail();
-        $show = $editmail->editMail($id);
+        $showeditmail = $editmail->editMail($id);
     }
     
     if (isset($_POST['addmail'])) {
     
-        # admin added a new email.
-        $update = new Mail();
-        $show = $update->addMail();
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+
+            # admin added a new email.
+            $update = new Mail();
+            $show = $update->addMail();
+        }
     }
     
     if (isset($_POST['savemail'])) {
     
-        # admin saved an existing email they were editing. 
-        $update = new Mail();
-        $show = $update->saveMail($id);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+
+            # admin saved an existing email they were editing. 
+            $update = new Mail();
+            $show = $update->saveMail($id);
+        }
     }
     
     if (isset($_POST['sendverifications'])) {
@@ -122,16 +136,30 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deletemail'])) {
     
-        # admin deleted an email.
-        $delete = new Mail();
-        $show = $delete->deleteMail($id);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+
+            # admin deleted an email.
+            $delete = new Mail();
+            $show = $delete->deleteMail($id);
+        }
     }
     
     if (isset($_POST['sendmail'])) {
     
-        # admin clicked to send an email.
-        $send = new Mail();
-        $show = $send->sendMail($id);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+
+            # admin clicked to send an email.
+            $send = new Mail();
+            $show = $send->sendMail($id);
+        }
     }
     
     if (isset($_POST['editpage'])) {

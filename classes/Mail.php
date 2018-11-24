@@ -24,7 +24,7 @@ class Mail
 
     public function getAllSavedMails() {
 
-        $pdo = Database::connect();
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "select * from mail where save=1 order by id desc";
         $q = $pdo->prepare($sql);
@@ -35,24 +35,25 @@ class Mail
         foreach ($savedmails as $savedmail) {
             array_push($savedmailarray, $savedmail);
         }
-        Database::disconnect();
-        return $savedmailarray;
 
+        DATABASE::disconnect();
+
+        return $savedmailarray;
     }
 
     public function editMail($id) {
 
-        $pdo = Database::connect();
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "select * from mail where id=?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         $editmail = $q->fetch();
-        $found = $q->rowCount();
-        Database::disconnect();
-        if ($found > 0) {
+        if ($editmail) {
             return $editmail;
         }
+
+        DATABASE::disconnect();
     }
 
     public function saveMail($id) {
@@ -60,14 +61,15 @@ class Mail
         $subject = $_POST['subject'];
         $message = $_POST['message'];
         $url = $_POST['url'];
-        $pdo = Database::connect();
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "update mail set subject=?, message=?, url=?, save=1 where id=?";
         $q = $pdo->prepare($sql);
         $q->execute(array($subject, $message, $url, $id));
-        Database::disconnect();
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Mail was Saved!</strong></div>";
 
+        DATABASE::disconnect();
+
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Mail was Saved!</strong></div>";
     }
 
     public function addMail() {
@@ -75,14 +77,15 @@ class Mail
         $subject = $_POST['subject'];
         $message = $_POST['message'];
         $url = $_POST['url'];
-        $pdo = Database::connect();
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "insert into mail set subject=?, message=?, url=?, save=1";
         $q = $pdo->prepare($sql);
         $q->execute(array($subject, $message, $url));
-        Database::disconnect();
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Mail was Added!</strong></div>";
 
+        DATABASE::disconnect();
+
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Mail was Added!</strong></div>";
     }
 
     public function sendMail($id) {
@@ -90,7 +93,7 @@ class Mail
         $subject = $_POST['subject'];
         $message = $_POST['message'];
         $url = $_POST['url'];
-        $pdo = Database::connect();
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         if ($id !== '') {
             $sql = "update mail set subject=?, message=?, url=?, needtosend=1 where id=?";
@@ -101,14 +104,15 @@ class Mail
             $q = $pdo->prepare($sql);
             $q->execute(array($subject, $message, $url));
         }
-        Database::disconnect();
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Mail was Sent!</strong></div>";
 
+        DATABASE::disconnect();
+
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Mail was Sent!</strong></div>";
     }
 
     public function sendVerifications($settings) {
 
-        $pdo = Database::connect();
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         
         $sent = new Datetime();
@@ -141,20 +145,22 @@ class Mail
             }
         }
 
-        Database::disconnect();
+        DATABASE::disconnect();
+
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Verification Emails were Resent!</strong></div>";
     }
 
     public function deleteMail($id) {
 
-        $pdo = Database::connect();
+        $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "delete from mail where id=?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
-        Database::disconnect();
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Saved Mail Was Deleted</strong></div>";
 
+        DATABASE::disconnect();
+
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Saved Mail Was Deleted</strong></div>";
     }
 
 

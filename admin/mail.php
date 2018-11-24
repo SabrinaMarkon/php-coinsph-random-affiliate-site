@@ -71,7 +71,7 @@ $savedmails = $allsavedmails->getAllSavedMails();
                             <select name="id" class="form-control">
                                 <option value="" disabled selected>Select saved mail to edit</option>
                                 <?php
-                                foreach($savedmails as $savedmail)
+                                foreach($savedmails as $savedmail) {
                                     if (isset($showeditmail) && $showeditmail !== '') {
                                         if ($savedmail['id'] === $showeditmail['id']) {
                                             echo "<option value='" . $savedmail['id'] . "' selected>" . $savedmail['subject'] . "</option>";
@@ -81,6 +81,7 @@ $savedmails = $allsavedmails->getAllSavedMails();
                                     } else {
                                         echo "<option value='" . $savedmail['id'] . "'>" . $savedmail['subject'] . "</option>";
                                     }
+                                }
                                 ?>
                             </select>
                         </div>
@@ -111,11 +112,11 @@ $savedmails = $allsavedmails->getAllSavedMails();
                         <table class="table table-condensed table-bordered">
                             <tbody>
                                 <tr><td><strong>Type This:</strong></td><td><strong>To Substitute This:</strong></td></tr>
-                                <tr><td>~USERNAME~</td><td>Member's Username</td></tr>
-                                <tr><td>~FULLNAME~</td><td>Member's  First and Last Name</td></tr>
-                                <tr><td>~FIRSTNAME~</td><td>Member's First Name</td></tr>
-                                <tr><td>~LASTNAME~</td><td>Member's Last Name</td></tr>
-                                <tr><td>~EMAIL~</td><td>Member's Email Address</td></tr>
+                                <tr><td>~USERNAME~</td><td>Member Username</td></tr>
+                                <tr><td>~FULLNAME~</td><td>Member First and Last Name</td></tr>
+                                <tr><td>~FIRSTNAME~</td><td>Member First Name</td></tr>
+                                <tr><td>~LASTNAME~</td><td>Member Last Name</td></tr>
+                                <tr><td>~EMAIL~</td><td>Member Email Address</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -132,7 +133,7 @@ $savedmails = $allsavedmails->getAllSavedMails();
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-12">
-                            <label class="sr-only" for="name">Email Subject</label>
+                            <label class="sr-only" for="subject">Email Subject</label>
                             <input type="text" name="subject" placeholder="Email Subject" class="form-control" value="<?php echo $showeditmail['subject']; ?>" required>
                         </div>
                     </div>
@@ -140,7 +141,7 @@ $savedmails = $allsavedmails->getAllSavedMails();
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-12">
-                            <label class="sr-only" for="name">Email URL</label>
+                            <label class="sr-only" for="url">Email URL</label>
                             <input type="url" name="url" placeholder="Email URL" class="form-control" value="<?php echo $showeditmail['url']; ?>" required>
                         </div>
                     </div>
@@ -148,8 +149,8 @@ $savedmails = $allsavedmails->getAllSavedMails();
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-12">
-                            <label class="sr-only" for="htmlcode">Email Message</label>
-                            <textarea name="message" id="message" placeholder="Email Message" class="form-control" rows="30" required><?php echo $showeditmail['message']; ?></textarea>
+                            <label class="sr-only" for="message">Email Message</label>
+                            <textarea name="message" id="message" placeholder="Email Message" class="form-control" rows="20"><?php echo $showeditmail['message']; ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -159,7 +160,7 @@ $savedmails = $allsavedmails->getAllSavedMails();
                             <button class="btn btn-lg btn-primary" type="submit" name="savemail">SAVE</button>
                             <button class="btn btn-lg btn-primary" type="submit" name="sendmail">SEND</button>
             </form>
-                            <form action="/admin/mail/<?php echo $showeditmail['id']; ?>>" method="post" accept-charset="utf-8" class="form inlineform" role="form">
+                            <form action="/admin/mail/<?php echo $showeditmail['id']; ?>" method="post" accept-charset="utf-8" class="form inlineform" role="form">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button class="btn btn-lg btn-primary" type="submit" name="deletemail">DELETE</button>
                             </form>
@@ -175,7 +176,7 @@ $savedmails = $allsavedmails->getAllSavedMails();
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-12">
-                                <label class="sr-only" for="name">Email Subject</label>
+                                <label class="sr-only" for="subject">Email Subject</label>
                                 <input type="text" name="subject" placeholder="Email Subject" class="form-control" required>
                             </div>
                         </div>
@@ -183,7 +184,7 @@ $savedmails = $allsavedmails->getAllSavedMails();
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-12">
-                                <label class="sr-only" for="name">Email URL</label>
+                                <label class="sr-only" for="url">Email URL</label>
                                 <input type="text" name="url" placeholder="Email URL" class="form-control" value="http://" required>
                             </div>
                         </div>
@@ -191,8 +192,8 @@ $savedmails = $allsavedmails->getAllSavedMails();
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-12">
-                                <label class="sr-only" for="htmlcode">Email Message</label>
-                                <textarea name="message" id="message" placeholder="Email Message" class="form-control" rows="30" required></textarea>
+                                <label class="sr-only" for="message">Email Message</label>
+                                <textarea name="message" id="message" placeholder="Email Message" class="form-control" rows="20"></textarea>
                             </div>
                         </div>
                     </div>
