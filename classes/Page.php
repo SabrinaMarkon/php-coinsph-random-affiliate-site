@@ -62,7 +62,7 @@ class Page
         $q->execute(array($name, $htmlcode, $slug));
         Database::disconnect();
 
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Page: " . $name . " was Added!</strong><br>New URL: <a href=" . $domain . "/" . $slug . ">" . $domain . "/" . $slug . "</a></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Page: " . $name . " was Added!</strong><br>New URL: <a href=" . $domain . "/" . $slug . " target=_blank>" . $domain . "/" . $slug . "</a></div>";
 
     }
 

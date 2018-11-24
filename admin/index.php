@@ -171,23 +171,44 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['addpage'])) {
     
-        # admin added a new page.
-        $update = new Page();
-        $show = $update->addPage($domain);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin added a new page.
+            $update = new Page();
+            $show = $update->addPage($domain);
+        }
     }
     
     if (isset($_POST['savepage'])) {
         
-        # admin saved a page they were editing.
-        $update = new Page();
-        $show = $update->savePage($id);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin saved a page they were editing.
+            $update = new Page();
+            $show = $update->savePage($id);
+        }
     }
     
     if (isset($_POST['deletepage'])) {
     
-        # admin deleted a page.
-        $delete = new Page();
-        $show = $delete->deletePage($id);
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin deleted a page.
+            $delete = new Page();
+            $show = $delete->deletePage($id);
+        }
     }
     
     if (isset($_POST['addmember'])) {
