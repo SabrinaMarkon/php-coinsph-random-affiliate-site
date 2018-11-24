@@ -264,9 +264,9 @@ class FormValidation {
                 # make sure the flag to auto-approve ads or give deleted randomizer positions to the admin area boolean values.
                 # make sure flag on tranactions that a recipient has approved a transaction is boolean.
 
-                if (!filter_var($varvalue, FILTER_VALIDATE_BOOLEAN)) {
+                if ($varvalue !== '0' && $varvalue !== '1') {
 
-                    $errors .= "<div><strong>The value of " . $varname . " must be Boolean. </strong></div>";
+                    $errors .= "<div><strong>The value of " . $varvalue . " must be Yes or No. </strong></div>";
 
                 }
 

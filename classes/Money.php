@@ -35,6 +35,28 @@ class Money
         return $transarray;
     }
 
+    public function addTransaction() {
+
+        $username = $_POST['username'];
+        $recipient = $_POST['recipient'];
+        $recipientwalletid = $_POST['recipientwalletid'];
+        $recipienttype = $_POST['recipienttype'];
+        $amount = $_POST['amount'];
+        $transaction = $_POST['transaction'];
+
+        $pdo = DATABASE::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+        # create a transactions.
+        $sql = "insert into transactions (username,amount,recipient,recipientwalletid,recipienttype,transaction) values (?,?,?,?,?,?)";
+        $q = $pdo->prepare($sql);
+        $q->execute([$username,$amount,$recipient,$recipientwalletid,$recipienttype,$transaction]);
+        
+        DATABASE::disconnect();
+
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction Created where " . $username . " owes " . $recipient . " " . $amount . "</strong></div>";
+    }
+
     public function saveTransaction($id) {
 
         $username = $_POST['username'];

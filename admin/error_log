@@ -1,2 +1,9 @@
 [24-Nov-2018 09:04:16 UTC] PHP Notice:  Use of undefined constant FILTER_SANITIZE_IP - assumed 'FILTER_SANITIZE_IP' in /home/randombtcads/public_html/classes/FormValidation.php on line 277
 [24-Nov-2018 09:04:16 UTC] PHP Warning:  filter_var() expects parameter 2 to be long, string given in /home/randombtcads/public_html/classes/FormValidation.php on line 277
+[24-Nov-2018 09:35:15 UTC] PHP Notice:  Undefined variable: referidwalletid in /home/randombtcads/public_html/classes/Money.php on line 53
+[24-Nov-2018 09:35:15 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1' in /home/randombtcads/public_html/classes/Money.php:53
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Money.php(53): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(266): Money->addTransaction()
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Money.php on line 53

@@ -252,6 +252,20 @@ if (isset($_POST['login'])) {
             $show = $delete->deleteMember($id,$giveextratoadmin);
         }
     }
+
+    if (isset($_POST['addtransaction'])) {
+     
+        $errors = $formvalidation->validateAll($_POST,$errors);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin added a new transaction (invoice).
+            $create = new Money();
+            $show = $create->addTransaction();
+        }
+    }
   
     if (isset($_POST['savetransaction'])) {
     
