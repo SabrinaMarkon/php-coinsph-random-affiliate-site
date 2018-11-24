@@ -17,7 +17,38 @@ $transactions = $alltransactions->getAllTransactions();
     <div class="row">
         <div class="col-md-12">		
 
-            <div class="ja-bottompadding"></div>
+			<h1 class="ja-bottompadding">Create Invoice (one user owes another)</h1>
+			
+			<form action="/admin/money" method="post" accept-charset="utf-8" class="form" role="form">
+
+                <label for="username" class="ja-toppadding">Username (Payor):</label>
+                <input type="text" name="username" value="" class="form-control input-lg" placeholder="Username" required>
+
+                <label for="referid" class="ja-toppadding">Recipient (Payee):</label> 
+                <input type="text" name="recipient" value="" class="form-control input-lg" placeholder="Recipient" required>
+
+                <label for="recipientwalletid" class="ja-toppadding">Recipient Wallet ID:</label>
+                <input type="text" name="recipientwalletid" value="" class="form-control input-lg" placeholder="Recipient Wallet ID" required>
+
+                <label for="recipienttype" class="ja-toppadding">Recipient Type:</label>
+                <select name="recipienttype" class="form-control input-lg">
+                    <option value="sponsor">Sponsor</option>
+                    <option value="random">Random</option>
+                </select>
+                				
+                <label for="amount" class="ja-toppadding">Amount Owing:</label>
+                <input type="text" name="amount" value="" class="form-control input-lg" placeholder="Amount Owing" required>
+
+                <label for="transaction" class="ja-toppadding">Transaction:</label>
+                <input type="text" name="transaction" value="Bitcoin" class="form-control input-lg" placeholder="Transaction" required>
+
+                <div class="ja-bottompadding"></div>
+
+                <button class="btn btn-lg btn-primary ja-toppadding ja-bottompadding" type="submit" name="addtransaction">Add Transaction</button>
+
+			</form>				
+
+			<div class="ja-bottompadding"></div>
             
             <h1 class="ja-bottompadding">Transaction Records</h1>
 
