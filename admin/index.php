@@ -380,8 +380,50 @@ if (isset($_POST['login'])) {
         } else {
         
             # admin deleted an admin wallet id.
-            $delete = new AdminWallet();
+            $delete = new Promotional();
             $show = $delete->deleteAdminWallet($id);
+        } 
+    }
+
+    if (isset($_POST['addpromotional'])) {
+
+        $errors = $formvalidation->validateAll($_POST);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin added a new promotional ad.
+            $add = new Promotional();
+            $show = $add->addPromotional($_POST);
+        }     
+    }
+    
+    if (isset($_POST['savepromotional'])) {
+   
+        $errors = $formvalidation->validateAll($_POST);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin saved a promotional ad they edited.
+            $update = new Promotional();
+            $show = $update->savePromotional($id,$_POST);
+        } 
+    }
+    
+    if (isset($_POST['deletepromotional'])) {
+    
+        $errors = $formvalidation->validateAll($_POST);
+        if (!empty($errors)) {
+
+            $show = $errors;
+        } else {
+        
+            # admin deleted a promotional ad
+            $delete = new Promotional();
+            $show = $delete->deletePromotional($id);
         } 
     }
 

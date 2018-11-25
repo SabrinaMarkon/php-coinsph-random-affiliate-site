@@ -26,7 +26,7 @@ if (ans != "") {
   var litfields = '';
   if (ans == "banner") {
     littext = 'Image&nbsp;URL:';
-    litfields = litfields + '<input type="text" name="promotionalimage" size="55" maxlength="255" class="typein">';
+    litfields = litfields + '<input type="text" name="promotionalimage" size="55" maxlength="255" class="form-control input-lg">';
     document.getElementById('previewfield').style.visibility = 'visible';
     document.getElementById('previewfield').style.display = 'block';
     document.getElementById('promotionaloptionstext').style.visibility = 'visible';
@@ -38,7 +38,7 @@ if (ans != "") {
   }
   if (ans == "email") {
     littext = 'Subject&nbsp;and&nbsp;Message:';
-    litfields = litfields + '<input type="text" name="promotionalsubject" size="55" maxlength="255" class="typein"><br><textarea name="promotionaladbody" id="promotionaladbody" rows="20" cols="80"></textarea>';
+    litfields = litfields + '<input type="text" name="promotionalsubject" size="55" maxlength="255" class="form-control input-lg"><br><textarea name="promotionaladbody" id="promotionaladbody" rows="20" cols="80"></textarea>';
     document.getElementById('previewfield').style.visibility = 'hidden';
     document.getElementById('previewfield').style.display = 'none';
     document.getElementById('promotionaloptionstext').style.visibility = 'visible';

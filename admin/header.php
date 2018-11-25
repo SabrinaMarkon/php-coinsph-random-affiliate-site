@@ -76,6 +76,9 @@
                 <a class="nav-link" href="/admin/mail">Mail</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="/admin/promotional">Promotional</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="/admin/pages">Pages</a>
               </li>
               <li class="nav-item">

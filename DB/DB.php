@@ -28,15 +28,6 @@ CREATE TABLE `adminnotes` (
   KEY `index` (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
-create table adminpromotional (
-id integer unsigned not null primary key auto_increment,
-name varchar(255) not null,
-type varchar(255) not null default 'banner',
-promotionalimage varchar(255) not null,
-promotionalsubject varchar(255) not null,
-promotionaladbody longtext not null
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
-
 create table ads (
 id integer unsigned not null primary key auto_increment,
 username varchar(255) not null default 'admin',
@@ -104,6 +95,15 @@ CREATE TABLE `pages` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
+CREATE TABLE `promotional` (
+  `id` int(10) unsigned not null auto_increment primary key,
+  `name` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL DEFAULT 'banner',
+  `promotionalimage` varchar(255) NOT NULL,
+  `promotionalsubject` varchar(255) NOT NULL,
+  `promotionaladbody` longtext NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 create table randomizer (
   id integer unsigned not null auto_increment primary key,
   username varchar(255) not null,
@@ -123,7 +123,8 @@ create table transactions (
   recipientapproved tinyint(1) not null default '0',
   datepaid varchar(255) not null,
   transaction varchar(255) not null default 'Bitcoin',
-  foreign key (adid) references ads(id)
+  foreign key (adid) references ads(id),
+  foreign key (randomizerid) references randomizer(id)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 insert into adminsettings (adminuser, adminpass, adminname, adminemail, sitename, domain) values ('Admin', 'admin', 'YOUR NAME', 'YOUR ADMIN EMAIL', 'YOUR SITE NAME','http://YOURDOMAIN.COM');
