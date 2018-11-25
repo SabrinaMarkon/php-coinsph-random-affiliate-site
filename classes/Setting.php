@@ -36,7 +36,7 @@ class Setting
         if (($adminuser !== $newadminuser) or ($adminpass !== $newadminpass)) {
             
             $_SESSION['adminusername'] = $newadminuser;
-            $_SESSION['adminassword'] = $newadminpass;
+            $_SESSION['adminpassword'] = $newadminpass;
         }
 
         $pdo = Database::connect();
