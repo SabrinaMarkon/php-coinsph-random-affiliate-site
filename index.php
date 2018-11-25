@@ -16,8 +16,7 @@ spl_autoload_register("sabrina_autoloader");
 
 $sitesettings = new Settings();
 $settings = $sitesettings->getSettings();
-foreach ($settings as $key => $value)
-{
+foreach ($settings as $key => $value) {
 	$$key = $value;
 }
 
@@ -35,113 +34,180 @@ if (isset($_REQUEST['id'])) {
     $id = "";
 }
 
+$show = '';
+$errors = '';
+
+# get the form validation class instance to use for all the pages that post.
+if (isset($_POST)) {
+
+    $formvalidation = new FormValidation($_POST);
+}
+
 ######################################
-if (isset($_POST['login']))
-{
-$_SESSION['username'] = $_REQUEST['username'];
-$_SESSION['password'] = $_REQUEST['password'];
-$logincheck = new User();
-$newlogin = $logincheck->userLogin($_SESSION['username'],$_SESSION['password']);
- if ($newlogin === false)
-	{
-	$logout = new User();
-	$logout->userLogout();
-	}
-else
-	{
-	# returned member details.
-	foreach ($newlogin as $key => $value)
+if (isset($_POST['login'])) {
+
+	$_SESSION['username'] = $_REQUEST['username'];
+	$_SESSION['password'] = $_REQUEST['password'];
+	$logincheck = new User();
+	$newlogin = $logincheck->userLogin($_SESSION['username'],$_SESSION['password']);
+	if ($newlogin === false)
 		{
-		$$key = $value;
-		$_SESSION[$key] = $value;
+		$logout = new User();
+		$logout->userLogout();
 		}
-	$showgravatar = $logincheck->getGravatar($_SESSION['username'],$_SESSION['email']);
+	else
+		{
+		# returned member details.
+		foreach ($newlogin as $key => $value)
+			{
+			$$key = $value;
+			$_SESSION[$key] = $value;
+			}
+		$showgravatar = $logincheck->getGravatar($_SESSION['username'],$_SESSION['email']);
+		}
+}
+###################################### Want to refactor below.
+
+if (isset($_POST['forgotlogin'])) {
+
+	// $errors = $formvalidation->validateAll($_POST);
+	$errors = '';
+	if (!empty($errors)) {
+
+		$show = $errors;
+	} else {
+
+		# member clicked button to recover login details.
+		$forgot = new User();
+		$show = $forgot->forgotLogin($sitename,$domain,$adminemail); 
 	}
 }
-###################################### below is still ugly. Refactor.
-if (isset($_POST['forgotlogin']))
-{
 
-$forgot = new User();
-$show = $forgot->forgotLogin($sitename,$domain,$adminemail);
-}
-if (isset($_POST['contactus']))
-{
+if (isset($_POST['contactus'])) {
 
-$contact = new Contact();
-$show = $contact->sendContact($settings);
-}
-if (isset($_POST['register']))
-{
-new FormValidation($_POST);
-exit;
-$register = new User();
-$show = $register->newSignup($settings,$post);
-}
-if (isset($_GET['page']) && ($_GET['page'] === "verify"))
-{
+	$errors = $formvalidation->validateAll($_POST);
+	if (!empty($errors)) {
 
-$verify = new User();
-# the last part of the url is code this time not referid like other urls. Don't fix cuz it ain't broke.
-$verificationcode = $_SESSION['referid']; 
-$show = $verify->verifyUser($verificationcode);
-}
-if (isset($_POST['saveprofile']))
-{
+		$show = $errors;
+	} else {
 
-$update = new User();
-$show = $update->saveProfile($_SESSION['username'],$settings);
+		# someone clicked to send a contact email to the admin.
+		$contact = new Contact();
+		$show = $contact->sendContact($settings);
+	}
 }
+
+if (isset($_POST['register'])) {
+
+	$errors = $formvalidation->validateAll($_POST);
+	if (!empty($errors)) {
+
+		$show = $errors;
+	} else {
+
+		# new signup clicked to submit registration.
+		$register = new User();
+		$show = $register->newSignup($settings,$post);
+	}
+}
+
+if (isset($_GET['page']) && ($_GET['page'] === "verify")) {
+
+	# user clicked their email verification link.
+	$verify = new User();
+	# the last part of the url is code this time not referid like other urls. Don't fix cuz it ain't broke.
+	$verificationcode = $_SESSION['referid']; 
+	$show = $verify->verifyUser($verificationcode);
+
+}
+
+if (isset($_POST['saveprofile'])) {
+	
+	$errors = $formvalidation->validateAll($_POST);
+	if (!empty($errors)) {
+
+		$show = $errors;
+	} else {
+
+		# user clicked to submit profile updates.
+		$update = new User();
+		$show = $update->saveProfile($_SESSION['username'],$settings);
+	}
+}
+
 if (isset($_POST['resendverification'])) {
 
-$resend = new User();
-$show = $resend->resendVerify($_SESSION['username'],$_SESSION['password'],$_SESSION['email'],$settings);
+	$resend = new User();
+	$show = $resend->resendVerify($_SESSION['username'],$_SESSION['password'],$_SESSION['email'],$settings);
 }
+
 if (isset($_POST['createad'])) {
 
-$create = new Ad();
-$show = $create->createAd($id,$_SESSION['username'],$adminautoapprove);
+	$errors = $formvalidation->validateAll($_POST);
+	if (!empty($errors)) {
+
+		$show = $errors;
+	} else {
+
+		# user submitted a new ad.
+		$create = new Ad();
+		$show = $create->createAd($id,$_SESSION['username'],$adminautoapprove);
+	}
 }
+
 if (isset($_POST['savead'])) {
 
-$save = new Ad();
-$show = $save->saveAd($id,$adminautoapprove);
+	$errors = $formvalidation->validateAll($_POST);
+	if (!empty($errors)) {
+
+		$show = $errors;
+	} else {
+
+		# user saved changes made to their ad.
+		$save = new Ad();
+		$show = $save->saveAd($id,$adminautoapprove);
+	}
 }
+
 if (isset($_POST['deletead'])) {
 
-$delete = new Ad();
-$show = $delete->deleteAd($id,$_POST['name']);
+	$delete = new Ad();
+	$show = $delete->deleteAd($id,$_POST['name']);
 }
+
 if (isset($_POST['confirmpaid'])) {
 
-$confirm = new ConfirmPayment();
-$show = $confirm->confirmedPayment($id);	
+	$confirm = new ConfirmPayment();
+	$show = $confirm->confirmedPayment($id);	
 }
-if (isset($_GET['page']) && ($_GET['page'] === "logout"))
-{
 
-$logout = new User();
-$logout->userLogout();
-$logoutpage = new PageContent();
-$show = $logoutpage->showPage('Logout Page');
+if (isset($_GET['page']) && ($_GET['page'] === "logout")) {
+
+	$logout = new User();
+	$logout->userLogout();
+	$logoutpage = new PageContent();
+	$show = $logoutpage->showPage('Logout Page');
 }
 ######################################
 
 $Layout = new Layout();
 $Layout->showHeader();
 
-if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET['page'] !== "index"))))
-{
+if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET['page'] !== "index")))) {
 
     $page = $_REQUEST['page'];
-    include $page . ".php";
+	include $page . ".php";
+	
 } elseif ((!empty($_GET['page'])) and (!file_exists($_GET['page'] . ".php"))) {
 
 	# show the admin create page.
 	$page = $_GET['page'];
 	include "dynamic.php";
+
 } else {
 
-    include "main.php";
+	include "main.php";
+	
 }
+
 $Layout->showFooter();
