@@ -88,17 +88,18 @@ $ads = $allads->getAds($username);
 				# show those ads and allow edit, save, delete.
 
 				?>
-					<table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped table-hover text-center table-sm">
 						<thead>
 						<tr>
-							<th class="text-center small">Ad #</th>
-							<th class="text-center small">Image</th>
-							<th class="text-center small">Name</th>
-							<th class="text-center small">Title</th>
-							<th class="text-center small">Click-Thru&nbsp;URL</th>
+							<th class="text-center small">Ad&nbsp;#</th>
+							<th class="text-center small" style="min-width: 100px;">Image</th>
+							<th class="text-center small" style="min-width: 100px;">Name</th>
+							<th class="text-center small" style="min-width: 100px;">Title</th>
+							<th class="text-center small" style="min-width: 200px;">Click-Thru&nbsp;URL</th>
 							<th class="text-center small">Short&nbsp;URL</th>
-							<th class="text-center small">Ad&nbsp;Text</th>
-							<th class="text-center small">Image&nbsp;URL</th>
+							<th class="text-center small" style="min-width: 200px;">Ad&nbsp;Text</th>
+							<th class="text-center small" style="min-width: 200px;">Image&nbsp;URL</th>
 							<th class="text-center small">Approved</th>
 							<th class="text-center small">Impressions</th>
 							<th class="text-center small">Clicks</th>
@@ -129,7 +130,7 @@ $ads = $allads->getAds($username);
 									<input type="text" name="title" value="<?php echo $ad['title']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Title" required>
 								</td>
 								<td>
-									<input type="url" name="url" value="<?php echo $ad['url']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="http://L" required>
+									<input type="url" name="url" value="<?php echo $ad['url']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="http://" required>
 								</td>
 								<td>
 									<a href="<?php echo $ad['shorturl'] ?>" target="_blank"><?php echo $ad['shorturl'] ?></a>
@@ -140,7 +141,7 @@ $ads = $allads->getAds($username);
 								<td>
 									<input type="url" name="imageurl" value="<?php echo $ad['imageurl']; ?>" class="form-control input-sm widetableinput" size="60" placeholder="http://" required>
 								</td>
-								<td>
+								<td class="small">
 									<?php 
 									if ($ad['approved'] === 1) { echo "Yes"; }
 									else { echo "No"; }
@@ -174,6 +175,7 @@ $ads = $allads->getAds($username);
 
 						</tbody>
 					</table>
+				</div>
 				<?php
 			}
 			?>
