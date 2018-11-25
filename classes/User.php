@@ -31,15 +31,15 @@ class User
 
 	public function newSignup($settings,$post) {
 
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$walletid = $_POST['walletid'];
-		$firstname = $_POST['firstname'];
-		$lastname = $_POST['lastname'];
-		$email = $_POST['email'];
-		$country = $_POST['country'];
+		$username = $post['username'];
+		$password = $post['password'];
+		$walletid = $post['walletid'];
+		$firstname = $post['firstname'];
+		$lastname = $post['lastname'];
+		$email = $post['email'];
+		$country = $post['country'];
 		$signupip = $_SERVER['REMOTE_ADDR'];
-		$referid = $_POST['referid'];
+		$referid = $post['referid'];
 
 		if ($referid === '') {
 			
@@ -53,7 +53,7 @@ class User
 		$q->execute(array($username));
 		$q->setFetchMode(PDO::FETCH_ASSOC);
 		$data = $q->fetch();
-		if ($data['username'] == $username)
+		if ($data['username'] === $username)
 		{
 			Database::disconnect();
 
@@ -218,9 +218,10 @@ class User
 		return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your verification email was resent!</strong></div>";
 	}
 
-	public function forgotLogin($sitename,$domain,$adminemail) {
+	public function forgotLogin($sitename,$domain,$adminemail,$post) {
 
-		$usernameoremail = $_POST['usernameoremail'];
+		$usernameoremail = $post['usernameoremail'];
+		
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		$sql = "select * from members where username=? or email=? limit 1";
@@ -260,15 +261,15 @@ class User
 		
 	}
 
-	public function saveProfile($username, $settings) {
+	public function saveProfile($username,$settings,$post) {
 
-		$password = $_POST['password'];
-		$firstname = $_POST['firstname'];
-		$lastname = $_POST['lastname'];
-		$email = $_POST['email'];
-		$oldemail = $_POST['oldemail'];
-		$country = $_POST['country'];
-		$walletid = $_POST['walletid'];
+		$password = $post['password'];
+		$firstname = $post['firstname'];
+		$lastname = $post['lastname'];
+		$email = $post['email'];
+		$oldemail = $post['oldemail'];
+		$country = $post['country'];
+		$walletid = $post['walletid'];
 		$signupip = $_SERVER['REMOTE_ADDR'];
 
 		$pdo = Database::connect();
