@@ -34,6 +34,7 @@ class Setting
 
         # if either username or password changed, update session.
         if (($adminuser !== $newadminuser) or ($adminpass !== $newadminpass)) {
+            
             $_SESSION['adminusername'] = $newadminuser;
             $_SESSION['adminassword'] = $newadminpass;
         }

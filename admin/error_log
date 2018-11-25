@@ -7,3 +7,104 @@ Stack trace:
 #1 /home/randombtcads/public_html/admin/index.php(266): Money->addTransaction()
 #2 {main}
   thrown in /home/randombtcads/public_html/classes/Money.php on line 53
+[24-Nov-2018 10:19:30 UTC] PHP Notice:  Undefined variable: pdo in /home/randombtcads/public_html/classes/FormValidation.php on line 373
+[24-Nov-2018 10:19:30 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/classes/FormValidation.php on line 373
+[24-Nov-2018 10:25:10 UTC] PHP Fatal error:  Call to a member function invalidMemberCheck() on null in /home/randombtcads/public_html/admin/index.php on line 315
+[24-Nov-2018 10:26:30 UTC] PHP Notice:  Undefined variable: pdo in /home/randombtcads/public_html/classes/FormValidation.php on line 373
+[24-Nov-2018 10:26:30 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/classes/FormValidation.php on line 373
+[24-Nov-2018 10:43:39 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'sabrina' for key 'username'' in /home/randombtcads/public_html/classes/Member.php:62
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Member.php(62): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(224): Member->addMember(Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Member.php on line 62
+[24-Nov-2018 10:44:29 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'sabrina' for key 'username'' in /home/randombtcads/public_html/classes/Member.php:62
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Member.php(62): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(224): Member->addMember(Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Member.php on line 62
+[24-Nov-2018 10:44:35 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'sabrina' for key 'username'' in /home/randombtcads/public_html/classes/Member.php:62
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Member.php(62): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(224): Member->addMember(Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Member.php on line 62
+[24-Nov-2018 10:48:23 UTC] PHP Notice:  Undefined variable: username in /home/randombtcads/public_html/classes/FormValidation.php on line 91
+[24-Nov-2018 10:48:23 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'sabrina' for key 'username'' in /home/randombtcads/public_html/classes/Member.php:62
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Member.php(62): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(224): Member->addMember(Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Member.php on line 62
+[24-Nov-2018 10:49:58 UTC] PHP Notice:  Undefined variable: username in /home/randombtcads/public_html/classes/FormValidation.php on line 91
+[24-Nov-2018 10:54:15 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'sabrina' for key 'username'' in /home/randombtcads/public_html/classes/Member.php:62
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Member.php(62): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(224): Member->addMember(Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Member.php on line 62
+[25-Nov-2018 02:32:09 UTC] PHP Warning:  Missing argument 2 for FormValidation::__construct(), called in /home/randombtcads/public_html/admin/index.php on line 40 and defined in /home/randombtcads/public_html/classes/FormValidation.php on line 65
+[25-Nov-2018 02:33:41 UTC] PHP Notice:  Undefined variable: username in /home/randombtcads/public_html/classes/FormValidation.php on line 91
+[25-Nov-2018 02:45:34 UTC] PHP Notice:  Undefined variable: username in /home/randombtcads/public_html/classes/FormValidation.php on line 96
+[25-Nov-2018 03:02:26 UTC] PHP Notice:  Undefined index: addmember in /home/randombtcads/public_html/classes/FormValidation.php on line 69
+[25-Nov-2018 03:02:26 UTC] PHP Notice:  Undefined index: savemember in /home/randombtcads/public_html/classes/FormValidation.php on line 69
+[25-Nov-2018 03:02:26 UTC] PHP Notice:  Undefined index: register in /home/randombtcads/public_html/classes/FormValidation.php on line 69
+[25-Nov-2018 03:02:26 UTC] PHP Notice:  Undefined variable: pdo in /home/randombtcads/public_html/classes/FormValidation.php on line 398
+[25-Nov-2018 03:02:26 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/classes/FormValidation.php on line 398
+[25-Nov-2018 03:03:35 UTC] PHP Notice:  Undefined index: addmember in /home/randombtcads/public_html/classes/FormValidation.php on line 72
+[25-Nov-2018 03:03:35 UTC] PHP Notice:  Undefined index: savemember in /home/randombtcads/public_html/classes/FormValidation.php on line 72
+[25-Nov-2018 03:03:35 UTC] PHP Notice:  Undefined index: register in /home/randombtcads/public_html/classes/FormValidation.php on line 72
+[25-Nov-2018 03:03:35 UTC] PHP Notice:  Undefined variable: pdo in /home/randombtcads/public_html/classes/FormValidation.php on line 401
+[25-Nov-2018 03:03:35 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/classes/FormValidation.php on line 401
+[25-Nov-2018 03:04:45 UTC] PHP Notice:  Undefined variable: pdo in /home/randombtcads/public_html/classes/FormValidation.php on line 398
+[25-Nov-2018 03:04:45 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/classes/FormValidation.php on line 398
+[25-Nov-2018 03:05:21 UTC] PHP Notice:  Undefined index: password in /home/randombtcads/public_html/classes/FormValidation.php on line 81
+[25-Nov-2018 03:05:21 UTC] PHP Notice:  Undefined index: adminpass in /home/randombtcads/public_html/classes/FormValidation.php on line 86
+[25-Nov-2018 03:05:21 UTC] PHP Notice:  Undefined index: referid in /home/randombtcads/public_html/classes/FormValidation.php on line 91
+[25-Nov-2018 03:14:06 UTC] PHP Notice:  Undefined variable: addmember in /home/randombtcads/public_html/classes/FormValidation.php on line 78
+[25-Nov-2018 03:14:06 UTC] PHP Notice:  Undefined variable: savemember in /home/randombtcads/public_html/classes/FormValidation.php on line 78
+[25-Nov-2018 03:14:06 UTC] PHP Notice:  Undefined variable: register in /home/randombtcads/public_html/classes/FormValidation.php on line 78
+[25-Nov-2018 03:14:06 UTC] PHP Notice:  Undefined variable: password in /home/randombtcads/public_html/classes/FormValidation.php on line 90
+[25-Nov-2018 03:14:06 UTC] PHP Notice:  Undefined variable: adminpass in /home/randombtcads/public_html/classes/FormValidation.php on line 95
+[25-Nov-2018 03:14:06 UTC] PHP Notice:  Undefined variable: referid in /home/randombtcads/public_html/classes/FormValidation.php on line 100
+[25-Nov-2018 03:15:38 UTC] PHP Notice:  Undefined variable: addmember in /home/randombtcads/public_html/classes/FormValidation.php on line 81
+[25-Nov-2018 03:15:38 UTC] PHP Notice:  Undefined variable: savemember in /home/randombtcads/public_html/classes/FormValidation.php on line 81
+[25-Nov-2018 03:15:38 UTC] PHP Notice:  Undefined variable: register in /home/randombtcads/public_html/classes/FormValidation.php on line 81
+[25-Nov-2018 03:15:38 UTC] PHP Notice:  Undefined variable: password in /home/randombtcads/public_html/classes/FormValidation.php on line 93
+[25-Nov-2018 03:15:38 UTC] PHP Notice:  Undefined variable: adminpass in /home/randombtcads/public_html/classes/FormValidation.php on line 98
+[25-Nov-2018 03:15:38 UTC] PHP Notice:  Undefined variable: referid in /home/randombtcads/public_html/classes/FormValidation.php on line 103
+[25-Nov-2018 03:34:09 UTC] PHP Notice:  Undefined variable: addmember in /home/randombtcads/public_html/classes/FormValidation.php on line 89
+[25-Nov-2018 03:34:09 UTC] PHP Notice:  Undefined variable: savemember in /home/randombtcads/public_html/classes/FormValidation.php on line 89
+[25-Nov-2018 03:34:09 UTC] PHP Notice:  Undefined variable: register in /home/randombtcads/public_html/classes/FormValidation.php on line 89
+[25-Nov-2018 03:34:09 UTC] PHP Notice:  Undefined variable: saverandomizer in /home/randombtcads/public_html/classes/FormValidation.php on line 94
+[25-Nov-2018 03:34:09 UTC] PHP Notice:  Undefined variable: addtransaction in /home/randombtcads/public_html/classes/FormValidation.php on line 94
+[25-Nov-2018 03:34:09 UTC] PHP Notice:  Undefined variable: savetransaction in /home/randombtcads/public_html/classes/FormValidation.php on line 94
+[25-Nov-2018 05:08:05 UTC] PHP Notice:  Use of undefined constant PRETTY_VARNAMES - assumed 'PRETTY_VARNAMES' in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:08:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:08:05 UTC] PHP Notice:  Use of undefined constant PRETTY_VARNAMES - assumed 'PRETTY_VARNAMES' in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:08:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:08:05 UTC] PHP Notice:  Use of undefined constant PRETTY_VARNAMES - assumed 'PRETTY_VARNAMES' in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:08:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:08:37 UTC] PHP Parse error:  syntax error, unexpected 'const' (T_CONST), expecting variable (T_VARIABLE) in /home/randombtcads/public_html/classes/FormValidation.php on line 23
+[25-Nov-2018 05:12:44 UTC] PHP Notice:  Undefined variable: PRETTY_VARNAMES in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:12:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:12:44 UTC] PHP Notice:  Undefined variable: PRETTY_VARNAMES in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:12:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:12:44 UTC] PHP Notice:  Undefined variable: PRETTY_VARNAMES in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:12:44 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:14:48 UTC] PHP Parse error:  syntax error, unexpected 'const' (T_CONST), expecting variable (T_VARIABLE) in /home/randombtcads/public_html/classes/FormValidation.php on line 23
+[25-Nov-2018 05:15:28 UTC] PHP Fatal error:  Undefined class constant 'PRETTY_VARNAMES' in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:15:58 UTC] PHP Notice:  Undefined variable: PRETTY_VARNAMES in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:15:58 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:15:58 UTC] PHP Notice:  Undefined variable: PRETTY_VARNAMES in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:15:58 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:15:58 UTC] PHP Notice:  Undefined variable: PRETTY_VARNAMES in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:15:58 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:17:12 UTC] PHP Strict Standards:  Accessing static property FormValidation::$PRETTY_VARNAMES as non static in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:17:12 UTC] PHP Notice:  Undefined property: FormValidation::$PRETTY_VARNAMES in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:17:12 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:17:12 UTC] PHP Notice:  Undefined property: FormValidation::$PRETTY_VARNAMES in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:17:12 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:17:12 UTC] PHP Notice:  Undefined property: FormValidation::$PRETTY_VARNAMES in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 05:17:12 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124

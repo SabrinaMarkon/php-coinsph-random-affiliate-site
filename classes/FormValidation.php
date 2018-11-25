@@ -18,87 +18,85 @@ class FormValidation {
     private 
     $pdo,
     $post,
-    $key,
-    $val,
-    $errors,
-    $username,
-    $password,
-    $confirm_password,
-    $adminpass,
-    $confirm_adminpass,
-    $adminuser,
-    $referid,
-    $walletid,
-    $admindefaultwalletid,
-    $sitename,
-    $recipient,
-    $transaction,
-    $slug,
-    $title,
-    $firstname,
-    $lastname,
-    $name,
-    $subject,
-    $country,
-    $adminname,
-    $datepaid,
-    $description,
-    $message,
-    $email,
-    $adminemail,
-    $url,
-    $imageurl,
-    $domain,
-    $recipienttype,
-    $giveextratoadmin,
-    $adminautoapprove,
-    $recipientapproved,
-    $signupip,
-    $adminratio,
-    $id,
-    $paysponsor,
-    $payrandom,
-    $amount;
+    $errors;
 
+    private $PRETTY_VARNAMES = [
 
-    public function __construct($post) {
-
-        # create db connection.
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        
-        # assign the post variables into properties for form validation.
-        foreach ($post as $key => $val) {
-
-            $this->key = $key;
-            $this->val = $val;
-        }    
-        
-    }
+        'username' => 'username',
+        'password' => 'password',
+        'adminpass' => 'admin password',
+        'adminuser' => 'admin username',
+        'referid' => 'referid',
+        'walletid' => 'wallet ID',
+        'admindefaultwalletid' => 'admin wallet ID',
+        'sitename' => 'site name',
+        'recipient' => 'recipient',
+        'transaction' => 'transaction',
+        'slug' => 'slug',
+        'title' => 'title',
+        'firstname' => 'first name',
+        'lastname' => 'last name',
+        'name' => 'name',
+        'subject' => 'subject',
+        'country' => 'country',
+        'adminname' => 'admin name',
+        'datepaid' => 'date paid',
+        'description' => 'ad desscription',
+        'message' => 'message',
+        'email' => 'email',
+        'adminemail' => 'admin email',
+        'url' => 'URL',
+        'imageurl' => 'Image URL',
+        'domain' => 'domain',
+        'recipienttype' => 'type of recipient',
+        'giveextratoadmin' => 'the value give admin deleted positions',
+        'adminautoapprove' => 'for auto approve ads',
+        'recipientapproved' => 'the value to show if the recipient has approved payment',
+        'signupip' => 'signup IP',
+        'adminration' => 'the admin ratio for randomizer',
+        'id' => 'id',
+        'paysponsor' => 'the amount a member should pay their sponsor',
+        'payrandom' => 'the amount a member should pay a random member',
+        'amount' => 'amount'
+    ];
 
     public function validateAll($post,$errors) {
-
+ 
         $errors .= $this->checkLength($post,$errors);
 
-        if ($this->username) {
-    
-            # if a username was submitted, does it already exist in the system?
-            $errors .= $this->checkUsernameDuplicates($this->username,$errors);
+        if (isset($post['username'])) {
+  
+            if (isset($post['addmember']) || isset($post['savemember']) || isset($post['register'])) {
+
+                # if a username was submitted for registration or saving profile in admin, does it already exist in the system?
+                $errors .= $this->checkUsernameDuplicates($post['username'],$errors);
+            }
+            elseif (isset($post['addrandomizer']) || isset($post['saverandomizer']) || isset($post['addtransaction']) || isset($post['savetransaction'])) {
+
+                # if a username was submitted to add a randomizer position or transaction, it should already exist in the system.
+                $errors .= $this->checkUserExists($post['username'],'username',$errors);
+            }
+
         }
-        if ($this->password && $this->confirm_password) {
+        if (isset($post['recipient'])) {
+
+                # if a recipient username was submitted to add a randomizer position or transaction, it should already exist in the system.
+                $errors .= $this->checkUserExists($post['recipient'],'recipient',$errors);
+        }
+        if (isset($post['password']) && isset($post['confirm_password'])) {
     
             # if password fields were submitted, are they the same?
-            $errors .= $this->checkPasswordsMatch($this->password,$this->confirm_password,$errors);
+            $errors .= $this->checkPasswordsMatch($post['password'],$post['confirm_password'],$errors);
         }
-        if ($this->adminpass && $this->confirm_adminpass) {
+        if (isset($post['adminpass']) && isset($post['confirm_adminpass'])) {
     
             # if admin password fields were submitted, are they the same?
-            $errors .= $this->checkPasswordsMatch($this->adminpass,$this->confirm_adminpass,$this->errors);
+            $errors .= $this->checkPasswordsMatch($post['adminpass'],$post['confirm_adminpass'],$errors);
         }
-        if ($this->referid) {
+        if (isset($post['referid'])) {
     
             # if a referid was submitted, does it exist?
-            $errors .= $this->checkReferidExists($this->referid,$errors);
+            $errors .= $this->checkReferidExists($post['referid'],$errors);
         }
 
         if (!empty($errors)) {
@@ -123,6 +121,14 @@ class FormValidation {
             # admin money area's transaction.
             # admin area randomizer's username and walletid for randomizer positions.
 
+            // if (in_array($varname, $this->PRETTY_VARNAMES)) {
+
+            //     $pretty_varname = $this->PRETTY_VARNAMES[$varname];
+            // } else {
+
+                $pretty_varname = $varname;
+            // }
+
             if ($varname === 'username' || $varname === 'password' || $varname === 'confirm_password' || 
                 $varname === 'walletid' || $varname === 'adminuser' || $varname === 'adminpass' || $varname === 'confirm_adminpass' || 
                 $varname === 'admindefaultwalletid' || $varname === 'sitename' || $varname === 'recipient' || $varname === 'transaction') {
@@ -132,13 +138,13 @@ class FormValidation {
 
                 if ($numchars === 0) {
 
-                    $errors .= "<div><strong>". $varname . " cannot be blank.</strong></div>";
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
                 } elseif ($numchars < 5) {
 
-                    $errors .= "<div><strong>The size of " . $varname ." must be 5 or more characters.</strong></div>";
+                    $errors .= "<div><strong>The size of " . $pretty_varname ." must be 5 or more characters.</strong></div>";
                 } elseif ($numchars > 50) {
 
-                    $errors .= "<div><strong>The size of " . $varname . " must be 50 or less characters.</strong></div>";
+                    $errors .= "<div><strong>The size of " . $pretty_varname . " must be 50 or less characters.</strong></div>";
                 }
 
             } elseif ($varname === 'firstname' || $varname === 'lastname' || $varname === 'name' || $varname === 'subject' || $varname === 'country' || 
@@ -157,11 +163,11 @@ class FormValidation {
 
                 if ($numchars === 0) {
 
-                    $errors .= "<div><strong>". $varname . " cannot be blank.</strong></div>";
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
                 }
                 elseif ($numchars > 50) {
 
-                    $errors .= "<div><strong>The size of " . $varname . " must be 50 or less characters.</strong></div>";
+                    $errors .= "<div><strong>The size of " . $pretty_varname . " must be 50 or less characters.</strong></div>";
                 }
 
             } elseif ($varname === 'title' || $varname === 'slug') {
@@ -174,11 +180,11 @@ class FormValidation {
 
                 if ($numchars === 0) {
 
-                    $errors .= "<div><strong>". $varname . " cannot be blank.</strong></div>";
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
                 }
                 elseif ($numchars > 20) {
 
-                    $errors .= "<div><strong>The size of " . $varname . " must be 20 or less characters.</strong></div>";
+                    $errors .= "<div><strong>The size of " . $pretty_varname . " must be 20 or less characters.</strong></div>";
                 }
 
             } elseif ($varname === 'description') {
@@ -189,7 +195,7 @@ class FormValidation {
 
                 if (empty($varvalue)) {
 
-                    $errors .= "<div><strong>". $varname . " cannot be blank.</strong></div>";
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
                 }
 
             } elseif ($varname === 'message') {
@@ -198,7 +204,7 @@ class FormValidation {
 
                 if (empty($varvalue)) {
 
-                    $errors .= "<div><strong>". $varname . " cannot be blank.</strong></div>";
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
                 } 
 
             } elseif ($varname === 'email' || $varname === 'adminemail') {
@@ -210,19 +216,19 @@ class FormValidation {
 
                 if ($numchars === 0) {
 
-                    $errors .= "<div><strong>". $varname . " cannot be blank.</strong></div>";
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
                 }
                 elseif ($numchars < 8) {
 
-                    $errors .= "<div><strong>". $varname . " must be 8 or more characters.</strong></div>";
+                    $errors .= "<div><strong>". $pretty_varname . " must be 8 or more characters.</strong></div>";
                 }
                 elseif ($numchars > 300) {
 
-                    $errors .= "<div><strong>The size of " . $varname . " must be 300 or less characters.</strong></div>";
+                    $errors .= "<div><strong>The size of " . $pretty_varname . " must be 300 or less characters.</strong></div>";
                 }
                 elseif (!filter_var($varvalue,FILTER_VALIDATE_EMAIL)) {
 
-                    $errors .= "<div><strong>The value of " . $varname . " must be a valid email address.</strong></div>";
+                    $errors .= "<div><strong>The value of " . $pretty_varname . " must be a valid email address.</strong></div>";
                 }
 
             } elseif ($varname === 'url' || $varname === 'imageurl' || $varname === 'domain') {
@@ -236,19 +242,19 @@ class FormValidation {
 
                 if ($numchars === 0) {
 
-                    $errors .= "<div><strong>". $varname . " cannot be blank.</strong></div>";
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
                 }
                 elseif ($numchars < 8) {
 
-                    $errors .= "<div><strong>". $varname . " must be 8 or more characters.</strong></div>";
+                    $errors .= "<div><strong>". $pretty_varname . " must be 8 or more characters.</strong></div>";
                 }
                 elseif ($numchars > 300) {
 
-                    $errors .= "<div><strong>The size of " . $varname . " must be 300 or less characters.</strong></div>";
+                    $errors .= "<div><strong>The size of " . $pretty_varname . " must be 300 or less characters.</strong></div>";
                 }
                 elseif (!filter_var($varvalue,FILTER_VALIDATE_URL)) {
 
-                    $errors .= "<div><strong>The value of " . $varname . " must be a valid URL.</strong></div>";
+                    $errors .= "<div><strong>The value of " . $pretty_varname . " must be a valid URL.</strong></div>";
                 }
 
             } elseif ($varname === 'recipienttype') {
@@ -266,7 +272,7 @@ class FormValidation {
 
                 if ($varvalue !== '0' && $varvalue !== '1') {
 
-                    $errors .= "<div><strong>The value of " . $varvalue . " must be Yes or No. </strong></div>";
+                    $errors .= "<div><strong>The value of " . $pretty_varname . " must be Yes or No. </strong></div>";
 
                 }
 
@@ -278,7 +284,7 @@ class FormValidation {
                 
                 if (!filter_var($varvalue, FILTER_VALIDATE_IP)) {
 
-                    $errors .= "<div><strong>The value of " . $varname . " must be an IP address. </strong></div>";
+                    $errors .= "<div><strong>The value of " . $pretty_varname . " must be an IP address. </strong></div>";
                     
                 }
 
@@ -291,7 +297,7 @@ class FormValidation {
                 
                 if (!filter_var($varvalue, FILTER_VALIDATE_INT) || $varvalue <= 0) {
 
-                    $errors .= "<div><strong>The value of " . $varname . " must be an integer greater than 0. </strong></div>";
+                    $errors .= "<div><strong>The value of " . $pretty_varname . " must be an integer greater than 0. </strong></div>";
                     
                 }
                  
@@ -304,7 +310,7 @@ class FormValidation {
                 
                 if (!filter_var($varvalue, FILTER_VALIDATE_FLOAT)) {
 
-                    $errors .= "<div><strong>The value of " . $varname . " must be a dollar figure (optionally with a decimal i.e. 5.42). </strong></div>";
+                    $errors .= "<div><strong>The value of " . $pretty_varname . " must be a dollar figure (optionally with a decimal i.e. 5.42). </strong></div>";
                     
                 }
 
@@ -316,9 +322,33 @@ class FormValidation {
 
     }
 
+    # check if a username/recipient/referid exists.
+    public function invalidMemberCheck($username,$errors) {
+
+        # create db connection.
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "select * from members where username=?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($username));
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $data = $q->fetch();
+        if (empty($data)) {
+
+            # username does not exist.
+            $errors .= "<div><strong>The username you entered, " . $username . " does not exist yet. Please sign them up first before adding to their account.</strong></div>";
+        }
+
+        return $errors;
+
+    }
+
     # make sure the new username isn't already in the database.
     public function checkUsernameDuplicates($username,$errors) {
 
+        # create db connection.
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		$sql = "select * from members where username=?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($username));
@@ -350,12 +380,15 @@ class FormValidation {
 
         if ($referid !== 'admin') {
 
+        # create db connection.
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $sql = "select * from members where username=?";
             $q = $pdo->prepare($sql);
             $q->execute(array($referid));
             $q->setFetchMode(PDO::FETCH_ASSOC);
             $data = $q->fetch();
-            if ($data['referid'] !== $referid)
+            if (!$data['referid'])
             {
                 
                 $errors .= "<div><strong>The sponsor you entered does not exist in the system. Please check your spelling, or please just use 'admin' in the field if you are unsure.</strong></div>";
@@ -366,10 +399,34 @@ class FormValidation {
 
     }
 
+        # make sure that a user exists in the system.
+    public function checkUserExists($username,$usertype,$errors) {
+
+        if ($username !== 'admin') {
+
+            # create db connection.
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            $sql = "select * from members where username=?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($username));
+            $q->setFetchMode(PDO::FETCH_ASSOC);
+            $data = $q->fetch();
+            if (!$data['username'])
+            {
+                
+                $errors .= "<div><strong>The " . $usertype . " you entered does not exist in the system. Please check the spelling.</strong></div>";
+            }
+        }
+
+        return $errors;
+
+    }
+
     # close database connection.
     public function __destruct() {
 
-        DATABASE::disconnect();
+        Database::disconnect();
     }
 
 }
