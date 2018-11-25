@@ -108,3 +108,5 @@ Stack trace:
 [25-Nov-2018 05:17:12 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
 [25-Nov-2018 05:17:12 UTC] PHP Notice:  Undefined property: FormValidation::$PRETTY_VARNAMES in /home/randombtcads/public_html/classes/FormValidation.php on line 124
 [25-Nov-2018 05:17:12 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/randombtcads/public_html/classes/FormValidation.php on line 124
+[25-Nov-2018 06:01:08 UTC] PHP Notice:  Undefined variable: errors in /home/randombtcads/public_html/classes/FormValidation.php on line 143
+[25-Nov-2018 06:04:01 UTC] PHP Notice:  Undefined variable: errors in /home/randombtcads/public_html/classes/FormValidation.php on line 67

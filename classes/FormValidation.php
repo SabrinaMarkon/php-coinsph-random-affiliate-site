@@ -60,43 +60,45 @@ class FormValidation {
         'amount' => 'amount'
     ];
 
-    public function validateAll($post,$errors) {
- 
-        $errors .= $this->checkLength($post,$errors);
+    public function validateAll($post) {
+
+        $errors = '';
+        
+        $errors = $this->checkLength($post,$errors);
 
         if (isset($post['username'])) {
   
             if (isset($post['addmember']) || isset($post['savemember']) || isset($post['register'])) {
 
                 # if a username was submitted for registration or saving profile in admin, does it already exist in the system?
-                $errors .= $this->checkUsernameDuplicates($post['username'],$errors);
+                $errors = $this->checkUsernameDuplicates($post['username'],$errors);
             }
             elseif (isset($post['addrandomizer']) || isset($post['saverandomizer']) || isset($post['addtransaction']) || isset($post['savetransaction'])) {
 
                 # if a username was submitted to add a randomizer position or transaction, it should already exist in the system.
-                $errors .= $this->checkUserExists($post['username'],'username',$errors);
+                $errors = $this->checkUserExists($post['username'],'username',$errors);
             }
 
         }
         if (isset($post['recipient'])) {
 
                 # if a recipient username was submitted to add a randomizer position or transaction, it should already exist in the system.
-                $errors .= $this->checkUserExists($post['recipient'],'recipient',$errors);
+                $errors = $this->checkUserExists($post['recipient'],'recipient',$errors);
         }
         if (isset($post['password']) && isset($post['confirm_password'])) {
     
             # if password fields were submitted, are they the same?
-            $errors .= $this->checkPasswordsMatch($post['password'],$post['confirm_password'],$errors);
+            $errors = $this->checkPasswordsMatch($post['password'],$post['confirm_password'],$errors);
         }
         if (isset($post['adminpass']) && isset($post['confirm_adminpass'])) {
     
             # if admin password fields were submitted, are they the same?
-            $errors .= $this->checkPasswordsMatch($post['adminpass'],$post['confirm_adminpass'],$errors);
+            $errors = $this->checkPasswordsMatch($post['adminpass'],$post['confirm_adminpass'],$errors);
         }
         if (isset($post['referid'])) {
     
             # if a referid was submitted, does it exist?
-            $errors .= $this->checkReferidExists($post['referid'],$errors);
+            $errors = $this->checkReferidExists($post['referid'],$errors);
         }
 
         if (!empty($errors)) {
@@ -121,13 +123,13 @@ class FormValidation {
             # admin money area's transaction.
             # admin area randomizer's username and walletid for randomizer positions.
 
-            // if (in_array($varname, $this->PRETTY_VARNAMES)) {
+            if (in_array($varname, $this->PRETTY_VARNAMES)) {
 
-            //     $pretty_varname = $this->PRETTY_VARNAMES[$varname];
-            // } else {
+                $pretty_varname = $this->PRETTY_VARNAMES[$varname];
+            } else {
 
                 $pretty_varname = $varname;
-            // }
+            }
 
             if ($varname === 'username' || $varname === 'password' || $varname === 'confirm_password' || 
                 $varname === 'walletid' || $varname === 'adminuser' || $varname === 'adminpass' || $varname === 'confirm_adminpass' || 
@@ -136,12 +138,12 @@ class FormValidation {
                 $varvalue = filter_var($varvalue, FILTER_SANITIZE_STRING);
                 $numchars = strlen($varvalue);
 
-                if ($numchars === 0) {
-
-                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
-                } elseif ($numchars < 5) {
+                if ($numchars < 5) {
 
                     $errors .= "<div><strong>The size of " . $pretty_varname ." must be 5 or more characters.</strong></div>";
+                } elseif ($numchars === 0) {
+
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
                 } elseif ($numchars > 50) {
 
                     $errors .= "<div><strong>The size of " . $pretty_varname . " must be 50 or less characters.</strong></div>";

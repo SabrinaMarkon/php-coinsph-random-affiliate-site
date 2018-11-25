@@ -80,7 +80,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['savesettings'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -101,7 +101,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['addmail'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -115,7 +115,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['savemail'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -136,7 +136,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deletemail'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -150,7 +150,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['sendmail'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -171,7 +171,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['addpage'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -185,7 +185,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['savepage'])) {
         
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -199,7 +199,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deletepage'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -213,7 +213,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['addmember'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -227,7 +227,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['savemember'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -241,7 +241,7 @@ if (isset($_POST['login'])) {
 
     if (isset($_POST['deletemember'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -255,7 +255,7 @@ if (isset($_POST['login'])) {
 
     if (isset($_POST['addtransaction'])) {
      
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -269,7 +269,7 @@ if (isset($_POST['login'])) {
   
     if (isset($_POST['savetransaction'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -283,7 +283,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deletetransaction'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -297,7 +297,8 @@ if (isset($_POST['login'])) {
 
     if (isset($_POST['addrandomizer'])) {
 
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
+        
         if (!empty($errors)) {
 
             $show = $errors;
@@ -314,7 +315,7 @@ if (isset($_POST['login'])) {
 
     if (isset($_POST['saverandomizer'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -330,7 +331,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deleterandomizer'])) {
 
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -344,7 +345,7 @@ if (isset($_POST['login'])) {
 
     if (isset($_POST['addadminwallet'])) {
 
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -358,7 +359,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['saveadminwallet'])) {
    
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
@@ -372,7 +373,7 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deleteadminwallet'])) {
     
-        $errors = $formvalidation->validateAll($_POST,$errors);
+        $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
 
             $show = $errors;
