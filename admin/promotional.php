@@ -108,7 +108,9 @@ $promotionals = $allpromotionals->getAllPromotionals();
 
 			<div class="ja-bottompadding mb-5"></div>
 
-            <h1 class="ja-bottompadding mt-5">Promotional Material</h1>
+            <h1 class="ja-bottompadding">Promotional Material</h1>
+
+            <div class="ja-bottompadding mb-4"></div>
 
                     <?php
                     foreach ($promotionals as $promotional) {
@@ -116,13 +118,13 @@ $promotionals = $allpromotionals->getAllPromotionals();
                         if ($promotional['type'] == "banner") {
 
                             ?>
-                            <div class="table-responsive">
-                                <table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
+                            <div class="table-responsive border border-dark mb-5">
+                                <table class="table table-condensed table-bordered table-striped text-center">
                                     <tbody>
                                         <tr>
                                             <form action="/admin/promotional/<?php echo $promotional['id']; ?>" method="post" accept-charset="utf-8" class="form" role="form">
-                                            <td class="large">
-                                                BANNER
+                                            <td class="table-active">
+                                                <h4>BANNER</h4>
                                             </td>
                                         </tr>
                                         <tr>
@@ -134,13 +136,13 @@ $promotionals = $allpromotionals->getAllPromotionals();
                                         </tr>
                                         <tr>
                                             <td>
-                                                <label for="name"></label>
+                                                <label for="name">Ad Name:</label>
                                                 <input type="text" name="name" value="<?php echo $promotional['name']; ?>" class="form-control input-lg" size="40" placeholder="Ad Name" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <label for="promotionalimage"></label>
+                                                <label for="promotionalimage">Banner Image URL:</label>
                                                 <input type="text" name="promotionalimage" value="<?php echo $promotional['promotionalimage']; ?>" class="form-control input-lg" size="40" placeholder="Banner Image URL" required>
                                             </td>
                                         </tr>
@@ -184,29 +186,30 @@ $promotionals = $allpromotionals->getAllPromotionals();
                         if ($promotional['type'] == "email") {
 
                             ?>
-                                <table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
+                            <div class="table-responsive border border-dark mb-5">
+                                <table class="table table-condensed table-bordered table-striped text-center">
                                     <tbody>
                                         <tr>
                                             <form action="/admin/promotional/<?php echo $promotional['id']; ?>" method="post" accept-charset="utf-8" class="form" role="form">
-                                            <td class="large">
-                                                EMAIL
+                                            <td class="table-active">
+                                                <h4>EMAIL</h4>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <label for="name"></label>
+                                                <label for="name">Ad Name</label>
                                                 <input type="text" name="name" value="<?php echo $promotional['name']; ?>" class="form-control input-lg" size="40" placeholder="Ad Name" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <label for="promotionalsubject"></label>
+                                                <label for="promotionalsubject">Subject:</label>
                                                 <input type="text" name="promotionalsubject" value="<?php echo $promotional['promotionalsubject']; ?>" class="form-control input-lg" size="40" placeholder="Subject" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <label for="promotionaladbody<?php echo $promotional['id']; ?>"></label>
+                                                <label for="promotionaladbody<?php echo $promotional['id']; ?>">Message:</label>
                                                 <textarea name="promotionaladbody<?php echo $promotional['id']; ?>" id="promotionaladbody<?php echo $promotional['id']; ?>" rows="20" cols="80"><?php echo $promotional['promotionaladbody']; ?></textarea>
                                             </td>
                                         </tr>

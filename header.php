@@ -36,64 +36,66 @@
           <ul class="navbar-nav ml-auto">
 
 			<?php
-			if ((isset($_SESSION['username'])) && (isset($_SESSION['password'])))
-			{
-			?>
-            <li class="nav-item active">
-              <a class="nav-link" href="/members">Main
-                <span class="sr-only">(current)</span>
-              </a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/profile">Profile</a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/randomizer">Randomizer</a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/ads">Ads</a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/faq">FAQ</a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/terms">Terms</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
-			</li>
-			<?php
-			}
-			else
-			{
-			?>
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home
-                <span class="sr-only">(current)</span>
-              </a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/register">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/faq">FAQ</a>
-			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/terms">Terms</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">Contact</a>
-			</li>
-			<?php
+			if ((isset($_SESSION['username'])) && (isset($_SESSION['password']))) {
+
+        ?>
+        <li class="nav-item active">
+          <a class="nav-link" href="/members">Main
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/randomizer">Randomizer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ads">Ads</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/promotional">Promote</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/faq">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/terms">Terms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+        <?php
+			}	else {
+
+        ?>
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/faq">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/terms">Terms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <?php
 			}
 			?>
 					
