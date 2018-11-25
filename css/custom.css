@@ -67,6 +67,12 @@ img {
 	width: 100%;
 }
 
+.ja-promotionalimg {
+	max-width: 468px !important;
+	display: inline-block;
+	margin: auto;
+}
+
 .gravatar-lg {
 	width: 130px;
 }

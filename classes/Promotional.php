@@ -17,35 +17,33 @@ class Promotional {
 
     public $pdo;
 
-    public function __construct() {
-
-        $this->pdo = new Database();
-        $this->pdo->connect();
-        $this->pdo->setAttributes(ATTR_ERRMODE,ERRMODE_EXCEPTION);
-    
-    }
-
     public function getAllPromotionals() {
 
+        # create db connection.
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "select * from promotional order by type,id";
-        $q = $this->pdo->prepare($sql);
+        $q = $pdo->prepare($sql);
         $q->execute();
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $promotionals = $q->fetchAll();
 
-        $this->pdo->disconnect();
+        Database::disconnect();
 
         return $promotionals;
     }
 
     public function editPromotional($id) {
 
+        # create db connection.
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "select * from promotional where id=?";
-        $q = $this->pdo->prepare($sql);
+        $q = $pdo->prepare($sql);
         $q->execute([$id]);
         $promotional = $q->fetch(PDO::FETCH_ASSOC);
 
-        $this->pdo->disconnect();
+        Database::disconnect();
 
         if ($promotional) {
             
@@ -58,14 +56,36 @@ class Promotional {
 
         $name = $post['name'];
         $type = $post['type'];
-        $promotionalimage = $post['promotionalimage'];
-        $promotionalsubject = $post['promotionalsubject'];
-        $promotionalbody = $post['promotionalbody'];
-        $sql = "insert into promotional (name,type,promotionalimage,promotionalsubject,promotionaladbody) values (?,?,?,?,?)";
-        $q = $this->pdo->prepare($sql);
-        $q->execute([$name,$type,$promotionalimage,$promotionalsubject,$promotionalbody]);
+        
+        if (isset($post['promotionalimage'])) {
 
-        $this->pdo->disconnect();
+            $promotionalimage = $post['promotionalimage'];
+        } else {
+            $promotionalimage = '';
+        }
+        if (isset($post['promotionalsubject'])) {
+           
+            $promotionalsubject = $post['promotionalsubject'];  
+        } else {
+
+            $promotionalsubject = '';
+        }
+        if (isset($post['promotionaladbody'])) {
+
+            $promotionaladbody = $post['promotionaladbody'];
+        } else {
+
+            $promotionaladbody = '';
+        }
+
+        # create db connection.
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "insert into promotional (name,type,promotionalimage,promotionalsubject,promotionaladbody) values (?,?,?,?,?)";
+        $q = $pdo->prepare($sql);
+        $q->execute([$name,$type,$promotionalimage,$promotionalsubject,$promotionaladbody]);
+
+        Database::disconnect();
 
         if ($type === 'banner') {
 
@@ -82,20 +102,48 @@ class Promotional {
     public function savePromotional($id,$post) {
 
         $name = $post['name'];
-        $promotionalimage = $post['promotionalimage'];
-        $promotionalsubject = $post['promotionalsubject'];
-        $promotionalbody = $post['promotionalbody'];
-        $sql = "update promotional set name=?,promotionalimage=?,promotionalsubject=?,promotionalbody=? where id=?";
-        $q = $this->pdo->prepare($sql);
-        $q->execute([$name,$promotionalimage,$promotionalsubject,$promotionalbody]);
 
-        $this->pdo->disconnect();
+        # adbody variable has the id at the end because each tinymce instance on the same page needs its own id.
+        $promotionaladbodyvarname = "promotionaladbody" . $id;
+
+        if (isset($post['promotionalimage'])) {
+
+            $promotionalimage = $post['promotionalimage'];
+        } else {
+            $promotionalimage = '';
+        }
+        if (isset($post['promotionalsubject'])) {
+           
+            $promotionalsubject = $post['promotionalsubject'];  
+        } else {
+
+            $promotionalsubject = '';
+        }
+        if (isset($post[$promotionaladbodyvarname])) {
+
+            $promotionaladbody = $post[$promotionaladbodyvarname];
+        } else {
+
+            $promotionaladbody = '';
+        }
+
+        # create db connection.
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "update promotional set name=?,promotionalimage=?,promotionalsubject=?,promotionaladbody=? where id=?";
+        $q = $pdo->prepare($sql);
+        $q->execute([$name,$promotionalimage,$promotionalsubject,$promotionaladbody,$id]);
+
+        Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Promotional Ad ID#" . $id . " was Saved!</strong></div>";
     }
 
     public function deletePromotional($id) {
 
+        # create db connection.
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $sql = "delete from promotional where id=?";
         $q = $pdo->prepare($sql);
         $q->execute([$id]);

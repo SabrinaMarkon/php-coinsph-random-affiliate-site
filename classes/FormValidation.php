@@ -59,7 +59,11 @@ class FormValidation {
         'id' => 'id',
         'paysponsor' => 'the amount a member should pay their sponsor',
         'payrandom' => 'the amount a member should pay a random member',
-        'amount' => 'amount'
+        'amount' => 'amount',
+        'type' => 'ad type',
+        'promotionalimage' => 'promotional banner image URL',
+        'promotionalsubject' => 'promotional email ad subject',
+        'promotionaladbody' => 'promotional email ad message'
     ];
 
     public function validateAll($post) {
@@ -102,7 +106,11 @@ class FormValidation {
             # if a referid was submitted, does it exist?
             $errors = $this->checkReferidExists($post['referid'],$errors);
         }
+        if (isset($post['type'])) {
 
+            # A promotional ad was created or saved.
+            $errors = $this->checkPromotionalValidation($post,$errors);
+        }
         if (!empty($errors)) {
 
             return "<div class=\"alert alert-danger\" style=\"width:75%;\"><strong>" . $errors . "</strong></div>";
@@ -161,6 +169,7 @@ class FormValidation {
                 # admin's settings name.
                 # randomizer's datapaid.
                 # page name.
+                # promotional ad's name.
                 
                 $varvalue = filter_var($varvalue, FILTER_SANITIZE_STRING);
                 $numchars = strlen($varvalue);
@@ -269,6 +278,14 @@ class FormValidation {
                     $errors .= "<div><strong>The type of randomizer recipient must be either a random member or a sponsor.</strong></div>";
                 }
 
+            } elseif ($varname === 'type') {
+
+                # whether a promotional ad is a banner or email.
+                if ($varvalue !== 'banner' && $varvalue !== 'email') {
+
+                    $errors .= "<div><strong>The type of promotional ad resource must be either a banner or an email.</strong></div>";
+                }
+
             } elseif ($varname === 'giveextratoadmin' || $varname === 'adminautoapprove' || $varname === 'recipientapproved') {
 
                 # make sure the flag to auto-approve ads or give deleted randomizer positions to the admin area boolean values.
@@ -324,6 +341,111 @@ class FormValidation {
 
         return $errors;
 
+    }
+
+    # validate promotional ads separately because some fields should be blank depending on type of ad.
+    public function checkPromotionalValidation($post,$errors) {
+
+        if (!isset($post['type'])) {
+
+            # check for promotional ad type.
+            $pretty_varname = $this->PRETTY_VARNAMES['type'];
+            $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
+
+        } else {
+
+            $type = $post['type'];
+
+            # check for promotional ad name field.
+            if (!isset($post['name'])) {
+
+                $pretty_varname = $this->PRETTY_VARNAMES['name'];
+                $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
+            } else {
+
+                $name = $post['name'];
+            }
+
+            # check fields dependent on promotional ad type.
+            if ($type === 'banner') {
+
+                if(isset($post['promotionalimage'])) {
+
+                    $pretty_varname = $this->PRETTY_VARNAMES['promotionalimage']; 
+                    $promotionalimage = $post['promotionalimage'];
+
+                    $promotionalimage = filter_var($promotionalimage, FILTER_SANITIZE_URL);
+                    $numchars = strlen($promotionalimage);
+    
+                    if ($numchars === 0) {
+    
+                        $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
+                    }
+                    elseif ($numchars < 8) {
+    
+                        $errors .= "<div><strong>". $pretty_varname . " must be 8 or more characters.</strong></div>";
+                    }
+                    elseif ($numchars > 300) {
+    
+                        $errors .= "<div><strong>The size of " . $pretty_varname . " must be 300 or less characters.</strong></div>";
+                    }
+                    elseif (!filter_var($promotionalimage,FILTER_VALIDATE_URL)) {
+    
+                        $errors .= "<div><strong>The value of " . $pretty_varname . " must be a valid URL.</strong></div>";
+                    }                    
+
+                } else {
+
+                    $pretty_varname = $this->PRETTY_VARNAMES['promotionalimage']; 
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
+                }
+
+            } elseif ($type === 'email') {
+    
+                if(isset($post['promotionalsubject'])) {
+                    
+                    $pretty_varname = $this->PRETTY_VARNAMES['promotionalsubject']; 
+
+                    $promotionalsubject = $post['promotionalsubject'];                  
+                    $promotionalsubject = filter_var($promotionalsubject, FILTER_SANITIZE_STRING);
+                    $numchars = strlen($promotionalsubject);
+
+                    if ($numchars === 0) {
+
+                        $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
+                    }
+                    elseif ($numchars > 50) {
+
+                        $errors .= "<div><strong>The size of " . $pretty_varname . " must be 50 or less characters.</strong></div>";
+                    }
+
+                } else {
+
+                    $pretty_varname = $this->PRETTY_VARNAMES['promotionalsubject'];
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
+                }
+
+                if(isset($post['promotionaladbody'])) {
+
+                    $pretty_varname = $this->PRETTY_VARNAMES['promotionaladbody'];
+
+                    $promotionaladbody = $post['promotionaladbody'];
+
+                    if (empty($promotionaladbody)) {
+
+                        $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
+                    }
+                    
+                } else {
+
+                    $pretty_varname = $this->PRETTY_VARNAMES['promotionaladbody'];
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
+                }
+
+            } 
+        }
+
+        return $errors;
     }
 
     # check if a username/recipient/referid exists.

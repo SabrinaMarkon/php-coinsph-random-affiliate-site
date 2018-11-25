@@ -57,47 +57,51 @@ $promotionals = $allpromotionals->getAllPromotionals();
         <div class="col-sm-12">
 
 			<h1 class="ja-bottompadding">Add New Promotional Material</h1>
-			
-			<form action="/admin/promotional" method="post" accept-charset="utf-8" class="form" role="form">
-	                
-                <label for="name" class="ja-toppadding">Name:</label>
-                <input type="text" name="name" value="" class="form-control input-lg" placeholder="Name" required>
 
-                <label for="type" class="ja-toppadding">Type:</label>
-                <select name="type" id="type" class="form-control" onchange="setuppromotional(document.getElementById('type').value)">
-                <option value=""> - Select - </option><option value="banner">Banner</option><option value="email">Email</option></select>
-
-                <span name="promotionaloptionstext" id="promotionaloptionstext" style="visibility: hidden;"></span>
-                <span name="promotionaloptionsfields" id="promotionaloptionsfields" style="visibility: hidden;"></span>
+            <form action="/admin/promotional" method="post" accept-charset="utf-8" class="form" role="form">
                 
-                <div class="ja-bottompadding"></div>
+                <div id="form-group">
 
-                <span name="previewfield" id="previewfield" style="visibility: hidden; display: none;">
-                <script language="JavaScript">
-                function previewbannerad(bannerurl,targeturl)
-                {
-                var win
-                win = window.open("", "win", "height=68,width=500,toolbar=no,directories=no,menubar=no,scrollbars=yes,resizable=yes,dependent=yes'");
-                win.document.clear();
-                win.document.write('<a href="'+targeturl+'"><img src="'+bannerurl+'"></a>');
-                win.focus();
-                win.document.close();
-                }
-                </script>
-                <button type="button" class="btn btn-lg btn-primary ja-toppadding ja-bottompadding" 
-                    onclick="previewbannerad(document.getElementById('promotionalimage').value,'<?php echo $domain ?>')">Preview</button>
-                <button class="btn btn-lg btn-primary ja-toppadding ja-bottompadding" type="submit" name="addpromotional">Add Resource</button>
+                    <label for="name" class="ja-toppadding">Name:</label>
+                    <input type="text" name="name" value="" class="form-control input-lg w-50" placeholder="Name" required>
 
-			</form>				
+                    <label for="type" class="ja-toppadding">Type:</label>
+                    <select name="type" id="type" class="form-control w-50" onchange="setuppromotional(document.getElementById('type').value)">
+                    <option value=""> - Select - </option><option value="banner">Banner</option><option value="email">Email</option></select>
 
-			<div class="ja-bottompadding"></div>
+                    <span name="promotionaloptionstext" id="promotionaloptionstext" style="visibility: hidden;"></span>
+                    <span name="promotionaloptionsfields" id="promotionaloptionsfields" style="visibility: hidden;"></span>
+                    
+                    <div class="ja-bottompadding"></div>
+
+                    <span name="previewfield" id="previewfield" style="visibility: hidden; display: none;">
+                        <script language="JavaScript">
+                        function previewbannerad(bannerurl,targeturl)
+                        {
+                        var win
+                        win = window.open("", "win", "height=68,width=500,toolbar=no,directories=no,menubar=no,scrollbars=yes,resizable=yes,dependent=yes'");
+                        win.document.clear();
+                        win.document.write('<a href="'+targeturl+'"><img src="'+bannerurl+'"></a>');
+                        win.focus();
+                        win.document.close();
+                        }
+                        </script>
+                        <button type="button" class="btn btn-lg btn-primary ja-toppadding ja-bottompadding" 
+                            onclick="previewbannerad(document.getElementById('promotionalimage').value,'<?php echo $domain ?>')">Preview</button>
+                    </span>
+                    <button class="btn btn-lg btn-primary ja-toppadding ja-bottompadding" type="submit" name="addpromotional">Create</button>
+
+                </div>
+            </form>				
+
+			<div class="ja-bottompadding mb-4"></div>
 
             <h1 class="ja-bottompadding">Promotional Material</h1>
 
                     <?php
                     foreach ($promotionals as $promotional) {
 
-                        if ($type == "banner") {
+                        if ($promotional['type'] == "banner") {
 
                             ?>
                             <div class="table-responsive">
@@ -105,13 +109,15 @@ $promotionals = $allpromotionals->getAllPromotionals();
                                     <tbody>
                                         <tr>
                                             <form action="/admin/promotional/<?php echo $promotional['id']; ?>" method="post" accept-charset="utf-8" class="form" role="form">
-                                            <td class="small">
+                                            <td class="large">
                                                 BANNER
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <a href="<?php echo $domain ?>" target="_blank"><img src="<?php echo $promotional['promotionalimage']; ?>"></a>
+                                                <div class="ja-promotionalimg">
+                                                    <a href="<?php echo $domain ?>" target="_blank"><img class="ja-promotionalimg" src="<?php echo $promotional['promotionalimage']; ?>"></a>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -146,16 +152,15 @@ $promotionals = $allpromotionals->getAllPromotionals();
                             </div>
                             <?php
 
-                        } # if ($type == "banner")
-                        if ($type == "email") {
+                        }
+                        if ($promotional['type'] == "email") {
 
                             ?>
-                            <div class="table-responsive">
                                 <table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
                                     <tbody>
                                         <tr>
                                             <form action="/admin/promotional/<?php echo $promotional['id']; ?>" method="post" accept-charset="utf-8" class="form" role="form">
-                                            <td class="small">
+                                            <td class="large">
                                                 EMAIL
                                             </td>
                                         </tr>
@@ -166,7 +171,7 @@ $promotionals = $allpromotionals->getAllPromotionals();
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="text" name="subject" value="<?php echo $promotional['subject']; ?>" class="form-control input-lg" size="40" placeholder="Subject" required>
+                                                <input type="text" name="promotionalsubject" value="<?php echo $promotional['promotionalsubject']; ?>" class="form-control input-lg" size="40" placeholder="Subject" required>
                                             </td>
                                         </tr>
                                         <tr>

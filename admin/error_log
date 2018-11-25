@@ -111,3 +111,45 @@ Stack trace:
 [25-Nov-2018 06:01:08 UTC] PHP Notice:  Undefined variable: errors in /home/randombtcads/public_html/classes/FormValidation.php on line 143
 [25-Nov-2018 06:04:01 UTC] PHP Notice:  Undefined variable: errors in /home/randombtcads/public_html/classes/FormValidation.php on line 67
 [25-Nov-2018 11:45:05 UTC] PHP Fatal error:  Call to undefined method Mail::getAllPromotionals() in /home/randombtcads/public_html/admin/promotional.php on line 15
+[25-Nov-2018 11:47:10 UTC] PHP Fatal error:  Call to undefined method Database::setAttributes() in /home/randombtcads/public_html/classes/Promotional.php on line 24
+[25-Nov-2018 11:48:02 UTC] PHP Fatal error:  Call to undefined method Database::prepare() in /home/randombtcads/public_html/classes/Promotional.php on line 31
+[25-Nov-2018 11:51:46 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/randombtcads/public_html/classes/Promotional.php on line 26
+[25-Nov-2018 11:52:20 UTC] PHP Fatal error:  Call to undefined method PDO::disconnect() in /home/randombtcads/public_html/classes/Promotional.php on line 31
+[25-Nov-2018 11:59:44 UTC] PHP Notice:  Undefined index: promotionalimage in /home/randombtcads/public_html/classes/Promotional.php on line 59
+[25-Nov-2018 11:59:44 UTC] PHP Notice:  Undefined index: promotionalbody in /home/randombtcads/public_html/classes/Promotional.php on line 61
+[25-Nov-2018 11:59:44 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'promotionalimage' cannot be null' in /home/randombtcads/public_html/classes/Promotional.php:68
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Promotional.php(68): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(398): Promotional->addPromotional(Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Promotional.php on line 68
+[25-Nov-2018 12:02:14 UTC] PHP Notice:  Undefined variable: type in /home/randombtcads/public_html/admin/promotional.php on line 101
+[25-Nov-2018 12:02:14 UTC] PHP Notice:  Undefined variable: type in /home/randombtcads/public_html/admin/promotional.php on line 151
+[25-Nov-2018 12:03:16 UTC] PHP Notice:  Undefined index: subject in /home/randombtcads/public_html/admin/promotional.php on line 170
+[25-Nov-2018 12:15:03 UTC] PHP Notice:  Undefined index: promotionalsubject in /home/randombtcads/public_html/classes/Promotional.php on line 106
+[25-Nov-2018 12:15:03 UTC] PHP Notice:  Undefined index: promotionalbody in /home/randombtcads/public_html/classes/Promotional.php on line 107
+[25-Nov-2018 12:15:03 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home/randombtcads/public_html/classes/Promotional.php:114
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Promotional.php(114): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(412): Promotional->savePromotional('2', Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Promotional.php on line 114
+[25-Nov-2018 12:19:59 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home/randombtcads/public_html/classes/Promotional.php:132
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Promotional.php(132): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(412): Promotional->savePromotional('2', Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Promotional.php on line 132
+[25-Nov-2018 12:20:39 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'promotionalbody' in 'field list'' in /home/randombtcads/public_html/classes/Promotional.php:132
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Promotional.php(132): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(412): Promotional->savePromotional('2', Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Promotional.php on line 132
+[25-Nov-2018 12:20:48 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'promotionalbody' in 'field list'' in /home/randombtcads/public_html/classes/Promotional.php:132
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Promotional.php(132): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(412): Promotional->savePromotional('2', Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Promotional.php on line 132
+[25-Nov-2018 12:52:51 UTC] PHP Notice:  Undefined variable: varvalue in /home/randombtcads/public_html/classes/FormValidation.php on line 378
