@@ -21,41 +21,42 @@ const copyToClipboard = (str) => {
 
 // building the form for the admin promotional page depending on what was selected.
 function setuppromotional(ans) {
-if (ans != "") {
-  var littext = '';
-  var litfields = '';
-  if (ans == "banner") {
-    littext = 'Image&nbsp;URL:';
-    litfields = litfields + '<input type="text" name="promotionalimage" size="55" maxlength="255" class="form-control input-lg">';
-    document.getElementById('previewfield').style.visibility = 'visible';
-    document.getElementById('previewfield').style.display = 'block';
-    document.getElementById('promotionaloptionstext').style.visibility = 'visible';
-    document.getElementById('promotionaloptionsfields').style.visibility = 'visible';
-    document.getElementById('promotionaloptionstext').innerHTML=littext;
-    document.getElementById('promotionaloptionsfields').innerHTML=litfields;
-    tinyMCE.execCommand('mceFocus', false, 'promotionaladbody');                    
-    tinyMCE.execCommand('mceRemoveControl', false, 'promotionaladbody');
+
+  if (ans != "") {
+
+    var litfields = '';
+    if (ans == "banner") {
+      litfields = litfields + '<label for="promotionalimage">Image URL:</label><input type="text" name="promotionalimage" id="promotionalimage" size="55" maxlength="255" class="form-control w-50">';
+      document.getElementById('previewfield').style.visibility = 'visible';
+      document.getElementById('previewfield').style.display = 'block';
+      document.getElementById('promotionaloptionsfields').style.visibility = 'visible';
+      document.getElementById('promotionaloptionsfields').innerHTML=litfields;
+      tinyMCE.execCommand('mceFocus', false, 'promotionaladbody');                    
+      tinyMCE.execCommand('mceRemoveEditor', false, 'promotionaladbody');
+      document.getElementById('type').focus();
+    }
+
+    if (ans == "email") {
+      litfields = litfields + '<label for="promotionalsubject">Email Subject:</label><input type="text" name="promotionalsubject" size="55" maxlength="255" class="form-control w-50">';
+      litfields += '<label for="promotionaladbody">Email Message:</label><br><textarea name="promotionaladbody" id="promotionaladbody" rows="20"></textarea>';
+      document.getElementById('previewfield').style.visibility = 'hidden';
+      document.getElementById('previewfield').style.display = 'none';
+      document.getElementById('promotionaloptionsfields').style.visibility = 'visible';
+      document.getElementById('promotionaloptionsfields').innerHTML=litfields;
+      tinyMCE.execCommand('mceAddEditor', true, 'promotionaladbody');
+      document.getElementById('type').focus();
+    }
+
   }
-  if (ans == "email") {
-    littext = 'Subject&nbsp;and&nbsp;Message:';
-    litfields = litfields + '<input type="text" name="promotionalsubject" size="55" maxlength="255" class="form-control input-lg"><br><textarea name="promotionaladbody" id="promotionaladbody" rows="20" cols="80"></textarea>';
+
+  if (ans == "") {
+    
     document.getElementById('previewfield').style.visibility = 'hidden';
     document.getElementById('previewfield').style.display = 'none';
-    document.getElementById('promotionaloptionstext').style.visibility = 'visible';
-    document.getElementById('promotionaloptionsfields').style.visibility = 'visible';
-    document.getElementById('promotionaloptionstext').innerHTML=littext;
-    document.getElementById('promotionaloptionsfields').innerHTML=litfields;
-    tinyMCE.execCommand('mceAddControl', false, 'promotionaladbody');
+    tinyMCE.execCommand('mceFocus', false, 'promotionaladbody');                    
+    tinyMCE.execCommand('mceRemoveEditor', false, 'promotionaladbody');
+    document.getElementById('promotionaloptionsfields').style.visibility = 'hidden';
+    document.getElementById('promotionaloptionsfields').innerHTML='';
+    document.getElementById('type').focus();
   }
-}
-if (ans == "") {
-  document.getElementById('previewfield').style.visibility = 'hidden';
-  document.getElementById('previewfield').style.display = 'none';
-  tinyMCE.execCommand('mceFocus', false, 'promotionaladbody');                    
-  tinyMCE.execCommand('mceRemoveControl', false, 'promotionaladbody');
-  document.getElementById('promotionaloptionstext').style.visibility = 'hidden';
-  document.getElementById('promotionaloptionsfields').style.visibility = 'hidden';
-  document.getElementById('promotionaloptionstext').innerHTML='';
-  document.getElementById('promotionaloptionsfields').innerHTML='';
-}
 }

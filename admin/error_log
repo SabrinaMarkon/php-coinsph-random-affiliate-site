@@ -153,3 +153,4 @@ Stack trace:
 #2 {main}
   thrown in /home/randombtcads/public_html/classes/Promotional.php on line 132
 [25-Nov-2018 12:52:51 UTC] PHP Notice:  Undefined variable: varvalue in /home/randombtcads/public_html/classes/FormValidation.php on line 378
+[25-Nov-2018 14:11:13 UTC] PHP Notice:  Undefined variable: promotional in /home/randombtcads/public_html/admin/promotional.php on line 59

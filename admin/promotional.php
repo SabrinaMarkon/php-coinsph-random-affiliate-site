@@ -21,7 +21,7 @@ $promotionals = $allpromotionals->getAllPromotionals();
     tinymce.init({
         setup : function(ed) {
             ed.on('init', function() {
-                this.getDoc().body.style.fontSize = '22px';
+                this.getDoc().body.style.fontSize = '1em';
                 this.getDoc().body.style.fontFamily = 'Calibri';
                 this.getDoc().body.style.backgroundColor = '#ffffff';
             });
@@ -65,38 +65,50 @@ $promotionals = $allpromotionals->getAllPromotionals();
                     <label for="name" class="ja-toppadding">Name:</label>
                     <input type="text" name="name" value="" class="form-control input-lg w-50" placeholder="Name" required>
 
-                    <label for="type" class="ja-toppadding">Type:</label>
+                    <label for="type">Type:</label>
                     <select name="type" id="type" class="form-control w-50" onchange="setuppromotional(document.getElementById('type').value)">
                     <option value=""> - Select - </option><option value="banner">Banner</option><option value="email">Email</option></select>
 
-                    <span name="promotionaloptionstext" id="promotionaloptionstext" style="visibility: hidden;"></span>
                     <span name="promotionaloptionsfields" id="promotionaloptionsfields" style="visibility: hidden;"></span>
                     
                     <div class="ja-bottompadding"></div>
 
-                    <span name="previewfield" id="previewfield" style="visibility: hidden; display: none;">
-                        <script language="JavaScript">
-                        function previewbannerad(bannerurl,targeturl)
-                        {
-                        var win
-                        win = window.open("", "win", "height=68,width=500,toolbar=no,directories=no,menubar=no,scrollbars=yes,resizable=yes,dependent=yes'");
-                        win.document.clear();
-                        win.document.write('<a href="'+targeturl+'"><img src="'+bannerurl+'"></a>');
-                        win.focus();
-                        win.document.close();
-                        }
-                        </script>
-                        <button type="button" class="btn btn-lg btn-primary ja-toppadding ja-bottompadding" 
-                            onclick="previewbannerad(document.getElementById('promotionalimage').value,'<?php echo $domain ?>')">Preview</button>
-                    </span>
-                    <button class="btn btn-lg btn-primary ja-toppadding ja-bottompadding" type="submit" name="addpromotional">Create</button>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span name="previewfield" id="previewfield" style="visibility: hidden; display: none;">
+                                    <button type="button" class="btn btn-lg btn-primary ja-bottompadding mr-2" data-toggle="modal" data-target="#bannerPreview" onclick="updateimg();">Preview</button>
+                                </span>
+                                <button class="btn btn-lg btn-primary ja-bottompadding" type="submit" name="addpromotional">Create</button>
+                            </div>
+                        </div>
 
                 </div>
             </form>				
+            <div class="modal" id="bannerPreview">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close btn btn-danger" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <a href="<?php echo $domain ?>" target="_blank"><img id="bannerimage" class="ja-promotionalimg img-responsive"></a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+            // update the preview image's src with the value in promotionalimage field.
+            function updateimg() {
+                document.getElementById('bannerimage').src = document.getElementById('promotionalimage').value;
+            }
+            </script>
 
-			<div class="ja-bottompadding mb-4"></div>
+			<div class="ja-bottompadding mb-5"></div>
 
-            <h1 class="ja-bottompadding">Promotional Material</h1>
+            <h1 class="ja-bottompadding mt-5">Promotional Material</h1>
 
                     <?php
                     foreach ($promotionals as $promotional) {
@@ -122,36 +134,52 @@ $promotionals = $allpromotionals->getAllPromotionals();
                                         </tr>
                                         <tr>
                                             <td>
+                                                <label for="name"></label>
                                                 <input type="text" name="name" value="<?php echo $promotional['name']; ?>" class="form-control input-lg" size="40" placeholder="Ad Name" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
+                                                <label for="promotionalimage"></label>
                                                 <input type="text" name="promotionalimage" value="<?php echo $promotional['promotionalimage']; ?>" class="form-control input-lg" size="40" placeholder="Banner Image URL" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button class="btn btn-sm btnprimary" type="button" onClick="previewad(promotionalimage.value,'<?php echo $domain ?>')">Preview</button>
-                                                <input type="hidden" name="_method" value="PATCH">
-                                                <button class="btn btn-sm btn-primary" type="submit" name="savepromotional">SAVE</button>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-sm btn-primary mr-2" type="button" data-toggle="modal" data-target="#savedBannerPreview">Preview</button>
+                                                        <input type="hidden" name="_method" value="PATCH">
+                                                        <button class="btn btn-sm btn-primary mr-2" type="submit" name="savepromotional">SAVE</button>
+                                                    </form>
+                                                    <form action="/admin/promotional/<?php echo $promotional['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <input type="hidden" name="name" value="<?php echo $promotional['name']; ?>">
+                                                            <button class="btn btn-sm btn-danger" type="submit" name="deletepromotional">DELETE</button>
+                                                    </form>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
-                                            </form>
-                                        <tr>
-                                            <td>
-                                                <form action="/admin/promotional/<?php echo $promotional['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <input type="hidden" name="name" value="<?php echo $promotional['name']; ?>">
-                                                    <button class="btn btn-sm btn-primary" type="submit" name="deletepromotional">DELETE</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
+                            <div class="modal" id="savedBannerPreview">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                       <button type="button" class="close btn btn-danger" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <a href="<?php echo $domain ?>" target="_blank"><img class="ja-promotionalimg" src="<?php echo $promotional['promotionalimage']; ?>"></a>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
                             <?php
-
                         }
                         if ($promotional['type'] == "email") {
 
@@ -166,33 +194,36 @@ $promotionals = $allpromotionals->getAllPromotionals();
                                         </tr>
                                         <tr>
                                             <td>
+                                                <label for="name"></label>
                                                 <input type="text" name="name" value="<?php echo $promotional['name']; ?>" class="form-control input-lg" size="40" placeholder="Ad Name" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
+                                                <label for="promotionalsubject"></label>
                                                 <input type="text" name="promotionalsubject" value="<?php echo $promotional['promotionalsubject']; ?>" class="form-control input-lg" size="40" placeholder="Subject" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
+                                                <label for="promotionaladbody<?php echo $promotional['id']; ?>"></label>
                                                 <textarea name="promotionaladbody<?php echo $promotional['id']; ?>" id="promotionaladbody<?php echo $promotional['id']; ?>" rows="20" cols="80"><?php echo $promotional['promotionaladbody']; ?></textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="hidden" name="_method" value="PATCH">
-                                                <button class="btn btn-sm btn-primary" type="submit" name="savepromotional">SAVE</button>
-                                            </td>
-                                        </tr>
-                                            </form>
-                                        <tr>
-                                            <td>
-                                                <form action="/admin/promotional/<?php echo $promotional['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <input type="hidden" name="name" value="<?php echo $promotional['name']; ?>">
-                                                    <button class="btn btn-sm btn-primary" type="submit" name="deletepromotional">DELETE</button>
-                                                </form>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <input type="hidden" name="_method" value="PATCH">
+                                                        <button class="btn btn-sm btn-primary mr-2" type="submit" name="savepromotional">SAVE</button>
+                                                        </form>
+                                                        <form action="/admin/promotional/<?php echo $promotional['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <input type="hidden" name="name" value="<?php echo $promotional['name']; ?>">
+                                                            <button class="btn btn-sm btn-danger" type="submit" name="deletepromotional">DELETE</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>
