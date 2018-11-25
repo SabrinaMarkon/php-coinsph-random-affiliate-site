@@ -32,7 +32,7 @@ class Bitcoin {
         if ($data) {
 
             $recipientwalletid = $data['recipientwalletid'];
-            $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $paysponsor . " to Bitcoin Wallet ID: " . $recipientwalletid . "</strong></div>";
+            $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $settings['paysponsor'] . " to Bitcoin Wallet ID: " . $recipientwalletid . "</strong></div>";
         }
 
         # Does the user still have to pay their sponsor (or have them confirm the payment)?
@@ -43,7 +43,7 @@ class Bitcoin {
         if ($data) {
 
             $recipientwalletid = $data['recipientwalletid'];
-            $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $payrandom . " to Bitcoin Wallet ID: " . $recipientwalletid . "</strong></div>";
+            $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $settings['payrandom']. " to Bitcoin Wallet ID: " . $recipientwalletid . "</strong></div>";
         }
 
         if ($showbitcoin !== '') {

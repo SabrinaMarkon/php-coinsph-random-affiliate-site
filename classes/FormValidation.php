@@ -24,7 +24,9 @@ class FormValidation {
 
         'username' => 'username',
         'password' => 'password',
+        'confirm_password' => 'password confirmation',
         'adminpass' => 'admin password',
+        'confirm_adminpass' => 'admin password confirmation',
         'adminuser' => 'admin username',
         'referid' => 'referid',
         'walletid' => 'wallet ID',
