@@ -10,10 +10,25 @@ if (isset($show))
 {
 echo $show;
 }
+
 $showcontent = new PageContent();
 echo $showcontent->showPage('Members Area Randomizer Page');
+
+# get all user's randomizer positions.
 $allpositions = new Randomizer();
 $positions = $allpositions->getAllRandomizersForOneUser($username);
+
+$transactions = new Money();
+
+# get all the transactions the user still owes.
+$owed = $transactions->getUserTransactions($username,'owes');
+
+# get all the transactions the user will get paid or has already been paid.
+$gets = $transactions->getUserTransactions($username,'gets');
+
+# get all the transactinos that the user owed but already paid.
+$paid = $transactions->getUserTransactions($username,'paid');
+
 /* for generating the walletids to pay, if payment hasn't been made yet,
 or for getting the walletids paid from the transactions table. */
 $bitcoin = new Bitcoin();
@@ -31,21 +46,33 @@ $bitcoin = new Bitcoin();
 			<?php
 			if (empty($positions)) {
 
-				# means the person hasn't paid someone yet. Show pay buttons (either one or two).
-                echo "<div class=\"ja-bottompadding ja-topadding\">You have no positions in the randomizer yet. 
-                Please pay BOTH your sponsor and a random member below. 
-				If you already have, please wait for BOTH recipients to verify that they have received a payment from you,
-				then you will see your positions listed here.</p><p>If you have ALREADY paid them BOTH, and have
-				been waiting a long time for the recipients to validate, please contact us with PROOF of
-				both your payments, so we can approve addition of your position in the randomizer, as well as your ads.</div>";
+                # user has transactions to pay.
 
-				# Show bitcoin wallet IDs for BOTH sponsor and the random payee.
-				echo $bitcoin->showBitCoinWalletIds($username,$settings);
+                echo "<div class=\"ja-bottompadding ja-topadding my-5\">You currently have no positions in the randomizer. 
+                Please pay BOTH your sponsor and a random member below. If you already have, please wait for 
+                BOTH recipients to verify that they have received a payment from you.
+                Afterwards, your randomizer position will be awarded to you and shown here.</p><p>If you have ALREADY paid them BOTH, and have
+                been waiting a long time for the recipients to validate, please contact us with PROOF of
+                both your payments, so we can approve release of your ads, as well as your position in the randomizer.</div>";
+
+                # Show bitcoin wallet IDs for BOTH sponsor and the random payee.
+                $bitcoin = new Bitcoin();
+                $showbitcoin = $bitcoin->showBitCoinWalletIds($username,$settings);
+                if ($showbitcoin) {
+
+                    echo "<div class=\"ja-yellowbg ja-bitcoinbox\">" . $showbitcoin . "</div>";
+                }
 			
 			} else {
                 
                 # check to see if the person owes for any other positions still.
-				echo $bitcoin->showBitCoinWalletIds($username,$settings);
+                $showbitcoin = $bitcoin->showBitCoinWalletIds($username,$settings);
+                if ($showbitcoin) {
+
+                    echo "<div class=\"ja-yellowbg ja-bitcoinbox\">" . $showbitcoin . "</div>";
+                }
+
+                echo "<div class=\"ja-bottompadding mb-5\"></div>";
                 
 				# person has at least one randomizer position they paid for (sponsor and random) that has been added.
                 # show those positions.

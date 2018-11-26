@@ -27,10 +27,15 @@ class Randomizer {
         $q->execute();
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $randomusers = $q->fetchAll();
-        $randomusersarray = [];
 
-        # put the array of each randomizer row into 
-        foreach ($randomusers as $randomuser) {
+        # add the totals for each randomuser and add those items onto each randomuser array (one record).
+        # Note randomuser needs to be passed by reference (add & to the start i.e. &$randomuser).
+
+        /* "foreach iterates over iterables and sets the iteration variable by value. 
+        This means that the $randomuser array which you are dealing with in the foreach is not the same value of the $randomusers array.
+        To rememdy this (and avoid introducing an $index variable to mutate an item in the array), you will need to tell foreach to pass the value by reference."
+        */
+        foreach ($randomusers as &$randomuser) {
 
             $username = $randomuser['username'];
             $walletid = $randomuser['walletid'];
@@ -75,12 +80,10 @@ class Randomizer {
             $randomuser['randompaid'] = $randompaid;
             $randomuser['randomowed'] = $randomowed;
 
-            # add to the randomusersarray.
-            array_push($randomusersarray, $randomuser);
         }
         Database::disconnect();
-        
-        return $randomusersarray;
+
+        return $randomusers;
     }
 
     /* Get all positions for ONE USERNAME from the randomizer table.*/
@@ -93,13 +96,10 @@ class Randomizer {
         $q->execute([$username]);
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $positions = $q->fetchAll();
-        $allpositionsforuser = array();
-        foreach ($positions as $position) {
-            array_push($allpositionsforuser, $position);
-        }
+
         Database::disconnect();
         
-        return $allpositionsforuser;   
+        return $positions;   
 
     }
 
@@ -110,6 +110,7 @@ class Randomizer {
         $pdo->setAttribute(PDO::ATTR_ERRMODE,ERRMODE_EXCEPTION);
         $sql = "select * from randomizer order by rand() limit 1";
         $randomuser = $pdo->query($sql)->fetch();
+        
         DATABASE::disconnect();
 
         return $randomuser;

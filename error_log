@@ -30,3 +30,5 @@ Stack trace:
 [26-Nov-2018 08:19:31 UTC] PHP Notice:  Undefined variable: referid in /home/randombtcads/public_html/index.php on line 163
 [26-Nov-2018 08:19:38 UTC] PHP Notice:  Undefined variable: referid in /home/randombtcads/public_html/index.php on line 163
 [26-Nov-2018 08:20:28 UTC] PHP Notice:  Undefined variable: referid in /home/randombtcads/public_html/index.php on line 163
+[26-Nov-2018 08:29:38 UTC] PHP Notice:  Undefined variable: alltransactions in /home/randombtcads/public_html/randomizer.php on line 24
+[26-Nov-2018 08:29:38 UTC] PHP Fatal error:  Call to a member function getUserTransactions() on null in /home/randombtcads/public_html/randomizer.php on line 24

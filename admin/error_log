@@ -154,3 +154,308 @@ Stack trace:
   thrown in /home/randombtcads/public_html/classes/Promotional.php on line 132
 [25-Nov-2018 12:52:51 UTC] PHP Notice:  Undefined variable: varvalue in /home/randombtcads/public_html/classes/FormValidation.php on line 378
 [25-Nov-2018 14:11:13 UTC] PHP Notice:  Undefined variable: promotional in /home/randombtcads/public_html/admin/promotional.php on line 59
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 62
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 64
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 67
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/admin/randomizer.php on line 70
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorpaid' in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorowed' in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randompaid' in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randomowed' in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 90
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 92
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 62
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 64
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 67
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/admin/randomizer.php on line 70
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorpaid' in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorowed' in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randompaid' in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randomowed' in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 90
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 92
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 62
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 64
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 67
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/admin/randomizer.php on line 70
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorpaid' in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorowed' in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randompaid' in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randomowed' in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 90
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 92
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 62
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 64
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 67
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/admin/randomizer.php on line 70
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorpaid' in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorowed' in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randompaid' in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randomowed' in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 90
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 92
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 62
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 64
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 67
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/admin/randomizer.php on line 70
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorpaid' in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorowed' in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randompaid' in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randomowed' in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 90
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 92
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 62
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 64
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 67
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/admin/randomizer.php on line 70
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorpaid' in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorowed' in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randompaid' in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randomowed' in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 90
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 92
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 62
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 64
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 67
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'walletid' in /home/randombtcads/public_html/admin/randomizer.php on line 70
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorpaid' in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'sponsorowed' in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randompaid' in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'randomowed' in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'id' in /home/randombtcads/public_html/admin/randomizer.php on line 90
+[26-Nov-2018 16:21:07 UTC] PHP Warning:  Illegal string offset 'username' in /home/randombtcads/public_html/admin/randomizer.php on line 92
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:24:09 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:41:07 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:41:07 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:41:07 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:41:07 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:41:07 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:41:07 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:44:13 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:44:13 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:44:13 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:44:13 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:44:13 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 73
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 76
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 79
+[26-Nov-2018 16:44:13 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 82
+[26-Nov-2018 16:45:26 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:45:26 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:45:26 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:45:26 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:45:26 UTC] PHP Warning:  array_push() expects parameter 1 to be array, string given in /home/randombtcads/public_html/classes/Randomizer.php on line 73
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:45:26 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:47:00 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:23 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:28 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:31 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:49:48 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:51:22 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: sponsorpaid in /home/randombtcads/public_html/admin/randomizer.php on line 74
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: sponsorowed in /home/randombtcads/public_html/admin/randomizer.php on line 77
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: randompaid in /home/randombtcads/public_html/admin/randomizer.php on line 80
+[26-Nov-2018 16:54:52 UTC] PHP Notice:  Undefined index: randomowed in /home/randombtcads/public_html/admin/randomizer.php on line 83
