@@ -427,6 +427,40 @@ if (isset($_POST['login'])) {
         } 
     }
 
+    if (isset($_POST['createad'])) {
+
+        $errors = $formvalidation->validateAll($_POST);
+        if (!empty($errors)) {
+    
+            $showad = $errors;
+        } else {
+    
+            # user submitted a new ad.
+            $create = new Ad();
+            $showad = $create->createAd($id,'admin',$adminautoapprove,1,$_POST);
+        }
+    }
+    
+    if (isset($_POST['savead'])) {
+       
+        $errors = $formvalidation->validateAll($_POST);
+        if (!empty($errors)) {
+    
+            $showad = $errors;
+        } else {
+    
+            # user saved changes made to their ad.
+            $save = new Ad();
+            $showad = $save->saveAd($id,$adminautoapprove,1,$_POST);
+        }
+    }
+    
+    if (isset($_POST['deletead'])) {
+          
+        $delete = new Ad();
+        $showad = $delete->deleteAd($id,$_POST['name']);
+    }
+
     if ((empty($_REQUEST['page'])) or 
     ((!empty($_REQUEST['page']) and ($_REQUEST['page'] === 'index' or $_REQUEST['page'] === 'logout' or $_REQUEST['page'] === 'forgot' or $_REQUEST['page'] === 'control'))) or 
     ((!empty($_GET['page'])) and ((!file_exists($_GET['page'] . ".php"))))) {

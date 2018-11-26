@@ -6,8 +6,8 @@ RewriteRule ^admin/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)[/]*$ /admin/index.php?page=$1
 RewriteRule ^admin/([A-Za-z0-9-]+)[/]*$ /admin/index.php?page=$1 [L,NC]
 # urls with only /admin go to the main admin page (logged in or not):
 RewriteRule ^(admin) - [L]
-# urls that are NOT in /admin have the page as the first parameter, an the sponsor userid as the second.
-# ie. /register/sabrina url means that the page we see is register.php and the /sabrina part is the sponsor (for the affiliate url):
+# urls that are NOT in /admin have the page as the first parameter, and the sponsor userid OR an ad/transaction/etc id as the second (where id would = referid).
+# ie. /register/sabrina url means that the page we see is register.php and the /sabrina part is the sponsor (for the affiliate url) OR the id of an ad.
 RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)[/]*$ /index.php?page=$1&referid=$2 [L,NC]
 # If there is no sponsor name section, just load the page ie. /register goes to register.php with no sponsor userid:
 RewriteRule ^([A-Za-z0-9]+)[/]*$ /index.php?page=$1 [L,NC]

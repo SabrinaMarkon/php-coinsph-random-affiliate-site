@@ -22,7 +22,7 @@ class Ad {
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "select * from ads order by id desc";
+        $sql = "select * from ads order by approved asc,id desc";
         $q = $pdo->prepare($sql);
         $q->execute();
         $q->setFetchMode(PDO::FETCH_ASSOC);
@@ -70,8 +70,8 @@ class Ad {
         }        
     }
 
-    /* Call this when the user submits their ad. */
-    public function createAd($id,$username,$adminautoapprove,$post) {
+    /* Call this when the user or admin submits their ad. */
+    public function createAd($id,$username,$adminautoapprove,$isadmin,$post) {
 
         $name = $post['name'];
         $title = $post['title'];
@@ -84,9 +84,21 @@ class Ad {
         
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "update ads set name=?,title=?,url=?,description=?,imageurl=?,shorturl=?,added=1,approved=?,hits=0,clicks=0,adddate=NOW() where id=?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($name,$title,$url,$description,$imageurl,$shorturl,$adminautoapprove,$id));
+
+        # is it a user or the admin posting the ad?
+        if ($isadmin) {
+
+            $username = 'admin';
+            $sql = "insert into ads (username,name,title,url,shorturl,description,imageurl,added,approved,adddate) values ('admin',?,?,?,?,?,?,1,1,NOW())";
+            $q = $pdo->prepare($sql);
+            $q->execute([$name,$title,$url,$shorturl,$description,$imageurl]);
+
+        } else {
+
+            $sql = "update ads set name=?,title=?,url=?,description=?,imageurl=?,shorturl=?,added=1,approved=?,hits=0,clicks=0,adddate=NOW() where id=?";
+            $q = $pdo->prepare($sql);
+            $q->execute([$name,$title,$url,$description,$imageurl,$shorturl,$adminautoapprove,$id]);
+        }
         
         Database::disconnect();
         
@@ -112,7 +124,7 @@ class Ad {
     }
 
     /* Call this when the user edits their existing ad. */
-    public function saveAd($id,$adminautoapprove,$post) {
+    public function saveAd($id,$adminautoapprove,$isadmin,$post) {
 
         $name = $post['name'];
         $title = $post['title'];
@@ -125,9 +137,18 @@ class Ad {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+        if ($isadmin) {
+
+            # admin has the option to choose to approve right away or not.
+            $autoapprove = $post['approved'];
+        } else {
+
+            $autoapprove = $adminautoapprove;
+        }
         $sql = "update ads set name=?,title=?,url=?,description=?,imageurl=?,shorturl=?,added=1,approved=? where id=?";
         $q = $pdo->prepare($sql);
-        $q->execute([$name,$title,$url,$description,$imageurl,$shorturl,$adminautoapprove,$id]);
+        $q->execute([$name,$title,$url,$description,$imageurl,$shorturl,$autoapprove,$id]);
         
          Database::disconnect();
 
