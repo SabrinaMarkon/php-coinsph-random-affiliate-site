@@ -18,6 +18,7 @@ class Admin
 	private $pdo;
 	private $emailhash;
 	private $gravatarimagelg;
+	private $errors;
 
 	public function adminLogin($adminuser,$adminpass) {
 		$pdo = Database::connect();

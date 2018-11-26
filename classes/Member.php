@@ -53,6 +53,20 @@ class Member
             $referid = 'admin';
         }
 
+        $pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		$sql = "select * from members where username=?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($username));
+		$q->setFetchMode(PDO::FETCH_ASSOC);
+		$data = $q->fetch();
+		if ($data['username'] == $username)
+		{
+			Database::disconnect();
+
+			return "<div class=\"alert alert-danger\" style=\"width:75%;\"><strong>The username you chose isn't available.</strong></div>";
+        }
+        
         $verificationcode = time() . mt_rand(10, 100);
 
         $pdo = Database::connect();

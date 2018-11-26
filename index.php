@@ -74,12 +74,12 @@ if (isset($_POST['forgotlogin'])) {
 	$errors = '';
 	if (!empty($errors)) {
 
-		$show = $errors;
+		$showforgot = $errors;
 	} else {
 
 		# member clicked button to recover login details.
 		$forgot = new User();
-		$show = $forgot->forgotLogin($sitename,$domain,$adminemail); 
+		$showforgot = $forgot->forgotLogin($sitename,$domain,$adminemail,$_POST); 
 	}
 }
 
@@ -88,12 +88,12 @@ if (isset($_POST['contactus'])) {
 	$errors = $formvalidation->validateAll($_POST);
 	if (!empty($errors)) {
 
-		$show = $errors;
+		$showcontact = $errors;
 	} else {
 
 		# someone clicked to send a contact email to the admin.
 		$contact = new Contact();
-		$show = $contact->sendContact($settings);
+		$showcontact = $contact->sendContact($settings);
 	}
 }
 
@@ -102,12 +102,12 @@ if (isset($_POST['register'])) {
 	$errors = $formvalidation->validateAll($_POST);
 	if (!empty($errors)) {
 
-		$show = $errors;
+		$showregister = $errors;
 	} else {
 
 		# new signup clicked to submit registration.
 		$register = new User();
-		$show = $register->newSignup($settings,$post);
+		$showregister = $register->newSignup($settings,$_POST);
 	}
 }
 
@@ -117,7 +117,7 @@ if (isset($_GET['page']) && ($_GET['page'] === "verify")) {
 	$verify = new User();
 	# the last part of the url is code this time not referid like other urls. Don't fix cuz it ain't broke.
 	$verificationcode = $_SESSION['referid']; 
-	$show = $verify->verifyUser($verificationcode);
+	$showverify = $verify->verifyUser($verificationcode);
 
 }
 
@@ -126,19 +126,19 @@ if (isset($_POST['saveprofile'])) {
 	$errors = $formvalidation->validateAll($_POST);
 	if (!empty($errors)) {
 
-		$show = $errors;
+		$showsaveprofile = $errors;
 	} else {
 
 		# user clicked to submit profile updates.
 		$update = new User();
-		$show = $update->saveProfile($_SESSION['username'],$settings);
+		$showsaveprofile = $update->saveProfile($_SESSION['username'],$settings,$_POST);
 	}
 }
 
 if (isset($_POST['resendverification'])) {
 
 	$resend = new User();
-	$show = $resend->resendVerify($_SESSION['username'],$_SESSION['password'],$_SESSION['email'],$settings);
+	$showresend = $resend->resendVerify($_SESSION['username'],$_SESSION['password'],$_SESSION['email'],$settings);
 }
 
 if (isset($_POST['createad'])) {
@@ -146,12 +146,12 @@ if (isset($_POST['createad'])) {
 	$errors = $formvalidation->validateAll($_POST);
 	if (!empty($errors)) {
 
-		$show = $errors;
+		$showad = $errors;
 	} else {
 
 		# user submitted a new ad.
 		$create = new Ad();
-		$show = $create->createAd($id,$_SESSION['username'],$adminautoapprove);
+		$showad = $create->createAd($id,$_SESSION['username'],$adminautoapprove);
 	}
 }
 
@@ -160,25 +160,25 @@ if (isset($_POST['savead'])) {
 	$errors = $formvalidation->validateAll($_POST);
 	if (!empty($errors)) {
 
-		$show = $errors;
+		$showad = $errors;
 	} else {
 
 		# user saved changes made to their ad.
 		$save = new Ad();
-		$show = $save->saveAd($id,$adminautoapprove);
+		$showad = $save->saveAd($id,$adminautoapprove);
 	}
 }
 
 if (isset($_POST['deletead'])) {
 
 	$delete = new Ad();
-	$show = $delete->deleteAd($id,$_POST['name']);
+	$showad = $delete->deleteAd($id,$_POST['name']);
 }
 
 if (isset($_POST['confirmpaid'])) {
 
 	$confirm = new ConfirmPayment();
-	$show = $confirm->confirmedPayment($id);	
+	$showconfirmpaid = $confirm->confirmedPayment($id);	
 }
 
 if (isset($_GET['page']) && ($_GET['page'] === "logout")) {
@@ -193,12 +193,12 @@ if (isset($_GET['page']) && ($_GET['page'] === "logout")) {
 $Layout = new Layout();
 $Layout->showHeader();
 
-if ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php") and ($_GET['page'] !== "index")))) {
+if ((!empty($_GET['page'])) && ((file_exists($_GET['page'] . ".php") && ($_GET['page'] !== "index")))) {
 
-    $page = $_REQUEST['page'];
+	$page = $_REQUEST['page'];
 	include $page . ".php";
 	
-} elseif ((!empty($_GET['page'])) and (!file_exists($_GET['page'] . ".php"))) {
+} elseif ((!empty($_GET['page'])) && (!file_exists($_GET['page'] . ".php"))) {
 
 	# show the admin create page.
 	$page = $_GET['page'];

@@ -6,9 +6,9 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 }
 
 require "control.php";
-if (isset($show))
+if (isset($showsaveprofile))
 {
-echo $show;
+echo $showsaveprofile;
 }
 $showcontent = new PageContent();
 echo $showcontent->showPage('Members Area Profile Page');

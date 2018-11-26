@@ -5,9 +5,9 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
     exit;
 }
 
-if (isset($show))
+if (isset($showregister))
 {
-echo $show;
+echo $showregister;
 $showcontent = new PageContent();
 echo $showcontent->showPage('Thank You Page - New Member Signup');
 $Layout = new Layout();

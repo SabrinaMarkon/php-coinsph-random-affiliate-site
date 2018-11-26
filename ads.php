@@ -6,9 +6,9 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 }
 
 require "control.php";
-if (isset($show))
+if (isset($showad))
 {
-echo $show;
+echo $showad;
 }
 $showcontent = new PageContent();
 echo $showcontent->showPage('Members Area Ads Page');

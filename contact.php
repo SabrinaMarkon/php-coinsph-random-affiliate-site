@@ -5,9 +5,9 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
     exit;
 }
 
-if (isset($show))
+if (isset($showcontact))
 {
-echo $show;
+echo $showcontact;
 }
 ?>
 <div class="container">

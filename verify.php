@@ -5,8 +5,8 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
     exit;
 }
 
-if (isset($show))
+if (isset($showverify))
 {
-echo $show;
+echo $showverify;
 }
 ?>
