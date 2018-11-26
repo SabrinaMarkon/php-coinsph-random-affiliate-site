@@ -205,10 +205,15 @@ class FormValidation {
                 # ad's description.
 
                 $varvalue = filter_var($varvalue, FILTER_SANITIZE_STRING);
+                $numchars = strlen($varvalue);
 
                 if (empty($varvalue)) {
 
                     $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
+                }
+                elseif ($numchars > 50) {
+
+                    $errors .= "<div><strong>The size of " . $pretty_varname . " must be 50 or less characters.</strong></div>";
                 }
 
             } elseif ($varname === 'message') {

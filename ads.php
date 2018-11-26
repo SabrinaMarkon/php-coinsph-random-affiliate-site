@@ -45,7 +45,7 @@ $activeads = $ads->getAllUsersAds($username);
 
 					# user has transactions to pay.
 
-					echo "<div class=\"ja-bottompadding ja-topadding mb-5\">You have no paid ads yet. Please pay BOTH your sponsor and a random member below. 
+					echo "<div class=\"ja-bottompadding ja-topadding my-5\">You currently have no blank ads. Please pay BOTH your sponsor and a random member below. 
 					If you already have, please wait for BOTH recipients to verify that they have received a payment from you,
 					then the form to create your ad will become available here.</p><p>If you have ALREADY paid them BOTH, and have
 					been waiting a long time for the recipients to validate, please contact us with PROOF of

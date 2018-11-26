@@ -157,6 +157,8 @@ if (isset($_POST['createad'])) {
 
 if (isset($_POST['savead'])) {
 
+	$id = $_SESSION['referid']; // the var name referid is what is in the url, but it has the id of the ad in this case.
+
 	$errors = $formvalidation->validateAll($_POST);
 	if (!empty($errors)) {
 
@@ -171,6 +173,8 @@ if (isset($_POST['savead'])) {
 
 if (isset($_POST['deletead'])) {
 
+	$id = $_SESSION['referid']; // the var name referid is what is in the url, but it has the id of the ad in this case.
+	
 	$delete = new Ad();
 	$showad = $delete->deleteAd($id,$_POST['name']);
 }

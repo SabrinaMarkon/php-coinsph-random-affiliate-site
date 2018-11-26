@@ -27,12 +27,10 @@ class Ad {
         $q->execute();
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $ads = $q->fetchAll();
-        $adsarray = array();
-        foreach ($ads as $ad) {
-            array_push($adsarray, $ad);
-        }
 
-        return $adsarray;
+        Database::disconnect();
+
+        return $ads;
     }
 
     /* Get all the ads for one member. */
@@ -45,13 +43,12 @@ class Ad {
         $q->execute(array($username));
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $ads = $q->fetchAll();
-        $adsarray = array();
 
         Database::disconnect();
         
-        if ($adsarray) {
+        if ($ads) {
 
-            return $adsarray;
+            return $ads;
         }
     }
 
@@ -60,10 +57,10 @@ class Ad {
         
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "select id from ads where username=? and added=0 order by id limit 1";
+        $sql = "select * from ads where username=? and added=0 order by id limit 1";
         $q = $pdo->prepare($sql);
         $q->execute([$username]);
-        $blankad = $q->fetchColumn();
+        $blankad = $q->fetch();
 
         Database::disconnect();
 
@@ -127,12 +124,12 @@ class Ad {
         $shorturl = '';
 
         $pdo = DATABASE::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "update ads set name=?,title=?,url=?,description=?,imageurl=?,shorturl=?,added=1,approved=?whereid=?";
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "update ads set name=?,title=?,url=?,description=?,imageurl=?,shorturl=?,added=1,approved=? where id=?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($name,$title,$url,$description,$imageurl,$shorturl,$adminautoapprove,$id));
-
-        Database::disconnect();
+        $q->execute([$name,$title,$url,$description,$imageurl,$shorturl,$adminautoapprove,$id]);
+        
+         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>The Ad " . $name . " was Saved!</strong></div>";
     }
