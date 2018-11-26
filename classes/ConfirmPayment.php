@@ -35,8 +35,23 @@ class ConfirmPayment {
 
         $this->maybeGiveAdandRandomizer($pdo,$userwhopaid,$userwhopaidwalletid);
        
-        $pdo = DATABASE::disconnect();
+        DATABASE::disconnect();
 
+        return;
+    }
+
+    public function unConfirmedPayment($id) {
+
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+        # update the transaction record $id as unpaid (reset to how it was when first created).
+        $sql = "update transactions set adid=0,randomizerid=0,recipientapproved=0,datepaid='' where id=?";
+        $q = $pdo->prepare($sql);
+        $q->execute([$id]);
+
+        DATABASE::disconnect();
+        
         return;
     }
 
@@ -93,6 +108,8 @@ class ConfirmPayment {
             and the other to a random user, so has been credited with an ad and a randomizer position.";
 
         }
+
+        Database::disconnect();
 
         return $returnshow;
     }

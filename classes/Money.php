@@ -123,6 +123,14 @@ class Money
                 
             }
 
+        /* if the admin has un-verified a transaction, we need to reset it back to the way it was when the user first joined. */
+        if ($recipientapproved === "0" and $oldrecipientapproved === "1") {
+   
+            $unconfirmpayment = new ConfirmPayment();
+            $unconfirmpayment->unConfirmedPayment($id);
+
+            }
+
         DATABASE::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID #" . $id . " was Saved!</strong>" . $returnshow . "</div>";
