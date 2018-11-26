@@ -27,12 +27,44 @@ class Money
         $q->execute();
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $transactions = $q->fetchAll();
-        $transarray = array();
-        foreach ($transactions as $transaction) {
-            array_push($transarray, $transaction);
+
+        Database::connect();
+
+        if ($transactions) {
+
+            return $transactions;
+        }
+    }
+
+    /* Find out how much a user owes or is owed by others. */
+    public function getUserTransactions($username,$owesorgets) {
+
+        
+        $pdo = DATABASE::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        if ($owesorgets === 'owes') {
+
+            $sql = "select * from transactions where username=? and recipientapproved=0 order by id";
+        } elseif ($owesorgets === 'gets') {
+
+            $sql = "select * from transactions where recipient=? order by recipientapproved,id desc";
+        } else {
+
+            $sql = "select * from transactions where username=? and recipientapproved=1 order by id";
         }
 
-        return $transarray;
+        $q = $pdo->prepare($sql);
+        $q->execute(array($username));
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        $transactions = $q->fetchAll();
+
+        Database::disconnect();
+        
+        if ($transactions) {
+
+            return $transactions;
+        }
     }
 
     public function addTransaction() {
@@ -105,6 +137,7 @@ class Money
         $sql = "delete from transactions where id=?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
+
         Database::disconnect();
         
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID " . $id . " was Deleted</strong></div>";

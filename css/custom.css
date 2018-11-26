@@ -118,6 +118,13 @@ img {
     width: 50%;
 }
 
+.ja-bitcoinbox {
+	padding: 1rem;
+	margin: auto;
+	border: 1px solid #000;
+	max-width: 500px;
+}
+
 .ja-yellowbg {
 	background:#fffa96;
 }

@@ -1,0 +1,10 @@
+[26-Nov-2018 05:05:52 UTC] PHP Fatal error:  Call to undefined method Ad::getAds() in /home/randombtcads/public_html/ads.php on line 16
+[26-Nov-2018 05:11:41 UTC] PHP Notice:  Undefined variable: alltransactions in /home/randombtcads/public_html/ads.php on line 42
+[26-Nov-2018 05:11:41 UTC] PHP Fatal error:  Call to a member function getUserTransactions() on null in /home/randombtcads/public_html/ads.php on line 42
+[26-Nov-2018 05:12:28 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where recipientapproved=0 order by id' at line 1' in /home/randombtcads/public_html/classes/Money.php:58
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Money.php(58): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/ads.php(42): Money->getUserTransactions('lucas', 'owes')
+#2 /home/randombtcads/public_html/index.php(199): include('/home/randombtc...')
+#3 {main}
+  thrown in /home/randombtcads/public_html/classes/Money.php on line 58

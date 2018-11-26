@@ -46,11 +46,6 @@ class Bitcoin {
             $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $settings['payrandom']. " to Bitcoin Wallet ID: " . $recipientwalletid . "</strong></div>";
         }
 
-        if ($showbitcoin !== '') {
-            
-            $showbitcoin .= "<div class=\"ja-bottompadding\"></div>";
-        }
-
         DATABASE::disconnect();
 
         return $showbitcoin;
@@ -66,14 +61,13 @@ class Bitcoin {
         $q->execute([$username,$walletid]);
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $transactions = $q->fetchAll();
-        $transactionarray = array();
-        foreach ($transactions as $transaction) {
-            array_push($transactionarray, $transaction);
-        }
+        
+        Database::disconnect();
+        
+        if ($transactions) {
 
-        DATABASE::disconnect();
-
-        return $transactionarray;        
+            return $transactions;
+        }      
     }
 
     /* Call this to just get a user's walletid. */

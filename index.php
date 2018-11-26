@@ -151,7 +151,7 @@ if (isset($_POST['createad'])) {
 
 		# user submitted a new ad.
 		$create = new Ad();
-		$showad = $create->createAd($id,$_SESSION['username'],$adminautoapprove);
+		$showad = $create->createAd($id,$_SESSION['username'],$adminautoapprove,$_POST);
 	}
 }
 
@@ -165,7 +165,7 @@ if (isset($_POST['savead'])) {
 
 		# user saved changes made to their ad.
 		$save = new Ad();
-		$showad = $save->saveAd($id,$adminautoapprove);
+		$showad = $save->saveAd($id,$adminautoapprove,$_POST);
 	}
 }
 
