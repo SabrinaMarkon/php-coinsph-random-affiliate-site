@@ -36,22 +36,23 @@ class Ad {
     }
 
     /* Get all the ads for one member. */
-    public function getAds($username) {
+    public function getAllUsersAds($username) {
         
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "select * from ads where username=? order by id desc";
+        $sql = "select * from ads where username=? and added=1 order by id desc";
         $q = $pdo->prepare($sql);
         $q->execute(array($username));
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $ads = $q->fetchAll();
         $adsarray = array();
-        foreach ($ads as $ad) {
-            array_push($adsarray, $ad);
-        }
+
         Database::disconnect();
         
-        return $adsarray;
+        if ($adsarray) {
+
+            return $adsarray;
+        }
     }
 
     /* Call this when we need to get the member a blank ad to create a new ad in the form. */
@@ -59,38 +60,40 @@ class Ad {
         
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "select id from ads where username=? and added=0 order by id";
+        $sql = "select id from ads where username=? and added=0 order by id limit 1";
         $q = $pdo->prepare($sql);
         $q->execute([$username]);
-        $ad = $q->fetchColumn();
-        if (!$ad) {
-            $ad = '';
-        }
+        $blankad = $q->fetchColumn();
+
         Database::disconnect();
 
-        return $ad;
+        if ($blankad) {
+
+            return $blankad;
+        }        
     }
 
     /* Call this when the user submits their ad. */
-    public function createAd($id,$username,$adminautoapprove) {
+    public function createAd($id,$username,$adminautoapprove,$post) {
 
-        $newname = $_POST['name'];
-        $newtitle = $_POST['title'];
-        $newurl = $_POST['url'];
-        $newdescription = $_POST['description'];
-        $newimageurl = $_POST['imageurl'];
+        $name = $post['name'];
+        $title = $post['title'];
+        $url = $post['url'];
+        $description = $post['description'];
+        $imageurl = $post['imageurl'];
 
-        # generate shorturl - FIREBASE
-        $newshorturl = '';
+        # generate shorturl - FIREBASE LINKS ****
+        $shorturl = '';
         
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "update ads set name=?, title=?, url=?, description=?, imageurl=?, shorturl=?, added=1, approved=?, hits=0, clicks=0, adddate=NOW() where id=?";
+        $sql = "update ads set name=?,title=?,url=?,description=?,imageurl=?,shorturl=?,added=1,approved=?,hits=0,clicks=0,adddate=NOW() where id=?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($newname, $newtitle, $newurl, $newdescription, $newimageurl, $newshorturl, $adminautoapprove, $id));
+        $q->execute(array($name,$title,$url,$description,$imageurl,$shorturl,$adminautoapprove,$id));
+        
         Database::disconnect();
         
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your New Ad: " . $newname . " was Created!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Ad " . $name . " was Created!</strong></div>";
     }
 
     /* When the second recipient (either the sponsor or the random member) confirms that they have received payment from the user, we
@@ -112,25 +115,26 @@ class Ad {
     }
 
     /* Call this when the user edits their existing ad. */
-    public function saveAd($id,$adminautoapprove) {
+    public function saveAd($id,$adminautoapprove,$post) {
 
-        $newname = $_POST['name'];
-        $newtitle = $_POST['title'];
-        $newurl = $_POST['url'];
-        $newdescription = $_POST['description'];
-        $newimageurl = $_POST['imageurl'];
+        $name = $post['name'];
+        $title = $post['title'];
+        $url = $post['url'];
+        $description = $post['description'];
+        $imageurl = $post['imageurl'];
 
-        # generate shorturl - FIREBASE
-        $newshorturl = '';
+        # generate shorturl - FIREBASE LINKS ****
+        $shorturl = '';
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "update ads set name=?, title=?, url=?, description=?, imageurl=?, shorturl=?, added=1, approved=?, hits=0, clicks=0, adddate=NOW() where id=?";
+        $sql = "update ads set name=?,title=?,url=?,description=?,imageurl=?,shorturl=?,added=1,approved=?whereid=?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($newname, $newtitle, $newurl, $newdescription, $newimageurl, $newshorturl, $adminautoapprove, $id));
+        $q->execute(array($name,$title,$url,$description,$imageurl,$shorturl,$adminautoapprove,$id));
+
         Database::disconnect();
 
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Ad " . $newname . " was Saved!</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>The Ad " . $name . " was Saved!</strong></div>";
     }
 
     /* Call this to delete an ad. */
@@ -141,9 +145,10 @@ class Ad {
         $sql = "delete from ads where id=?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
+
         Database::disconnect();
 
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Ad " . $name . " was Deleted</strong></div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>The Ad " . $name . " was Deleted</strong></div>";
     }
 
 }
