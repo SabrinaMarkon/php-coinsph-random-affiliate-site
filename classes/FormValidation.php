@@ -74,7 +74,7 @@ class FormValidation {
 
         if (isset($post['username'])) {
   
-            if (isset($post['addmember']) || isset($post['savemember']) || isset($post['register'])) {
+            if (isset($post['addmember']) || isset($post['adminaddmember']) || isset($post['savemember']) || isset($post['register'])) {
 
                 # if a username was submitted for registration or saving profile in admin, does it already exist in the system?
                 $errors = $this->checkUsernameDuplicates($post['username'],$errors);

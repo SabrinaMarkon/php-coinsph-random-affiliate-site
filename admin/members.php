@@ -65,7 +65,7 @@ $members = $allmembers->getAllMembers();
 
                 <div class="ja-bottompadding"></div>
 
-                <button class="btn btn-lg btn-primary ja-toppadding ja-bottompadding" type="submit" name="addmember">Create Account</button>
+                <button class="btn btn-lg btn-primary ja-toppadding ja-bottompadding" type="submit" name="adminaddmember">Create Account</button>
 
 			</form>				
 
@@ -159,7 +159,7 @@ $members = $allmembers->getAllMembers();
                             </td>
                             <td>
                                 <input type="hidden" name="_method" value="PATCH">
-                                <button class="btn btn-sm btn-primary" type="submit" name="savemember">SAVE</button>
+                                <button class="btn btn-sm btn-primary" type="submit" name="adminsavemember">SAVE</button>
                             </td>
                             </form>
                             <td>
@@ -174,7 +174,7 @@ $members = $allmembers->getAllMembers();
                                 <form action="/admin/members/<?php echo $member['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="username" value="<?php echo $member['username']; ?>">
-                                    <button class="btn btn-sm btn-primary" type="submit" name="deletemember">DELETE</button>
+                                    <button class="btn btn-sm btn-primary" type="submit" name="admindeletemember">DELETE</button>
                                 </form>
                             </td>
                         </tr>

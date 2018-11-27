@@ -211,7 +211,7 @@ if (isset($_POST['login'])) {
         }
     }
     
-    if (isset($_POST['addmember'])) {
+    if (isset($_POST['adminaddmember'])) {
     
         $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
@@ -225,7 +225,7 @@ if (isset($_POST['login'])) {
         }
     }
     
-    if (isset($_POST['savemember'])) {
+    if (isset($_POST['adminsavemember'])) {
     
         $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {
@@ -239,7 +239,7 @@ if (isset($_POST['login'])) {
         }
     }
 
-    if (isset($_POST['deletemember'])) {
+    if (isset($_POST['admindeletemember'])) {
     
         $errors = $formvalidation->validateAll($_POST);
         if (!empty($errors)) {

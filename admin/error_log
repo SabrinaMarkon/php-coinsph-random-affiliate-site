@@ -26,3 +26,5 @@ Stack trace:
 #2 {main}
   thrown in /home/randombtcads/public_html/classes/Ad.php on line 101
 [26-Nov-2018 22:21:52 UTC] PHP Notice:  Undefined variable: autoapprove in /home/randombtcads/public_html/classes/Ad.php on line 151
+[27-Nov-2018 00:08:37 UTC] PHP Notice:  Undefined variable: test in /home/randombtcads/public_html/classes/Ad.php on line 129
+[27-Nov-2018 00:12:57 UTC] PHP Notice:  Undefined variable: test in /home/randombtcads/public_html/classes/Ad.php on line 129
