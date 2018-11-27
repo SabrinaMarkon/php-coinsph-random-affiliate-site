@@ -76,7 +76,7 @@ class FormValidation {
   
             if (isset($post['addmember']) || isset($post['adminaddmember']) || isset($post['savemember']) || isset($post['register'])) {
 
-                # if a username was submitted for registration or saving profile in admin, does it already exist in the system?
+                # if a username was submitted for registration or added in admin, does it already exist in the system?
                 $errors = $this->checkUsernameDuplicates($post['username'],$errors);
             }
             elseif (isset($post['addrandomizer']) || isset($post['saverandomizer']) || isset($post['addtransaction']) || isset($post['savetransaction'])) {

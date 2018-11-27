@@ -90,7 +90,7 @@ $ads = $allads->getAllAds();
 								}
 								?>
 								<tr>
-									<form action="/admin/ads" method="post" accept-charset="utf-8" class="form" role="form">
+									<form action="/admin/ads/<?php echo $ad['id']; ?>" method="post" accept-charset="utf-8" class="form" role="form">
 										<td class="small"><?php echo $ad['id']; ?>
 										</td>
 										<td class="small">
@@ -135,7 +135,7 @@ $ads = $allads->getAllAds();
 										</td>
 									</form>
 									<td>
-										<form action="/admin/ads" method="POST" accept-charset="utf-8" class="form" role="form">
+										<form action="/admin/ads/<?php echo $ad['id']; ?>" method="POST" accept-charset="utf-8" class="form" role="form">
 											<input type="hidden" name="_method" value="DELETE">
 											<input type="hidden" name="name" value="<?php echo $ad['name']; ?>">
 											<button class="btn btn-sm btn-primary" type="submit" name="deletead">DELETE</button>
