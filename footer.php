@@ -9,35 +9,7 @@
 
 		<section class="cards">
 
-			<article class="card">
-				<div class="text-center"><img class="card-image" alt="" /></div>
-				<p><div><a href="#" target="_blank">Link Ad 1</a></div><div>content for ad one</div></p>
-			</article><!-- /card-one -->
-
-			<article class="card">
-				<div class="text-center"><img class="card-image" alt="" /></div>
-				<p><div><a href="#" target="_blank">Link Ad 2</a></div><div>content for ad two</div></p>
-			</article><!-- /card-two -->
-
-			<article class="card">
-				<div class="text-center"><img class="card-image" alt="" /></div>
-				<p><div><a href="#" target="_blank">Link Ad 3</a></div><div>content for ad three</div></p>
-			</article><!-- /card-three -->
-
-			<article class="card">
-				<div class="text-center"><img class="card-image" alt="" /></div>
-				<p><div><a href="#" target="_blank">Link Ad 4</a></div><div>content for ad four</div></p>
-			</article><!-- /card-four -->
-
-			<article class="card">
-				<div class="text-center"><img class="card-image" alt="" /></div>
-				<p><div><a href="#" target="_blank">Link Ad 5</a></div><div>content for ad five</div></p>
-			</article><!-- /card-four -->
-
-			<article class="card">
-				<div class="text-center"><img class="card-image" alt="" /></div>
-				<p><div><a href="#" target="_blank">Link Ad 6</a></div><div>content for ad six</div></p>
-			</article><!-- /card-four -->
+			<?php include_once 'rotator.php'; ?>
 			
 		</section>
 

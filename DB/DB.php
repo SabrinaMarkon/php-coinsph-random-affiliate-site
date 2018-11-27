@@ -60,10 +60,10 @@ username varchar(255) not null default 'admin',
 `subject` varchar(255) not null,
 message longtext not null,
 url varchar(255) not null,
-needtosend char(1) not null default '0',
+needtosend tinyint(1) not null default '0',
 sent datetime DEFAULT NULL,
 clicks int(11) not null default '0',
-save char(1) not null default '0',
+save tinyint(1) not null default '0',
 PRIMARY KEY (`id`),
 KEY mail_username_foreign (username)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
