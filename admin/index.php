@@ -346,7 +346,7 @@ if (isset($_POST['login'])) {
     if (isset($_POST['deleteadminwallet'])) {
     
         # admin deleted an admin wallet id.
-        $delete = new Promotional();
+        $delete = new AdminWallet();
         $show = $delete->deleteAdminWallet($id);
     }
 
