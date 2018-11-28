@@ -195,9 +195,9 @@ class FormValidation {
 
                     $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
                 }
-                elseif ($numchars > 20) {
+                elseif ($numchars > 12) {
 
-                    $errors .= "<div><strong>The size of " . $pretty_varname . " must be 20 or less characters.</strong></div>";
+                    $errors .= "<div><strong>The size of " . $pretty_varname . " must be 12 or less characters.</strong></div>";
                 }
 
             } elseif ($varname === 'description') {
@@ -211,9 +211,9 @@ class FormValidation {
 
                     $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
                 }
-                elseif ($numchars > 50) {
+                elseif ($numchars > 20) {
 
-                    $errors .= "<div><strong>The size of " . $pretty_varname . " must be 50 or less characters.</strong></div>";
+                    $errors .= "<div><strong>The size of " . $pretty_varname . " must be 20 or less characters.</strong></div>";
                 }
 
             } elseif ($varname === 'message') {

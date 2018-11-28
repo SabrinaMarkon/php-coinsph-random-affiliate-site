@@ -136,16 +136,9 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deletemail'])) {
     
-        $errors = $formvalidation->validateAll($_POST);
-        if (!empty($errors)) {
-
-            $show = $errors;
-        } else {
-
-            # admin deleted an email.
-            $delete = new Mail();
-            $show = $delete->deleteMail($id);
-        }
+        # admin deleted an email.
+        $delete = new Mail();
+        $show = $delete->deleteMail($id);
     }
     
     if (isset($_POST['sendmail'])) {
@@ -199,16 +192,9 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deletepage'])) {
     
-        $errors = $formvalidation->validateAll($_POST);
-        if (!empty($errors)) {
-
-            $show = $errors;
-        } else {
-        
-            # admin deleted a page.
-            $delete = new Page();
-            $show = $delete->deletePage($id);
-        }
+        # admin deleted a page.
+        $delete = new Page();
+        $show = $delete->deletePage($id);
     }
     
     if (isset($_POST['adminaddmember'])) {
@@ -283,16 +269,9 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deletetransaction'])) {
     
-        $errors = $formvalidation->validateAll($_POST);
-        if (!empty($errors)) {
-
-            $show = $errors;
-        } else {
-        
-            # admin deleted a transaction.
-            $delete = new Money();
-            $show = $delete->deleteTransaction($id);
-        }
+        # admin deleted a transaction.
+        $delete = new Money();
+        $show = $delete->deleteTransaction($id);
     }
 
     if (isset($_POST['addrandomizer'])) {
@@ -331,16 +310,9 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deleterandomizer'])) {
 
-        $errors = $formvalidation->validateAll($_POST);
-        if (!empty($errors)) {
-
-            $show = $errors;
-        } else {
-        
-            # admin deleted a randomizer position.
-            $delete = new Randomizer();
-            $show = $delete->deleteRandomizer('',$id);
-        }
+        # admin deleted a randomizer position.
+        $delete = new Randomizer();
+        $show = $delete->deleteRandomizer('',$id);
     }
 
     if (isset($_POST['addadminwallet'])) {
@@ -373,16 +345,9 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deleteadminwallet'])) {
     
-        $errors = $formvalidation->validateAll($_POST);
-        if (!empty($errors)) {
-
-            $show = $errors;
-        } else {
-        
-            # admin deleted an admin wallet id.
-            $delete = new Promotional();
-            $show = $delete->deleteAdminWallet($id);
-        } 
+        # admin deleted an admin wallet id.
+        $delete = new Promotional();
+        $show = $delete->deleteAdminWallet($id);
     }
 
     if (isset($_POST['addpromotional'])) {
@@ -415,16 +380,9 @@ if (isset($_POST['login'])) {
     
     if (isset($_POST['deletepromotional'])) {
     
-        $errors = $formvalidation->validateAll($_POST);
-        if (!empty($errors)) {
-
-            $show = $errors;
-        } else {
-        
-            # admin deleted a promotional ad
-            $delete = new Promotional();
-            $show = $delete->deletePromotional($id);
-        } 
+        # admin deleted a promotional ad
+        $delete = new Promotional();
+        $show = $delete->deletePromotional($id);
     }
 
     if (isset($_POST['createad'])) {
