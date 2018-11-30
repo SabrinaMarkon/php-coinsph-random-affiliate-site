@@ -85,19 +85,19 @@ $activeads = $ads->getAllUsersAds($username);
 				<form action="/ads/<?php echo $adid ?>" method="post" accept-charset="utf-8" class="form" role="form">
 
 					<label for="name">Name of Ad (only you see):</label>
-					<input type="text" name="name" class="form-control input-lg" placeholder="Name" required>
+					<input type="text" name="name" id="name" class="form-control input-lg" placeholder="Name" required>
 
 					<label for="title">Ad Title:</label>
-					<input type="text" name="title" class="form-control input-lg" placeholder="Ad Title" required>
+					<input type="text" name="title" id="title" class="form-control input-lg" placeholder="Ad Title" required>
 
 					<label for="url">Click-Thru URL:</label>
-					<input type="url" name="url" class="form-control input-lg" placeholder="Click-Thru URL" required>
+					<input type="url" name="url" id="url" class="form-control input-lg" placeholder="Click-Thru URL" required>
 
 					<label for="description">Ad Text:</label>
-					<input type="text" name="description" class="form-control input-lg" placeholder="Ad Text" required>
+					<input type="text" name="description" id="description" class="form-control input-lg" placeholder="Ad Text" required>
 
 					<label for="imageurl">Image URL: (100 x 100 pixels only)</label>
-					<input type="url" name="imageurl" class="form-control input-lg" placeholder="Image URL" required>
+					<input type="url" name="imageurl" id="imageurl" class="form-control input-lg" placeholder="Image URL" required>
 
 					<div class="ja-bottompadding"></div>
 

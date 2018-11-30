@@ -21,9 +21,6 @@
     <!-- Custom styles -->
     <link href="css/custom.css" rel="stylesheet" />
 
-    <!-- CSS for input character counter -->
-    <link href="css/cw-charcount.css" rel="stylesheet" type="text/css">
-
   </head>
 
   <body>
