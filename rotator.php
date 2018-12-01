@@ -31,8 +31,10 @@ if ($rotators) {
         # get clicks when people click too.
         ?>
         <article class="card">
+            
             <div class="text-center"><img class="card-image" alt="<?php echo $rtitle; ?>" src="<?php echo $rimageurl; ?>" /></div>
-            <p><div><a href="<?php echo $rurl ?>" target="_blank"><?php echo $rtitle; ?></a></div><div><?php echo $rdescription; ?></div></p>
+            <p><div><a href="/click/<?php echo $rid ?>" target="_blank"><?php echo $rtitle; ?></a></div><div><?php echo $rdescription; ?></div></p>
+
         </article>
         <?php
     }
