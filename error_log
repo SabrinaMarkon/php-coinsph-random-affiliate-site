@@ -1,1 +1,10 @@
 [27-Nov-2018 08:54:54 UTC] PHP Notice:  Use of undefined constant ERRMODE_EXCEPTION - assumed 'ERRMODE_EXCEPTION' in /home/randombtcads/public_html/rotator.php on line 16
+[01-Dec-2018 07:01:18 UTC] PHP Notice:  Undefined variable: referid in /home/randombtcads/public_html/click.php on line 8
+[01-Dec-2018 08:03:17 UTC] PHP Notice:  Use of undefined constant ERRMODE_EXCEPTION - assumed 'ERRMODE_EXCEPTION' in /home/randombtcads/public_html/classes/Rotator.php on line 23
+[01-Dec-2018 08:03:17 UTC] PHP Fatal error:  Call to undefined function prepare() in /home/randombtcads/public_html/classes/Rotator.php on line 25
+[01-Dec-2018 08:16:07 UTC] PHP Fatal error:  Call to undefined function prepare() in /home/randombtcads/public_html/classes/Rotator.php on line 25
+[01-Dec-2018 08:16:49 UTC] PHP Fatal error:  Call to undefined function prepare() in /home/randombtcads/public_html/classes/Rotator.php on line 32
+[01-Dec-2018 08:18:58 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/randombtcads/public_html/header.php:38) in /home/randombtcads/public_html/classes/Rotator.php on line 36
+[01-Dec-2018 08:23:22 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/randombtcads/public_html/header.php:38) in /home/randombtcads/public_html/click.php on line 17
+[01-Dec-2018 08:23:52 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/randombtcads/public_html/header.php:38) in /home/randombtcads/public_html/click.php on line 16
+[01-Dec-2018 09:15:26 UTC] PHP Notice:  Undefined index: page in /home/randombtcads/public_html/index.php on line 198

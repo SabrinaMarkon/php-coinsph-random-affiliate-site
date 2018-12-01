@@ -20,12 +20,28 @@ class Rotator {
     public function giveClick($id) {
 
         $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE,ERRMODE_EXCEPTION);
-        $sql = "update ads set clicks=clicks+1 where id=?";
-        $q = prepare($sql);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "select url from ads where id=?";
+        $q = $pdo->prepare($sql);
         $q->execute([$id]);
+        $url = $q->fetchColumn();
 
-        Database::disconnect();
+        if ($url) {
+
+            $sql = "update ads set clicks=clicks+1 where id=?";
+            $q = $pdo->prepare($sql);
+            $q->execute([$id]);
+            
+            Database::disconnect();
+
+            return $url;
+
+        } else {
+
+            Database::disconnect();
+            return;
+        }
+
     }
 
     public function giveHit($id) {
@@ -33,7 +49,7 @@ class Rotator {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,ERRMODE_EXCEPTION);
         $sql = "update ads set hits=hits+1 where id=?";
-        $q = prepare($sql);
+        $q = $pdo->prepare($sql);
         $q->execute([$id]);
 
         Database::disconnect();
