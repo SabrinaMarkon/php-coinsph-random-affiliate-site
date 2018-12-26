@@ -37,12 +37,6 @@ $bitcoin = new Bitcoin();
 		
 			<h1 class="ja-bottompadding">Your Randomizer</h1>
 
-            <form class="form-group form-inline my-5" disabled>
-            <label for="referralurl" class="control-label">Your Referral URL:&nbsp;</label>
-            <input type="text" id="referralurl" class="form-control mr-2 w-50" value="<?php echo $domain ?>/r/<?php echo $username ?>" readonly>
-            <button class="form-control mr-2" onClick="copyToClipboard(document.getElementById('referralurl').value);return false;">COPY</button>
-			</form>
-
 			<?php
 			if (empty($positions)) {
 
@@ -75,9 +69,15 @@ $bitcoin = new Bitcoin();
                 echo "<div class=\"ja-bottompadding mb-5\"></div>";
                 
 				# person has at least one randomizer position they paid for (sponsor and random) that has been added.
-                # show those positions.
+                # show their referral url AND those positions.
 
 				?>
+                <form class="form-group form-inline my-5" disabled>
+                <label for="referralurl" class="control-label">Your Referral URL:&nbsp;</label>
+                <input type="text" id="referralurl" class="form-control mr-2 w-50" value="<?php echo $domain ?>/r/<?php echo $username ?>" readonly>
+                <button class="form-control mr-2" onClick="copyToClipboard(document.getElementById('referralurl').value);return false;">COPY</button>
+                </form>
+
 				<div class="table-responsive ja-toppadding">
 					<table class="table table-condensed table-bordered table-striped table-hover text-center table-sm">
 						<thead>

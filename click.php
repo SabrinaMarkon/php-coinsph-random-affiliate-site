@@ -7,6 +7,7 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 
 # get the end part of the url, which is normally the referid for the main site files, but will be actually the id of the clicked ad for this php file only.
 $id = $_SESSION['referid'];
+// session_unset();
 
 $giveclicks = new Rotator();
 $click = $giveclicks->giveClick($id);
