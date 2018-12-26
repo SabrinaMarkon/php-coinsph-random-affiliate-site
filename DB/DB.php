@@ -12,7 +12,8 @@ adminautoapprove tinyint(1) not null default '0',
 admindefaultwalletid varchar(500) not null default '',
 giveextratoadmin tinyint(1) not null default '1',
 paysponsor decimal(9,2) not null default '5.00',
-payrandom decimal(9,2) not null default '3.00'
+payrandom decimal(9,2) not null default '3.00',
+adclickstogetad integer unsigned not null default '100'
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE adminwallets (
@@ -82,7 +83,8 @@ signupip varchar(255) not null,
 verificationcode varchar(255) not null,
 verified varchar(255) not null,
 referid varchar(255) not null,
-lastlogin datetime not null
+lastlogin datetime not null,
+adclicks integer unsigned not null default '0'
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `pages` (

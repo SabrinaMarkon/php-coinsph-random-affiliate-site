@@ -31,6 +31,7 @@ class Setting
         $newgiveextratoadmin = $_POST['giveextratoadmin'];
         $newpaysponsor = $_POST['paysponsor'];
         $newpayrandom = $_POST['payrandom'];
+        $newadclickstogetad = $_POST['adclickstogetad'];
 
         # if either username or password changed, update session.
         if (($adminuser !== $newadminuser) or ($adminpass !== $newadminpass)) {
@@ -61,10 +62,10 @@ class Setting
         }
 
         $sql = "update adminsettings set adminuser=?, adminpass=?, adminname=?, adminemail=?, sitename=?, 
-        domain=?, adminratio=?, adminautoapprove=?, admindefaultwalletid=?, giveextratoadmin=?, paysponsor=?, payrandom=?";
+        domain=?, adminratio=?, adminautoapprove=?, admindefaultwalletid=?, giveextratoadmin=?, paysponsor=?, payrandom=?, adclickstogetad=?";
         $q = $pdo->prepare($sql);
         $q-> execute(array($newadminuser, $newadminpass, $newadminname, $newadminemail, $newsitename, 
-        $newdomain, $newadminratio, $newadminautoapprove, $newadmindefaultwalletid, $newgiveextratoadmin, $newpaysponsor, $newpayrandom));
+        $newdomain, $newadminratio, $newadminautoapprove, $newadmindefaultwalletid, $newgiveextratoadmin, $newpaysponsor, $newpayrandom, $newadclickstogetad));
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Site Settings Were Saved!</strong></div>";

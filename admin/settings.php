@@ -89,6 +89,9 @@ foreach ($settings as $key => $value)
                     </select>
                 </div>
 
+                <label for="adclickstogetad" class="ja-toppadding">Click How Many Ads to get another Free Ad:</label>
+                $&nbsp;<input type="number" min="1" step="1" name="adclickstogetad" value="<?php echo $adclickstogetad ?>" class="form-control smallselect" required>
+
                 <div class="ja-bottompadding"></div>
 
                 <button class="btn btn-lg btn-primary" type="submit" name="savesettings">Save Settings</button>
