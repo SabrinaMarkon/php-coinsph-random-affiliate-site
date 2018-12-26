@@ -171,6 +171,11 @@ class Member
 		$q = $pdo->prepare($sql);
         $q->execute([$walletid,$username]);
         
+        # update transactions wallet ids.
+		$sql = "update transactions set recipientwalletid=? where recipient=?";
+		$q = $pdo->prepare($sql);
+        $q->execute([$walletid,$username]);
+        
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Member " . $username . " was Saved!</strong></div>";

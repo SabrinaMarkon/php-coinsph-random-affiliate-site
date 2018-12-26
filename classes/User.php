@@ -283,6 +283,11 @@ class User
 		$q = $pdo->prepare($sql);
 		$q->execute([$walletid,$username]);
 
+		# update transactions wallet ids.
+		$sql = "update transactions set recipientwalletid=? where recipient=?";
+		$q = $pdo->prepare($sql);
+		$q->execute([$walletid,$username]);
+
 		if ($email !== $oldemail) {
 			
 			$verificationcode = time() . mt_rand(10, 100);
