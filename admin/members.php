@@ -45,7 +45,7 @@ $members = $allmembers->getAllMembers();
                 <label sr-only for="confirm_password" class="ja-toppadding">Confirm Password:</label>
                 <input type="password" name="confirm_password" id="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password" required>
 
-                <label sr-only for="walletid" class="ja-toppadding">Bitcoin Wallet ID:</label>
+                <label sr-only for="walletid" class="ja-toppadding">Wallet:</label>
                 <input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
 
                 <label sr-only for="country" class="ja-toppadding">Country:</label>
@@ -80,7 +80,7 @@ $members = $allmembers->getAllMembers();
                         <th class="text-center small">#</th>
                         <th class="text-center small">Username</th>
                         <th class="text-center small">Password</th>
-                        <th class="text-center small">Wallet&nbsp;ID</th>
+                        <th class="text-center small">Wallet</th>
                         <th class="text-center small">First&nbsp;Name</th>
                         <th class="text-center small">Last&nbsp;Name</th>
                         <th class="text-center small">Email&nbsp;Address</th>

@@ -45,7 +45,7 @@ echo $showcontent->showPage('Members Area Profile Page');
 						<label for="confirm_password" class="ja-toppadding">Confirm Password:</label>
 						<input type="password" name="confirm_password" id="confirm_password" value="<?php echo $password ?>" class="form-control input-lg" placeholder="Confirm Password" required>
 
-						<label for="walletid" class="ja-toppadding">Bitcoin Wallet ID:</label>
+						<label for="walletid" class="ja-toppadding">Coins.ph Peso Wallet Address:</label>
 						<input type="text" name="walletid" value="<?php echo $walletid ?>" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
 
 						<label for="country" class="ja-toppadding">Country:</label>

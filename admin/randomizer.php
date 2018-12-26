@@ -24,7 +24,7 @@ $randomizers = $allrandomizers->getAllRandomizers();
                 <label for="username" class="ja-toppadding">Username:</label>
                 <input type="text" name="username" value="" class="form-control input-lg" placeholder="Username" required>
 
-                <label for="walletid" class="ja-toppadding">Bitcoin Wallet ID:</label>
+                <label for="walletid" class="ja-toppadding">Wallet:</label>
                 <input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
 
                 <div class="ja-bottompadding"></div>
@@ -43,7 +43,7 @@ $randomizers = $allrandomizers->getAllRandomizers();
                     <tr>
                         <th class="text-center small">Position ID#</th>
                         <th class="text-center small">Username</th>
-                        <th class="text-center small">Wallet ID</th>
+                        <th class="text-center small">Wallet</th>
                         <th class="text-center small">Was Paid as Sponsor</th>
                         <th class="text-center small">Is Owed as Sponsor</th>
                         <th class="text-center small">Was Paid as Random Payee</th>

@@ -32,7 +32,7 @@ class Bitcoin {
         if ($data) {
 
             $recipientwalletid = $data['recipientwalletid'];
-            $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $settings['paysponsor'] . " to Bitcoin Wallet or Coins PH Wallet ID: " . $recipientwalletid . "</strong></div>";
+            $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $settings['paysponsor'] . " to Coins.ph Peso Wallet Address: " . $recipientwalletid . "</strong></div>";
         }
 
         # Does the user still have to pay their sponsor (or have them confirm the payment)?
@@ -43,7 +43,7 @@ class Bitcoin {
         if ($data) {
 
             $recipientwalletid = $data['recipientwalletid'];
-            $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $settings['payrandom']. " to Bitcoin Wallet or Coins PH Wallet ID: " . $recipientwalletid . "</strong></div>";
+            $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $settings['payrandom']. " to Coins.ph Peso Wallet Address: " . $recipientwalletid . "</strong></div>";
         }
 
         DATABASE::disconnect();
