@@ -10,6 +10,7 @@ adminratio integer unsigned not null default '5',
 ratiocounter tinyint(4) unsigned not null default '0',
 adminautoapprove tinyint(1) not null default '0',
 admindefaultwalletid varchar(500) not null default '',
+admindefaultcoinsphp varchar(500) not null default '',
 giveextratoadmin tinyint(1) not null default '1',
 paysponsor decimal(9,2) not null default '5.00',
 payrandom decimal(9,2) not null default '3.00',
@@ -19,7 +20,8 @@ adclickstogetad integer unsigned not null default '100'
 CREATE TABLE adminwallets (
   id integer unsigned not null primary key auto_increment,
   name varchar(255) not null default 'Main Admin',
-  walletid varchar(500) not null
+  walletid varchar(500) not null,
+  coinsphpid varchar(500) not null
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `adminnotes` (
@@ -74,6 +76,7 @@ id integer unsigned not null primary key auto_increment,
 username varchar(255) not null unique,
 password varchar(255) not null,
 walletid varchar(500) not null,
+coinsphpid varchar(500) not null,
 firstname varchar(255) not null,
 lastname varchar(255) not null,
 country varchar(255) not null,
@@ -109,7 +112,8 @@ CREATE TABLE `promotional` (
 create table randomizer (
   id integer unsigned not null auto_increment primary key,
   username varchar(255) not null,
-  walletid varchar(255) not null,
+  walletid varchar(500) not null,
+  coinsphpid varchar(500) not null,
   foreign key (username) references members(username)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
@@ -121,6 +125,8 @@ create table transactions (
   amount decimal(9,2) not null default '0.00',
   recipient varchar(255) not null default 'admin',
   recipientwalletid varchar(500) not null,
+  recipientcoinsphp varchar(500) not null,
+  recipientcoinsphp varchar(500) not null,
   recipienttype varchar(255) not null default 'sponsor',
   recipientapproved tinyint(1) not null default '0',
   datepaid varchar(255) not null,

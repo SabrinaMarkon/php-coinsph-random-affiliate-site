@@ -51,6 +51,10 @@ foreach ($settings as $key => $value)
                 <input type="hidden" name="oldadmindefaultwalletid" value="<?php echo $admindefaultwalletid ?>">
                 <input type="text" name="admindefaultwalletid" value="<?php echo $admindefaultwalletid ?>" class="form-control input-lg" placeholder="Admin Default Wallet ID" required>
 
+                <label for="admindefaultcoinsphp" class="ja-toppadding">Admin Default Coins.ph Peso ID:</label>
+                <input type="hidden" name="oldadmindefaultcoinsphp" value="<?php echo $admindefaultcoinsphp ?>">
+                <input type="text" name="admindefaultcoinsphp" value="<?php echo $admindefaultcoinsphp ?>" class="form-control input-lg" placeholder="Admin Default Coins.ph Peso ID">
+
                 <div>
                     <label for="adminratio" class="ja-toppadding">Admin Ratio for Randomizer:</label>
                     <br/>Show an Admin Wallet ID Every&nbsp;
