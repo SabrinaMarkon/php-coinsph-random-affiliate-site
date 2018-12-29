@@ -118,25 +118,25 @@ $members = $allmembers->getAllMembers();
                                 <?php echo $member['id']; ?>
                             </td>
                             <td>
-                                <input type="text" name="username" value="<?php echo $member['username']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Username" required>
+                                <input type="text" name="username" value="<?php echo $member['username']; ?>" class="form-control input-sm widetableinput" placeholder="Username" required>
                             </td>
                             <td>
-                                <input type="text" name="password" value="<?php echo $member['password']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Password" required>
+                                <input type="text" name="password" value="<?php echo $member['password']; ?>" class="form-control input-sm widetableinput" placeholder="Password" required>
                             </td>
                             <td>
-                                <input type="text" name="walletid" value="<?php echo $member['walletid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Bitcoin">
+                                <input type="text" name="walletid" value="<?php echo $member['walletid']; ?>" class="form-control input-sm widetableinput" placeholder="Bitcoin">
                             </td>
                             <td>
-                                <input type="text" name="coinsphpid" value="<?php echo $member['coinsphpid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Coins.ph">
+                                <input type="text" name="coinsphpid" value="<?php echo $member['coinsphpid']; ?>" class="form-control input-sm widetableinput" placeholder="Coins.ph">
                             </td>
                             <td>
-                                <input type="text" name="firstname" value="<?php echo $member['firstname']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="First Name" required>
+                                <input type="text" name="firstname" value="<?php echo $member['firstname']; ?>" class="form-control input-sm widetableinput" placeholder="First Name" required>
                             </td>
                             <td>
-                                <input type="text" name="lastname" value="<?php echo $member['lastname']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Last Name" required>
+                                <input type="text" name="lastname" value="<?php echo $member['lastname']; ?>" class="form-control input-sm widetableinput" placeholder="Last Name" required>
                             </td>
                             <td>
-                                <input type="email" name="email" value="<?php echo $member['email']; ?>" class="form-control input-sm widetableinput" size="60" placeholder="Email" required>
+                                <input type="email" name="email" value="<?php echo $member['email']; ?>" class="form-control input-sm widetableinput" placeholder="Email" required>
                             </td>
                             <td class="small">
                                 <?php echo $verified ?>
@@ -156,13 +156,13 @@ $members = $allmembers->getAllMembers();
                                 <?php echo $datesignedup ?>
                             </td>
                             <td>
-                                <input type="text" name="signupip" value="<?php echo $member['signupip']; ?>" class="form-control input-sm widetableinput" size="60" placeholder="IP" required>
+                                <input type="text" name="signupip" value="<?php echo $member['signupip']; ?>" class="form-control input-sm widetableinput" placeholder="IP" required>
                             </td>
                             <td class="small">
                                 <?php echo $datelastlogin ?>
                             </td>
                             <td>
-                                <input type="text" name="referid" value="<?php echo $member['referid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Sponsor" required>
+                                <input type="text" name="referid" value="<?php echo $member['referid']; ?>" class="form-control input-sm widetableinput" placeholder="Sponsor" required>
                             </td>
                             <td>
                                 <input type="hidden" name="_method" value="PATCH">

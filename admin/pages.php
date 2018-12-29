@@ -173,6 +173,7 @@ $pages = $allpages->getAllPages();
                 <form action="/admin/pages" method="post" accept-charset="utf-8" class="form" role="form">
                     <div class="form-group">
                         <div class="row">
+                            <div class="col-sm-12 mb-3"><label for="id">Create New Page:</label></div>
                             <div class="col-sm-12">
                                 <label for="name">Page Name</label>
                                 <input type="text" name="name" placeholder="Page Name" class="form-control">
