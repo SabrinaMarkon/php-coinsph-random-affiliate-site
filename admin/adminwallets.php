@@ -67,10 +67,10 @@ $adminwallets = $alladminwallets->getAllAdminWallets();
                                 <input type="text" name="name" value="<?php echo $adminwallet['name']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Wallet Name" required>
                             </td>
                             <td>
-                                <input type="text" name="walletid" value="<?php echo $adminwallet['walletid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Bitcoin" required>
+                                <input type="text" name="walletid" value="<?php echo $adminwallet['walletid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Bitcoin">
                             </td>
                             <td>
-                                <input type="text" name="coinsphpid" value="<?php echo $adminwallet['coinsphpid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Coins.ph" required>
+                                <input type="text" name="coinsphpid" value="<?php echo $adminwallet['coinsphpid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Coins.ph">
                             </td>
                             <td>
                                 <input type="hidden" name="_method" value="PATCH">
