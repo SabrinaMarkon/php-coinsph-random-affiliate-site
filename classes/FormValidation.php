@@ -29,8 +29,10 @@ class FormValidation {
         'confirm_adminpass' => 'admin password confirmation',
         'adminuser' => 'admin username',
         'referid' => 'referid',
-        'walletid' => 'wallet ID',
-        'admindefaultwalletid' => 'admin wallet ID',
+        'walletid' => 'Bitcoin wallet ID',
+        'coinsphpid' => 'Coins.ph Peso wallet ID',
+        'admindefaultwalletid' => 'admin Bitcoin wallet ID',
+        'admindefaultcoinsphpid' => 'admin Coins.php Peso wallet ID',
         'sitename' => 'site name',
         'recipient' => 'recipient',
         'transaction' => 'transaction',
@@ -96,6 +98,16 @@ class FormValidation {
             # if password fields were submitted, are they the same?
             $errors = $this->checkPasswordsMatch($post['password'],$post['confirm_password'],$errors);
         }
+        if (isset($post['walletid']) || isset($post['coinsphpid'])) {
+
+            # if walletid and/or coinsphpid are submitted, one or both must be filled in.
+            $errors = $this->checkOneOrBothWalletTypes($post['walletid'],$post['coinsphpid'],$errors);
+        }
+        if (isset($post['admindefaultwalletid']) || isset($post['admindefaultcoinsphpid'])) {
+
+            # if admindefaultwalletid and/or admindefaultcoinsphpid are submitted, one or both must be filled in.
+            $errors = $this->checkOneOrBothWalletTypes($post['admindefaultwalletid'],$post['admindefaultcoinsphpid'],$errors);
+        }
         if (isset($post['adminpass']) && isset($post['confirm_adminpass'])) {
     
             # if admin password fields were submitted, are they the same?
@@ -128,10 +140,10 @@ class FormValidation {
 
         foreach ($post as $varname => $varvalue) {
 
-            # user's username, password, confirm_password, walletid.
-            # admin's username, password, confirm_password, walletid, admindefaultwalletid, sitename.
+            # user's username, password, confirm_password.
+            # admin's username, password, confirm_password, sitename.
             # admin money area's transaction.
-            # admin area randomizer's username and walletid for randomizer positions.
+            # admin area randomizer's username for randomizer positions.
 
             if (in_array($varname, $this->PRETTY_VARNAMES)) {
 
@@ -142,8 +154,8 @@ class FormValidation {
             }
 
             if ($varname === 'username' || $varname === 'password' || $varname === 'confirm_password' || 
-                $varname === 'walletid' || $varname === 'adminuser' || $varname === 'adminpass' || $varname === 'confirm_adminpass' || 
-                $varname === 'admindefaultwalletid' || $varname === 'sitename' || $varname === 'recipient' || $varname === 'transaction') {
+            $varname === 'adminuser' || $varname === 'adminpass' || $varname === 'confirm_adminpass' 
+            || $varname === 'sitename' || $varname === 'recipient' || $varname === 'transaction') {
 
                 $varvalue = filter_var($varvalue, FILTER_SANITIZE_STRING);
                 $numchars = strlen($varvalue);
@@ -164,7 +176,7 @@ class FormValidation {
 
                 # user's firstname, lastname.
                 # user's country.
-                # ad's name, admin's walletid's name.
+                # ad's name, admin's walletid's/coinsphpid's name.
                 # admin email's subject.
                 # admin's settings name.
                 # randomizer's datapaid.
@@ -501,6 +513,51 @@ class FormValidation {
         if ($password !== $confirm) {
 
             $errors .= "<div><strong>Your passwords do not match.</strong></div>";
+        }
+
+        return $errors;
+    }
+
+    # make sure that either a walletid or coinsphpid or both are filled in.
+    public function checkOneOrBothWalletTypes($walletid,$coinsphpid,$errors) {
+
+        if ($walletid === '' && $coinsphpid === '') {
+
+            $errors .= "<div><strong>You need to add either a Bitcoin wallet ID, a Coins.php Peso wallet ID, or both.</strong></div>";
+        }
+        
+        if ($walletid !== '') {
+
+            $walletid = filter_var($walletid, FILTER_SANITIZE_STRING);
+            $numchars = strlen($walletid);
+    
+            if ($numchars < 5) {
+    
+                $errors .= "<div><strong>The size of the Bitcoin Wallet ID must be 5 or more characters.</strong></div>";
+            } elseif ($numchars === 0) {
+    
+                $errors .= "<div><strong>Bitcoin Wallet ID cannot be blank.</strong></div>";
+            } elseif ($numchars > 50) {
+    
+                $errors .= "<div><strong>The size of the Bitcoin Wallet ID must be 50 or less characters.</strong></div>";
+            }
+        }
+
+        if ($coinsphpid !== '') {
+
+            $coinsphpid = filter_var($coinsphpid, FILTER_SANITIZE_STRING);
+            $numchars = strlen($coinsphpid);
+    
+            if ($numchars < 5) {
+    
+                $errors .= "<div><strong>The size of the Coins.php Peso Wallet ID must be 5 or more characters.</strong></div>";
+            } elseif ($numchars === 0) {
+    
+                $errors .= "<div><strong>Coins.php Peso Wallet ID cannot be blank.</strong></div>";
+            } elseif ($numchars > 50) {
+    
+                $errors .= "<div><strong>The size of the Coins.php Peso Wallet ID must be 50 or less characters.</strong></div>";
+            }
         }
 
         return $errors;

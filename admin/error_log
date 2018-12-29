@@ -36,3 +36,6 @@ Stack trace:
 #2 /home/randombtcads/public_html/admin/index.php(453): include('/home/randombtc...')
 #3 {main}
   thrown in /home/randombtcads/public_html/classes/Randomizer.php on line 49
+[29-Dec-2018 02:54:18 UTC] PHP Fatal error:  Call to undefined function checkOneOrBothWalletTypes() in /home/randombtcads/public_html/classes/FormValidation.php on line 109
+[29-Dec-2018 02:55:40 UTC] PHP Fatal error:  Call to undefined function checkOneOrBothWalletTypes() in /home/randombtcads/public_html/classes/FormValidation.php on line 109
+[29-Dec-2018 02:56:06 UTC] PHP Fatal error:  Call to undefined function checkOneOrBothWalletTypes() in /home/randombtcads/public_html/classes/FormValidation.php on line 109
