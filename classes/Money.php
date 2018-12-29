@@ -72,6 +72,7 @@ class Money
         $username = $_POST['username'];
         $recipient = $_POST['recipient'];
         $recipientwalletid = $_POST['recipientwalletid'];
+        $recipientcoinsphpid = $_POST['recipientcoinsphpid'];
         $recipienttype = $_POST['recipienttype'];
         $amount = $_POST['amount'];
         $transaction = $_POST['transaction'];
@@ -80,9 +81,9 @@ class Money
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
         # create a transactions.
-        $sql = "insert into transactions (username,amount,recipient,recipientwalletid,recipienttype,transaction) values (?,?,?,?,?,?)";
+        $sql = "insert into transactions (username,amount,recipient,recipientwalletid,recipientcoinsphpid,recipienttype,transaction) values (?,?,?,?,?,?,?)";
         $q = $pdo->prepare($sql);
-        $q->execute([$username,$amount,$recipient,$recipientwalletid,$recipienttype,$transaction]);
+        $q->execute([$username,$amount,$recipient,$recipientwalletid,$recipientcoinsphpid,$recipienttype,$transaction]);
         
         DATABASE::disconnect();
 
@@ -114,12 +115,13 @@ class Money
         $returnshow = '';
         if ($recipientapproved === "1" and $oldrecipientapproved === "0") {
    
-            # get the walletid of the user who paid this one.
+            # get the walletid & coinsphpid of the user who paid this one.
             $bitcoin = new Bitcoin();
             $walletid = $bitcoin->getUsersWalletID($username);
+            $coinsphpid = $bitcoin->getUsersCoinsphPID($username);
 
             $checkifuserpaidtwo = new ConfirmPayment();
-            $returnshow = $checkifuserpaidtwo->maybeGiveAdandRandomizer($pdo,$username,$walletid);
+            $returnshow = $checkifuserpaidtwo->maybeGiveAdandRandomizer($pdo,$username,$walletid,$coinsphpid);
                 
             }
 

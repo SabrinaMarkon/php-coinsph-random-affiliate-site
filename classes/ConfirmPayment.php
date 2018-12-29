@@ -23,6 +23,7 @@ class ConfirmPayment {
 
         $userwhopaid = $_POST['userwhopaid'];
         $userwhopaidwalletid = $_POST['userwhopaidwalletid'];
+        $userwhopaidcoinsphpid = $_POST['userwhopaidcoinsphpid'];
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);       
@@ -33,7 +34,7 @@ class ConfirmPayment {
         $q = $pdo->prepare($sql);
         $q->execute([$now,$id]);
 
-        $this->maybeGiveAdandRandomizer($pdo,$userwhopaid,$userwhopaidwalletid);
+        $this->maybeGiveAdandRandomizer($pdo,$userwhopaid,$userwhopaidwalletid,$userwhopaidcoinsphpid);
        
         DATABASE::disconnect();
 
@@ -55,7 +56,7 @@ class ConfirmPayment {
         return;
     }
 
-    public function maybeGiveAdandRandomizer($pdo,$userwhopaid,$userwhopaidwalletid) {
+    public function maybeGiveAdandRandomizer($pdo,$userwhopaid,$userwhopaidwalletid,$userwhopaidcoinsphpid) {
 
         /* check to see if the person who paid ($userwhopaid) now has two transaction ids, one THEY paid to THEIR sponsor,
         and one for a random member THEY paid. */
@@ -88,7 +89,7 @@ class ConfirmPayment {
         if ($totalverified === 2) {
 
             $addposition = new Randomizer();
-            $randomizerid = $addposition->addRandomizer($userwhopaid,$userwhopaidwalletid,0);
+            $randomizerid = $addposition->addRandomizer($userwhopaid,$userwhopaidwalletid,$userwhopaidcoinsphpid,0);
 
             $addad = new Ad();
             $adid = $addad->createBlankAd($userwhopaid);

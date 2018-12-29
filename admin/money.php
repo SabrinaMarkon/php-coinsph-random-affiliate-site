@@ -27,9 +27,12 @@ $transactions = $alltransactions->getAllTransactions();
                 <label for="referid" class="ja-toppadding">Recipient (Payee):</label> 
                 <input type="text" name="recipient" value="" class="form-control input-lg" placeholder="Recipient" required>
 
-                <label for="recipientwalletid" class="ja-toppadding">Recipient Wallet ID:</label>
-                <input type="text" name="recipientwalletid" value="" class="form-control input-lg" placeholder="Recipient Wallet ID" required>
+                <label for="recipientwalletid" class="ja-toppadding">Recipient Bitcoin Wallet ID:</label>
+                <input type="text" name="recipientwalletid" value="" class="form-control input-lg" placeholder="Recipient Bitcoin Wallet ID">
 
+                <label for="recipientcoinsphpid" class="ja-toppadding">Recipient Coins.ph Peso Wallet ID:</label>
+                <input type="text" name="recipientcoinsphpid" value="" class="form-control input-lg" placeholder="Recipient Coins.ph Peso Wallet ID">
+                
                 <label for="recipienttype" class="ja-toppadding">Recipient Type:</label>
                 <select name="recipienttype" class="form-control input-lg">
                     <option value="sponsor">Sponsor</option>

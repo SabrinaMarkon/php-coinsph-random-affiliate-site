@@ -108,6 +108,11 @@ class FormValidation {
             # if admindefaultwalletid and/or admindefaultcoinsphpid are submitted, one or both must be filled in.
             $errors = $this->checkOneOrBothWalletTypes($post['admindefaultwalletid'],$post['admindefaultcoinsphpid'],$errors);
         }
+        if (isset($post['recipientwalletid']) || isset($post['recipientcoinsphpid'])) {
+
+            # if recipientwalletid and/or recipientcoinsphpid are submitted (for a new transaction added by admin), one or both must be filled in.
+            $errors = $this->checkOneOrBothWalletTypes($post['recipientwalletid'],$post['recipientcoinsphpid'],$errors);
+        }
         if (isset($post['adminpass']) && isset($post['confirm_adminpass'])) {
     
             # if admin password fields were submitted, are they the same?
