@@ -32,22 +32,22 @@ class Bitcoin {
         if ($data) {
 
             $recipientwalletid = $data['recipientwalletid'];
-            $recipientcoinsphp = $data['recipientcoinsphp'];
-            if ($recipientwalletid !== '' || $recipientcoinsphp !== '') {
+            $recipientcoinsphpid = $data['recipientcoinsphpid'];
+            if ($recipientwalletid !== '' || $recipientcoinsphpid !== '') {
 
                 $showbitcoin .= "<div class=\"text-center\"><strong>";
                 $showbitcoin .= "FOR YOUR SPONSOR:<br>";
                 
-                $showbitcoin .= "Please send " . $settings['paysponsor'] . "<br>";
+                $showbitcoin .= "Please send " . $settings['paysponsor'];
 
                 if ($recipientwalletid !== '') {
-                    $showbitcoin .= "to Bitcoin Wallet ID:<br>" . $recipientwalletid;
+                    $showbitcoin .= " to Bitcoin Wallet ID: " . $recipientwalletid;
                 }
-                if ($recipientwalletid !== '' && $recipientcoinsphp !== '') {
-                    $showbitcoin .= "<br><br>OR<br><br>";
+                if ($recipientwalletid !== '' && $recipientcoinsphpid !== '') {
+                    $showbitcoin .= "<br>OR ";
                 }
-                if ($recipientcoinsphp !== '') {
-                    $showbitcoin .= "to Coins.ph Peso Wallet ID:<br>" . $recipientcoinsphp;
+                if ($recipientcoinsphpid !== '') {
+                    $showbitcoin .= " to Coins.ph Peso Wallet ID: " . $recipientcoinsphpid;
                 }
 
                 $showbitcoin .= "</strong></div>";
@@ -62,22 +62,22 @@ class Bitcoin {
         if ($data) {
 
             $recipientwalletid = $data['recipientwalletid'];
-            $recipientcoinsphp = $data['recipientcoinsphp'];
-            if ($recipientwalletid !== '' || $recipientcoinsphp !== '') {
+            $recipientcoinsphpid = $data['recipientcoinsphpid'];
+            if ($recipientwalletid !== '' || $recipientcoinsphpid !== '') {
 
-                $showbitcoin .= "<div class=\"text-center\"><strong>";
+                $showbitcoin .= "<div class=\"text-center mt-3\"><strong>";
                 $showbitcoin .= "FOR A RANDOM MEMBER:<br>";
                 
-                $showbitcoin .= "Please send " . $settings['payrandom'] . "<br>";
+                $showbitcoin .= "Please send " . $settings['payrandom'];
 
                 if ($recipientwalletid !== '') {
-                    $showbitcoin .= "to Bitcoin Wallet ID:<br>" . $recipientwalletid;
+                    $showbitcoin .= " to Bitcoin Wallet ID: " . $recipientwalletid;
                 }
-                if ($recipientwalletid !== '' && $recipientcoinsphp !== '') {
-                    $showbitcoin .= "<br><br>OR<br><br>";
+                if ($recipientwalletid !== '' && $recipientcoinsphpid !== '') {
+                    $showbitcoin .= "<br>OR ";
                 }
-                if ($recipientcoinsphp !== '') {
-                    $showbitcoin .= "to Coins.ph Peso Wallet ID:<br>" . $recipientcoinsphp;
+                if ($recipientcoinsphpid !== '') {
+                    $showbitcoin .= " to Coins.ph Peso Wallet ID: " . $recipientcoinsphpid;
                 }
 
                 $showbitcoin .= "</strong></div>";
@@ -94,7 +94,7 @@ class Bitcoin {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "select * from transactions where recipient=? and (recipientwalletid=? or recipientcoinsphp=?)";
+        $sql = "select * from transactions where recipient=? and (recipientwalletid=? or recipientcoinsphpid=?)";
         $q = $pdo->prepare($sql);
         $q->execute([$username,$walletid,$coinsphpid]);
         $q->setFetchMode(PDO::FETCH_ASSOC);

@@ -111,7 +111,7 @@ $bitcoin = new Bitcoin();
                                 $amount = $transaction['amount'];
                                 $recipient = $transaction['recipient']; // THIS is the user logged in who has received payment from $payor.
                                 $recipientwalletid = $transaction['recipientwalletid'];
-                                $recipientcoinsphp = $transaction['recipientcoinsphp'];
+                                $recipientcoinsphpid = $transaction['recipientcoinsphpid'];
                                 $recipienttype = $transaction['recipienttype'];
                                 $recipientapproved = $transaction['recipientapproved'];
                                 $datepaid = $transaction['datepaid'];
@@ -132,8 +132,8 @@ $bitcoin = new Bitcoin();
                                     $payorswallets = $bitcoin->getUsersWalletIDs($username);
                                     if ($payorswallets) {
                         
-                                        $walletid = $payorswallets['walletid'];
-                                        $coinsphpid = $payorswallets['coinsphpid'];
+                                        $payorswallet = $payorswallets['walletid'];
+                                        $payorscoinsphp = $payorswallets['coinsphpid'];
                                     }
 
                                     # show the confirmation button so the user can click it when they receive payment.
@@ -142,7 +142,7 @@ $bitcoin = new Bitcoin();
                                     <input type="hidden" name="id" value="' . $transactionid . '">
                                     <input type="hidden" name="userwhopaid" value="' . $payor . '">
                                     <input type="hidden" name="userwhopaidwalletid" value="' . $payorswallet . '">
-                                    <input type="hidden" name="userwhopaidcoinsphp" value="' . $payorscoinsphp . '">
+                                    <input type="hidden" name="userwhopaidcoinsphpid" value="' . $payorscoinsphp . '">
                                     <button class="btn btn-sm ja-yellowbg" type="submit" name="confirmpaid">CONFIRM!</button>';
                                 }
 

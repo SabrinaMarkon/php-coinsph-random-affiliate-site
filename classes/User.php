@@ -327,7 +327,7 @@ class User
 		# update randomizer wallet ids.
 		$sql = "update randomizer set walletid=?, coinsphpid=? where username=?";
 		$q = $pdo->prepare($sql);
-		$q->execute([$walletid,$username]);
+		$q->execute([$walletid,$coinsphpid,$username]);
 
 		# update transactions wallet ids.
 		$sql = "update transactions set recipientwalletid=?, recipientcoinsphpid=? where recipient=?";
