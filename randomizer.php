@@ -26,11 +26,11 @@ $owed = $transactions->getUserTransactions($username,'owes');
 # get all the transactions the user will get paid or has already been paid.
 $gets = $transactions->getUserTransactions($username,'gets');
 
-# get all the transactinos that the user owed but already paid.
+# get all the transactions that the user owed but already paid.
 $paid = $transactions->getUserTransactions($username,'paid');
 
-/* for generating the walletids to pay, if payment hasn't been made yet,
-or for getting the walletids paid from the transactions table. */
+/* for generating the walletids & coinphpids to pay, if payment hasn't been made yet,
+or for getting the walletids & coinphpids paid from the transactions table. */
 $bitcoin = new Bitcoin();
 ?>
 <div class="container">
@@ -84,7 +84,8 @@ $bitcoin = new Bitcoin();
 						<tr>
                             <th class="text-center small">Record ID #</th>
 							<th class="text-center small">Position ID #</th>
-							<th class="text-center small">Your&nbsp;Wallet</th>
+							<th class="text-center small">Bitcoin&nbsp;Wallet</th>
+                            <th class="text-center small">Coins.ph&nbsp;Peso&nbsp;Wallet</th>
                             <th class="text-center small">Amount</th>
                             <th class="text-center small">Earning&nbsp;Type</th>
                             <th class="text-center small">Date&nbsp;Paid&nbsp;to&nbsp;You</th>
@@ -98,9 +99,10 @@ $bitcoin = new Bitcoin();
 
                               $id = $position['id'];
                               $walletid = $position['walletid'];
+                              $coinsphpid = $position['coinsphpid'];
                             
-                              # each walletid could have been paid/owed multiple times in transactions table. 
-                              $transactions = $bitcoin->getPaymentsReceived($username,$walletid);
+                              # each walletid/coinsphpid could have been paid/owed multiple times in transactions table. 
+                              $transactions = $bitcoin->getPaymentsReceived($username,$walletid,$coinsphpid);
                             
                               foreach ($transactions as $transaction) {
 
@@ -109,6 +111,7 @@ $bitcoin = new Bitcoin();
                                 $amount = $transaction['amount'];
                                 $recipient = $transaction['recipient']; // THIS is the user logged in who has received payment from $payor.
                                 $recipientwalletid = $transaction['recipientwalletid'];
+                                $recipientcoinsphp = $transaction['recipientcoinsphp'];
                                 $recipienttype = $transaction['recipienttype'];
                                 $recipientapproved = $transaction['recipientapproved'];
                                 $datepaid = $transaction['datepaid'];
@@ -125,8 +128,13 @@ $bitcoin = new Bitcoin();
                                     $userverifiedpayment = "You Were Paid";
                                 } else {
 
-                                    # get the walletid of the user who paid this one.
-                                    $payorswallet = $bitcoin->getUsersWalletID($payor);
+                                    # get the walletid & coinsphpid of the user who paid this one.
+                                    $payorswallets = $bitcoin->getUsersWalletIDs($username);
+                                    if ($payorswallets) {
+                        
+                                        $walletid = $payorswallets['walletid'];
+                                        $coinsphpid = $payorswallets['coinsphpid'];
+                                    }
 
                                     # show the confirmation button so the user can click it when they receive payment.
                                     $userverifiedpayment = '<form action="/randomizer" method="post" accept-charset="utf-8" class="form" role="form">
@@ -134,6 +142,7 @@ $bitcoin = new Bitcoin();
                                     <input type="hidden" name="id" value="' . $transactionid . '">
                                     <input type="hidden" name="userwhopaid" value="' . $payor . '">
                                     <input type="hidden" name="userwhopaidwalletid" value="' . $payorswallet . '">
+                                    <input type="hidden" name="userwhopaidcoinsphp" value="' . $payorscoinsphp . '">
                                     <button class="btn btn-sm ja-yellowbg" type="submit" name="confirmpaid">CONFIRM!</button>';
                                 }
 
@@ -142,6 +151,7 @@ $bitcoin = new Bitcoin();
                                     <td class="small"><?php echo $transactionid ?></td>
                                     <td class="small"><?php echo $id; ?></td>
                                     <td class="small"><?php echo $walletid; ?></td>
+                                    <td class="small"><?php echo $coinsphpid; ?></td>
                                     <td class="small"><?php echo $amount; ?></td>
                                     <td class="small"><?php echo $recipienttype; ?></td>
                                     <td class="small"><?php echo $datepaid; ?></td>

@@ -51,9 +51,10 @@ $activeads = $ads->getAllUsersAds($username);
 					been waiting a long time for the recipients to validate, please contact us with PROOF of
 					both your payments, so we can approve release of your ads, as well as your position in the randomizer.</div>";
 	
-					# Show bitcoin wallet IDs for BOTH sponsor and the random payee.
+					# Show bitcoin and coinsph wallet IDs for BOTH sponsor and the random payee.
 					$bitcoin = new Bitcoin();
 					$showbitcoin = $bitcoin->showBitCoinWalletIds($username,$settings);
+					
 					if ($showbitcoin) {
 
 						echo "<div class=\"ja-yellowbg ja-bitcoinbox\">" . $showbitcoin . "</div>";

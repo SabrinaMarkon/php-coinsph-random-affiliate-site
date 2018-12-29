@@ -117,8 +117,12 @@ class Money
    
             # get the walletid & coinsphpid of the user who paid this one.
             $bitcoin = new Bitcoin();
-            $walletid = $bitcoin->getUsersWalletID($username);
-            $coinsphpid = $bitcoin->getUsersCoinsphPID($username);
+            $walletidandcoinsphpid = $bitcoin->getUsersWalletIDs($username);
+            if ($walletidandcoinsphpid) {
+
+                $walletid = $walletidandcoinsphpid['walletid'];
+                $coinsphpid = $walletidandcoinsphpid['coinsphpid'];
+            }
 
             $checkifuserpaidtwo = new ConfirmPayment();
             $returnshow = $checkifuserpaidtwo->maybeGiveAdandRandomizer($pdo,$username,$walletid,$coinsphpid);

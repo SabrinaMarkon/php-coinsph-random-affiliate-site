@@ -32,10 +32,29 @@ class Bitcoin {
         if ($data) {
 
             $recipientwalletid = $data['recipientwalletid'];
-            $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $settings['paysponsor'] . " to Coins.ph Peso Wallet Address: " . $recipientwalletid . "</strong></div>";
+            $recipientcoinsphp = $data['recipientcoinsphp'];
+            if ($recipientwalletid !== '' || $recipientcoinsphp !== '') {
+
+                $showbitcoin .= "<div class=\"text-center\"><strong>";
+                $showbitcoin .= "FOR YOUR SPONSOR:<br>";
+                
+                $showbitcoin .= "Please send " . $settings['paysponsor'] . "<br>";
+
+                if ($recipientwalletid !== '') {
+                    $showbitcoin .= "to Bitcoin Wallet ID:<br>" . $recipientwalletid;
+                }
+                if ($recipientwalletid !== '' && $recipientcoinsphp !== '') {
+                    $showbitcoin .= "<br><br>OR<br><br>";
+                }
+                if ($recipientcoinsphp !== '') {
+                    $showbitcoin .= "to Coins.ph Peso Wallet ID:<br>" . $recipientcoinsphp;
+                }
+
+                $showbitcoin .= "</strong></div>";
+            }
         }
 
-        # Does the user still have to pay their sponsor (or have them confirm the payment)?
+        # Does the user still have to pay a random member (or have them confirm the payment)?
         $sql = "select * from transactions where username=? and recipientapproved=0 and recipienttype='random' order by id limit 1";
         $q = $pdo->prepare($sql);
         $q->execute([$username]);
@@ -43,7 +62,26 @@ class Bitcoin {
         if ($data) {
 
             $recipientwalletid = $data['recipientwalletid'];
-            $showbitcoin .= "<div class=\"text-center\"><strong>Please send " . $settings['payrandom']. " to Coins.ph Peso Wallet Address: " . $recipientwalletid . "</strong></div>";
+            $recipientcoinsphp = $data['recipientcoinsphp'];
+            if ($recipientwalletid !== '' || $recipientcoinsphp !== '') {
+
+                $showbitcoin .= "<div class=\"text-center\"><strong>";
+                $showbitcoin .= "FOR A RANDOM MEMBER:<br>";
+                
+                $showbitcoin .= "Please send " . $settings['payrandom'] . "<br>";
+
+                if ($recipientwalletid !== '') {
+                    $showbitcoin .= "to Bitcoin Wallet ID:<br>" . $recipientwalletid;
+                }
+                if ($recipientwalletid !== '' && $recipientcoinsphp !== '') {
+                    $showbitcoin .= "<br><br>OR<br><br>";
+                }
+                if ($recipientcoinsphp !== '') {
+                    $showbitcoin .= "to Coins.ph Peso Wallet ID:<br>" . $recipientcoinsphp;
+                }
+
+                $showbitcoin .= "</strong></div>";
+            }
         }
 
         DATABASE::disconnect();
@@ -52,13 +90,13 @@ class Bitcoin {
     }
 
     /* Call this to get both the owed and paid payments for this randomizer position. */
-    public function getPaymentsReceived($username,$walletid) {
+    public function getPaymentsReceived($username,$walletid,$coinsphpid) {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "select * from transactions where recipient=? and recipientwalletid=?";
+        $sql = "select * from transactions where recipient=? and (recipientwalletid=? or recipientcoinsphp=?)";
         $q = $pdo->prepare($sql);
-        $q->execute([$username,$walletid]);
+        $q->execute([$username,$walletid,$coinsphpid]);
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $transactions = $q->fetchAll();
         
@@ -70,20 +108,21 @@ class Bitcoin {
         }      
     }
 
-    /* Call this to just get a user's walletid. */
-    public function getUsersWalletID($username) {
+    /* Call this to just get a user's walletid or coinsphpid. */
+    public function getUsersWalletIDs($username) {
 
         $pdo = DATABASE::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "select walletid from members where username=?";
+        $sql = "select walletid,coinsphpid from members where username=?";
         $q = $pdo->prepare($sql);
         $q->execute([$username]);
-        $walletid = $q->fetchColumn();
-        if (!$walletid) {
-            $walletid = '';
+        $data = $q->fetch();
+
+        // $data array that is returned has walletid and coinsphpid for the user.
+        if ($data) {
+            return $data;
         }
 
-        return $walletid;
     }
 
 }

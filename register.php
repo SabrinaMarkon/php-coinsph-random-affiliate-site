@@ -49,8 +49,11 @@ echo $showcontent->showPage('Registration Page');
 						<label for="confirm_password" class="ja-toppadding">Confirm Password:</label>
 						<input type="password" name="confirm_password" id="password2" value="" class="form-control input-lg" placeholder="Confirm Password" required>
 
-						<label for="walletid" class="ja-toppadding">Coins.ph Peso Wallet Address:</label>
-						<input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
+						<label for="walletid" class="ja-toppadding">Bitcoin Wallet ID:</label>
+						<input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID">
+
+						<label for="coinsphpid" class="ja-toppadding">Coins.ph Peso Wallet ID:</label>
+						<input type="text" name="coinsphpid" value="" class="form-control input-lg" placeholder="Coins.ph Peso Wallet ID">
 
 						<label for="country" class="ja-toppadding">Country:</label>
 						<select name="country" class="form-control input-lg">
