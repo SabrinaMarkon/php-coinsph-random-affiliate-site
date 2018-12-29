@@ -39,3 +39,16 @@ Stack trace:
 [29-Dec-2018 02:54:18 UTC] PHP Fatal error:  Call to undefined function checkOneOrBothWalletTypes() in /home/randombtcads/public_html/classes/FormValidation.php on line 109
 [29-Dec-2018 02:55:40 UTC] PHP Fatal error:  Call to undefined function checkOneOrBothWalletTypes() in /home/randombtcads/public_html/classes/FormValidation.php on line 109
 [29-Dec-2018 02:56:06 UTC] PHP Fatal error:  Call to undefined function checkOneOrBothWalletTypes() in /home/randombtcads/public_html/classes/FormValidation.php on line 109
+[29-Dec-2018 03:45:53 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home/randombtcads/public_html/classes/Member.php:77
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Member.php(77): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(210): Member->addMember(Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Member.php on line 77
+[29-Dec-2018 03:47:46 UTC] PHP Notice:  Undefined variable: setings in /home/randombtcads/public_html/classes/Member.php on line 83
+[29-Dec-2018 03:47:46 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'recipientcoinsphpid' cannot be null' in /home/randombtcads/public_html/classes/Member.php:134
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Member.php(134): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/index.php(210): Member->addMember(Array)
+#2 {main}
+  thrown in /home/randombtcads/public_html/classes/Member.php on line 134
