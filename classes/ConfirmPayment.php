@@ -38,7 +38,7 @@ class ConfirmPayment {
        
         DATABASE::disconnect();
 
-        return;
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>You confirmed the payment!</strong></div>"; 
     }
 
     public function unConfirmedPayment($id) {

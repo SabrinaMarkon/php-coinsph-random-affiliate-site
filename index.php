@@ -182,7 +182,7 @@ if (isset($_POST['deletead'])) {
 if (isset($_POST['confirmpaid'])) {
 
 	$confirm = new ConfirmPayment();
-	$showconfirmpaid = $confirm->confirmedPayment($id);	
+	$show = $confirm->confirmedPayment($id);	
 }
 
 if (isset($_GET['page']) && ($_GET['page'] === "logout")) {
