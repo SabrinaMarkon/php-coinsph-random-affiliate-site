@@ -24,8 +24,11 @@ $randomizers = $allrandomizers->getAllRandomizers();
                 <label for="username" class="ja-toppadding">Username:</label>
                 <input type="text" name="username" value="" class="form-control input-lg" placeholder="Username" required>
 
-                <label for="walletid" class="ja-toppadding">Wallet:</label>
-                <input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID" required>
+                <label for="walletid" class="ja-toppadding">Bitcoin Wallet ID:</label>
+                <input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID">
+
+                <label for="coinsphpid" class="ja-toppadding">Coins.ph Peso Wallet ID:</label>
+                <input type="text" name="coinsphpid" value="" class="form-control input-lg" placeholder="Coins.ph Peso Wallet ID">
 
                 <div class="ja-bottompadding"></div>
 
@@ -43,7 +46,8 @@ $randomizers = $allrandomizers->getAllRandomizers();
                     <tr>
                         <th class="text-center small">Position ID#</th>
                         <th class="text-center small">Username</th>
-                        <th class="text-center small">Wallet</th>
+                        <th class="text-center small">Bitcoin</th>
+                        <th class="text-center small">Coins.ph</th>
                         <th class="text-center small">Was Paid as Sponsor</th>
                         <th class="text-center small">Is Owed as Sponsor</th>
                         <th class="text-center small">Was Paid as Random Payee</th>
@@ -67,7 +71,10 @@ $randomizers = $allrandomizers->getAllRandomizers();
                                 <input type="text" name="username" value="<?php echo $randomizer['username']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Username" required>
                             </td>
                             <td>
-                                <input type="text" name="walletid" value="<?php echo $randomizer['walletid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Wallet ID" required>
+                                <input type="text" name="walletid" value="<?php echo $randomizer['walletid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Bitcoin">
+                            </td>
+                            <td>
+                                <input type="text" name="coinsphpid" value="<?php echo $randomizer['coinsphpid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Coins.ph">
                             </td>
                             <td>
                                 <?php echo $randomizer['sponsorpaid']; ?>

@@ -286,9 +286,10 @@ if (isset($_POST['login'])) {
             # admin added a new randomizer position.
             $username = $_POST['username'];
             $walletid = $_POST['walletid'];
+            $coinsphpid = $_POST['coinsphpid'];
             $returnmessage = 1;
             $update = new Randomizer();
-            $show = $update->addRandomizer($username,$walletid,$returnmessage);
+            $show = $update->addRandomizer($username,$walletid,$coinsphpid,$returnmessage);
         }
     }
 
@@ -303,8 +304,9 @@ if (isset($_POST['login'])) {
             # admin saved a randomizer position they edited.
             $username = $_POST['username'];
             $walletid = $_POST['walletid'];
+            $coinsphpid = $_POST['coinsphpid'];
             $update = new Randomizer();
-            $show = $update->saveRandomizer($username,$walletid,$id);
+            $show = $update->saveRandomizer($username,$walletid,$coinsphpid,$id);
         }
     }
     
@@ -323,7 +325,7 @@ if (isset($_POST['login'])) {
             $show = $errors;
         } else {
         
-            # admin added a new admin wallet id.
+            # admin added a new admin wallet.
             $add = new AdminWallet();
             $show = $add->addAdminWallet();
         }     
@@ -471,6 +473,7 @@ if (isset($_POST['login'])) {
 
 // IGNORE BELOW for now (works without but it would be nicer is all)
 // REFACTOR LATER to make better routes etc.
+// BASICALLY I NEED TO un-Spaghettify this file...
 //if (isset($_POST['_method'])) {
 //
 //    $_method = $_POST['_method'];
