@@ -17,15 +17,18 @@ $adminwallets = $alladminwallets->getAllAdminWallets();
     <div class="row">
         <div class="col-sm-12">
 
-			<h1 class="ja-bottompadding">Add New Admin Wallet ID</h1>
+			<h1 class="ja-bottompadding">Add New Admin Wallet</h1>
 			
 			<form action="/admin/adminwallets" method="post" accept-charset="utf-8" class="form" role="form">
 	                
                 <label for="name" class="ja-toppadding">Wallet Name:</label>
                 <input type="text" name="name" value="" class="form-control input-lg" placeholder="Wallet Name" required>
 
-                <label for="walletid" class="ja-toppadding">Wallet ID:</label>
-                <input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Wallet ID" required>
+                <label for="walletid" class="ja-toppadding">Bitcoin Wallet ID:</label>
+                <input type="text" name="walletid" value="" class="form-control input-lg" placeholder="Bitcoin Wallet ID">
+
+                <label for="coinsphpid" class="ja-toppadding">Coins.ph Peso Wallet ID:</label>
+                <input type="text" name="coinsphpid" value="" class="form-control input-lg" placeholder="Coins.ph Peso Wallet ID">
 
                 <div class="ja-bottompadding"></div>
 
@@ -43,7 +46,8 @@ $adminwallets = $alladminwallets->getAllAdminWallets();
                     <tr>
                         <th class="text-center small">#</th>
                         <th class="text-center small">Wallet Name</th>
-                        <th class="text-center small">Wallet ID</th>
+                        <th class="text-center small">Bitcoin</th>
+                        <th class="text-center small">Coins.ph</th>
                         <th class="text-center small">Edit</th>
                         <th class="text-center small">Delete</th>
                     </tr>
@@ -63,7 +67,10 @@ $adminwallets = $alladminwallets->getAllAdminWallets();
                                 <input type="text" name="name" value="<?php echo $adminwallet['name']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Wallet Name" required>
                             </td>
                             <td>
-                                <input type="text" name="walletid" value="<?php echo $adminwallet['walletid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Wallet ID" required>
+                                <input type="text" name="walletid" value="<?php echo $adminwallet['walletid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Bitcoin" required>
+                            </td>
+                            <td>
+                                <input type="text" name="coinsphpid" value="<?php echo $adminwallet['coinsphpid']; ?>" class="form-control input-sm widetableinput" size="40" placeholder="Coins.ph" required>
                             </td>
                             <td>
                                 <input type="hidden" name="_method" value="PATCH">

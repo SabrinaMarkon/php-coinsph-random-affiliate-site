@@ -28,3 +28,11 @@ Stack trace:
 [26-Nov-2018 22:21:52 UTC] PHP Notice:  Undefined variable: autoapprove in /home/randombtcads/public_html/classes/Ad.php on line 151
 [27-Nov-2018 00:08:37 UTC] PHP Notice:  Undefined variable: test in /home/randombtcads/public_html/classes/Ad.php on line 129
 [27-Nov-2018 00:12:57 UTC] PHP Notice:  Undefined variable: test in /home/randombtcads/public_html/classes/Ad.php on line 129
+[29-Dec-2018 02:38:54 UTC] PHP Notice:  Undefined variable: coinsphpid in /home/randombtcads/public_html/classes/AdminWallet.php on line 61
+[29-Dec-2018 02:41:41 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'recipientcoinsphpid' in 'where clause'' in /home/randombtcads/public_html/classes/Randomizer.php:49
+Stack trace:
+#0 /home/randombtcads/public_html/classes/Randomizer.php(49): PDOStatement->execute(Array)
+#1 /home/randombtcads/public_html/admin/randomizer.php(14): Randomizer->getAllRandomizers()
+#2 /home/randombtcads/public_html/admin/index.php(453): include('/home/randombtc...')
+#3 {main}
+  thrown in /home/randombtcads/public_html/classes/Randomizer.php on line 49

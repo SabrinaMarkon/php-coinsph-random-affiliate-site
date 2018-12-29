@@ -38,12 +38,13 @@ class AdminWallet
 
         $name = $_POST['name'];
         $walletid = $_POST['walletid'];
+        $coinsphpid = $_POST['coinsphpid'];
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "insert into adminwallets (name,walletid) values (?,?)";
+        $sql = "insert into adminwallets (name,walletid,coinsphpid) values (?,?,?)";
         $q = $pdo->prepare($sql);
-        $q->execute([$name,$walletid]);
+        $q->execute([$name,$walletid,$coinsphpid]);
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>New Admin Wallet " . $name . " was Added!</strong></div>"; 
@@ -53,11 +54,13 @@ class AdminWallet
 
         $name = $_POST['name'];
         $walletid = $_POST['walletid'];
+        $coinsphpid = $_POST['coinsphpid'];
+        
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "update adminwallets set name=?,walletid=? where id=?";
+        $sql = "update adminwallets set name=?,walletid=?,coinsphpid=? where id=?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($name,$walletid, $id));
+        $q->execute(array($name,$walletid,$coinsphpid,$id));
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Admin Wallet " . $name . " was Saved!</strong></div>";

@@ -28,8 +28,8 @@ class Setting
         $newadminautoapprove = $_POST['adminautoapprove'];
         $newadmindefaultwalletid = $_POST['admindefaultwalletid'];
         $oldadmindefaultwalletid = $_POST['oldadmindefaultwalletid'];
-        $newadmindefaultcoinsphp = $_POST['admindefaultcoinsphp'];
-        $oldadmindefaultcoinsphp = $_POST['oldadmindefaultcoinsphp'];
+        $newadmindefaultcoinsphpid = $_POST['admindefaultcoinsphpid'];
+        $oldadmindefaultcoinsphpid = $_POST['oldadmindefaultcoinsphpid'];
         $newgiveextratoadmin = $_POST['giveextratoadmin'];
         $newpaysponsor = $_POST['paysponsor'];
         $newpayrandom = $_POST['payrandom'];
@@ -65,26 +65,26 @@ class Setting
 
         $sql = "select count(1) from adminwallets where coinsphpid=?";
         $q = $pdo->prepare($sql);
-        $q->execute([$oldadmindefaultcoinsphp]);
+        $q->execute([$oldadmindefaultcoinsphpid]);
         $rows = $q->fetchColumn();
 
         if ($rows) {
 
             $sql = "update adminwallets set coinsphpid=? where coinsphpid=?";
             $q = $pdo->prepare($sql);
-            $q->execute([$newadmindefaultcoinsphp,$oldadmindefaultcoinsphp]);
+            $q->execute([$newadmindefaultcoinsphpid,$oldadmindefaultcoinsphpid]);
         } else {
 
             $sql = "insert into adminwallets (name,coinsphpid) values ('Admin Default Coins.ph Peso ID',?)";
             $q = $pdo->prepare($sql);
-            $q->execute([$newadmindefaultwalletid]);
+            $q->execute([$newadmindefaultcoinsphpid]);
         }
 
         $sql = "update adminsettings set adminuser=?, adminpass=?, adminname=?, adminemail=?, sitename=?, 
-        domain=?, adminratio=?, adminautoapprove=?, admindefaultwalletid=?, admindefaultcoinsphp=?, giveextratoadmin=?, paysponsor=?, payrandom=?, adclickstogetad=?";
+        domain=?, adminratio=?, adminautoapprove=?, admindefaultwalletid=?, admindefaultcoinsphpid=?, giveextratoadmin=?, paysponsor=?, payrandom=?, adclickstogetad=?";
         $q = $pdo->prepare($sql);
         $q-> execute(array($newadminuser, $newadminpass, $newadminname, $newadminemail, $newsitename, 
-        $newdomain, $newadminratio, $newadminautoapprove, $newadmindefaultwalletid, $newadmindefaultcoinsphp, $newgiveextratoadmin, $newpaysponsor, $newpayrandom, $newadclickstogetad));
+        $newdomain, $newadminratio, $newadminautoapprove, $newadmindefaultwalletid, $newadmindefaultcoinsphpid, $newgiveextratoadmin, $newpaysponsor, $newpayrandom, $newadclickstogetad));
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Site Settings Were Saved!</strong></div>";
