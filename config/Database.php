@@ -15,9 +15,9 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 class Database
 {
 	private static $dbhost = 'localhost';
-	private static $dbname = 'randombtcads_randombtcads';
-	private static $dbuser = 'randombtcads_randombtcads';
-	private static $dbpass = 'e$pp&@P[trrbDl^G#Z';
+	private static $dbname = 'DATABASE_NAME';
+	private static $dbuser = 'DATABASE_USERNAME';
+	private static $dbpass = 'DATABASE_PASSWORD';
 	private static $dbconn = null;
 	const BASE_URL = "http://randombtcads.phpsitescripts.com/";
 
