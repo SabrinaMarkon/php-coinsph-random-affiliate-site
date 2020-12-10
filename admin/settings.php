@@ -35,7 +35,7 @@ foreach ($settings as $key => $value)
                 <label for="confirm_adminpass" class="ja-toppadding">Confirm Password:</label>
                 <input type="password" name="confirm_adminpass" id="confirm_adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Confirm Password" required>
 
-                <label for="adminemail" class="ja-toppadding">Admin Name:</label>
+                <label for="adminname" class="ja-toppadding">Admin Name:</label>
                 <input type="text" name="adminname" value="<?php echo $adminname ?>" class="form-control input-lg" placeholder="Admin Name" required>
 
                 <label for="adminemail" class="ja-toppadding">Your Admin Email:</label>
