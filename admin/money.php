@@ -21,7 +21,7 @@ $transactions = $alltransactions->getAllTransactions();
 			
 			<form action="/admin/money" method="post" accept-charset="utf-8" class="form" role="form">
 
-                <label for="username" class="ja-toppadding">Username (Payor):</label>
+                <label for="username" class="ja-toppadding">Username (Payer):</label>
                 <input type="text" name="username" value="" class="form-control input-lg" placeholder="Username" required>
 
                 <label for="referid" class="ja-toppadding">Recipient (Payee):</label> 

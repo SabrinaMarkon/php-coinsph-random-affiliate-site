@@ -139,7 +139,7 @@ class Money
 
         DATABASE::disconnect();
 
-        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID #" . $id . " was Saved!</strong>" . $returnshow . "</div>";
+        return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Transaction ID #" . $id . " was Saved!</strong></div>";
 
     }        
 
