@@ -48,17 +48,16 @@ adddate datetime not null
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `countries` (
-`country_id` int(11) not null AUTO_INCREMENT,
+`country_id` int(11) not null primary key auto_increment,
 `country_name` varchar(64) not null DEFAULT '',
 `iso_code2` char(2) not null DEFAULT '',
 `iso_code3` char(3) not null DEFAULT '',
 `reserved1` int(11) not null DEFAULT '0',
-PRIMARY KEY (`country_id`),
 KEY `IDX_COUNTRIES_NAME` (`country_name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE mail (
-`id` int(10) unsigned not null auto_increment,
+`id` int(10) unsigned not null primary key auto_increment,
 username varchar(255) not null default 'admin',
 `subject` varchar(255) not null,
 message longtext not null,
@@ -67,7 +66,6 @@ needtosend tinyint(1) not null default '0',
 sent datetime DEFAULT NULL,
 clicks int(11) not null default '0',
 save tinyint(1) not null default '0',
-PRIMARY KEY (`id`),
 KEY mail_username_foreign (username)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -91,17 +89,16 @@ adclicks integer unsigned not null default '0'
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `pages` (
-  `id` int(10) unsigned not null auto_increment primary key,
+  `id` int(10) unsigned not null primary key auto_increment,
   `name` varchar(255) not null,
   `htmlcode` longtext not null,
   `slug` varchar(255) not null,
   `core` varchar(4) not null default 'no',
-  PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 CREATE TABLE `promotional` (
-  `id` int(10) unsigned not null auto_increment primary key,
+  `id` int(10) unsigned not null primary key auto_increment,
   `name` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL DEFAULT 'banner',
   `promotionalimage` varchar(255) NOT NULL,
@@ -110,7 +107,7 @@ CREATE TABLE `promotional` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 create table randomizer (
-  id integer unsigned not null auto_increment primary key,
+  id integer unsigned not null primary key auto_increment,
   username varchar(255) not null,
   walletid varchar(500) not null,
   coinsphpid varchar(500) not null,
@@ -118,7 +115,7 @@ create table randomizer (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 create table transactions (
-  id integer unsigned not null auto_increment primary key,
+  id integer unsigned not null primary key auto_increment,
   adid integer unsigned not null,
   randomizerid integer unsigned not null,
   username varchar(255) not null,
