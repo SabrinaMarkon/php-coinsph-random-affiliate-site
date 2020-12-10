@@ -45,7 +45,7 @@ class FormValidation {
         'country' => 'country',
         'adminname' => 'admin name',
         'datepaid' => 'date paid',
-        'description' => 'ad desscription',
+        'description' => 'ad description',
         'message' => 'message',
         'email' => 'email',
         'adminemail' => 'admin email',
