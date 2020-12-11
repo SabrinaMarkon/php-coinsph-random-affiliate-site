@@ -28,7 +28,7 @@ class Money
         $q->setFetchMode(PDO::FETCH_ASSOC);
         $transactions = $q->fetchAll();
 
-        Database::connect();
+        Database::disconnect();
 
         if ($transactions) {
 
