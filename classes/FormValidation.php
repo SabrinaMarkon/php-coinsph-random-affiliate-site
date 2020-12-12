@@ -184,7 +184,7 @@ class FormValidation {
                 # ad's name, admin's walletid's/coinsphpid's name.
                 # admin email's subject.
                 # admin's settings name.
-                # randomizer's datapaid.
+                # randomizer's datepaid.
                 # page name.
                 # promotional ad's name.
                 
@@ -310,8 +310,8 @@ class FormValidation {
 
             } elseif ($varname === 'giveextratoadmin' || $varname === 'adminautoapprove' || $varname === 'recipientapproved') {
 
-                # make sure the flag to auto-approve ads or give deleted randomizer positions to the admin area boolean values.
-                # make sure flag on tranactions that a recipient has approved a transaction is boolean.
+                # make sure the flag to auto-approve ads or give deleted randomizer positions to the admin are boolean values.
+                # make sure flag on transactions that a recipient has approved a transaction is boolean.
 
                 if ($varvalue !== '0' && $varvalue !== '1') {
 
