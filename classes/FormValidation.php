@@ -57,7 +57,7 @@ class FormValidation {
         'adminautoapprove' => 'for auto approve ads',
         'recipientapproved' => 'the value to show if the recipient has approved payment',
         'signupip' => 'signup IP',
-        'adminration' => 'the admin ratio for randomizer',
+        'adminratio' => 'the admin ratio for randomizer',
         'id' => 'id',
         'paysponsor' => 'the amount a member should pay their sponsor',
         'payrandom' => 'the amount a member should pay a random member',
