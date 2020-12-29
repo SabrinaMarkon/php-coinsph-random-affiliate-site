@@ -25,25 +25,25 @@ foreach ($settings as $key => $value) {
             <form action="/admin/settings" method="post" accept-charset="utf-8" class="form" role="form">
 
                 <label for="adminuser">Admin Username:</label>
-                <input type="text" name="adminuser" value="<?php echo $adminuser ?>" class="form-control input-lg" placeholder="Admin Username" required>
+                <input type="text" name="adminuser" value="<?php echo $adminuser ?>" class="form-control input-lg" placeholder="Admin Username" maxlength="50" required>
 
                 <label for="adminpass" class="ja-toppadding">Admin Password:</label>
-                <input type="password" name="adminpass" id="adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Admin Password" required>
+                <input type="password" name="adminpass" id="adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Admin Password" maxlength="50" required>
 
                 <label for="confirm_adminpass" class="ja-toppadding">Confirm Password:</label>
-                <input type="password" name="confirm_adminpass" id="confirm_adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Confirm Password" required>
+                <input type="password" name="confirm_adminpass" id="confirm_adminpass" value="<?php echo $adminpass ?>" class="form-control input-lg" placeholder="Confirm Password" maxlength="50" required>
 
                 <label for="adminname" class="ja-toppadding">Admin Name:</label>
-                <input type="text" name="adminname" value="<?php echo $adminname ?>" class="form-control input-lg" placeholder="Admin Name" required>
+                <input type="text" name="adminname" value="<?php echo $adminname ?>" class="form-control input-lg" placeholder="Admin Name" maxlength="50" required>
 
                 <label for="adminemail" class="ja-toppadding">Your Admin Email:</label>
-                <input type="text" name="adminemail" value="<?php echo $adminemail ?>" class="form-control input-lg" placeholder="Admin Email" required>
+                <input type="text" name="adminemail" value="<?php echo $adminemail ?>" class="form-control input-lg" placeholder="Admin Email" maxlength="300" required>
 
                 <label for="sitename" class="ja-toppadding">Your Website Name:</label>
-                <input type="text" name="sitename" value="<?php echo $sitename ?>" class="form-control input-lg" placeholder="Website Name" required>
+                <input type="text" name="sitename" value="<?php echo $sitename ?>" class="form-control input-lg" placeholder="Website Name" maxlength="50" required>
 
                 <label for="domain" class="ja-toppadding">Your Domain:</label>
-                <input type="url" name="domain" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Website URL (start with http://)" required>
+                <input type="url" name="domain" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Website URL (start with http://)" maxlength="300" required>
 
                 <label for="metatitle" class="ja-toppadding">SEO: Meta Title:</label>
                 <input type="text" name="metatitle" value="<?php echo $metatitle ?>" class="form-control input-lg" placeholder="SEO meta title for search engines" maxlength="60" required>
