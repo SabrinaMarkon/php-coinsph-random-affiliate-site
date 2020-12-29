@@ -6,11 +6,11 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="" />
+  <meta name="description" content="<?php echo $metadescription ?>" />
   <meta name="author" content="Sabrina Markon" />
   <base href = "/" />
 
-  <title>RandomBTCAds.com</title>
+  <title><?php echo $metatitle ?><</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../js/bootstrap/css/bootstrap.min.css" rel="stylesheet" />

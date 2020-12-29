@@ -9,10 +9,10 @@ require_once "../config/Database.php";
 require_once "../config/Settings.php";
 require_once "../config/Layout.php";
 
-function sabrina_autoloader($class) {
+function autoloader($class) {
     require '../classes/' . $class . ".php";
 }
-spl_autoload_register("sabrina_autoloader");
+spl_autoload_register("autoloader");
 
 # get main site settings.
 $sitesettings = new Settings();
@@ -55,7 +55,7 @@ if (isset($_POST['login'])) {
         # failed login.
         $logout = new Admin();
         $logout->adminLogout();
-        $Layout->showHeader();
+        $Layout->showHeader($metatitle, $metadescription);
         $showcontent = new AdminLoginForm();
         echo $showcontent->showLoginForm(1);
         $Layout->showFooter();
@@ -63,7 +63,7 @@ if (isset($_POST['login'])) {
     } else {
 
         # successful admin login. Show the admin menu (in the header if the session vars are present).
-        $Layout->showHeader();
+        $Layout->showHeader($metatitle, $metadescription);
         $showgravatar = $logincheck->getGravatar($adminemail);
         include 'main.php';
         $Layout->showFooter();
@@ -436,7 +436,7 @@ if (isset($_POST['login'])) {
         $logout->adminLogout();  
         $showcontent = new AdminLoginForm();
     
-        $Layout->showHeader();
+        $Layout->showHeader($metatitle, $metadescription);
         
         # admin clicked the forgotten password link.
         if ((!empty($_REQUEST['page']) and $_REQUEST['page'] === 'forgot')) {
@@ -450,7 +450,7 @@ if (isset($_POST['login'])) {
     } elseif ((!empty($_GET['page'])) and ((file_exists($_GET['page'] . ".php")))) {
     
         # there is a page.php that exists, and is not /admin/index (this file) or /admin/logout or /admin/forgot or some non-existent file. 
-        $Layout->showHeader();
+        $Layout->showHeader($metatitle, $metadescription);
         $page = $_REQUEST['page'];
         include $page . ".php";
     }
@@ -458,7 +458,7 @@ if (isset($_POST['login'])) {
     else {
         
         # show the main admin area page because everything was ok to login, but no specific admin page was specified in the request.
-        $Layout->showHeader();
+        $Layout->showHeader($metatitle, $metadescription);
         include "main.php";
     }
 

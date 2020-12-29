@@ -203,7 +203,7 @@ if (isset($_GET['page']) && ($_GET['page'] === 'click')) {
 }
 
 $Layout = new Layout();
-$Layout->showHeader();
+$Layout->showHeader($metatitle, $metadescription);
 
 if ((!empty($_GET['page'])) && ((file_exists($_GET['page'] . ".php") && ($_GET['page'] !== "index")))) {
 
