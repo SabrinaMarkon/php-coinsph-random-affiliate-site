@@ -52,6 +52,8 @@ class FormValidation {
         'url' => 'URL',
         'imageurl' => 'Image URL',
         'domain' => 'domain',
+        'metatitle' => 'meta title',
+        'metadescription' => 'meta description',
         'recipienttype' => 'type of recipient',
         'giveextratoadmin' => 'the value give admin deleted positions',
         'adminautoapprove' => 'for auto approve ads',
@@ -290,6 +292,28 @@ class FormValidation {
                 elseif (!filter_var($varvalue,FILTER_VALIDATE_URL)) {
 
                     $errors .= "<div><strong>The value of " . $pretty_varname . " must be a valid URL.</strong></div>";
+                }
+
+            } elseif ($varname === 'metadescription' || $varname === 'metatitle') {
+                
+                # meta description for site.
+                $varvalue = filter_var($varvalue, FILTER_SANITIZE_URL);
+                $numchars = strlen($varvalue);
+                if ($numchars === 0) {
+
+                    $errors .= "<div><strong>". $pretty_varname . " cannot be blank.</strong></div>";
+                }
+                elseif ($numchars < 8) {
+
+                    $errors .= "<div><strong>". $pretty_varname . " must be 8 or more characters.</strong></div>";
+                }
+                elseif ($numchars >= 160 && $varname === 'metadescription') {
+
+                    $errors .= "<div><strong>The size of " . $pretty_varname . " should always be 160 or less characters for best SEO practices.</strong></div>";
+                }
+                elseif ($numchars >= 60 && $varname === 'metatitle') {
+
+                    $errors .= "<div><strong>The size of " . $pretty_varname . " should always be 60 or less characters for best SEO practices.</strong></div>";
                 }
 
             } elseif ($varname === 'recipienttype') {
