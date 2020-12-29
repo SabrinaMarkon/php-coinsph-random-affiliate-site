@@ -6,14 +6,12 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 }
 
 require "control.php";
-if (isset($show))
-{
+if (isset($show)) {
     echo $show;
 }
 $sitesettings = new Settings();
 $settings = $sitesettings->getSettings();
-foreach ($settings as $key => $value)
-{
+foreach ($settings as $key => $value) {
     $$key = $value;
 }
 ?>
@@ -47,6 +45,12 @@ foreach ($settings as $key => $value)
                 <label for="domain" class="ja-toppadding">Your Domain:</label>
                 <input type="url" name="domain" value="<?php echo $domain ?>" class="form-control input-lg" placeholder="Website URL (start with http://)" required>
 
+                <label for="metatitle" class="ja-toppadding">SEO: Meta Title:</label>
+                <input type="text" name="metatitle" value="<?php echo $metatitle ?>" class="form-control input-lg" placeholder="SEO meta title for search engines" maxlength="60" required>
+
+                <label for="metadescription" class="ja-toppadding">SEO: Meta Description:</label>
+                <input type="text" name="metadescription" value="<?php echo $metadescription ?>" class="form-control input-lg" placeholder="SEO meta description for search engines" maxlength="160" required>
+
                 <label for="admindefaultwalletid" class="ja-toppadding">Admin Default Wallet ID:</label>
                 <input type="hidden" name="oldadmindefaultwalletid" value="<?php echo $admindefaultwalletid ?>">
                 <input type="text" name="admindefaultwalletid" value="<?php echo $admindefaultwalletid ?>" class="form-control input-lg" placeholder="Admin Default Wallet ID">
@@ -57,18 +61,20 @@ foreach ($settings as $key => $value)
 
                 <div>
                     <label for="adminratio" class="ja-toppadding">Admin Ratio for Randomizer:</label>
-                    <br/>Show an Admin Wallet ID Every&nbsp;
+                    <br />Show an Admin Wallet ID Every&nbsp;
                     <select name="adminratio" class="form-control smallselect">
                         <?php
                         for ($i = 0; $i <= 50; $i++) {
-                            ?>
-                            <option value="<?php echo $i ?>" <?php if ($i === intval($adminratio)) { echo "selected"; } ?>><?php echo $i ?></option>
-                            <?php
+                        ?>
+                            <option value="<?php echo $i ?>" <?php if ($i === intval($adminratio)) {
+                                                                    echo "selected";
+                                                                } ?>><?php echo $i ?></option>
+                        <?php
                         }
                         ?>
                     </select>&nbsp;Times (0 for never, 1 for every single time)
                 </div>
-                
+
                 <label for="paysponsor" class="ja-toppadding">Users Should Pay Their Sponsor:</label>
                 $&nbsp;<input type="text" name="paysponsor" value="<?php echo $paysponsor ?>" class="form-control smallselect" required>
 
@@ -80,16 +86,24 @@ foreach ($settings as $key => $value)
                 <div>
                     <label for="giveextratoadmin" class="ja-toppadding">If Member is Deleted, Give Randomizer Positions to Admin:</label>
                     <select name="giveextratoadmin" class="form-control smallselect">
-                        <option value="1" <?php if (intval($giveextratoadmin) === 1) { echo "selected"; } ?>>Yes</option>
-                        <option value="0" <?php if (intval($giveextratoadmin) !== 1) { echo "selected"; } ?>>No</option>
+                        <option value="1" <?php if (intval($giveextratoadmin) === 1) {
+                                                echo "selected";
+                                            } ?>>Yes</option>
+                        <option value="0" <?php if (intval($giveextratoadmin) !== 1) {
+                                                echo "selected";
+                                            } ?>>No</option>
                     </select>
                 </div>
 
                 <div>
                     <label for="adminautoapprove" class="ja-toppadding">Auto-approve Ads:</label>
                     <select name="adminautoapprove" class="form-control smallselect">
-                        <option value="1" <?php if (intval($adminautoapprove) === 1) { echo "selected"; } ?>>Yes</option>
-                        <option value="0" <?php if (intval($adminautoapprove) !== 1) { echo "selected"; } ?>>No</option>
+                        <option value="1" <?php if (intval($adminautoapprove) === 1) {
+                                                echo "selected";
+                                            } ?>>Yes</option>
+                        <option value="0" <?php if (intval($adminautoapprove) !== 1) {
+                                                echo "selected";
+                                            } ?>>No</option>
                     </select>
                 </div>
 

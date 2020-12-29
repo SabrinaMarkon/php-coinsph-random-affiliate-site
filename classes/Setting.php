@@ -24,6 +24,8 @@ class Setting
         $newadminemail = $_POST['adminemail'];
         $newsitename = $_POST['sitename'];
         $newdomain = $_POST['domain'];
+        $newmetadescription = $_POST['metadescription'];
+        $newmetatitle = $_POST['metatitle'];
         $newadminratio = $_POST['adminratio'];
         $newadminautoapprove = $_POST['adminautoapprove'];
         $newadmindefaultwalletid = $_POST['admindefaultwalletid'];
@@ -81,10 +83,10 @@ class Setting
         }
 
         $sql = "update adminsettings set adminuser=?, adminpass=?, adminname=?, adminemail=?, sitename=?, 
-        domain=?, adminratio=?, adminautoapprove=?, admindefaultwalletid=?, admindefaultcoinsphpid=?, giveextratoadmin=?, paysponsor=?, payrandom=?, adclickstogetad=?";
+        domain=?, metadescription=?, metatitle=?, adminratio=?, adminautoapprove=?, admindefaultwalletid=?, admindefaultcoinsphpid=?, giveextratoadmin=?, paysponsor=?, payrandom=?, adclickstogetad=?";
         $q = $pdo->prepare($sql);
         $q-> execute(array($newadminuser, $newadminpass, $newadminname, $newadminemail, $newsitename, 
-        $newdomain, $newadminratio, $newadminautoapprove, $newadmindefaultwalletid, $newadmindefaultcoinsphpid, $newgiveextratoadmin, $newpaysponsor, $newpayrandom, $newadclickstogetad));
+        $newdomain, $newmetadescription, $newmetatitle, $newadminratio, $newadminautoapprove, $newadmindefaultwalletid, $newadmindefaultcoinsphpid, $newgiveextratoadmin, $newpaysponsor, $newpayrandom, $newadclickstogetad));
         Database::disconnect();
 
         return "<div class=\"alert alert-success\" style=\"width:75%;\"><strong>Your Site Settings Were Saved!</strong></div>";
