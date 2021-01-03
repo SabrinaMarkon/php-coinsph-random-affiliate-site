@@ -34,6 +34,8 @@ class Money
 
             return $transactions;
         }
+
+        return [];
     }
 
     /* Find out how much a user owes or is owed by others. */
@@ -65,6 +67,8 @@ class Money
 
             return $transactions;
         }
+
+        return [];
     }
 
     public function addTransaction() {
