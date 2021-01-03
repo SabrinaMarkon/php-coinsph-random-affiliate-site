@@ -634,7 +634,8 @@ class FormValidation {
             $q->execute(array($username));
             $q->setFetchMode(PDO::FETCH_ASSOC);
             $data = $q->fetch();
-            if (!$data['username'])
+            $data['username'] ??= null;
+            if ($data['username'] === null)
             {
                 
                 $errors .= "<div><strong>The " . $usertype . " you entered does not exist in the system. Please check the spelling.</strong></div>";
